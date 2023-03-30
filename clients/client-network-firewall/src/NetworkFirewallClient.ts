@@ -60,6 +60,10 @@ import {
   CreateFirewallPolicyCommandOutput,
 } from "./commands/CreateFirewallPolicyCommand";
 import { CreateRuleGroupCommandInput, CreateRuleGroupCommandOutput } from "./commands/CreateRuleGroupCommand";
+import {
+  CreateTLSInspectionConfigurationCommandInput,
+  CreateTLSInspectionConfigurationCommandOutput,
+} from "./commands/CreateTLSInspectionConfigurationCommand";
 import { DeleteFirewallCommandInput, DeleteFirewallCommandOutput } from "./commands/DeleteFirewallCommand";
 import {
   DeleteFirewallPolicyCommandInput,
@@ -70,6 +74,10 @@ import {
   DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
 import { DeleteRuleGroupCommandInput, DeleteRuleGroupCommandOutput } from "./commands/DeleteRuleGroupCommand";
+import {
+  DeleteTLSInspectionConfigurationCommandInput,
+  DeleteTLSInspectionConfigurationCommandOutput,
+} from "./commands/DeleteTLSInspectionConfigurationCommand";
 import { DescribeFirewallCommandInput, DescribeFirewallCommandOutput } from "./commands/DescribeFirewallCommand";
 import {
   DescribeFirewallPolicyCommandInput,
@@ -89,6 +97,10 @@ import {
   DescribeRuleGroupMetadataCommandOutput,
 } from "./commands/DescribeRuleGroupMetadataCommand";
 import {
+  DescribeTLSInspectionConfigurationCommandInput,
+  DescribeTLSInspectionConfigurationCommandOutput,
+} from "./commands/DescribeTLSInspectionConfigurationCommand";
+import {
   DisassociateSubnetsCommandInput,
   DisassociateSubnetsCommandOutput,
 } from "./commands/DisassociateSubnetsCommand";
@@ -102,6 +114,10 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListTLSInspectionConfigurationsCommandInput,
+  ListTLSInspectionConfigurationsCommandOutput,
+} from "./commands/ListTLSInspectionConfigurationsCommand";
 import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -135,6 +151,10 @@ import {
   UpdateSubnetChangeProtectionCommandOutput,
 } from "./commands/UpdateSubnetChangeProtectionCommand";
 import {
+  UpdateTLSInspectionConfigurationCommandInput,
+  UpdateTLSInspectionConfigurationCommandOutput,
+} from "./commands/UpdateTLSInspectionConfigurationCommand";
+import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
   EndpointParameters,
@@ -151,20 +171,24 @@ export type ServiceInputTypes =
   | CreateFirewallCommandInput
   | CreateFirewallPolicyCommandInput
   | CreateRuleGroupCommandInput
+  | CreateTLSInspectionConfigurationCommandInput
   | DeleteFirewallCommandInput
   | DeleteFirewallPolicyCommandInput
   | DeleteResourcePolicyCommandInput
   | DeleteRuleGroupCommandInput
+  | DeleteTLSInspectionConfigurationCommandInput
   | DescribeFirewallCommandInput
   | DescribeFirewallPolicyCommandInput
   | DescribeLoggingConfigurationCommandInput
   | DescribeResourcePolicyCommandInput
   | DescribeRuleGroupCommandInput
   | DescribeRuleGroupMetadataCommandInput
+  | DescribeTLSInspectionConfigurationCommandInput
   | DisassociateSubnetsCommandInput
   | ListFirewallPoliciesCommandInput
   | ListFirewallsCommandInput
   | ListRuleGroupsCommandInput
+  | ListTLSInspectionConfigurationsCommandInput
   | ListTagsForResourceCommandInput
   | PutResourcePolicyCommandInput
   | TagResourceCommandInput
@@ -176,7 +200,8 @@ export type ServiceInputTypes =
   | UpdateFirewallPolicyCommandInput
   | UpdateLoggingConfigurationCommandInput
   | UpdateRuleGroupCommandInput
-  | UpdateSubnetChangeProtectionCommandInput;
+  | UpdateSubnetChangeProtectionCommandInput
+  | UpdateTLSInspectionConfigurationCommandInput;
 
 /**
  * @public
@@ -187,20 +212,24 @@ export type ServiceOutputTypes =
   | CreateFirewallCommandOutput
   | CreateFirewallPolicyCommandOutput
   | CreateRuleGroupCommandOutput
+  | CreateTLSInspectionConfigurationCommandOutput
   | DeleteFirewallCommandOutput
   | DeleteFirewallPolicyCommandOutput
   | DeleteResourcePolicyCommandOutput
   | DeleteRuleGroupCommandOutput
+  | DeleteTLSInspectionConfigurationCommandOutput
   | DescribeFirewallCommandOutput
   | DescribeFirewallPolicyCommandOutput
   | DescribeLoggingConfigurationCommandOutput
   | DescribeResourcePolicyCommandOutput
   | DescribeRuleGroupCommandOutput
   | DescribeRuleGroupMetadataCommandOutput
+  | DescribeTLSInspectionConfigurationCommandOutput
   | DisassociateSubnetsCommandOutput
   | ListFirewallPoliciesCommandOutput
   | ListFirewallsCommandOutput
   | ListRuleGroupsCommandOutput
+  | ListTLSInspectionConfigurationsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutResourcePolicyCommandOutput
   | TagResourceCommandOutput
@@ -212,7 +241,8 @@ export type ServiceOutputTypes =
   | UpdateFirewallPolicyCommandOutput
   | UpdateLoggingConfigurationCommandOutput
   | UpdateRuleGroupCommandOutput
-  | UpdateSubnetChangeProtectionCommandOutput;
+  | UpdateSubnetChangeProtectionCommandOutput
+  | UpdateTLSInspectionConfigurationCommandOutput;
 
 /**
  * @public

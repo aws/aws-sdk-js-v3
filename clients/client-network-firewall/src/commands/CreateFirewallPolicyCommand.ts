@@ -90,6 +90,7 @@ export interface CreateFirewallPolicyCommandOutput extends CreateFirewallPolicyR
  *       RuleOrder: "DEFAULT_ACTION_ORDER" || "STRICT_ORDER",
  *       StreamExceptionPolicy: "DROP" || "CONTINUE",
  *     },
+ *     TLSInspectionConfigurationArn: "STRING_VALUE",
  *   },
  *   Description: "STRING_VALUE",
  *   Tags: [ // TagList

@@ -489,6 +489,32 @@ export interface CapacityUsageSummary {
 
 /**
  * @public
+ * <p>Contains metadata about an Certificate Manager certificate.</p>
+ */
+export interface TlsCertificateData {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the certificate.</p>
+   */
+  CertificateArn?: string;
+
+  /**
+   * <p>The serial number of the certificate.</p>
+   */
+  CertificateSerial?: string;
+
+  /**
+   * <p>The status of the certificate.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>Contains details about the certificate status, including information about certificate errors.</p>
+   */
+  StatusMessage?: string;
+}
+
+/**
+ * @public
  * @enum
  */
 export const ConfigurationSyncState = {
@@ -1117,6 +1143,11 @@ export interface FirewallPolicy {
    *        rule groups that you use in your policy must have stateful rule options settings that are compatible with these settings.</p>
    */
   StatefulEngineOptions?: StatefulEngineOptions;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the TLS inspection configuration.</p>
+   */
+  TLSInspectionConfigurationArn?: string;
 }
 
 /**
@@ -1259,9 +1290,9 @@ export interface CreateFirewallPolicyResponse {
 
 /**
  * @public
- * <p>Configures one or more IP set references for a Suricata-compatible rule group. This is used in <a>CreateRuleGroup</a> or <a>UpdateRuleGroup</a>. An IP set reference is a rule variable that references a resource that you create and manage in another Amazon Web Services service, such as an Amazon VPC prefix list. Network Firewall IP set references enable you to dynamically update the contents of your rules. When you create, update, or delete the IP set you are referencing in your rule, Network Firewall automatically updates the rule's content with the changes. For more information about IP set references in Network Firewall, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-ip-set-references">Using IP set references</a> in the <i>Network Firewall Developer Guide</i>.</p>
+ * <p>Configures one or more IP set references for a Suricata-compatible rule group. This is used in <a>CreateRuleGroup</a> or <a>UpdateRuleGroup</a>. An IP set reference is a rule variable that references resources that you create and manage in another Amazon Web Services service, such as an Amazon VPC prefix list. Network Firewall IP set references enable you to dynamically update the contents of your rules. When you create, update, or delete the resource you are referencing in your rule, Network Firewall automatically updates the rule's content with the changes. For more information about IP set references in Network Firewall, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-ip-set-references">Using IP set references</a> in the <i>Network Firewall Developer Guide</i>.</p>
  *          <p>
- *         Network Firewall currently supports only <a href="https://docs.aws.amazon.com/vpc/latest/userguide/managed-prefix-lists.html">Amazon VPC prefix lists</a> as IP set references.
+ *         Network Firewall currently supports <a href="https://docs.aws.amazon.com/vpc/latest/userguide/managed-prefix-lists.html">Amazon VPC prefix lists</a> and <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-ip-set-references.html#rule-groups-referencing-resource-groups">resource groups</a> in IP set references.
  *       </p>
  */
 export interface IPSetReference {
@@ -2147,6 +2178,191 @@ export interface CreateRuleGroupResponse {
 
 /**
  * @public
+ * <p>Settings that define the Secure Sockets Layer/Transport Layer Security (SSL/TLS) traffic that Network Firewall should decrypt for inspection by the stateful rule engine.</p>
+ */
+export interface ServerCertificateScope {
+  /**
+   * <p>The source IP addresses and address ranges to decrypt for inspection, in CIDR notation. If not specified, this
+   * matches with any source address.</p>
+   */
+  Sources?: Address[];
+
+  /**
+   * <p>The destination IP addresses and address ranges to decrypt for inspection, in CIDR notation. If not specified, this
+   * matches with any destination address.</p>
+   */
+  Destinations?: Address[];
+
+  /**
+   * <p>The source ports to decrypt for inspection, in Transmission Control Protocol (TCP) format. If not specified, this matches with any source port.</p>
+   *          <p>You can specify individual ports, for example <code>1994</code>, and you can specify port ranges, such as <code>1990:1994</code>.</p>
+   */
+  SourcePorts?: PortRange[];
+
+  /**
+   * <p>The destination ports to decrypt for inspection, in Transmission Control Protocol (TCP) format. If not specified, this matches with any destination port.</p>
+   *          <p>You can specify individual ports, for example <code>1994</code>, and you can specify port ranges, such as <code>1990:1994</code>.</p>
+   */
+  DestinationPorts?: PortRange[];
+
+  /**
+   * <p>The protocols to decrypt for inspection, specified using each protocol's assigned internet protocol number
+   * (IANA). Network Firewall currently supports only TCP.</p>
+   */
+  Protocols?: number[];
+}
+
+/**
+ * @public
+ * <p>Any Certificate Manager Secure Sockets Layer/Transport Layer Security (SSL/TLS) server certificate that's associated with a <a>ServerCertificateConfiguration</a> used in a <a>TLSInspectionConfiguration</a>. You must request or import a SSL/TLS certificate into ACM for each domain Network Firewall needs to decrypt and inspect. Network Firewall uses the SSL/TLS certificates to decrypt specified inbound SSL/TLS traffic going to your firewall. For information about working with certificates in Certificate Manager, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html">Request a public certificate </a> or <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing certificates</a> in the <i>Certificate Manager User Guide</i>.</p>
+ */
+export interface ServerCertificate {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Certificate Manager SSL/TLS server certificate.</p>
+   */
+  ResourceArn?: string;
+}
+
+/**
+ * @public
+ * <p>Configures the associated Certificate Manager Secure Sockets Layer/Transport Layer Security (SSL/TLS) server certificates and scope settings Network Firewall uses to decrypt traffic in a <a>TLSInspectionConfiguration</a>. For information about working with SSL/TLS certificates for TLS inspection, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html"> Requirements for using SSL/TLS server certficiates with TLS inspection configurations</a> in the <i>Network Firewall Developer Guide</i>.</p>
+ *          <note>
+ *             <p>If a server certificate that's associated with your <a>TLSInspectionConfiguration</a> is revoked, deleted, or expired it can result in client-side TLS errors.</p>
+ *          </note>
+ */
+export interface ServerCertificateConfiguration {
+  /**
+   * <p>The list of a server certificate configuration's Certificate Manager SSL/TLS certificates.</p>
+   */
+  ServerCertificates?: ServerCertificate[];
+
+  /**
+   * <p>A list of a server certificate configuration's scopes.</p>
+   */
+  Scopes?: ServerCertificateScope[];
+}
+
+/**
+ * @public
+ * <p>The object that defines a TLS inspection configuration. This, along with <a>TLSInspectionConfigurationResponse</a>, define the TLS inspection configuration. You can retrieve all objects for a TLS inspection configuration by calling <a>DescribeTLSInspectionConfiguration</a>. </p>
+ *          <p>Network Firewall uses a TLS inspection configuration to decrypt traffic. Network Firewall re-encrypts the traffic before sending it to its destination.</p>
+ *          <p>To use a TLS inspection configuration, you add it to a Network Firewall firewall policy, then you apply the firewall policy to a firewall. Network Firewall acts as a proxy service to decrypt and inspect inbound traffic. You can reference a TLS inspection configuration from more than one firewall policy, and you can use a firewall policy in more than one firewall. For more information about using TLS inspection configurations, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection.html">Decrypting SSL/TLS traffic with TLS
+ * inspection configurations</a> in the <i>Network Firewall Developer Guide</i>.</p>
+ */
+export interface TLSInspectionConfiguration {
+  /**
+   * <p>Lists the server certificate configurations that are associated with the TLS configuration.</p>
+   */
+  ServerCertificateConfigurations?: ServerCertificateConfiguration[];
+}
+
+/**
+ * @public
+ */
+export interface CreateTLSInspectionConfigurationRequest {
+  /**
+   * <p>The descriptive name of the TLS inspection configuration. You can't change the name of a TLS inspection configuration after you create it.</p>
+   */
+  TLSInspectionConfigurationName: string | undefined;
+
+  /**
+   * <p>The object that defines a TLS inspection configuration. This, along with <a>TLSInspectionConfigurationResponse</a>, define the TLS inspection configuration. You can retrieve all objects for a TLS inspection configuration by calling <a>DescribeTLSInspectionConfiguration</a>. </p>
+   *          <p>Network Firewall uses a TLS inspection configuration to decrypt traffic. Network Firewall re-encrypts the traffic before sending it to its destination.</p>
+   *          <p>To use a TLS inspection configuration, you add it to a Network Firewall firewall policy, then you apply the firewall policy to a firewall. Network Firewall acts as a proxy service to decrypt and inspect inbound traffic. You can reference a TLS inspection configuration from more than one firewall policy, and you can use a firewall policy in more than one firewall. For more information about using TLS inspection configurations, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection.html">Decrypting SSL/TLS traffic with TLS
+   * inspection configurations</a> in the <i>Network Firewall Developer Guide</i>.</p>
+   */
+  TLSInspectionConfiguration: TLSInspectionConfiguration | undefined;
+
+  /**
+   * <p>A description of the TLS inspection configuration. </p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The key:value pairs to associate with the resource.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>A complex type that contains optional Amazon Web Services Key Management Service (KMS) encryption settings for your Network Firewall resources. Your data is encrypted by default with an Amazon Web Services owned key that Amazon Web Services owns and manages for you. You can use either the Amazon Web Services owned key, or provide your own customer managed key. To learn more about KMS encryption of your Network Firewall resources, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-encryption-at-rest.html">Encryption at rest with Amazon Web Services Key Managment Service</a> in the <i>Network Firewall Developer Guide</i>.</p>
+   */
+  EncryptionConfiguration?: EncryptionConfiguration;
+}
+
+/**
+ * @public
+ * <p>The high-level properties of a TLS inspection configuration. This, along with the <code>TLSInspectionConfiguration</code>, define the TLS inspection configuration. You can retrieve all objects for a TLS inspection configuration by calling <code>DescribeTLSInspectionConfiguration</code>.</p>
+ */
+export interface TLSInspectionConfigurationResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the TLS inspection configuration.</p>
+   */
+  TLSInspectionConfigurationArn: string | undefined;
+
+  /**
+   * <p>The descriptive name of the TLS inspection configuration. You can't change the name of a TLS inspection configuration after you create it.</p>
+   */
+  TLSInspectionConfigurationName: string | undefined;
+
+  /**
+   * <p>A unique identifier for the TLS inspection configuration. This ID is returned in the responses to create and list commands. You provide it to operations such as update and delete.</p>
+   */
+  TLSInspectionConfigurationId: string | undefined;
+
+  /**
+   * <p>Detailed information about the current status of a <a>TLSInspectionConfiguration</a>. You can retrieve this for a TLS inspection configuration by calling <a>DescribeTLSInspectionConfiguration</a> and providing the TLS inspection configuration name and ARN.</p>
+   */
+  TLSInspectionConfigurationStatus?: ResourceStatus | string;
+
+  /**
+   * <p>A description of the TLS inspection configuration. </p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The key:value pairs to associate with the resource.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The last time that the TLS inspection configuration was changed.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The number of firewall policies that use this TLS inspection configuration.</p>
+   */
+  NumberOfAssociations?: number;
+
+  /**
+   * <p>A complex type that contains the Amazon Web Services KMS encryption configuration settings for your TLS inspection configuration.</p>
+   */
+  EncryptionConfiguration?: EncryptionConfiguration;
+
+  /**
+   * <p>A list of the certificates associated with the TLS inspection configuration.</p>
+   */
+  Certificates?: TlsCertificateData[];
+}
+
+/**
+ * @public
+ */
+export interface CreateTLSInspectionConfigurationResponse {
+  /**
+   * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the TLS inspection configuration. The token marks the state of the TLS inspection configuration resource at the time of the request. </p>
+   *          <p>To make changes to the TLS inspection configuration, you provide the token in your request. Network Firewall uses the token to ensure that the TLS inspection configuration hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the TLS inspection configuration again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
+   */
+  UpdateToken: string | undefined;
+
+  /**
+   * <p>The high-level properties of a TLS inspection configuration. This, along with the <a>TLSInspectionConfiguration</a>, define the TLS inspection configuration. You can retrieve all objects for a TLS inspection configuration by calling <a>DescribeTLSInspectionConfiguration</a>. </p>
+   */
+  TLSInspectionConfigurationResponse: TLSInspectionConfigurationResponse | undefined;
+}
+
+/**
+ * @public
  */
 export interface DeleteFirewallRequest {
   /**
@@ -2301,6 +2517,33 @@ export interface DeleteRuleGroupResponse {
    * <p>The high-level properties of a rule group. This, along with the <a>RuleGroup</a>, define the rule group. You can retrieve all objects for a rule group by calling <a>DescribeRuleGroup</a>. </p>
    */
   RuleGroupResponse: RuleGroupResponse | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTLSInspectionConfigurationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the TLS inspection configuration.</p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   */
+  TLSInspectionConfigurationArn?: string;
+
+  /**
+   * <p>The descriptive name of the TLS inspection configuration. You can't change the name of a TLS inspection configuration after you create it.</p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   */
+  TLSInspectionConfigurationName?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTLSInspectionConfigurationResponse {
+  /**
+   * <p>The high-level properties of a TLS inspection configuration. This, along with the <a>TLSInspectionConfiguration</a>, define the TLS inspection configuration. You can retrieve all objects for a TLS inspection configuration by calling <a>DescribeTLSInspectionConfiguration</a>. </p>
+   */
+  TLSInspectionConfigurationResponse: TLSInspectionConfigurationResponse | undefined;
 }
 
 /**
@@ -2663,6 +2906,47 @@ export interface DescribeRuleGroupMetadataResponse {
 /**
  * @public
  */
+export interface DescribeTLSInspectionConfigurationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the TLS inspection configuration.</p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   */
+  TLSInspectionConfigurationArn?: string;
+
+  /**
+   * <p>The descriptive name of the TLS inspection configuration. You can't change the name of a TLS inspection configuration after you create it.</p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   */
+  TLSInspectionConfigurationName?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTLSInspectionConfigurationResponse {
+  /**
+   * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the TLS inspection configuration. The token marks the state of the TLS inspection configuration resource at the time of the request. </p>
+   *          <p>To make changes to the TLS inspection configuration, you provide the token in your request. Network Firewall uses the token to ensure that the TLS inspection configuration hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the TLS inspection configuration again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
+   */
+  UpdateToken: string | undefined;
+
+  /**
+   * <p>The object that defines a TLS inspection configuration. This, along with <a>TLSInspectionConfigurationResponse</a>, define the TLS inspection configuration. You can retrieve all objects for a TLS inspection configuration by calling <a>DescribeTLSInspectionConfiguration</a>. </p>
+   *          <p>Network Firewall uses a TLS inspection configuration to decrypt traffic. Network Firewall re-encrypts the traffic before sending it to its destination.</p>
+   *          <p>To use a TLS inspection configuration, you add it to a Network Firewall firewall policy, then you apply the firewall policy to a firewall. Network Firewall acts as a proxy service to decrypt and inspect inbound traffic. You can reference a TLS inspection configuration from more than one firewall policy, and you can use a firewall policy in more than one firewall. For more information about using TLS inspection configurations, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection.html">Decrypting SSL/TLS traffic with TLS
+   * inspection configurations</a> in the <i>Network Firewall Developer Guide</i>.</p>
+   */
+  TLSInspectionConfiguration?: TLSInspectionConfiguration;
+
+  /**
+   * <p>The high-level properties of a TLS inspection configuration. This, along with the <a>TLSInspectionConfiguration</a>, define the TLS inspection configuration. You can retrieve all objects for a TLS inspection configuration by calling <a>DescribeTLSInspectionConfiguration</a>. </p>
+   */
+  TLSInspectionConfigurationResponse: TLSInspectionConfigurationResponse | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DisassociateSubnetsRequest {
   /**
    * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
@@ -2972,6 +3256,58 @@ export interface ListTagsForResourceResponse {
    * <p>The tags that are associated with the resource. </p>
    */
   Tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface ListTLSInspectionConfigurationsRequest {
+  /**
+   * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
+   *          for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code>
+   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of objects that you want Network Firewall to return for this request. If more
+   *           objects are available, in the response, Network Firewall provides a
+   *          <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ * <p>High-level information about a TLS inspection configuration, returned by <code>ListTLSInspectionConfigurations</code>. You can use the information provided in the metadata to retrieve and manage a TLS configuration.</p>
+ */
+export interface TLSInspectionConfigurationMetadata {
+  /**
+   * <p>The descriptive name of the TLS inspection configuration. You can't change the name of a TLS inspection configuration after you create it.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the TLS inspection configuration.</p>
+   */
+  Arn?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListTLSInspectionConfigurationsResponse {
+  /**
+   * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
+   *          for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code>
+   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The TLS inspection configuration metadata objects that you've defined. Depending on your setting for max results and the number of TLS inspection configurations, this might not be the full list.</p>
+   */
+  TLSInspectionConfigurations?: TLSInspectionConfigurationMetadata[];
 }
 
 /**
@@ -3595,4 +3931,59 @@ export interface UpdateSubnetChangeProtectionResponse {
    *          accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to <code>TRUE</code>.</p>
    */
   SubnetChangeProtection?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTLSInspectionConfigurationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the TLS inspection configuration.</p>
+   */
+  TLSInspectionConfigurationArn?: string;
+
+  /**
+   * <p>The descriptive name of the TLS inspection configuration. You can't change the name of a TLS inspection configuration after you create it.</p>
+   */
+  TLSInspectionConfigurationName?: string;
+
+  /**
+   * <p>The object that defines a TLS inspection configuration. This, along with <a>TLSInspectionConfigurationResponse</a>, define the TLS inspection configuration. You can retrieve all objects for a TLS inspection configuration by calling <a>DescribeTLSInspectionConfiguration</a>. </p>
+   *          <p>Network Firewall uses a TLS inspection configuration to decrypt traffic. Network Firewall re-encrypts the traffic before sending it to its destination.</p>
+   *          <p>To use a TLS inspection configuration, you add it to a Network Firewall firewall policy, then you apply the firewall policy to a firewall. Network Firewall acts as a proxy service to decrypt and inspect inbound traffic. You can reference a TLS inspection configuration from more than one firewall policy, and you can use a firewall policy in more than one firewall. For more information about using TLS inspection configurations, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection.html">Decrypting SSL/TLS traffic with TLS
+   * inspection configurations</a> in the <i>Network Firewall Developer Guide</i>.</p>
+   */
+  TLSInspectionConfiguration: TLSInspectionConfiguration | undefined;
+
+  /**
+   * <p>A description of the TLS inspection configuration. </p>
+   */
+  Description?: string;
+
+  /**
+   * <p>A complex type that contains the Amazon Web Services KMS encryption configuration settings for your TLS inspection configuration.</p>
+   */
+  EncryptionConfiguration?: EncryptionConfiguration;
+
+  /**
+   * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the TLS inspection configuration. The token marks the state of the TLS inspection configuration resource at the time of the request. </p>
+   *          <p>To make changes to the TLS inspection configuration, you provide the token in your request. Network Firewall uses the token to ensure that the TLS inspection configuration hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the TLS inspection configuration again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
+   */
+  UpdateToken: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTLSInspectionConfigurationResponse {
+  /**
+   * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the TLS inspection configuration. The token marks the state of the TLS inspection configuration resource at the time of the request. </p>
+   *          <p>To make changes to the TLS inspection configuration, you provide the token in your request. Network Firewall uses the token to ensure that the TLS inspection configuration hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the TLS inspection configuration again to get a current copy of it with a current token. Reapply your changes as needed, then try the operation again using the new token. </p>
+   */
+  UpdateToken: string | undefined;
+
+  /**
+   * <p>The high-level properties of a TLS inspection configuration. This, along with the <a>TLSInspectionConfiguration</a>, define the TLS inspection configuration. You can retrieve all objects for a TLS inspection configuration by calling <a>DescribeTLSInspectionConfiguration</a>. </p>
+   */
+  TLSInspectionConfigurationResponse: TLSInspectionConfigurationResponse | undefined;
 }

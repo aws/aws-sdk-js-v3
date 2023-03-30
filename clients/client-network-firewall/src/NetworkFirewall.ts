@@ -27,6 +27,11 @@ import {
   CreateRuleGroupCommandOutput,
 } from "./commands/CreateRuleGroupCommand";
 import {
+  CreateTLSInspectionConfigurationCommand,
+  CreateTLSInspectionConfigurationCommandInput,
+  CreateTLSInspectionConfigurationCommandOutput,
+} from "./commands/CreateTLSInspectionConfigurationCommand";
+import {
   DeleteFirewallCommand,
   DeleteFirewallCommandInput,
   DeleteFirewallCommandOutput,
@@ -46,6 +51,11 @@ import {
   DeleteRuleGroupCommandInput,
   DeleteRuleGroupCommandOutput,
 } from "./commands/DeleteRuleGroupCommand";
+import {
+  DeleteTLSInspectionConfigurationCommand,
+  DeleteTLSInspectionConfigurationCommandInput,
+  DeleteTLSInspectionConfigurationCommandOutput,
+} from "./commands/DeleteTLSInspectionConfigurationCommand";
 import {
   DescribeFirewallCommand,
   DescribeFirewallCommandInput,
@@ -77,6 +87,11 @@ import {
   DescribeRuleGroupMetadataCommandOutput,
 } from "./commands/DescribeRuleGroupMetadataCommand";
 import {
+  DescribeTLSInspectionConfigurationCommand,
+  DescribeTLSInspectionConfigurationCommandInput,
+  DescribeTLSInspectionConfigurationCommandOutput,
+} from "./commands/DescribeTLSInspectionConfigurationCommand";
+import {
   DisassociateSubnetsCommand,
   DisassociateSubnetsCommandInput,
   DisassociateSubnetsCommandOutput,
@@ -101,6 +116,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListTLSInspectionConfigurationsCommand,
+  ListTLSInspectionConfigurationsCommandInput,
+  ListTLSInspectionConfigurationsCommandOutput,
+} from "./commands/ListTLSInspectionConfigurationsCommand";
 import {
   PutResourcePolicyCommand,
   PutResourcePolicyCommandInput,
@@ -152,6 +172,11 @@ import {
   UpdateSubnetChangeProtectionCommandInput,
   UpdateSubnetChangeProtectionCommandOutput,
 } from "./commands/UpdateSubnetChangeProtectionCommand";
+import {
+  UpdateTLSInspectionConfigurationCommand,
+  UpdateTLSInspectionConfigurationCommandInput,
+  UpdateTLSInspectionConfigurationCommandOutput,
+} from "./commands/UpdateTLSInspectionConfigurationCommand";
 import { NetworkFirewallClient } from "./NetworkFirewallClient";
 
 /**
@@ -424,6 +449,47 @@ export class NetworkFirewall extends NetworkFirewallClient {
 
   /**
    * @public
+   * <p>Creates an Network Firewall TLS inspection configuration. A TLS inspection configuration contains the Certificate Manager certificate references that Network Firewall uses to decrypt and re-encrypt inbound traffic.</p>
+   *          <p>After you create a TLS inspection configuration, you associate it with a firewall policy.</p>
+   *          <p>To update the settings for a TLS inspection configuration, use <a>UpdateTLSInspectionConfiguration</a>.</p>
+   *          <p>To manage a TLS inspection configuration's tags, use the standard Amazon Web Services resource tagging operations, <a>ListTagsForResource</a>, <a>TagResource</a>, and <a>UntagResource</a>.</p>
+   *          <p>To retrieve information about TLS inspection configurations, use <a>ListTLSInspectionConfigurations</a> and <a>DescribeTLSInspectionConfiguration</a>.</p>
+   *          <p>
+   *               For more information about TLS inspection configurations, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection.html">Decrypting SSL/TLS traffic with TLS
+   * inspection configurations</a> in the <i>Network Firewall Developer Guide</i>.
+   *             </p>
+   */
+  public createTLSInspectionConfiguration(
+    args: CreateTLSInspectionConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTLSInspectionConfigurationCommandOutput>;
+  public createTLSInspectionConfiguration(
+    args: CreateTLSInspectionConfigurationCommandInput,
+    cb: (err: any, data?: CreateTLSInspectionConfigurationCommandOutput) => void
+  ): void;
+  public createTLSInspectionConfiguration(
+    args: CreateTLSInspectionConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTLSInspectionConfigurationCommandOutput) => void
+  ): void;
+  public createTLSInspectionConfiguration(
+    args: CreateTLSInspectionConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTLSInspectionConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: CreateTLSInspectionConfigurationCommandOutput) => void
+  ): Promise<CreateTLSInspectionConfigurationCommandOutput> | void {
+    const command = new CreateTLSInspectionConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Deletes the specified <a>Firewall</a> and its <a>FirewallStatus</a>.
    *        This operation requires the firewall's <code>DeleteProtection</code> flag to be
    *             <code>FALSE</code>. You can't revert this operation. </p>
@@ -554,6 +620,39 @@ export class NetworkFirewall extends NetworkFirewallClient {
     cb?: (err: any, data?: DeleteRuleGroupCommandOutput) => void
   ): Promise<DeleteRuleGroupCommandOutput> | void {
     const command = new DeleteRuleGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Deletes the specified <a>TLSInspectionConfiguration</a>.</p>
+   */
+  public deleteTLSInspectionConfiguration(
+    args: DeleteTLSInspectionConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTLSInspectionConfigurationCommandOutput>;
+  public deleteTLSInspectionConfiguration(
+    args: DeleteTLSInspectionConfigurationCommandInput,
+    cb: (err: any, data?: DeleteTLSInspectionConfigurationCommandOutput) => void
+  ): void;
+  public deleteTLSInspectionConfiguration(
+    args: DeleteTLSInspectionConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTLSInspectionConfigurationCommandOutput) => void
+  ): void;
+  public deleteTLSInspectionConfiguration(
+    args: DeleteTLSInspectionConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTLSInspectionConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteTLSInspectionConfigurationCommandOutput) => void
+  ): Promise<DeleteTLSInspectionConfigurationCommandOutput> | void {
+    const command = new DeleteTLSInspectionConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -767,6 +866,39 @@ export class NetworkFirewall extends NetworkFirewallClient {
 
   /**
    * @public
+   * <p>Returns the data objects for the specified TLS inspection configuration.</p>
+   */
+  public describeTLSInspectionConfiguration(
+    args: DescribeTLSInspectionConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTLSInspectionConfigurationCommandOutput>;
+  public describeTLSInspectionConfiguration(
+    args: DescribeTLSInspectionConfigurationCommandInput,
+    cb: (err: any, data?: DescribeTLSInspectionConfigurationCommandOutput) => void
+  ): void;
+  public describeTLSInspectionConfiguration(
+    args: DescribeTLSInspectionConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTLSInspectionConfigurationCommandOutput) => void
+  ): void;
+  public describeTLSInspectionConfiguration(
+    args: DescribeTLSInspectionConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTLSInspectionConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeTLSInspectionConfigurationCommandOutput) => void
+  ): Promise<DescribeTLSInspectionConfigurationCommandOutput> | void {
+    const command = new DescribeTLSInspectionConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Removes the specified subnet associations from the firewall. This removes the
    *           firewall endpoints from the subnets and removes any network filtering protections that the endpoints
    *           were providing.
@@ -936,6 +1068,39 @@ export class NetworkFirewall extends NetworkFirewallClient {
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Retrieves the metadata for the TLS inspection configurations that you have defined. Depending on your setting for max results and the number of TLS inspection configurations, a single call might not return the full list.</p>
+   */
+  public listTLSInspectionConfigurations(
+    args: ListTLSInspectionConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTLSInspectionConfigurationsCommandOutput>;
+  public listTLSInspectionConfigurations(
+    args: ListTLSInspectionConfigurationsCommandInput,
+    cb: (err: any, data?: ListTLSInspectionConfigurationsCommandOutput) => void
+  ): void;
+  public listTLSInspectionConfigurations(
+    args: ListTLSInspectionConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTLSInspectionConfigurationsCommandOutput) => void
+  ): void;
+  public listTLSInspectionConfigurations(
+    args: ListTLSInspectionConfigurationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTLSInspectionConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: ListTLSInspectionConfigurationsCommandOutput) => void
+  ): Promise<ListTLSInspectionConfigurationsCommandOutput> | void {
+    const command = new ListTLSInspectionConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1356,6 +1521,44 @@ export class NetworkFirewall extends NetworkFirewallClient {
     cb?: (err: any, data?: UpdateSubnetChangeProtectionCommandOutput) => void
   ): Promise<UpdateSubnetChangeProtectionCommandOutput> | void {
     const command = new UpdateSubnetChangeProtectionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Updates the TLS inspection configuration settings for the specified TLS inspection configuration. You use a TLS inspection configuration by
+   *         reference in one or more firewall policies. When you modify a TLS inspection configuration, you modify all
+   *         firewall policies that use the TLS inspection configuration. </p>
+   *          <p>To update a TLS inspection configuration, first call <a>DescribeTLSInspectionConfiguration</a> to retrieve the
+   *         current <a>TLSInspectionConfiguration</a> object, update the object as needed, and then provide
+   *         the updated object to this call. </p>
+   */
+  public updateTLSInspectionConfiguration(
+    args: UpdateTLSInspectionConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTLSInspectionConfigurationCommandOutput>;
+  public updateTLSInspectionConfiguration(
+    args: UpdateTLSInspectionConfigurationCommandInput,
+    cb: (err: any, data?: UpdateTLSInspectionConfigurationCommandOutput) => void
+  ): void;
+  public updateTLSInspectionConfiguration(
+    args: UpdateTLSInspectionConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateTLSInspectionConfigurationCommandOutput) => void
+  ): void;
+  public updateTLSInspectionConfiguration(
+    args: UpdateTLSInspectionConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTLSInspectionConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateTLSInspectionConfigurationCommandOutput) => void
+  ): Promise<UpdateTLSInspectionConfigurationCommandOutput> | void {
+    const command = new UpdateTLSInspectionConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

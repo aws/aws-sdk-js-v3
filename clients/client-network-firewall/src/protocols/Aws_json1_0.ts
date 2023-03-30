@@ -28,6 +28,10 @@ import {
   CreateFirewallPolicyCommandOutput,
 } from "../commands/CreateFirewallPolicyCommand";
 import { CreateRuleGroupCommandInput, CreateRuleGroupCommandOutput } from "../commands/CreateRuleGroupCommand";
+import {
+  CreateTLSInspectionConfigurationCommandInput,
+  CreateTLSInspectionConfigurationCommandOutput,
+} from "../commands/CreateTLSInspectionConfigurationCommand";
 import { DeleteFirewallCommandInput, DeleteFirewallCommandOutput } from "../commands/DeleteFirewallCommand";
 import {
   DeleteFirewallPolicyCommandInput,
@@ -38,6 +42,10 @@ import {
   DeleteResourcePolicyCommandOutput,
 } from "../commands/DeleteResourcePolicyCommand";
 import { DeleteRuleGroupCommandInput, DeleteRuleGroupCommandOutput } from "../commands/DeleteRuleGroupCommand";
+import {
+  DeleteTLSInspectionConfigurationCommandInput,
+  DeleteTLSInspectionConfigurationCommandOutput,
+} from "../commands/DeleteTLSInspectionConfigurationCommand";
 import { DescribeFirewallCommandInput, DescribeFirewallCommandOutput } from "../commands/DescribeFirewallCommand";
 import {
   DescribeFirewallPolicyCommandInput,
@@ -57,6 +65,10 @@ import {
   DescribeRuleGroupMetadataCommandOutput,
 } from "../commands/DescribeRuleGroupMetadataCommand";
 import {
+  DescribeTLSInspectionConfigurationCommandInput,
+  DescribeTLSInspectionConfigurationCommandOutput,
+} from "../commands/DescribeTLSInspectionConfigurationCommand";
+import {
   DisassociateSubnetsCommandInput,
   DisassociateSubnetsCommandOutput,
 } from "../commands/DisassociateSubnetsCommand";
@@ -70,6 +82,10 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import {
+  ListTLSInspectionConfigurationsCommandInput,
+  ListTLSInspectionConfigurationsCommandOutput,
+} from "../commands/ListTLSInspectionConfigurationsCommand";
 import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
@@ -103,6 +119,10 @@ import {
   UpdateSubnetChangeProtectionCommandOutput,
 } from "../commands/UpdateSubnetChangeProtectionCommand";
 import {
+  UpdateTLSInspectionConfigurationCommandInput,
+  UpdateTLSInspectionConfigurationCommandOutput,
+} from "../commands/UpdateTLSInspectionConfigurationCommand";
+import {
   ActionDefinition,
   Address,
   AssociateFirewallPolicyRequest,
@@ -118,6 +138,8 @@ import {
   CreateFirewallResponse,
   CreateRuleGroupRequest,
   CreateRuleGroupResponse,
+  CreateTLSInspectionConfigurationRequest,
+  CreateTLSInspectionConfigurationResponse,
   CustomAction,
   DeleteFirewallPolicyRequest,
   DeleteFirewallPolicyResponse,
@@ -127,6 +149,8 @@ import {
   DeleteResourcePolicyResponse,
   DeleteRuleGroupRequest,
   DeleteRuleGroupResponse,
+  DeleteTLSInspectionConfigurationRequest,
+  DeleteTLSInspectionConfigurationResponse,
   DescribeFirewallPolicyRequest,
   DescribeFirewallPolicyResponse,
   DescribeFirewallRequest,
@@ -139,6 +163,8 @@ import {
   DescribeRuleGroupMetadataResponse,
   DescribeRuleGroupRequest,
   DescribeRuleGroupResponse,
+  DescribeTLSInspectionConfigurationRequest,
+  DescribeTLSInspectionConfigurationResponse,
   Dimension,
   DisassociateSubnetsRequest,
   DisassociateSubnetsResponse,
@@ -168,6 +194,8 @@ import {
   ListRuleGroupsResponse,
   ListTagsForResourceRequest,
   ListTagsForResourceResponse,
+  ListTLSInspectionConfigurationsRequest,
+  ListTLSInspectionConfigurationsResponse,
   LogDestinationConfig,
   LogDestinationPermissionException,
   LoggingConfiguration,
@@ -189,6 +217,9 @@ import {
   RulesSource,
   RulesSourceList,
   RuleVariables,
+  ServerCertificate,
+  ServerCertificateConfiguration,
+  ServerCertificateScope,
   SourceMetadata,
   StatefulEngineOptions,
   StatefulRule,
@@ -207,6 +238,10 @@ import {
   TCPFlag,
   TCPFlagField,
   ThrottlingException,
+  TlsCertificateData,
+  TLSInspectionConfiguration,
+  TLSInspectionConfigurationMetadata,
+  TLSInspectionConfigurationResponse,
   UnsupportedOperationException,
   UntagResourceRequest,
   UntagResourceResponse,
@@ -226,6 +261,8 @@ import {
   UpdateRuleGroupResponse,
   UpdateSubnetChangeProtectionRequest,
   UpdateSubnetChangeProtectionResponse,
+  UpdateTLSInspectionConfigurationRequest,
+  UpdateTLSInspectionConfigurationResponse,
 } from "../models/models_0";
 import { NetworkFirewallServiceException as __BaseException } from "../models/NetworkFirewallServiceException";
 
@@ -294,6 +331,19 @@ export const serializeAws_json1_0CreateRuleGroupCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_0CreateTLSInspectionConfigurationCommand = async (
+  input: CreateTLSInspectionConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "NetworkFirewall_20201112.CreateTLSInspectionConfiguration",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0CreateTLSInspectionConfigurationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_0DeleteFirewallCommand = async (
   input: DeleteFirewallCommandInput,
   context: __SerdeContext
@@ -343,6 +393,19 @@ export const serializeAws_json1_0DeleteRuleGroupCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DeleteRuleGroupRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0DeleteTLSInspectionConfigurationCommand = async (
+  input: DeleteTLSInspectionConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "NetworkFirewall_20201112.DeleteTLSInspectionConfiguration",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0DeleteTLSInspectionConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -424,6 +487,19 @@ export const serializeAws_json1_0DescribeRuleGroupMetadataCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_0DescribeTLSInspectionConfigurationCommand = async (
+  input: DescribeTLSInspectionConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "NetworkFirewall_20201112.DescribeTLSInspectionConfiguration",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0DescribeTLSInspectionConfigurationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_0DisassociateSubnetsCommand = async (
   input: DisassociateSubnetsCommandInput,
   context: __SerdeContext
@@ -486,6 +562,19 @@ export const serializeAws_json1_0ListTagsForResourceCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListTagsForResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0ListTLSInspectionConfigurationsCommand = async (
+  input: ListTLSInspectionConfigurationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "NetworkFirewall_20201112.ListTLSInspectionConfigurations",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0ListTLSInspectionConfigurationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -629,6 +718,19 @@ export const serializeAws_json1_0UpdateSubnetChangeProtectionCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UpdateSubnetChangeProtectionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0UpdateTLSInspectionConfigurationCommand = async (
+  input: UpdateTLSInspectionConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "NetworkFirewall_20201112.UpdateTLSInspectionConfiguration",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0UpdateTLSInspectionConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -909,6 +1011,53 @@ const deserializeAws_json1_0CreateRuleGroupCommandError = async (
   }
 };
 
+export const deserializeAws_json1_0CreateTLSInspectionConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTLSInspectionConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0CreateTLSInspectionConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0CreateTLSInspectionConfigurationResponse(data, context);
+  const response: CreateTLSInspectionConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0CreateTLSInspectionConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTLSInspectionConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.networkfirewall#InternalServerError":
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.networkfirewall#InvalidRequestException":
+      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.networkfirewall#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_0DeleteFirewallCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1119,6 +1268,59 @@ const deserializeAws_json1_0DeleteRuleGroupCommandError = async (
     case "UnsupportedOperationException":
     case "com.amazonaws.networkfirewall#UnsupportedOperationException":
       throw await deserializeAws_json1_0UnsupportedOperationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0DeleteTLSInspectionConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTLSInspectionConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0DeleteTLSInspectionConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0DeleteTLSInspectionConfigurationResponse(data, context);
+  const response: DeleteTLSInspectionConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0DeleteTLSInspectionConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTLSInspectionConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.networkfirewall#InternalServerError":
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+    case "InvalidOperationException":
+    case "com.amazonaws.networkfirewall#InvalidOperationException":
+      throw await deserializeAws_json1_0InvalidOperationExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.networkfirewall#InvalidRequestException":
+      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.networkfirewall#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.networkfirewall#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1430,6 +1632,56 @@ const deserializeAws_json1_0DescribeRuleGroupMetadataCommandError = async (
   }
 };
 
+export const deserializeAws_json1_0DescribeTLSInspectionConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTLSInspectionConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0DescribeTLSInspectionConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0DescribeTLSInspectionConfigurationResponse(data, context);
+  const response: DescribeTLSInspectionConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0DescribeTLSInspectionConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTLSInspectionConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.networkfirewall#InternalServerError":
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.networkfirewall#InvalidRequestException":
+      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.networkfirewall#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.networkfirewall#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_0DisassociateSubnetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1663,6 +1915,53 @@ const deserializeAws_json1_0ListTagsForResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.networkfirewall#ResourceNotFoundException":
       throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.networkfirewall#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0ListTLSInspectionConfigurationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTLSInspectionConfigurationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0ListTLSInspectionConfigurationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0ListTLSInspectionConfigurationsResponse(data, context);
+  const response: ListTLSInspectionConfigurationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0ListTLSInspectionConfigurationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTLSInspectionConfigurationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.networkfirewall#InternalServerError":
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.networkfirewall#InvalidRequestException":
+      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.networkfirewall#ThrottlingException":
       throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
@@ -2269,6 +2568,59 @@ const deserializeAws_json1_0UpdateSubnetChangeProtectionCommandError = async (
   }
 };
 
+export const deserializeAws_json1_0UpdateTLSInspectionConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTLSInspectionConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0UpdateTLSInspectionConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0UpdateTLSInspectionConfigurationResponse(data, context);
+  const response: UpdateTLSInspectionConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0UpdateTLSInspectionConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTLSInspectionConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.networkfirewall#InternalServerError":
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.networkfirewall#InvalidRequestException":
+      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+    case "InvalidTokenException":
+    case "com.amazonaws.networkfirewall#InvalidTokenException":
+      throw await deserializeAws_json1_0InvalidTokenExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.networkfirewall#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.networkfirewall#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 const deserializeAws_json1_0InsufficientCapacityExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2536,6 +2888,28 @@ const serializeAws_json1_0CreateRuleGroupRequest = (input: CreateRuleGroupReques
   };
 };
 
+const serializeAws_json1_0CreateTLSInspectionConfigurationRequest = (
+  input: CreateTLSInspectionConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.EncryptionConfiguration != null && {
+      EncryptionConfiguration: serializeAws_json1_0EncryptionConfiguration(input.EncryptionConfiguration, context),
+    }),
+    ...(input.TLSInspectionConfiguration != null && {
+      TLSInspectionConfiguration: serializeAws_json1_0TLSInspectionConfiguration(
+        input.TLSInspectionConfiguration,
+        context
+      ),
+    }),
+    ...(input.TLSInspectionConfigurationName != null && {
+      TLSInspectionConfigurationName: input.TLSInspectionConfigurationName,
+    }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+  };
+};
+
 const serializeAws_json1_0CustomAction = (input: CustomAction, context: __SerdeContext): any => {
   return {
     ...(input.ActionDefinition != null && {
@@ -2584,6 +2958,20 @@ const serializeAws_json1_0DeleteRuleGroupRequest = (input: DeleteRuleGroupReques
     ...(input.RuleGroupArn != null && { RuleGroupArn: input.RuleGroupArn }),
     ...(input.RuleGroupName != null && { RuleGroupName: input.RuleGroupName }),
     ...(input.Type != null && { Type: input.Type }),
+  };
+};
+
+const serializeAws_json1_0DeleteTLSInspectionConfigurationRequest = (
+  input: DeleteTLSInspectionConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.TLSInspectionConfigurationArn != null && {
+      TLSInspectionConfigurationArn: input.TLSInspectionConfigurationArn,
+    }),
+    ...(input.TLSInspectionConfigurationName != null && {
+      TLSInspectionConfigurationName: input.TLSInspectionConfigurationName,
+    }),
   };
 };
 
@@ -2642,6 +3030,20 @@ const serializeAws_json1_0DescribeRuleGroupRequest = (
     ...(input.RuleGroupArn != null && { RuleGroupArn: input.RuleGroupArn }),
     ...(input.RuleGroupName != null && { RuleGroupName: input.RuleGroupName }),
     ...(input.Type != null && { Type: input.Type }),
+  };
+};
+
+const serializeAws_json1_0DescribeTLSInspectionConfigurationRequest = (
+  input: DescribeTLSInspectionConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.TLSInspectionConfigurationArn != null && {
+      TLSInspectionConfigurationArn: input.TLSInspectionConfigurationArn,
+    }),
+    ...(input.TLSInspectionConfigurationName != null && {
+      TLSInspectionConfigurationName: input.TLSInspectionConfigurationName,
+    }),
   };
 };
 
@@ -2709,6 +3111,9 @@ const serializeAws_json1_0FirewallPolicy = (input: FirewallPolicy, context: __Se
         input.StatelessRuleGroupReferences,
         context
       ),
+    }),
+    ...(input.TLSInspectionConfigurationArn != null && {
+      TLSInspectionConfigurationArn: input.TLSInspectionConfigurationArn,
     }),
   };
 };
@@ -2802,6 +3207,16 @@ const serializeAws_json1_0ListTagsForResourceRequest = (
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+  };
+};
+
+const serializeAws_json1_0ListTLSInspectionConfigurationsRequest = (
+  input: ListTLSInspectionConfigurationsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -2997,6 +3412,63 @@ const serializeAws_json1_0RuleVariables = (input: RuleVariables, context: __Serd
     ...(input.IPSets != null && { IPSets: serializeAws_json1_0IPSets(input.IPSets, context) }),
     ...(input.PortSets != null && { PortSets: serializeAws_json1_0PortSets(input.PortSets, context) }),
   };
+};
+
+const serializeAws_json1_0ServerCertificate = (input: ServerCertificate, context: __SerdeContext): any => {
+  return {
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+  };
+};
+
+const serializeAws_json1_0ServerCertificateConfiguration = (
+  input: ServerCertificateConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Scopes != null && { Scopes: serializeAws_json1_0ServerCertificateScopes(input.Scopes, context) }),
+    ...(input.ServerCertificates != null && {
+      ServerCertificates: serializeAws_json1_0ServerCertificates(input.ServerCertificates, context),
+    }),
+  };
+};
+
+const serializeAws_json1_0ServerCertificateConfigurations = (
+  input: ServerCertificateConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_0ServerCertificateConfiguration(entry, context);
+    });
+};
+
+const serializeAws_json1_0ServerCertificates = (input: ServerCertificate[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_0ServerCertificate(entry, context);
+    });
+};
+
+const serializeAws_json1_0ServerCertificateScope = (input: ServerCertificateScope, context: __SerdeContext): any => {
+  return {
+    ...(input.DestinationPorts != null && {
+      DestinationPorts: serializeAws_json1_0PortRanges(input.DestinationPorts, context),
+    }),
+    ...(input.Destinations != null && { Destinations: serializeAws_json1_0Addresses(input.Destinations, context) }),
+    ...(input.Protocols != null && { Protocols: serializeAws_json1_0ProtocolNumbers(input.Protocols, context) }),
+    ...(input.SourcePorts != null && { SourcePorts: serializeAws_json1_0PortRanges(input.SourcePorts, context) }),
+    ...(input.Sources != null && { Sources: serializeAws_json1_0Addresses(input.Sources, context) }),
+  };
+};
+
+const serializeAws_json1_0ServerCertificateScopes = (input: ServerCertificateScope[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_0ServerCertificateScope(entry, context);
+    });
 };
 
 const serializeAws_json1_0Settings = (input: string[], context: __SerdeContext): any => {
@@ -3210,6 +3682,20 @@ const serializeAws_json1_0TCPFlags = (input: TCPFlagField[], context: __SerdeCon
     });
 };
 
+const serializeAws_json1_0TLSInspectionConfiguration = (
+  input: TLSInspectionConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ServerCertificateConfigurations != null && {
+      ServerCertificateConfigurations: serializeAws_json1_0ServerCertificateConfigurations(
+        input.ServerCertificateConfigurations,
+        context
+      ),
+    }),
+  };
+};
+
 const serializeAws_json1_0UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
@@ -3332,6 +3818,31 @@ const serializeAws_json1_0UpdateSubnetChangeProtectionRequest = (
   };
 };
 
+const serializeAws_json1_0UpdateTLSInspectionConfigurationRequest = (
+  input: UpdateTLSInspectionConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.EncryptionConfiguration != null && {
+      EncryptionConfiguration: serializeAws_json1_0EncryptionConfiguration(input.EncryptionConfiguration, context),
+    }),
+    ...(input.TLSInspectionConfiguration != null && {
+      TLSInspectionConfiguration: serializeAws_json1_0TLSInspectionConfiguration(
+        input.TLSInspectionConfiguration,
+        context
+      ),
+    }),
+    ...(input.TLSInspectionConfigurationArn != null && {
+      TLSInspectionConfigurationArn: input.TLSInspectionConfigurationArn,
+    }),
+    ...(input.TLSInspectionConfigurationName != null && {
+      TLSInspectionConfigurationName: input.TLSInspectionConfigurationName,
+    }),
+    ...(input.UpdateToken != null && { UpdateToken: input.UpdateToken }),
+  };
+};
+
 const serializeAws_json1_0VariableDefinitionList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -3415,6 +3926,18 @@ const deserializeAws_json1_0CapacityUsageSummary = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_json1_0Certificates = (output: any, context: __SerdeContext): TlsCertificateData[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0TlsCertificateData(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_0CIDRSummary = (output: any, context: __SerdeContext): CIDRSummary => {
   return {
     AvailableCIDRCount: __expectInt32(output.AvailableCIDRCount),
@@ -3455,6 +3978,19 @@ const deserializeAws_json1_0CreateRuleGroupResponse = (
     RuleGroupResponse:
       output.RuleGroupResponse != null
         ? deserializeAws_json1_0RuleGroupResponse(output.RuleGroupResponse, context)
+        : undefined,
+    UpdateToken: __expectString(output.UpdateToken),
+  } as any;
+};
+
+const deserializeAws_json1_0CreateTLSInspectionConfigurationResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateTLSInspectionConfigurationResponse => {
+  return {
+    TLSInspectionConfigurationResponse:
+      output.TLSInspectionConfigurationResponse != null
+        ? deserializeAws_json1_0TLSInspectionConfigurationResponse(output.TLSInspectionConfigurationResponse, context)
         : undefined,
     UpdateToken: __expectString(output.UpdateToken),
   } as any;
@@ -3517,6 +4053,18 @@ const deserializeAws_json1_0DeleteRuleGroupResponse = (
     RuleGroupResponse:
       output.RuleGroupResponse != null
         ? deserializeAws_json1_0RuleGroupResponse(output.RuleGroupResponse, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0DeleteTLSInspectionConfigurationResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteTLSInspectionConfigurationResponse => {
+  return {
+    TLSInspectionConfigurationResponse:
+      output.TLSInspectionConfigurationResponse != null
+        ? deserializeAws_json1_0TLSInspectionConfigurationResponse(output.TLSInspectionConfigurationResponse, context)
         : undefined,
   } as any;
 };
@@ -3600,6 +4148,23 @@ const deserializeAws_json1_0DescribeRuleGroupResponse = (
     RuleGroupResponse:
       output.RuleGroupResponse != null
         ? deserializeAws_json1_0RuleGroupResponse(output.RuleGroupResponse, context)
+        : undefined,
+    UpdateToken: __expectString(output.UpdateToken),
+  } as any;
+};
+
+const deserializeAws_json1_0DescribeTLSInspectionConfigurationResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeTLSInspectionConfigurationResponse => {
+  return {
+    TLSInspectionConfiguration:
+      output.TLSInspectionConfiguration != null
+        ? deserializeAws_json1_0TLSInspectionConfiguration(output.TLSInspectionConfiguration, context)
+        : undefined,
+    TLSInspectionConfigurationResponse:
+      output.TLSInspectionConfigurationResponse != null
+        ? deserializeAws_json1_0TLSInspectionConfigurationResponse(output.TLSInspectionConfigurationResponse, context)
         : undefined,
     UpdateToken: __expectString(output.UpdateToken),
   } as any;
@@ -3716,6 +4281,7 @@ const deserializeAws_json1_0FirewallPolicy = (output: any, context: __SerdeConte
       output.StatelessRuleGroupReferences != null
         ? deserializeAws_json1_0StatelessRuleGroupReferences(output.StatelessRuleGroupReferences, context)
         : undefined,
+    TLSInspectionConfigurationArn: __expectString(output.TLSInspectionConfigurationArn),
   } as any;
 };
 
@@ -3938,6 +4504,19 @@ const deserializeAws_json1_0ListTagsForResourceResponse = (
   return {
     NextToken: __expectString(output.NextToken),
     Tags: output.Tags != null ? deserializeAws_json1_0TagList(output.Tags, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0ListTLSInspectionConfigurationsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListTLSInspectionConfigurationsResponse => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    TLSInspectionConfigurations:
+      output.TLSInspectionConfigurations != null
+        ? deserializeAws_json1_0TLSInspectionConfigurations(output.TLSInspectionConfigurations, context)
+        : undefined,
   } as any;
 };
 
@@ -4233,6 +4812,79 @@ const deserializeAws_json1_0RuleVariables = (output: any, context: __SerdeContex
   } as any;
 };
 
+const deserializeAws_json1_0ServerCertificate = (output: any, context: __SerdeContext): ServerCertificate => {
+  return {
+    ResourceArn: __expectString(output.ResourceArn),
+  } as any;
+};
+
+const deserializeAws_json1_0ServerCertificateConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ServerCertificateConfiguration => {
+  return {
+    Scopes: output.Scopes != null ? deserializeAws_json1_0ServerCertificateScopes(output.Scopes, context) : undefined,
+    ServerCertificates:
+      output.ServerCertificates != null
+        ? deserializeAws_json1_0ServerCertificates(output.ServerCertificates, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0ServerCertificateConfigurations = (
+  output: any,
+  context: __SerdeContext
+): ServerCertificateConfiguration[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0ServerCertificateConfiguration(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_0ServerCertificates = (output: any, context: __SerdeContext): ServerCertificate[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0ServerCertificate(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_0ServerCertificateScope = (output: any, context: __SerdeContext): ServerCertificateScope => {
+  return {
+    DestinationPorts:
+      output.DestinationPorts != null ? deserializeAws_json1_0PortRanges(output.DestinationPorts, context) : undefined,
+    Destinations:
+      output.Destinations != null ? deserializeAws_json1_0Addresses(output.Destinations, context) : undefined,
+    Protocols: output.Protocols != null ? deserializeAws_json1_0ProtocolNumbers(output.Protocols, context) : undefined,
+    SourcePorts: output.SourcePorts != null ? deserializeAws_json1_0PortRanges(output.SourcePorts, context) : undefined,
+    Sources: output.Sources != null ? deserializeAws_json1_0Addresses(output.Sources, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0ServerCertificateScopes = (
+  output: any,
+  context: __SerdeContext
+): ServerCertificateScope[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0ServerCertificateScope(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_0Settings = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -4512,6 +5164,77 @@ const deserializeAws_json1_0ThrottlingException = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_json1_0TlsCertificateData = (output: any, context: __SerdeContext): TlsCertificateData => {
+  return {
+    CertificateArn: __expectString(output.CertificateArn),
+    CertificateSerial: __expectString(output.CertificateSerial),
+    Status: __expectString(output.Status),
+    StatusMessage: __expectString(output.StatusMessage),
+  } as any;
+};
+
+const deserializeAws_json1_0TLSInspectionConfiguration = (
+  output: any,
+  context: __SerdeContext
+): TLSInspectionConfiguration => {
+  return {
+    ServerCertificateConfigurations:
+      output.ServerCertificateConfigurations != null
+        ? deserializeAws_json1_0ServerCertificateConfigurations(output.ServerCertificateConfigurations, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0TLSInspectionConfigurationMetadata = (
+  output: any,
+  context: __SerdeContext
+): TLSInspectionConfigurationMetadata => {
+  return {
+    Arn: __expectString(output.Arn),
+    Name: __expectString(output.Name),
+  } as any;
+};
+
+const deserializeAws_json1_0TLSInspectionConfigurationResponse = (
+  output: any,
+  context: __SerdeContext
+): TLSInspectionConfigurationResponse => {
+  return {
+    Certificates:
+      output.Certificates != null ? deserializeAws_json1_0Certificates(output.Certificates, context) : undefined,
+    Description: __expectString(output.Description),
+    EncryptionConfiguration:
+      output.EncryptionConfiguration != null
+        ? deserializeAws_json1_0EncryptionConfiguration(output.EncryptionConfiguration, context)
+        : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    NumberOfAssociations: __expectInt32(output.NumberOfAssociations),
+    TLSInspectionConfigurationArn: __expectString(output.TLSInspectionConfigurationArn),
+    TLSInspectionConfigurationId: __expectString(output.TLSInspectionConfigurationId),
+    TLSInspectionConfigurationName: __expectString(output.TLSInspectionConfigurationName),
+    TLSInspectionConfigurationStatus: __expectString(output.TLSInspectionConfigurationStatus),
+    Tags: output.Tags != null ? deserializeAws_json1_0TagList(output.Tags, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0TLSInspectionConfigurations = (
+  output: any,
+  context: __SerdeContext
+): TLSInspectionConfigurationMetadata[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0TLSInspectionConfigurationMetadata(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_0UnsupportedOperationException = (
   output: any,
   context: __SerdeContext
@@ -4624,6 +5347,19 @@ const deserializeAws_json1_0UpdateSubnetChangeProtectionResponse = (
     FirewallArn: __expectString(output.FirewallArn),
     FirewallName: __expectString(output.FirewallName),
     SubnetChangeProtection: __expectBoolean(output.SubnetChangeProtection),
+    UpdateToken: __expectString(output.UpdateToken),
+  } as any;
+};
+
+const deserializeAws_json1_0UpdateTLSInspectionConfigurationResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateTLSInspectionConfigurationResponse => {
+  return {
+    TLSInspectionConfigurationResponse:
+      output.TLSInspectionConfigurationResponse != null
+        ? deserializeAws_json1_0TLSInspectionConfigurationResponse(output.TLSInspectionConfigurationResponse, context)
+        : undefined,
     UpdateToken: __expectString(output.UpdateToken),
   } as any;
 };
