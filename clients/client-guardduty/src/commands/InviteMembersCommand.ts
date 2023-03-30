@@ -36,8 +36,8 @@ export interface InviteMembersCommandOutput extends InviteMembersResponse, __Met
 /**
  * @public
  * <p>Invites other Amazon Web Services accounts (created as members of the current Amazon Web Services account by
- *       CreateMembers) to enable GuardDuty, and allow the current Amazon Web Services account to view and manage these
- *       accounts' findings on their behalf as the GuardDuty administrator account.</p>
+ *       CreateMembers) to enable GuardDuty, and allow the current Amazon Web Services account to view and manage
+ *       these accounts' findings on their behalf as the GuardDuty administrator account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

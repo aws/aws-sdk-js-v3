@@ -36,8 +36,8 @@ export interface CreateThreatIntelSetCommandOutput extends CreateThreatIntelSetR
 /**
  * @public
  * <p>Creates a new ThreatIntelSet. ThreatIntelSets consist of known malicious IP addresses.
- *       GuardDuty generates findings based on ThreatIntelSets. Only users of the administrator account can
- *       use this operation.</p>
+ *       GuardDuty generates findings based on ThreatIntelSets. Only users of the administrator
+ *       account can use this operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

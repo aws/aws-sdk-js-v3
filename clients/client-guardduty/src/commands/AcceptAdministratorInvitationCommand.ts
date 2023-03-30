@@ -37,7 +37,8 @@ export interface AcceptAdministratorInvitationCommandOutput
 
 /**
  * @public
- * <p>Accepts the invitation to be a member account and get monitored by a GuardDuty administrator account that sent the invitation.</p>
+ * <p>Accepts the invitation to be a member account and get monitored by a GuardDuty
+ *       administrator account that sent the invitation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

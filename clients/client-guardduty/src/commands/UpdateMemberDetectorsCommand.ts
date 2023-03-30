@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { UpdateMemberDetectorsRequest, UpdateMemberDetectorsResponse } from "../models/models_0";
+import { UpdateMemberDetectorsRequest, UpdateMemberDetectorsResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateMemberDetectorsCommand,
   serializeAws_restJson1UpdateMemberDetectorsCommand,
@@ -67,8 +67,14 @@ export interface UpdateMemberDetectorsCommandOutput extends UpdateMemberDetector
  *   },
  *   Features: [ // MemberFeaturesConfigurations
  *     { // MemberFeaturesConfiguration
- *       Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS",
+ *       Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "EKS_RUNTIME_MONITORING",
  *       Status: "ENABLED" || "DISABLED",
+ *       AdditionalConfiguration: [ // MemberAdditionalConfigurations
+ *         { // MemberAdditionalConfiguration
+ *           Name: "EKS_ADDON_MANAGEMENT",
+ *           Status: "ENABLED" || "DISABLED",
+ *         },
+ *       ],
  *     },
  *   ],
  * };

@@ -14,50 +14,69 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { UpdateFindingsFeedbackRequest, UpdateFindingsFeedbackResponse } from "../models/models_1";
+import { ListCoverageRequest, ListCoverageResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateFindingsFeedbackCommand,
-  serializeAws_restJson1UpdateFindingsFeedbackCommand,
+  deserializeAws_restJson1ListCoverageCommand,
+  serializeAws_restJson1ListCoverageCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  *
- * The input for {@link UpdateFindingsFeedbackCommand}.
+ * The input for {@link ListCoverageCommand}.
  */
-export interface UpdateFindingsFeedbackCommandInput extends UpdateFindingsFeedbackRequest {}
+export interface ListCoverageCommandInput extends ListCoverageRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateFindingsFeedbackCommand}.
+ * The output of {@link ListCoverageCommand}.
  */
-export interface UpdateFindingsFeedbackCommandOutput extends UpdateFindingsFeedbackResponse, __MetadataBearer {}
+export interface ListCoverageCommandOutput extends ListCoverageResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Marks the specified GuardDuty findings as useful or not useful.</p>
+ * <p>Lists coverage details for your GuardDuty account. If you're a GuardDuty administrator, you can
+ *       retrieve all resources associated with the active member accounts in your organization.</p>
+ *          <p>Make sure the accounts have EKS Runtime Monitoring enabled and GuardDuty agent running on
+ *       their EKS nodes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GuardDutyClient, UpdateFindingsFeedbackCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
- * // const { GuardDutyClient, UpdateFindingsFeedbackCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * import { GuardDutyClient, ListCoverageCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
+ * // const { GuardDutyClient, ListCoverageCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
- * const input = { // UpdateFindingsFeedbackRequest
+ * const input = { // ListCoverageRequest
  *   DetectorId: "STRING_VALUE", // required
- *   FindingIds: [ // FindingIds // required
- *     "STRING_VALUE",
- *   ],
- *   Feedback: "USEFUL" || "NOT_USEFUL", // required
- *   Comments: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   FilterCriteria: { // CoverageFilterCriteria
+ *     FilterCriterion: [ // CoverageFilterCriterionList
+ *       { // CoverageFilterCriterion
+ *         CriterionKey: "ACCOUNT_ID" || "CLUSTER_NAME" || "RESOURCE_TYPE" || "COVERAGE_STATUS" || "ADDON_VERSION",
+ *         FilterCondition: { // CoverageFilterCondition
+ *           Equals: [ // Equals
+ *             "STRING_VALUE",
+ *           ],
+ *           NotEquals: [ // NotEquals
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   SortCriteria: { // CoverageSortCriteria
+ *     AttributeName: "ACCOUNT_ID" || "CLUSTER_NAME" || "COVERAGE_STATUS" || "ISSUE" || "ADDON_VERSION" || "UPDATED_AT",
+ *     OrderBy: "ASC" || "DESC",
+ *   },
  * };
- * const command = new UpdateFindingsFeedbackCommand(input);
+ * const command = new ListCoverageCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @param UpdateFindingsFeedbackCommandInput - {@link UpdateFindingsFeedbackCommandInput}
- * @returns {@link UpdateFindingsFeedbackCommandOutput}
- * @see {@link UpdateFindingsFeedbackCommandInput} for command's `input` shape.
- * @see {@link UpdateFindingsFeedbackCommandOutput} for command's `response` shape.
+ * @param ListCoverageCommandInput - {@link ListCoverageCommandInput}
+ * @returns {@link ListCoverageCommandOutput}
+ * @see {@link ListCoverageCommandInput} for command's `input` shape.
+ * @see {@link ListCoverageCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
@@ -68,9 +87,9 @@ export interface UpdateFindingsFeedbackCommandOutput extends UpdateFindingsFeedb
  *
  *
  */
-export class UpdateFindingsFeedbackCommand extends $Command<
-  UpdateFindingsFeedbackCommandInput,
-  UpdateFindingsFeedbackCommandOutput,
+export class ListCoverageCommand extends $Command<
+  ListCoverageCommandInput,
+  ListCoverageCommandOutput,
   GuardDutyClientResolvedConfig
 > {
   // Start section: command_properties
@@ -88,7 +107,7 @@ export class UpdateFindingsFeedbackCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: UpdateFindingsFeedbackCommandInput) {
+  constructor(readonly input: ListCoverageCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -101,17 +120,15 @@ export class UpdateFindingsFeedbackCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateFindingsFeedbackCommandInput, UpdateFindingsFeedbackCommandOutput> {
+  ): Handler<ListCoverageCommandInput, ListCoverageCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateFindingsFeedbackCommand.getEndpointParameterInstructions())
-    );
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListCoverageCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "GuardDutyClient";
-    const commandName = "UpdateFindingsFeedbackCommand";
+    const commandName = "ListCoverageCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -130,15 +147,15 @@ export class UpdateFindingsFeedbackCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: UpdateFindingsFeedbackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateFindingsFeedbackCommand(input, context);
+  private serialize(input: ListCoverageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1ListCoverageCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFindingsFeedbackCommandOutput> {
-    return deserializeAws_restJson1UpdateFindingsFeedbackCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCoverageCommandOutput> {
+    return deserializeAws_restJson1ListCoverageCommand(output, context);
   }
 
   // Start section: command_body_extra

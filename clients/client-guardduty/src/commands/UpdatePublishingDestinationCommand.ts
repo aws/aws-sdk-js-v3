@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { UpdatePublishingDestinationRequest, UpdatePublishingDestinationResponse } from "../models/models_0";
+import { UpdatePublishingDestinationRequest, UpdatePublishingDestinationResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdatePublishingDestinationCommand,
   serializeAws_restJson1UpdatePublishingDestinationCommand,

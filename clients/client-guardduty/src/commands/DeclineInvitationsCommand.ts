@@ -35,8 +35,8 @@ export interface DeclineInvitationsCommandOutput extends DeclineInvitationsRespo
 
 /**
  * @public
- * <p>Declines invitations sent to the current member account by Amazon Web Services accounts specified by their
- *       account IDs.</p>
+ * <p>Declines invitations sent to the current member account by Amazon Web Services accounts specified by
+ *       their account IDs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

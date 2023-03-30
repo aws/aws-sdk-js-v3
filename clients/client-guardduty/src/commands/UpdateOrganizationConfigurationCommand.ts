@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { UpdateOrganizationConfigurationRequest, UpdateOrganizationConfigurationResponse } from "../models/models_0";
+import { UpdateOrganizationConfigurationRequest, UpdateOrganizationConfigurationResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateOrganizationConfigurationCommand,
   serializeAws_restJson1UpdateOrganizationConfigurationCommand,
@@ -37,8 +37,8 @@ export interface UpdateOrganizationConfigurationCommandOutput
 
 /**
  * @public
- * <p>Configures the delegated administrator account with the provided values. You must provide the value for either
- *       <code>autoEnableOrganizationMembers</code> or <code>autoEnable</code>. </p>
+ * <p>Configures the delegated administrator account with the provided values. You must provide
+ *       the value for either <code>autoEnableOrganizationMembers</code> or <code>autoEnable</code>. </p>
  *          <p>There might be regional differences because some data sources might not be
  *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
  *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
@@ -70,8 +70,14 @@ export interface UpdateOrganizationConfigurationCommandOutput
  *   },
  *   Features: [ // OrganizationFeaturesConfigurations
  *     { // OrganizationFeatureConfiguration
- *       Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS",
+ *       Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "EKS_RUNTIME_MONITORING",
  *       AutoEnable: "NEW" || "NONE",
+ *       AdditionalConfiguration: [ // OrganizationAdditionalConfigurations
+ *         { // OrganizationAdditionalConfiguration
+ *           Name: "EKS_ADDON_MANAGEMENT",
+ *           AutoEnable: "NEW" || "NONE",
+ *         },
+ *       ],
  *     },
  *   ],
  *   AutoEnableOrganizationMembers: "NEW" || "ALL" || "NONE",

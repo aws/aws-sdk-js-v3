@@ -35,7 +35,8 @@ export interface GetRemainingFreeTrialDaysCommandOutput extends GetRemainingFree
 
 /**
  * @public
- * <p>Provides the number of days left for each data source used in the free trial period.</p>
+ * <p>Provides the number of days left for each data source used in the free trial
+ *       period.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

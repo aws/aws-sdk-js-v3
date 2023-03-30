@@ -121,6 +121,10 @@ import {
   GetAdministratorAccountCommandInput,
   GetAdministratorAccountCommandOutput,
 } from "./commands/GetAdministratorAccountCommand";
+import {
+  GetCoverageStatisticsCommandInput,
+  GetCoverageStatisticsCommandOutput,
+} from "./commands/GetCoverageStatisticsCommand";
 import { GetDetectorCommandInput, GetDetectorCommandOutput } from "./commands/GetDetectorCommand";
 import { GetFilterCommandInput, GetFilterCommandOutput } from "./commands/GetFilterCommand";
 import { GetFindingsCommandInput, GetFindingsCommandOutput } from "./commands/GetFindingsCommand";
@@ -147,6 +151,7 @@ import {
 import { GetThreatIntelSetCommandInput, GetThreatIntelSetCommandOutput } from "./commands/GetThreatIntelSetCommand";
 import { GetUsageStatisticsCommandInput, GetUsageStatisticsCommandOutput } from "./commands/GetUsageStatisticsCommand";
 import { InviteMembersCommandInput, InviteMembersCommandOutput } from "./commands/InviteMembersCommand";
+import { ListCoverageCommandInput, ListCoverageCommandOutput } from "./commands/ListCoverageCommand";
 import { ListDetectorsCommandInput, ListDetectorsCommandOutput } from "./commands/ListDetectorsCommand";
 import { ListFiltersCommandInput, ListFiltersCommandOutput } from "./commands/ListFiltersCommand";
 import { ListFindingsCommandInput, ListFindingsCommandOutput } from "./commands/ListFindingsCommand";
@@ -246,6 +251,7 @@ export type ServiceInputTypes =
   | DisassociateMembersCommandInput
   | EnableOrganizationAdminAccountCommandInput
   | GetAdministratorAccountCommandInput
+  | GetCoverageStatisticsCommandInput
   | GetDetectorCommandInput
   | GetFilterCommandInput
   | GetFindingsCommandInput
@@ -260,6 +266,7 @@ export type ServiceInputTypes =
   | GetThreatIntelSetCommandInput
   | GetUsageStatisticsCommandInput
   | InviteMembersCommandInput
+  | ListCoverageCommandInput
   | ListDetectorsCommandInput
   | ListFiltersCommandInput
   | ListFindingsCommandInput
@@ -316,6 +323,7 @@ export type ServiceOutputTypes =
   | DisassociateMembersCommandOutput
   | EnableOrganizationAdminAccountCommandOutput
   | GetAdministratorAccountCommandOutput
+  | GetCoverageStatisticsCommandOutput
   | GetDetectorCommandOutput
   | GetFilterCommandOutput
   | GetFindingsCommandOutput
@@ -330,6 +338,7 @@ export type ServiceOutputTypes =
   | GetThreatIntelSetCommandOutput
   | GetUsageStatisticsCommandOutput
   | InviteMembersCommandOutput
+  | ListCoverageCommandOutput
   | ListDetectorsCommandOutput
   | ListFiltersCommandOutput
   | ListFindingsCommandOutput
@@ -526,16 +535,15 @@ export interface GuardDutyClientResolvedConfig extends GuardDutyClientResolvedCo
  *       feeds, such as lists of malicious IPs and domains, and machine learning to identify
  *       unexpected, potentially unauthorized, and malicious activity within your Amazon Web Services environment.
  *       This can include issues like escalations of privileges, uses of exposed credentials, or
- *       communication with malicious IPs, domains, or presence of malware on your
- *       Amazon EC2 instances and container workloads. For example, GuardDuty can detect
- *       compromised EC2 instances and container workloads serving malware, or mining bitcoin. </p>
- *          <p>GuardDuty also monitors Amazon Web Services account access behavior for signs of compromise, such
- *       as unauthorized infrastructure deployments like EC2 instances deployed in a Region
- *       that has never been used, or unusual API calls like a password policy change to reduce
- *       password strength. </p>
- *          <p>GuardDuty informs you about the status of your Amazon Web Services environment by producing
- *       security findings that you can view in the GuardDuty console or through Amazon EventBridge.
- *       For more information, see the <i>
+ *       communication with malicious IPs, domains, or presence of malware on your Amazon EC2 instances
+ *       and container workloads. For example, GuardDuty can detect compromised EC2 instances and
+ *       container workloads serving malware, or mining bitcoin. </p>
+ *          <p>GuardDuty also monitors Amazon Web Services account access behavior for signs of compromise, such as
+ *       unauthorized infrastructure deployments like EC2 instances deployed in a Region that has never
+ *       been used, or unusual API calls like a password policy change to reduce password strength. </p>
+ *          <p>GuardDuty informs you about the status of your Amazon Web Services environment by producing security
+ *       findings that you can view in the GuardDuty console or through Amazon EventBridge. For more
+ *       information, see the <i>
  *                <a href="https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html">Amazon
  *           GuardDuty User Guide</a>
  *             </i>. </p>

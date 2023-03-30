@@ -128,6 +128,11 @@ import {
   GetAdministratorAccountCommandInput,
   GetAdministratorAccountCommandOutput,
 } from "./commands/GetAdministratorAccountCommand";
+import {
+  GetCoverageStatisticsCommand,
+  GetCoverageStatisticsCommandInput,
+  GetCoverageStatisticsCommandOutput,
+} from "./commands/GetCoverageStatisticsCommand";
 import { GetDetectorCommand, GetDetectorCommandInput, GetDetectorCommandOutput } from "./commands/GetDetectorCommand";
 import { GetFilterCommand, GetFilterCommandInput, GetFilterCommandOutput } from "./commands/GetFilterCommand";
 import { GetFindingsCommand, GetFindingsCommandInput, GetFindingsCommandOutput } from "./commands/GetFindingsCommand";
@@ -178,6 +183,11 @@ import {
   InviteMembersCommandInput,
   InviteMembersCommandOutput,
 } from "./commands/InviteMembersCommand";
+import {
+  ListCoverageCommand,
+  ListCoverageCommandInput,
+  ListCoverageCommandOutput,
+} from "./commands/ListCoverageCommand";
 import {
   ListDetectorsCommand,
   ListDetectorsCommandInput,
@@ -289,16 +299,15 @@ import { GuardDutyClient } from "./GuardDutyClient";
  *       feeds, such as lists of malicious IPs and domains, and machine learning to identify
  *       unexpected, potentially unauthorized, and malicious activity within your Amazon Web Services environment.
  *       This can include issues like escalations of privileges, uses of exposed credentials, or
- *       communication with malicious IPs, domains, or presence of malware on your
- *       Amazon EC2 instances and container workloads. For example, GuardDuty can detect
- *       compromised EC2 instances and container workloads serving malware, or mining bitcoin. </p>
- *          <p>GuardDuty also monitors Amazon Web Services account access behavior for signs of compromise, such
- *       as unauthorized infrastructure deployments like EC2 instances deployed in a Region
- *       that has never been used, or unusual API calls like a password policy change to reduce
- *       password strength. </p>
- *          <p>GuardDuty informs you about the status of your Amazon Web Services environment by producing
- *       security findings that you can view in the GuardDuty console or through Amazon EventBridge.
- *       For more information, see the <i>
+ *       communication with malicious IPs, domains, or presence of malware on your Amazon EC2 instances
+ *       and container workloads. For example, GuardDuty can detect compromised EC2 instances and
+ *       container workloads serving malware, or mining bitcoin. </p>
+ *          <p>GuardDuty also monitors Amazon Web Services account access behavior for signs of compromise, such as
+ *       unauthorized infrastructure deployments like EC2 instances deployed in a Region that has never
+ *       been used, or unusual API calls like a password policy change to reduce password strength. </p>
+ *          <p>GuardDuty informs you about the status of your Amazon Web Services environment by producing security
+ *       findings that you can view in the GuardDuty console or through Amazon EventBridge. For more
+ *       information, see the <i>
  *                <a href="https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html">Amazon
  *           GuardDuty User Guide</a>
  *             </i>. </p>
@@ -306,7 +315,8 @@ import { GuardDutyClient } from "./GuardDutyClient";
 export class GuardDuty extends GuardDutyClient {
   /**
    * @public
-   * <p>Accepts the invitation to be a member account and get monitored by a GuardDuty administrator account that sent the invitation.</p>
+   * <p>Accepts the invitation to be a member account and get monitored by a GuardDuty
+   *       administrator account that sent the invitation.</p>
    */
   public acceptAdministratorInvitation(
     args: AcceptAdministratorInvitationCommandInput,
@@ -376,8 +386,8 @@ export class GuardDuty extends GuardDutyClient {
    * @public
    * <p>Archives GuardDuty findings that are specified by the list of finding IDs.</p>
    *          <note>
-   *             <p>Only the administrator account can archive findings. Member accounts don't have permission to
-   *         archive findings from their accounts.</p>
+   *             <p>Only the administrator account can archive findings. Member accounts don't have
+   *         permission to archive findings from their accounts.</p>
    *          </note>
    */
   public archiveFindings(
@@ -516,10 +526,10 @@ export class GuardDuty extends GuardDutyClient {
    *       invitation or through an organization.</p>
    *          <p>When using <code>Create Members</code> as an organizations delegated administrator this
    *       action will enable GuardDuty in the added member accounts, with the exception of the
-   *       organization delegated administrator account, which must enable GuardDuty prior to being added as a
-   *       member.</p>
+   *       organization delegated administrator account, which must enable GuardDuty prior to being added
+   *       as a member.</p>
    *          <p>If you are adding accounts by invitation, use this action after GuardDuty has bee enabled in
-   *     potential member accounts and before using <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html">InviteMembers</a>.</p>
+   *       potential member accounts and before using <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html">InviteMembers</a>.</p>
    */
   public createMembers(
     args: CreateMembersCommandInput,
@@ -622,8 +632,8 @@ export class GuardDuty extends GuardDutyClient {
   /**
    * @public
    * <p>Creates a new ThreatIntelSet. ThreatIntelSets consist of known malicious IP addresses.
-   *       GuardDuty generates findings based on ThreatIntelSets. Only users of the administrator account can
-   *       use this operation.</p>
+   *       GuardDuty generates findings based on ThreatIntelSets. Only users of the administrator
+   *       account can use this operation.</p>
    */
   public createThreatIntelSet(
     args: CreateThreatIntelSetCommandInput,
@@ -656,8 +666,8 @@ export class GuardDuty extends GuardDutyClient {
 
   /**
    * @public
-   * <p>Declines invitations sent to the current member account by Amazon Web Services accounts specified by their
-   *       account IDs.</p>
+   * <p>Declines invitations sent to the current member account by Amazon Web Services accounts specified by
+   *       their account IDs.</p>
    */
   public declineInvitations(
     args: DeclineInvitationsCommandInput,
@@ -753,8 +763,8 @@ export class GuardDuty extends GuardDutyClient {
 
   /**
    * @public
-   * <p>Deletes invitations sent to the current member account by Amazon Web Services accounts specified by their
-   *       account IDs.</p>
+   * <p>Deletes invitations sent to the current member account by Amazon Web Services accounts specified by
+   *       their account IDs.</p>
    */
   public deleteInvitations(
     args: DeleteInvitationsCommandInput,
@@ -815,10 +825,11 @@ export class GuardDuty extends GuardDutyClient {
 
   /**
    * @public
-   * <p>Deletes GuardDuty member accounts (to the current GuardDuty administrator account) specified by
-   *       the account IDs.</p>
-   *          <p>With <code>autoEnableOrganizationMembers</code> configuration for your organization set to <code>ALL</code>, you'll
-   *       receive an error if you attempt to disable GuardDuty for a member account in your organization.</p>
+   * <p>Deletes GuardDuty member accounts (to the current GuardDuty administrator account)
+   *       specified by the account IDs.</p>
+   *          <p>With <code>autoEnableOrganizationMembers</code> configuration for your organization set to
+   *         <code>ALL</code>, you'll receive an error if you attempt to disable GuardDuty for a member
+   *       account in your organization.</p>
    */
   public deleteMembers(
     args: DeleteMembersCommandInput,
@@ -1060,8 +1071,9 @@ export class GuardDuty extends GuardDutyClient {
   /**
    * @public
    * <p>Disassociates the current GuardDuty member account from its administrator account.</p>
-   *          <p>With <code>autoEnableOrganizationMembers</code> configuration for your organization set to <code>ALL</code>, you'll
-   *       receive an error if you attempt to disable GuardDuty in a member account.</p>
+   *          <p>With <code>autoEnableOrganizationMembers</code> configuration for your organization set to
+   *         <code>ALL</code>, you'll receive an error if you attempt to disable GuardDuty in a member
+   *       account.</p>
    */
   public disassociateFromAdministratorAccount(
     args: DisassociateFromAdministratorAccountCommandInput,
@@ -1129,9 +1141,11 @@ export class GuardDuty extends GuardDutyClient {
 
   /**
    * @public
-   * <p>Disassociates GuardDuty member accounts (to the current administrator account) specified by the account IDs.</p>
-   *          <p>With <code>autoEnableOrganizationMembers</code> configuration for your organization set to <code>ALL</code>, you'll
-   *       receive an error if you attempt to disassociate a member account before removing them from your Amazon Web Services organization.</p>
+   * <p>Disassociates GuardDuty member accounts (to the current administrator account) specified
+   *       by the account IDs.</p>
+   *          <p>With <code>autoEnableOrganizationMembers</code> configuration for your organization set to
+   *         <code>ALL</code>, you'll receive an error if you attempt to disassociate a member account
+   *       before removing them from your Amazon Web Services organization.</p>
    */
   public disassociateMembers(
     args: DisassociateMembersCommandInput,
@@ -1220,6 +1234,42 @@ export class GuardDuty extends GuardDutyClient {
     cb?: (err: any, data?: GetAdministratorAccountCommandOutput) => void
   ): Promise<GetAdministratorAccountCommandOutput> | void {
     const command = new GetAdministratorAccountCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Retrieves aggregated statistics for your account. If you are a GuardDuty administrator, you
+   *       can retrieve the statistics for all the resources associated with the active member accounts
+   *       in your organization who have enabled EKS Runtime Monitoring and have the GuardDuty agent running
+   *       on their EKS nodes.</p>
+   */
+  public getCoverageStatistics(
+    args: GetCoverageStatisticsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCoverageStatisticsCommandOutput>;
+  public getCoverageStatistics(
+    args: GetCoverageStatisticsCommandInput,
+    cb: (err: any, data?: GetCoverageStatisticsCommandOutput) => void
+  ): void;
+  public getCoverageStatistics(
+    args: GetCoverageStatisticsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCoverageStatisticsCommandOutput) => void
+  ): void;
+  public getCoverageStatistics(
+    args: GetCoverageStatisticsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCoverageStatisticsCommandOutput) => void),
+    cb?: (err: any, data?: GetCoverageStatisticsCommandOutput) => void
+  ): Promise<GetCoverageStatisticsCommandOutput> | void {
+    const command = new GetCoverageStatisticsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1518,8 +1568,8 @@ export class GuardDuty extends GuardDutyClient {
 
   /**
    * @public
-   * <p>Retrieves GuardDuty member accounts (of the current GuardDuty administrator account) specified by
-   *       the account IDs.</p>
+   * <p>Retrieves GuardDuty member accounts (of the current GuardDuty administrator account)
+   *       specified by the account IDs.</p>
    */
   public getMembers(args: GetMembersCommandInput, options?: __HttpHandlerOptions): Promise<GetMembersCommandOutput>;
   public getMembers(args: GetMembersCommandInput, cb: (err: any, data?: GetMembersCommandOutput) => void): void;
@@ -1546,7 +1596,8 @@ export class GuardDuty extends GuardDutyClient {
 
   /**
    * @public
-   * <p>Provides the number of days left for each data source used in the free trial period.</p>
+   * <p>Provides the number of days left for each data source used in the free trial
+   *       period.</p>
    */
   public getRemainingFreeTrialDays(
     args: GetRemainingFreeTrialDaysCommandInput,
@@ -1649,8 +1700,8 @@ export class GuardDuty extends GuardDutyClient {
   /**
    * @public
    * <p>Invites other Amazon Web Services accounts (created as members of the current Amazon Web Services account by
-   *       CreateMembers) to enable GuardDuty, and allow the current Amazon Web Services account to view and manage these
-   *       accounts' findings on their behalf as the GuardDuty administrator account.</p>
+   *       CreateMembers) to enable GuardDuty, and allow the current Amazon Web Services account to view and manage
+   *       these accounts' findings on their behalf as the GuardDuty administrator account.</p>
    */
   public inviteMembers(
     args: InviteMembersCommandInput,
@@ -1671,6 +1722,39 @@ export class GuardDuty extends GuardDutyClient {
     cb?: (err: any, data?: InviteMembersCommandOutput) => void
   ): Promise<InviteMembersCommandOutput> | void {
     const command = new InviteMembersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Lists coverage details for your GuardDuty account. If you're a GuardDuty administrator, you can
+   *       retrieve all resources associated with the active member accounts in your organization.</p>
+   *          <p>Make sure the accounts have EKS Runtime Monitoring enabled and GuardDuty agent running on
+   *       their EKS nodes.</p>
+   */
+  public listCoverage(
+    args: ListCoverageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCoverageCommandOutput>;
+  public listCoverage(args: ListCoverageCommandInput, cb: (err: any, data?: ListCoverageCommandOutput) => void): void;
+  public listCoverage(
+    args: ListCoverageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCoverageCommandOutput) => void
+  ): void;
+  public listCoverage(
+    args: ListCoverageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCoverageCommandOutput) => void),
+    cb?: (err: any, data?: ListCoverageCommandOutput) => void
+  ): Promise<ListCoverageCommandOutput> | void {
+    const command = new ListCoverageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1808,8 +1892,8 @@ export class GuardDuty extends GuardDutyClient {
   /**
    * @public
    * <p>Lists the IPSets of the GuardDuty service specified by the detector ID. If you use this
-   *       operation from a member account, the IPSets returned are the IPSets from the associated administrator
-   *       account.</p>
+   *       operation from a member account, the IPSets returned are the IPSets from the associated
+   *       administrator account.</p>
    */
   public listIPSets(args: ListIPSetsCommandInput, options?: __HttpHandlerOptions): Promise<ListIPSetsCommandOutput>;
   public listIPSets(args: ListIPSetsCommandInput, cb: (err: any, data?: ListIPSetsCommandOutput) => void): void;
@@ -1836,7 +1920,8 @@ export class GuardDuty extends GuardDutyClient {
 
   /**
    * @public
-   * <p>Lists details about all member accounts for the current GuardDuty administrator account.</p>
+   * <p>Lists details about all member accounts for the current GuardDuty administrator
+   *       account.</p>
    */
   public listMembers(args: ListMembersCommandInput, options?: __HttpHandlerOptions): Promise<ListMembersCommandOutput>;
   public listMembers(args: ListMembersCommandInput, cb: (err: any, data?: ListMembersCommandOutput) => void): void;
@@ -1966,8 +2051,8 @@ export class GuardDuty extends GuardDutyClient {
   /**
    * @public
    * <p>Lists the ThreatIntelSets of the GuardDuty service specified by the detector ID. If you
-   *       use this operation from a member account, the ThreatIntelSets associated with the administrator
-   *       account are returned.</p>
+   *       use this operation from a member account, the ThreatIntelSets associated with the
+   *       administrator account are returned.</p>
    */
   public listThreatIntelSets(
     args: ListThreatIntelSetsCommandInput,
@@ -2001,8 +2086,7 @@ export class GuardDuty extends GuardDutyClient {
   /**
    * @public
    * <p>Turns on GuardDuty monitoring of the specified member accounts. Use this operation to
-   *       restart monitoring of accounts that you stopped monitoring with the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_StopMonitoringMembers.html">StopMonitoringMembers</a>
-   *        operation.</p>
+   *       restart monitoring of accounts that you stopped monitoring with the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_StopMonitoringMembers.html">StopMonitoringMembers</a> operation.</p>
    */
   public startMonitoringMembers(
     args: StartMonitoringMembersCommandInput,
@@ -2038,8 +2122,9 @@ export class GuardDuty extends GuardDutyClient {
    * <p>Stops GuardDuty monitoring for the specified member accounts. Use the
    *         <code>StartMonitoringMembers</code> operation to restart monitoring for those
    *       accounts.</p>
-   *          <p>With <code>autoEnableOrganizationMembers</code> configuration for your organization set to <code>ALL</code>, you'll
-   *       receive an error if you attempt to stop monitoring the member accounts in your organization.</p>
+   *          <p>With <code>autoEnableOrganizationMembers</code> configuration for your organization set to
+   *         <code>ALL</code>, you'll receive an error if you attempt to stop monitoring the member
+   *       accounts in your organization.</p>
    */
   public stopMonitoringMembers(
     args: StopMonitoringMembersCommandInput,
@@ -2363,8 +2448,8 @@ export class GuardDuty extends GuardDutyClient {
 
   /**
    * @public
-   * <p>Configures the delegated administrator account with the provided values. You must provide the value for either
-   *       <code>autoEnableOrganizationMembers</code> or <code>autoEnable</code>. </p>
+   * <p>Configures the delegated administrator account with the provided values. You must provide
+   *       the value for either <code>autoEnableOrganizationMembers</code> or <code>autoEnable</code>. </p>
    *          <p>There might be regional differences because some data sources might not be
    *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
    *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>

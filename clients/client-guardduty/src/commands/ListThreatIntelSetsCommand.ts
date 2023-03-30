@@ -36,8 +36,8 @@ export interface ListThreatIntelSetsCommandOutput extends ListThreatIntelSetsRes
 /**
  * @public
  * <p>Lists the ThreatIntelSets of the GuardDuty service specified by the detector ID. If you
- *       use this operation from a member account, the ThreatIntelSets associated with the administrator
- *       account are returned.</p>
+ *       use this operation from a member account, the ThreatIntelSets associated with the
+ *       administrator account are returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

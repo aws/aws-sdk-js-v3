@@ -37,8 +37,8 @@ export interface ArchiveFindingsCommandOutput extends ArchiveFindingsResponse, _
  * @public
  * <p>Archives GuardDuty findings that are specified by the list of finding IDs.</p>
  *          <note>
- *             <p>Only the administrator account can archive findings. Member accounts don't have permission to
- *         archive findings from their accounts.</p>
+ *             <p>Only the administrator account can archive findings. Member accounts don't have
+ *         permission to archive findings from their accounts.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -95,6 +95,10 @@ import {
   GetAdministratorAccountCommandInput,
   GetAdministratorAccountCommandOutput,
 } from "../commands/GetAdministratorAccountCommand";
+import {
+  GetCoverageStatisticsCommandInput,
+  GetCoverageStatisticsCommandOutput,
+} from "../commands/GetCoverageStatisticsCommand";
 import { GetDetectorCommandInput, GetDetectorCommandOutput } from "../commands/GetDetectorCommand";
 import { GetFilterCommandInput, GetFilterCommandOutput } from "../commands/GetFilterCommand";
 import { GetFindingsCommandInput, GetFindingsCommandOutput } from "../commands/GetFindingsCommand";
@@ -121,6 +125,7 @@ import {
 import { GetThreatIntelSetCommandInput, GetThreatIntelSetCommandOutput } from "../commands/GetThreatIntelSetCommand";
 import { GetUsageStatisticsCommandInput, GetUsageStatisticsCommandOutput } from "../commands/GetUsageStatisticsCommand";
 import { InviteMembersCommandInput, InviteMembersCommandOutput } from "../commands/InviteMembersCommand";
+import { ListCoverageCommandInput, ListCoverageCommandOutput } from "../commands/ListCoverageCommand";
 import { ListDetectorsCommandInput, ListDetectorsCommandOutput } from "../commands/ListDetectorsCommand";
 import { ListFiltersCommandInput, ListFiltersCommandOutput } from "../commands/ListFiltersCommand";
 import { ListFindingsCommandInput, ListFindingsCommandOutput } from "../commands/ListFindingsCommand";
@@ -189,6 +194,7 @@ import {
   AccountFreeTrialInfo,
   AccountLevelPermissions,
   Action,
+  AddonDetails,
   AdminAccount,
   Administrator,
   AwsApiCallAction,
@@ -201,6 +207,16 @@ import {
   Condition,
   Container,
   Country,
+  CoverageEksClusterDetails,
+  CoverageFilterCondition,
+  CoverageFilterCriteria,
+  CoverageFilterCriterion,
+  CoverageResource,
+  CoverageResourceDetails,
+  CoverageSortCriteria,
+  CoverageStatistics,
+  CoverageStatisticsType,
+  CoverageStatus,
   DataSource,
   DataSourceConfigurations,
   DataSourceConfigurationsResult,
@@ -209,6 +225,8 @@ import {
   DefaultServerSideEncryption,
   Destination,
   DestinationProperties,
+  DetectorAdditionalConfiguration,
+  DetectorAdditionalConfigurationResult,
   DetectorFeatureConfiguration,
   DetectorFeatureConfigurationResult,
   DNSLogsConfigurationResult,
@@ -246,6 +264,7 @@ import {
   KubernetesDetails,
   KubernetesUserDetails,
   KubernetesWorkloadDetails,
+  LineageObject,
   LocalIpDetails,
   LocalPortDetails,
   LoginAttribute,
@@ -254,33 +273,27 @@ import {
   MalwareProtectionDataSourceFreeTrial,
   Master,
   Member,
+  MemberAdditionalConfigurationResult,
   MemberDataSourceConfiguration,
-  MemberFeaturesConfiguration,
   MemberFeaturesConfigurationResult,
   NetworkConnectionAction,
   NetworkInterface,
   Organization,
-  OrganizationDataSourceConfigurations,
+  OrganizationAdditionalConfigurationResult,
   OrganizationDataSourceConfigurationsResult,
-  OrganizationEbsVolumes,
   OrganizationEbsVolumesResult,
-  OrganizationFeatureConfiguration,
   OrganizationFeatureConfigurationResult,
-  OrganizationKubernetesAuditLogsConfiguration,
   OrganizationKubernetesAuditLogsConfigurationResult,
-  OrganizationKubernetesConfiguration,
   OrganizationKubernetesConfigurationResult,
-  OrganizationMalwareProtectionConfiguration,
   OrganizationMalwareProtectionConfigurationResult,
-  OrganizationS3LogsConfiguration,
   OrganizationS3LogsConfigurationResult,
-  OrganizationScanEc2InstanceWithFindings,
   OrganizationScanEc2InstanceWithFindingsResult,
   Owner,
   PermissionConfiguration,
   PortProbeAction,
   PortProbeDetail,
   PrivateIpAddressDetails,
+  ProcessDetails,
   ProductCode,
   PublicAccess,
   RdsDbInstanceDetails,
@@ -291,6 +304,9 @@ import {
   RemotePortDetails,
   Resource,
   ResourceDetails,
+  ResourceType,
+  RuntimeContext,
+  RuntimeDetails,
   S3BucketDetail,
   S3LogsConfiguration,
   S3LogsConfigurationResult,
@@ -330,6 +346,19 @@ import {
   VolumeDetail,
   VolumeMount,
 } from "../models/models_0";
+import {
+  MemberAdditionalConfiguration,
+  MemberFeaturesConfiguration,
+  OrganizationAdditionalConfiguration,
+  OrganizationDataSourceConfigurations,
+  OrganizationEbsVolumes,
+  OrganizationFeatureConfiguration,
+  OrganizationKubernetesAuditLogsConfiguration,
+  OrganizationKubernetesConfiguration,
+  OrganizationMalwareProtectionConfiguration,
+  OrganizationS3LogsConfiguration,
+  OrganizationScanEc2InstanceWithFindings,
+} from "../models/models_1";
 
 export const serializeAws_restJson1AcceptAdministratorInvitationCommand = async (
   input: AcceptAdministratorInvitationCommandInput,
@@ -1055,6 +1084,38 @@ export const serializeAws_restJson1GetAdministratorAccountCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetCoverageStatisticsCommand = async (
+  input: GetCoverageStatisticsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/detector/{DetectorId}/coverage/statistics";
+  resolvedPath = __resolvedPath(resolvedPath, input, "DetectorId", () => input.DetectorId!, "{DetectorId}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.FilterCriteria != null && {
+      filterCriteria: serializeAws_restJson1CoverageFilterCriteria(input.FilterCriteria, context),
+    }),
+    ...(input.StatisticsType != null && {
+      statisticsType: serializeAws_restJson1CoverageStatisticsTypeList(input.StatisticsType, context),
+    }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetDetectorCommand = async (
   input: GetDetectorCommandInput,
   context: __SerdeContext
@@ -1404,6 +1465,39 @@ export const serializeAws_restJson1InviteMembersCommand = async (
     ...(input.AccountIds != null && { accountIds: serializeAws_restJson1AccountIds(input.AccountIds, context) }),
     ...(input.DisableEmailNotification != null && { disableEmailNotification: input.DisableEmailNotification }),
     ...(input.Message != null && { message: input.Message }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListCoverageCommand = async (
+  input: ListCoverageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/detector/{DetectorId}/coverage";
+  resolvedPath = __resolvedPath(resolvedPath, input, "DetectorId", () => input.DetectorId!, "{DetectorId}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.FilterCriteria != null && {
+      filterCriteria: serializeAws_restJson1CoverageFilterCriteria(input.FilterCriteria, context),
+    }),
+    ...(input.MaxResults != null && { maxResults: input.MaxResults }),
+    ...(input.NextToken != null && { nextToken: input.NextToken }),
+    ...(input.SortCriteria != null && {
+      sortCriteria: serializeAws_restJson1CoverageSortCriteria(input.SortCriteria, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -3285,6 +3379,50 @@ const deserializeAws_restJson1GetAdministratorAccountCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1GetCoverageStatisticsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCoverageStatisticsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetCoverageStatisticsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.coverageStatistics != null) {
+    contents.CoverageStatistics = deserializeAws_restJson1CoverageStatistics(data.coverageStatistics, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1GetCoverageStatisticsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCoverageStatisticsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.guardduty#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.guardduty#InternalServerErrorException":
+      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1GetDetectorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3956,6 +4094,53 @@ const deserializeAws_restJson1InviteMembersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InviteMembersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.guardduty#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.guardduty#InternalServerErrorException":
+      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1ListCoverageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCoverageCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListCoverageCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.nextToken != null) {
+    contents.NextToken = __expectString(data.nextToken);
+  }
+  if (data.resources != null) {
+    contents.Resources = deserializeAws_restJson1CoverageResources(data.resources, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListCoverageCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCoverageCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -5111,6 +5296,65 @@ const serializeAws_restJson1Condition = (input: Condition, context: __SerdeConte
   };
 };
 
+const serializeAws_restJson1CoverageFilterCondition = (
+  input: CoverageFilterCondition,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Equals != null && { equals: serializeAws_restJson1Equals(input.Equals, context) }),
+    ...(input.NotEquals != null && { notEquals: serializeAws_restJson1NotEquals(input.NotEquals, context) }),
+  };
+};
+
+const serializeAws_restJson1CoverageFilterCriteria = (input: CoverageFilterCriteria, context: __SerdeContext): any => {
+  return {
+    ...(input.FilterCriterion != null && {
+      filterCriterion: serializeAws_restJson1CoverageFilterCriterionList(input.FilterCriterion, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1CoverageFilterCriterion = (
+  input: CoverageFilterCriterion,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CriterionKey != null && { criterionKey: input.CriterionKey }),
+    ...(input.FilterCondition != null && {
+      filterCondition: serializeAws_restJson1CoverageFilterCondition(input.FilterCondition, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1CoverageFilterCriterionList = (
+  input: CoverageFilterCriterion[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1CoverageFilterCriterion(entry, context);
+    });
+};
+
+const serializeAws_restJson1CoverageSortCriteria = (input: CoverageSortCriteria, context: __SerdeContext): any => {
+  return {
+    ...(input.AttributeName != null && { attributeName: input.AttributeName }),
+    ...(input.OrderBy != null && { orderBy: input.OrderBy }),
+  };
+};
+
+const serializeAws_restJson1CoverageStatisticsTypeList = (
+  input: (CoverageStatisticsType | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const serializeAws_restJson1Criterion = (input: Record<string, Condition>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
@@ -5151,11 +5395,38 @@ const serializeAws_restJson1DestinationProperties = (input: DestinationPropertie
   };
 };
 
+const serializeAws_restJson1DetectorAdditionalConfiguration = (
+  input: DetectorAdditionalConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Name != null && { name: input.Name }),
+    ...(input.Status != null && { status: input.Status }),
+  };
+};
+
+const serializeAws_restJson1DetectorAdditionalConfigurations = (
+  input: DetectorAdditionalConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1DetectorAdditionalConfiguration(entry, context);
+    });
+};
+
 const serializeAws_restJson1DetectorFeatureConfiguration = (
   input: DetectorFeatureConfiguration,
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AdditionalConfiguration != null && {
+      additionalConfiguration: serializeAws_restJson1DetectorAdditionalConfigurations(
+        input.AdditionalConfiguration,
+        context
+      ),
+    }),
     ...(input.Name != null && { name: input.Name }),
     ...(input.Status != null && { status: input.Status }),
   };
@@ -5296,11 +5567,38 @@ const serializeAws_restJson1MapEquals = (input: ScanConditionPair[], context: __
     });
 };
 
+const serializeAws_restJson1MemberAdditionalConfiguration = (
+  input: MemberAdditionalConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Name != null && { name: input.Name }),
+    ...(input.Status != null && { status: input.Status }),
+  };
+};
+
+const serializeAws_restJson1MemberAdditionalConfigurations = (
+  input: MemberAdditionalConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1MemberAdditionalConfiguration(entry, context);
+    });
+};
+
 const serializeAws_restJson1MemberFeaturesConfiguration = (
   input: MemberFeaturesConfiguration,
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AdditionalConfiguration != null && {
+      additionalConfiguration: serializeAws_restJson1MemberAdditionalConfigurations(
+        input.AdditionalConfiguration,
+        context
+      ),
+    }),
     ...(input.Name != null && { name: input.Name }),
     ...(input.Status != null && { status: input.Status }),
   };
@@ -5330,6 +5628,27 @@ const serializeAws_restJson1NotEquals = (input: string[], context: __SerdeContex
     .filter((e: any) => e != null)
     .map((entry) => {
       return entry;
+    });
+};
+
+const serializeAws_restJson1OrganizationAdditionalConfiguration = (
+  input: OrganizationAdditionalConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AutoEnable != null && { autoEnable: input.AutoEnable }),
+    ...(input.Name != null && { name: input.Name }),
+  };
+};
+
+const serializeAws_restJson1OrganizationAdditionalConfigurations = (
+  input: OrganizationAdditionalConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1OrganizationAdditionalConfiguration(entry, context);
     });
 };
 
@@ -5364,6 +5683,12 @@ const serializeAws_restJson1OrganizationFeatureConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AdditionalConfiguration != null && {
+      additionalConfiguration: serializeAws_restJson1OrganizationAdditionalConfigurations(
+        input.AdditionalConfiguration,
+        context
+      ),
+    }),
     ...(input.AutoEnable != null && { autoEnable: input.AutoEnable }),
     ...(input.Name != null && { name: input.Name }),
   };
@@ -5608,6 +5933,13 @@ const deserializeAws_restJson1Action = (output: any, context: __SerdeContext): A
   } as any;
 };
 
+const deserializeAws_restJson1AddonDetails = (output: any, context: __SerdeContext): AddonDetails => {
+  return {
+    AddonStatus: __expectString(output.addonStatus),
+    AddonVersion: __expectString(output.addonVersion),
+  } as any;
+};
+
 const deserializeAws_restJson1AdminAccount = (output: any, context: __SerdeContext): AdminAccount => {
   return {
     AdminAccountId: __expectString(output.adminAccountId),
@@ -5764,6 +6096,29 @@ const deserializeAws_restJson1Containers = (output: any, context: __SerdeContext
   return retVal;
 };
 
+const deserializeAws_restJson1CountByCoverageStatus = (
+  output: any,
+  context: __SerdeContext
+): Record<string, number> => {
+  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [CoverageStatus | string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = __expectLong(value) as any;
+    return acc;
+  }, {});
+};
+
+const deserializeAws_restJson1CountByResourceType = (output: any, context: __SerdeContext): Record<string, number> => {
+  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [ResourceType | string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = __expectLong(value) as any;
+    return acc;
+  }, {});
+};
+
 const deserializeAws_restJson1CountBySeverity = (output: any, context: __SerdeContext): Record<string, number> => {
   return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
     if (value === null) {
@@ -5778,6 +6133,73 @@ const deserializeAws_restJson1Country = (output: any, context: __SerdeContext): 
   return {
     CountryCode: __expectString(output.countryCode),
     CountryName: __expectString(output.countryName),
+  } as any;
+};
+
+const deserializeAws_restJson1CoverageEksClusterDetails = (
+  output: any,
+  context: __SerdeContext
+): CoverageEksClusterDetails => {
+  return {
+    AddonDetails:
+      output.addonDetails != null ? deserializeAws_restJson1AddonDetails(output.addonDetails, context) : undefined,
+    ClusterName: __expectString(output.clusterName),
+    CompatibleNodes: __expectLong(output.compatibleNodes),
+    CoveredNodes: __expectLong(output.coveredNodes),
+  } as any;
+};
+
+const deserializeAws_restJson1CoverageResource = (output: any, context: __SerdeContext): CoverageResource => {
+  return {
+    AccountId: __expectString(output.accountId),
+    CoverageStatus: __expectString(output.coverageStatus),
+    DetectorId: __expectString(output.detectorId),
+    Issue: __expectString(output.issue),
+    ResourceDetails:
+      output.resourceDetails != null
+        ? deserializeAws_restJson1CoverageResourceDetails(output.resourceDetails, context)
+        : undefined,
+    ResourceId: __expectString(output.resourceId),
+    UpdatedAt:
+      output.updatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt))) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1CoverageResourceDetails = (
+  output: any,
+  context: __SerdeContext
+): CoverageResourceDetails => {
+  return {
+    EksClusterDetails:
+      output.eksClusterDetails != null
+        ? deserializeAws_restJson1CoverageEksClusterDetails(output.eksClusterDetails, context)
+        : undefined,
+    ResourceType: __expectString(output.resourceType),
+  } as any;
+};
+
+const deserializeAws_restJson1CoverageResources = (output: any, context: __SerdeContext): CoverageResource[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1CoverageResource(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1CoverageStatistics = (output: any, context: __SerdeContext): CoverageStatistics => {
+  return {
+    CountByCoverageStatus:
+      output.countByCoverageStatus != null
+        ? deserializeAws_restJson1CountByCoverageStatus(output.countByCoverageStatus, context)
+        : undefined,
+    CountByResourceType:
+      output.countByResourceType != null
+        ? deserializeAws_restJson1CountByResourceType(output.countByResourceType, context)
+        : undefined,
   } as any;
 };
 
@@ -5881,11 +6303,42 @@ const deserializeAws_restJson1Destinations = (output: any, context: __SerdeConte
   return retVal;
 };
 
+const deserializeAws_restJson1DetectorAdditionalConfigurationResult = (
+  output: any,
+  context: __SerdeContext
+): DetectorAdditionalConfigurationResult => {
+  return {
+    Name: __expectString(output.name),
+    Status: __expectString(output.status),
+    UpdatedAt:
+      output.updatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt))) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DetectorAdditionalConfigurationResults = (
+  output: any,
+  context: __SerdeContext
+): DetectorAdditionalConfigurationResult[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DetectorAdditionalConfigurationResult(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1DetectorFeatureConfigurationResult = (
   output: any,
   context: __SerdeContext
 ): DetectorFeatureConfigurationResult => {
   return {
+    AdditionalConfiguration:
+      output.additionalConfiguration != null
+        ? deserializeAws_restJson1DetectorAdditionalConfigurationResults(output.additionalConfiguration, context)
+        : undefined,
     Name: __expectString(output.name),
     Status: __expectString(output.status),
     UpdatedAt:
@@ -6142,6 +6595,18 @@ const deserializeAws_restJson1FindingStatistics = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_restJson1FlagsList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1FlowLogsConfigurationResult = (
   output: any,
   context: __SerdeContext
@@ -6374,6 +6839,33 @@ const deserializeAws_restJson1KubernetesWorkloadDetails = (
   } as any;
 };
 
+const deserializeAws_restJson1Lineage = (output: any, context: __SerdeContext): LineageObject[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1LineageObject(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1LineageObject = (output: any, context: __SerdeContext): LineageObject => {
+  return {
+    Euid: __expectInt32(output.euid),
+    ExecutablePath: __expectString(output.executablePath),
+    Name: __expectString(output.name),
+    NamespacePid: __expectInt32(output.namespacePid),
+    ParentUuid: __expectString(output.parentUuid),
+    Pid: __expectInt32(output.pid),
+    StartTime:
+      output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
+    UserId: __expectInt32(output.userId),
+    Uuid: __expectString(output.uuid),
+  } as any;
+};
+
 const deserializeAws_restJson1LocalIpDetails = (output: any, context: __SerdeContext): LocalIpDetails => {
   return {
     IpAddressV4: __expectString(output.ipAddressV4),
@@ -6467,6 +6959,33 @@ const deserializeAws_restJson1Member = (output: any, context: __SerdeContext): M
   } as any;
 };
 
+const deserializeAws_restJson1MemberAdditionalConfigurationResult = (
+  output: any,
+  context: __SerdeContext
+): MemberAdditionalConfigurationResult => {
+  return {
+    Name: __expectString(output.name),
+    Status: __expectString(output.status),
+    UpdatedAt:
+      output.updatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt))) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1MemberAdditionalConfigurationResults = (
+  output: any,
+  context: __SerdeContext
+): MemberAdditionalConfigurationResult[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MemberAdditionalConfigurationResult(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1MemberDataSourceConfiguration = (
   output: any,
   context: __SerdeContext
@@ -6504,6 +7023,10 @@ const deserializeAws_restJson1MemberFeaturesConfigurationResult = (
   context: __SerdeContext
 ): MemberFeaturesConfigurationResult => {
   return {
+    AdditionalConfiguration:
+      output.additionalConfiguration != null
+        ? deserializeAws_restJson1MemberAdditionalConfigurationResults(output.additionalConfiguration, context)
+        : undefined,
     Name: __expectString(output.name),
     Status: __expectString(output.status),
     UpdatedAt:
@@ -6534,6 +7057,18 @@ const deserializeAws_restJson1Members = (output: any, context: __SerdeContext): 
         return null as any;
       }
       return deserializeAws_restJson1Member(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1MemoryRegionsList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
     });
   return retVal;
 };
@@ -6632,6 +7167,31 @@ const deserializeAws_restJson1Organization = (output: any, context: __SerdeConte
   } as any;
 };
 
+const deserializeAws_restJson1OrganizationAdditionalConfigurationResult = (
+  output: any,
+  context: __SerdeContext
+): OrganizationAdditionalConfigurationResult => {
+  return {
+    AutoEnable: __expectString(output.autoEnable),
+    Name: __expectString(output.name),
+  } as any;
+};
+
+const deserializeAws_restJson1OrganizationAdditionalConfigurationResults = (
+  output: any,
+  context: __SerdeContext
+): OrganizationAdditionalConfigurationResult[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1OrganizationAdditionalConfigurationResult(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1OrganizationDataSourceConfigurationsResult = (
   output: any,
   context: __SerdeContext
@@ -6666,6 +7226,10 @@ const deserializeAws_restJson1OrganizationFeatureConfigurationResult = (
   context: __SerdeContext
 ): OrganizationFeatureConfigurationResult => {
   return {
+    AdditionalConfiguration:
+      output.additionalConfiguration != null
+        ? deserializeAws_restJson1OrganizationAdditionalConfigurationResults(output.additionalConfiguration, context)
+        : undefined,
     AutoEnable: __expectString(output.autoEnable),
     Name: __expectString(output.name),
   } as any;
@@ -6829,6 +7393,25 @@ const deserializeAws_restJson1PrivateIpAddresses = (
   return retVal;
 };
 
+const deserializeAws_restJson1ProcessDetails = (output: any, context: __SerdeContext): ProcessDetails => {
+  return {
+    Euid: __expectInt32(output.euid),
+    ExecutablePath: __expectString(output.executablePath),
+    ExecutableSha256: __expectString(output.executableSha256),
+    Lineage: output.lineage != null ? deserializeAws_restJson1Lineage(output.lineage, context) : undefined,
+    Name: __expectString(output.name),
+    NamespacePid: __expectInt32(output.namespacePid),
+    ParentUuid: __expectString(output.parentUuid),
+    Pid: __expectInt32(output.pid),
+    Pwd: __expectString(output.pwd),
+    StartTime:
+      output.startTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime))) : undefined,
+    User: __expectString(output.user),
+    UserId: __expectInt32(output.userId),
+    Uuid: __expectString(output.uuid),
+  } as any;
+};
+
 const deserializeAws_restJson1ProductCode = (output: any, context: __SerdeContext): ProductCode => {
   return {
     Code: __expectString(output.productCodeId),
@@ -6965,6 +7548,46 @@ const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext):
 const deserializeAws_restJson1ResourceDetails = (output: any, context: __SerdeContext): ResourceDetails => {
   return {
     InstanceArn: __expectString(output.instanceArn),
+  } as any;
+};
+
+const deserializeAws_restJson1RuntimeContext = (output: any, context: __SerdeContext): RuntimeContext => {
+  return {
+    AddressFamily: __expectString(output.addressFamily),
+    FileSystemType: __expectString(output.fileSystemType),
+    Flags: output.flags != null ? deserializeAws_restJson1FlagsList(output.flags, context) : undefined,
+    IanaProtocolNumber: __expectInt32(output.ianaProtocolNumber),
+    LdPreloadValue: __expectString(output.ldPreloadValue),
+    LibraryPath: __expectString(output.libraryPath),
+    MemoryRegions:
+      output.memoryRegions != null
+        ? deserializeAws_restJson1MemoryRegionsList(output.memoryRegions, context)
+        : undefined,
+    ModifiedAt:
+      output.modifiedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.modifiedAt))) : undefined,
+    ModifyingProcess:
+      output.modifyingProcess != null
+        ? deserializeAws_restJson1ProcessDetails(output.modifyingProcess, context)
+        : undefined,
+    ModuleFilePath: __expectString(output.moduleFilePath),
+    ModuleName: __expectString(output.moduleName),
+    ModuleSha256: __expectString(output.moduleSha256),
+    MountSource: __expectString(output.mountSource),
+    MountTarget: __expectString(output.mountTarget),
+    ReleaseAgentPath: __expectString(output.releaseAgentPath),
+    RuncBinaryPath: __expectString(output.runcBinaryPath),
+    ScriptPath: __expectString(output.scriptPath),
+    ShellHistoryFilePath: __expectString(output.shellHistoryFilePath),
+    SocketPath: __expectString(output.socketPath),
+    TargetProcess:
+      output.targetProcess != null ? deserializeAws_restJson1ProcessDetails(output.targetProcess, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RuntimeDetails = (output: any, context: __SerdeContext): RuntimeDetails => {
+  return {
+    Context: output.context != null ? deserializeAws_restJson1RuntimeContext(output.context, context) : undefined,
+    Process: output.process != null ? deserializeAws_restJson1ProcessDetails(output.process, context) : undefined,
   } as any;
 };
 
@@ -7208,6 +7831,10 @@ const deserializeAws_restJson1Service = (output: any, context: __SerdeContext): 
     Evidence: output.evidence != null ? deserializeAws_restJson1Evidence(output.evidence, context) : undefined,
     FeatureName: __expectString(output.featureName),
     ResourceRole: __expectString(output.resourceRole),
+    RuntimeDetails:
+      output.runtimeDetails != null
+        ? deserializeAws_restJson1RuntimeDetails(output.runtimeDetails, context)
+        : undefined,
     ServiceName: __expectString(output.serviceName),
     UserFeedback: __expectString(output.userFeedback),
   } as any;

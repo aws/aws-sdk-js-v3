@@ -35,10 +35,11 @@ export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __Met
 
 /**
  * @public
- * <p>Deletes GuardDuty member accounts (to the current GuardDuty administrator account) specified by
- *       the account IDs.</p>
- *          <p>With <code>autoEnableOrganizationMembers</code> configuration for your organization set to <code>ALL</code>, you'll
- *       receive an error if you attempt to disable GuardDuty for a member account in your organization.</p>
+ * <p>Deletes GuardDuty member accounts (to the current GuardDuty administrator account)
+ *       specified by the account IDs.</p>
+ *          <p>With <code>autoEnableOrganizationMembers</code> configuration for your organization set to
+ *         <code>ALL</code>, you'll receive an error if you attempt to disable GuardDuty for a member
+ *       account in your organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

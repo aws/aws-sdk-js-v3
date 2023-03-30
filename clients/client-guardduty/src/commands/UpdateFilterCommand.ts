@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { UpdateFilterRequest, UpdateFilterResponse } from "../models/models_0";
+import { UpdateFilterRequest, UpdateFilterResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateFilterCommand,
   serializeAws_restJson1UpdateFilterCommand,

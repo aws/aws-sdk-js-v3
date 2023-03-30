@@ -16,16 +16,15 @@ It uses threat intelligence
 feeds, such as lists of malicious IPs and domains, and machine learning to identify
 unexpected, potentially unauthorized, and malicious activity within your Amazon Web Services environment.
 This can include issues like escalations of privileges, uses of exposed credentials, or
-communication with malicious IPs, domains, or presence of malware on your
-Amazon EC2 instances and container workloads. For example, GuardDuty can detect
-compromised EC2 instances and container workloads serving malware, or mining bitcoin. </p>
-<p>GuardDuty also monitors Amazon Web Services account access behavior for signs of compromise, such
-as unauthorized infrastructure deployments like EC2 instances deployed in a Region
-that has never been used, or unusual API calls like a password policy change to reduce
-password strength. </p>
-<p>GuardDuty informs you about the status of your Amazon Web Services environment by producing
-security findings that you can view in the GuardDuty console or through Amazon EventBridge.
-For more information, see the <i>
+communication with malicious IPs, domains, or presence of malware on your Amazon EC2 instances
+and container workloads. For example, GuardDuty can detect compromised EC2 instances and
+container workloads serving malware, or mining bitcoin. </p>
+<p>GuardDuty also monitors Amazon Web Services account access behavior for signs of compromise, such as
+unauthorized infrastructure deployments like EC2 instances deployed in a Region that has never
+been used, or unusual API calls like a password policy change to reduce password strength. </p>
+<p>GuardDuty informs you about the status of your Amazon Web Services environment by producing security
+findings that you can view in the GuardDuty console or through Amazon EventBridge. For more
+information, see the <i>
 <a href="https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html">Amazon
 GuardDuty User Guide</a>
 </i>. </p>
@@ -443,6 +442,14 @@ GetAdministratorAccount
 </details>
 <details>
 <summary>
+GetCoverageStatistics
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-guardduty/classes/getcoveragestatisticscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-guardduty/interfaces/getcoveragestatisticscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-guardduty/interfaces/getcoveragestatisticscommandoutput.html)
+
+</details>
+<details>
+<summary>
 GetDetector
 </summary>
 
@@ -551,6 +558,14 @@ InviteMembers
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-guardduty/classes/invitememberscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-guardduty/interfaces/invitememberscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-guardduty/interfaces/invitememberscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListCoverage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-guardduty/classes/listcoveragecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-guardduty/interfaces/listcoveragecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-guardduty/interfaces/listcoveragecommandoutput.html)
 
 </details>
 <details>
