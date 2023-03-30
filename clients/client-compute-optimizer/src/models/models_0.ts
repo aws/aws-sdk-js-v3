@@ -1735,6 +1735,7 @@ export const ExportableVolumeField = {
   RECOMMENDATION_OPTIONS_MONTHLY_PRICE: "RecommendationOptionsMonthlyPrice",
   RECOMMENDATION_OPTIONS_PERFORMANCE_RISK: "RecommendationOptionsPerformanceRisk",
   RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE: "RecommendationOptionsSavingsOpportunityPercentage",
+  ROOT_VOLUME: "RootVolume",
   UTILIZATION_METRICS_VOLUME_READ_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsVolumeReadBytesPerSecondMaximum",
   UTILIZATION_METRICS_VOLUME_READ_OPS_PER_SECOND_MAXIMUM: "UtilizationMetricsVolumeReadOpsPerSecondMaximum",
   UTILIZATION_METRICS_VOLUME_WRITE_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsVolumeWriteBytesPerSecondMaximum",
@@ -1894,6 +1895,7 @@ export const ExportableInstanceField = {
   INFERRED_WORKLOAD_TYPES: "InferredWorkloadTypes",
   INSTANCE_ARN: "InstanceArn",
   INSTANCE_NAME: "InstanceName",
+  INSTANCE_STATE: "InstanceState",
   LAST_REFRESH_TIMESTAMP: "LastRefreshTimestamp",
   LOOKBACK_PERIOD_IN_DAYS: "LookbackPeriodInDays",
   RECOMMENDATIONS_SOURCES_RECOMMENDATION_SOURCE_ARN: "RecommendationsSourcesRecommendationSourceArn",
@@ -2564,6 +2566,13 @@ export interface VolumeConfiguration {
    * <p>The burst throughput of the volume.</p>
    */
   volumeBurstThroughput?: number;
+
+  /**
+   * <p>
+   *             Contains the image used to boot the instance during launch.
+   *         </p>
+   */
+  rootVolume?: boolean;
 }
 
 /**
@@ -2866,6 +2875,24 @@ export const InstanceRecommendationFindingReasonCode = {
  */
 export type InstanceRecommendationFindingReasonCode =
   (typeof InstanceRecommendationFindingReasonCode)[keyof typeof InstanceRecommendationFindingReasonCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceState = {
+  PENDING: "pending",
+  RUNNING: "running",
+  SHUTTING_DOWN: "shutting-down",
+  STOPPED: "stopped",
+  STOPPING: "stopping",
+  TERMINATED: "terminated",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceState = (typeof InstanceState)[keyof typeof InstanceState];
 
 /**
  * @public
@@ -3214,7 +3241,7 @@ export interface InstanceRecommendation {
    *                   </b> —
    *                     The instance’s EBS throughput configuration can be sized down while still
    *                     meeting the performance requirements of your workload. This is identified by
-   *                     analyzing the <code>VolumeReadOps</code> and <code>VolumeWriteOps</code> metrics
+   *                     analyzing the <code>VolumeReadBytes</code> and <code>VolumeWriteBytes</code> metrics
    *                     of EBS volumes attached to the current instance during the look-back
    *                     period.</p>
    *             </li>
@@ -3226,7 +3253,7 @@ export interface InstanceRecommendation {
    *                     The instance’s EBS throughput configuration doesn't meet the performance
    *                     requirements of your workload and there is an alternative instance type that
    *                     provides better EBS throughput performance. This is identified by analyzing the
-   *                         <code>VolumeReadOps</code> and <code>VolumeWriteOps</code> metrics of EBS
+   *                     <code>VolumeReadBytes</code> and <code>VolumeWriteBytes</code>> metrics of EBS
    *                     volumes attached to the current instance during the look-back period.</p>
    *             </li>
    *             <li>
@@ -3236,7 +3263,7 @@ export interface InstanceRecommendation {
    *                   </b> — The
    *                     instance’s EBS IOPS configuration can be sized down while still meeting the
    *                     performance requirements of your workload. This is identified by analyzing the
-   *                         <code>VolumeReadBytes</code> and <code>VolumeWriteBytes</code> metric of EBS
+   *                     <code>VolumeReadOps</code> and <code>VolumeWriteOps</code> metric of EBS
    *                     volumes attached to the current instance during the look-back period.</p>
    *             </li>
    *             <li>
@@ -3247,7 +3274,7 @@ export interface InstanceRecommendation {
    *                     instance’s EBS IOPS configuration doesn't meet the performance requirements of
    *                     your workload and there is an alternative instance type that provides better EBS
    *                     IOPS performance. This is identified by analyzing the
-   *                         <code>VolumeReadBytes</code> and <code>VolumeWriteBytes</code> metric of EBS
+   *                     <code>VolumeReadOps</code> and <code>VolumeWriteOps</code> metric of EBS
    *                     volumes attached to the current instance during the look-back period.</p>
    *             </li>
    *             <li>
@@ -3436,6 +3463,13 @@ export interface InstanceRecommendation {
    *          </ul>
    */
   inferredWorkloadTypes?: (InferredWorkloadType | string)[];
+
+  /**
+   * <p>
+   *             The state of the instance when the recommendation was generated.
+   *         </p>
+   */
+  instanceState?: InstanceState | string;
 }
 
 /**

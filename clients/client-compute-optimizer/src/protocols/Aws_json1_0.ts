@@ -3294,6 +3294,7 @@ const deserializeAws_json1_0InstanceRecommendation = (output: any, context: __Se
         : undefined,
     instanceArn: __expectString(output.instanceArn),
     instanceName: __expectString(output.instanceName),
+    instanceState: __expectString(output.instanceState),
     lastRefreshTimestamp:
       output.lastRefreshTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastRefreshTimestamp)))
@@ -3946,6 +3947,7 @@ const deserializeAws_json1_0UtilizationMetrics = (output: any, context: __SerdeC
 
 const deserializeAws_json1_0VolumeConfiguration = (output: any, context: __SerdeContext): VolumeConfiguration => {
   return {
+    rootVolume: __expectBoolean(output.rootVolume),
     volumeBaselineIOPS: __expectInt32(output.volumeBaselineIOPS),
     volumeBaselineThroughput: __expectInt32(output.volumeBaselineThroughput),
     volumeBurstIOPS: __expectInt32(output.volumeBurstIOPS),
