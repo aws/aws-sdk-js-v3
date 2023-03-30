@@ -39,7 +39,7 @@ export interface ExportEarthObservationJobCommandOutput extends ExportEarthObser
 
 /**
  * @public
- * <p>Use this operation to export results of an Earth Observation job and optionally source images used as input to the EOJ to an S3 location.</p>
+ * <p>Use this operation to export results of an Earth Observation job and optionally source images used as input to the EOJ to an Amazon S3 location.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,6 +48,7 @@ export interface ExportEarthObservationJobCommandOutput extends ExportEarthObser
  * const client = new SageMakerGeospatialClient(config);
  * const input = { // ExportEarthObservationJobInput
  *   Arn: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
  *   ExecutionRoleArn: "STRING_VALUE", // required
  *   OutputConfig: { // OutputConfigInput
  *     S3Data: { // ExportS3DataInput
@@ -71,13 +72,13 @@ export interface ExportEarthObservationJobCommandOutput extends ExportEarthObser
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p/>
+ *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request processing has failed because of an unknown error, exception, or failure.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p/>
+ *  <p>The request references a resource which does not exist.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>You have exceeded the service quota.</p>

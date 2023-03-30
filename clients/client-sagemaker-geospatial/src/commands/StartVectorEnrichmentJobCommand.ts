@@ -90,13 +90,13 @@ export interface StartVectorEnrichmentJobCommandOutput extends StartVectorEnrich
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p/>
+ *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request processing has failed because of an unknown error, exception, or failure.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p/>
+ *  <p>The request references a resource which does not exist.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>You have exceeded the service quota.</p>

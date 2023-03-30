@@ -14,6 +14,7 @@ import {
   limitedParseFloat32 as __limitedParseFloat32,
   map as __map,
   parseEpochTimestamp as __parseEpochTimestamp,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
   throwDefaultError,
@@ -149,6 +150,7 @@ import {
   TemporalStatisticsConfigInput,
   ThrottlingException,
   TimeRangeFilterInput,
+  TimeRangeFilterOutput,
   UserDefined,
   ValidationException,
   VectorEnrichmentJobConfig,
@@ -220,6 +222,7 @@ export const serializeAws_restJson1ExportEarthObservationJobCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Arn != null && { Arn: input.Arn }),
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.ExecutionRoleArn != null && { ExecutionRoleArn: input.ExecutionRoleArn }),
     ...(input.ExportSourceImages != null && { ExportSourceImages: input.ExportSourceImages }),
     ...(input.OutputConfig != null && {
@@ -250,6 +253,7 @@ export const serializeAws_restJson1ExportVectorEnrichmentJobCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Arn != null && { Arn: input.Arn }),
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.ExecutionRoleArn != null && { ExecutionRoleArn: input.ExecutionRoleArn }),
     ...(input.OutputConfig != null && {
       OutputConfig: serializeAws_restJson1ExportVectorEnrichmentJobOutputConfig(input.OutputConfig, context),
@@ -330,6 +334,7 @@ export const serializeAws_restJson1GetTileCommand = async (
     TimeRangeFilter: [, input.TimeRangeFilter!],
     PropertyFilters: [, input.PropertyFilters!],
     OutputDataType: [, input.OutputDataType!],
+    ExecutionRoleArn: [, input.ExecutionRoleArn!],
   });
   let body: any;
   return new __HttpRequest({
@@ -791,7 +796,7 @@ export const deserializeAws_restJson1ExportEarthObservationJobCommand = async (
     contents.Arn = __expectString(data.Arn);
   }
   if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreationTime));
   }
   if (data.ExecutionRoleArn != null) {
     contents.ExecutionRoleArn = __expectString(data.ExecutionRoleArn);
@@ -865,7 +870,7 @@ export const deserializeAws_restJson1ExportVectorEnrichmentJobCommand = async (
     contents.Arn = __expectString(data.Arn);
   }
   if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreationTime));
   }
   if (data.ExecutionRoleArn != null) {
     contents.ExecutionRoleArn = __expectString(data.ExecutionRoleArn);
@@ -936,7 +941,7 @@ export const deserializeAws_restJson1GetEarthObservationJobCommand = async (
     contents.Arn = __expectString(data.Arn);
   }
   if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreationTime));
   }
   if (data.DurationInSeconds != null) {
     contents.DurationInSeconds = __expectInt32(data.DurationInSeconds);
@@ -1154,7 +1159,7 @@ export const deserializeAws_restJson1GetVectorEnrichmentJobCommand = async (
     contents.Arn = __expectString(data.Arn);
   }
   if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreationTime));
   }
   if (data.DurationInSeconds != null) {
     contents.DurationInSeconds = __expectInt32(data.DurationInSeconds);
@@ -1538,7 +1543,7 @@ export const deserializeAws_restJson1StartEarthObservationJobCommand = async (
     contents.Arn = __expectString(data.Arn);
   }
   if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreationTime));
   }
   if (data.DurationInSeconds != null) {
     contents.DurationInSeconds = __expectInt32(data.DurationInSeconds);
@@ -1624,7 +1629,7 @@ export const deserializeAws_restJson1StartVectorEnrichmentJobCommand = async (
     contents.Arn = __expectString(data.Arn);
   }
   if (data.CreationTime != null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
+    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreationTime));
   }
   if (data.DurationInSeconds != null) {
     contents.DurationInSeconds = __expectInt32(data.DurationInSeconds);
@@ -2547,6 +2552,7 @@ const serializeAws_restJson1ZonalStatisticsConfigInput = (
       TargetBands: serializeAws_restJson1StringListInput(input.TargetBands, context),
     }),
     ...(input.ZoneS3Path != null && { ZoneS3Path: input.ZoneS3Path }),
+    ...(input.ZoneS3PathKmsKeyId != null && { ZoneS3PathKmsKeyId: input.ZoneS3PathKmsKeyId }),
   };
 };
 
@@ -2957,9 +2963,7 @@ const deserializeAws_restJson1ListEarthObservationJobOutputConfig = (
   return {
     Arn: __expectString(output.Arn),
     CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
+      output.CreationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreationTime)) : undefined,
     DurationInSeconds: __expectInt32(output.DurationInSeconds),
     Name: __expectString(output.Name),
     OperationType: __expectString(output.OperationType),
@@ -2975,9 +2979,7 @@ const deserializeAws_restJson1ListVectorEnrichmentJobOutputConfig = (
   return {
     Arn: __expectString(output.Arn),
     CreationTime:
-      output.CreationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
+      output.CreationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.CreationTime)) : undefined,
     DurationInSeconds: __expectInt32(output.DurationInSeconds),
     Name: __expectString(output.Name),
     Status: __expectString(output.Status),
@@ -3192,7 +3194,7 @@ const deserializeAws_restJson1RasterDataCollectionQueryOutput = (
     RasterDataCollectionName: __expectString(output.RasterDataCollectionName),
     TimeRangeFilter:
       output.TimeRangeFilter != null
-        ? deserializeAws_restJson1TimeRangeFilterInput(output.TimeRangeFilter, context)
+        ? deserializeAws_restJson1TimeRangeFilterOutput(output.TimeRangeFilter, context)
         : undefined,
   } as any;
 };
@@ -3290,12 +3292,11 @@ const deserializeAws_restJson1TemporalStatisticsListInput = (
   return retVal;
 };
 
-const deserializeAws_restJson1TimeRangeFilterInput = (output: any, context: __SerdeContext): TimeRangeFilterInput => {
+const deserializeAws_restJson1TimeRangeFilterOutput = (output: any, context: __SerdeContext): TimeRangeFilterOutput => {
   return {
-    EndTime:
-      output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
+    EndTime: output.EndTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.EndTime)) : undefined,
     StartTime:
-      output.StartTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime))) : undefined,
+      output.StartTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.StartTime)) : undefined,
   } as any;
 };
 
@@ -3429,6 +3430,7 @@ const deserializeAws_restJson1ZonalStatisticsConfigInput = (
     TargetBands:
       output.TargetBands != null ? deserializeAws_restJson1StringListInput(output.TargetBands, context) : undefined,
     ZoneS3Path: __expectString(output.ZoneS3Path),
+    ZoneS3PathKmsKeyId: __expectString(output.ZoneS3PathKmsKeyId),
   } as any;
 };
 

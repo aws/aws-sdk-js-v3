@@ -39,7 +39,7 @@ export interface ExportVectorEnrichmentJobCommandOutput extends ExportVectorEnri
 
 /**
  * @public
- * <p>Use this operation to copy results of a Vector Enrichment job to an S3 location.</p>
+ * <p>Use this operation to copy results of a Vector Enrichment job to an Amazon S3 location.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,6 +48,7 @@ export interface ExportVectorEnrichmentJobCommandOutput extends ExportVectorEnri
  * const client = new SageMakerGeospatialClient(config);
  * const input = { // ExportVectorEnrichmentJobInput
  *   Arn: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
  *   ExecutionRoleArn: "STRING_VALUE", // required
  *   OutputConfig: { // ExportVectorEnrichmentJobOutputConfig
  *     S3Data: { // VectorEnrichmentJobS3Data
@@ -70,13 +71,13 @@ export interface ExportVectorEnrichmentJobCommandOutput extends ExportVectorEnri
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p/>
+ *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request processing has failed because of an unknown error, exception, or failure.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p/>
+ *  <p>The request references a resource which does not exist.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>You have exceeded the service quota.</p>

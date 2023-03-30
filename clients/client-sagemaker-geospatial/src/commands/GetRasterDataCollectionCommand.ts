@@ -66,7 +66,7 @@ export interface GetRasterDataCollectionCommandOutput extends GetRasterDataColle
  *  <p>The request processing has failed because of an unknown error, exception, or failure.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p/>
+ *  <p>The request references a resource which does not exist.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
