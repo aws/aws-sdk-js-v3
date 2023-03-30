@@ -6,6 +6,9 @@ const isTokenWithExpiry = (token: TokenIdentity) => token.expiration !== undefin
 const isTokenExpiringWithinFiveMins = (token: TokenIdentity) =>
   isTokenWithExpiry(token) && token.expiration!.getTime() - Date.now() < 300000;
 
+/**
+ * @internal
+ */
 export const normalizeTokenProvider = (
   token: TokenIdentity | TokenIdentityProvider
 ): MemoizedProvider<TokenIdentity> => {

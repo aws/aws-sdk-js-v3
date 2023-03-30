@@ -2,6 +2,9 @@ import { Checksum, Hash } from "@aws-sdk/types";
 import { toUint8Array } from "@aws-sdk/util-utf8";
 import { Writable, WritableOptions } from "stream";
 
+/**
+ * @internal
+ */
 export class HashCalculator extends Writable {
   constructor(public readonly hash: Checksum | Hash, options?: WritableOptions) {
     super(options);

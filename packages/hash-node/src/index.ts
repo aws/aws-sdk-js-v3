@@ -4,6 +4,9 @@ import { toUint8Array } from "@aws-sdk/util-utf8";
 import { Buffer } from "buffer";
 import { createHash, createHmac, Hash as NodeHash, Hmac } from "crypto";
 
+/**
+ * @internal
+ */
 export class Hash implements Checksum {
   private readonly algorithmIdentifier: string;
   private readonly secret?: SourceData;

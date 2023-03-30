@@ -1,5 +1,8 @@
 import { fstatSync, lstatSync } from "fs";
 
+/**
+ * @internal
+ */
 export const calculateBodyLength = (body: any): number | undefined => {
   if (!body) {
     return 0;

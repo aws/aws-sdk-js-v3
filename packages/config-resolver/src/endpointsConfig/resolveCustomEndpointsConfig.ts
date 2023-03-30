@@ -3,6 +3,9 @@ import { normalizeProvider } from "@aws-sdk/util-middleware";
 
 import { EndpointsInputConfig, EndpointsResolvedConfig } from "./resolveEndpointsConfig";
 
+/**
+ * @internal
+ */
 export interface CustomEndpointsInputConfig extends EndpointsInputConfig {
   /**
    * The fully qualified endpoint of the webservice.
@@ -14,6 +17,9 @@ interface PreviouslyResolved {
   urlParser: UrlParser;
 }
 
+/**
+ * @internal
+ */
 export interface CustomEndpointsResolvedConfig extends EndpointsResolvedConfig {
   /**
    * Whether the endpoint is specified by caller.
@@ -22,6 +28,9 @@ export interface CustomEndpointsResolvedConfig extends EndpointsResolvedConfig {
   isCustomEndpoint: true;
 }
 
+/**
+ * @internal
+ */
 export const resolveCustomEndpointsConfig = <T>(
   input: T & CustomEndpointsInputConfig & PreviouslyResolved
 ): T & CustomEndpointsResolvedConfig => {

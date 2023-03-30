@@ -3,6 +3,9 @@ import { Provider } from "@aws-sdk/types";
 import { getRealRegion } from "./getRealRegion";
 import { isFipsRegion } from "./isFipsRegion";
 
+/**
+ * @internal
+ */
 export interface RegionInputConfig {
   /**
    * The AWS region to which this client will send requests
@@ -17,6 +20,9 @@ export interface RegionInputConfig {
 
 interface PreviouslyResolved {}
 
+/**
+ * @internal
+ */
 export interface RegionResolvedConfig {
   /**
    * Resolved value for input config {@link RegionInputConfig.region}
@@ -29,6 +35,9 @@ export interface RegionResolvedConfig {
   useFipsEndpoint: Provider<boolean>;
 }
 
+/**
+ * @internal
+ */
 export const resolveRegionConfig = <T>(input: T & RegionInputConfig & PreviouslyResolved): T & RegionResolvedConfig => {
   const { region, useFipsEndpoint } = input;
 

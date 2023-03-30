@@ -16,6 +16,9 @@ import { PassThrough, pipeline, Readable } from "stream";
 
 import { EventSigningStream } from "./EventSigningStream";
 
+/**
+ * @internal
+ */
 export interface EventStreamPayloadHandlerOptions {
   eventSigner: Provider<EventSigner>;
   utf8Encoder: Encoder;
@@ -23,6 +26,8 @@ export interface EventStreamPayloadHandlerOptions {
 }
 
 /**
+ * @internal
+ * 
  * A handler that control the eventstream payload flow:
  * 1. Pause stream for initial attempt.
  * 2. Close the stream is attempt fails.

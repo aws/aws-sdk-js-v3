@@ -1,5 +1,8 @@
 import { UserAgentPair } from "@aws-sdk/types";
 
+/**
+ * @internal
+ */
 export const isCrtAvailable = (): UserAgentPair | null => {
   try {
     // Attempt to load ambient package aws-crt to verify if it exists.

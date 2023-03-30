@@ -1,6 +1,8 @@
 import { Profile } from "@aws-sdk/types";
 
 /**
+ * @internal
+ * 
  * Cached SSO token retrieved from SSO login flow.
  */
 export interface SSOToken {

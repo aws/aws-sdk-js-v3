@@ -1,3 +1,6 @@
+/**
+ * @internal
+ */
 export interface RateLimiter {
   /**
    * If there is sufficient capacity (tokens) available, it immediately returns.

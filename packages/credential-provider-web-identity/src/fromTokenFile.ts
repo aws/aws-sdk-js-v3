@@ -8,6 +8,9 @@ const ENV_TOKEN_FILE = "AWS_WEB_IDENTITY_TOKEN_FILE";
 const ENV_ROLE_ARN = "AWS_ROLE_ARN";
 const ENV_ROLE_SESSION_NAME = "AWS_ROLE_SESSION_NAME";
 
+/**
+ * @internal
+ */
 export interface FromTokenFileInit extends Partial<Omit<FromWebTokenInit, "webIdentityToken">> {
   /**
    * File location of where the `OIDC` token is stored.
@@ -16,6 +19,8 @@ export interface FromTokenFileInit extends Partial<Omit<FromWebTokenInit, "webId
 }
 
 /**
+ * @internal
+ * 
  * Represents OIDC credentials from a file on disk.
  */
 export const fromTokenFile =
