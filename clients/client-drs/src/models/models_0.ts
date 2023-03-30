@@ -1134,6 +1134,11 @@ export interface CreateReplicationConfigurationTemplateRequest {
    * <p>A set of tags to be associated with the Replication Configuration Template resource.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>Whether to allow the AWS replication agent to automatically replicate newly added disks.</p>
+   */
+  autoReplicateNewDisks?: boolean;
 }
 
 /**
@@ -1219,6 +1224,11 @@ export interface ReplicationConfigurationTemplate {
    * <p>The Point in time (PIT) policy to manage snapshots taken during replication.</p>
    */
   pitPolicy?: PITPolicyRule[];
+
+  /**
+   * <p>Whether to allow the AWS replication agent to automatically replicate newly added disks.</p>
+   */
+  autoReplicateNewDisks?: boolean;
 }
 
 /**
@@ -2654,6 +2664,11 @@ export interface UpdateReplicationConfigurationTemplateRequest {
    * <p>The Point in time (PIT) policy to manage snapshots taken during replication.</p>
    */
   pitPolicy?: PITPolicyRule[];
+
+  /**
+   * <p>Whether to allow the AWS replication agent to automatically replicate newly added disks.</p>
+   */
+  autoReplicateNewDisks?: boolean;
 }
 
 /**
@@ -2900,6 +2915,11 @@ export interface ReplicationConfiguration {
    * <p>The Point in time (PIT) policy to manage snapshots taken during replication.</p>
    */
   pitPolicy?: PITPolicyRule[];
+
+  /**
+   * <p>Whether to allow the AWS replication agent to automatically replicate newly added disks.</p>
+   */
+  autoReplicateNewDisks?: boolean;
 }
 
 /**
@@ -3121,6 +3141,11 @@ export interface UpdateReplicationConfigurationRequest {
    * <p>The Point in time (PIT) policy to manage snapshots taken during replication.</p>
    */
   pitPolicy?: PITPolicyRule[];
+
+  /**
+   * <p>Whether to allow the AWS replication agent to automatically replicate newly added disks.</p>
+   */
+  autoReplicateNewDisks?: boolean;
 }
 
 /**

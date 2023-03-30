@@ -79,6 +79,7 @@ export interface CreateReplicationConfigurationTemplateCommandOutput
  *   tags: {
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   autoReplicateNewDisks: true || false,
  * };
  * const command = new CreateReplicationConfigurationTemplateCommand(input);
  * const response = await client.send(command);

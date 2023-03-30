@@ -224,6 +224,7 @@ export const serializeAws_restJson1CreateReplicationConfigurationTemplateCommand
     ...(input.associateDefaultSecurityGroup != null && {
       associateDefaultSecurityGroup: input.associateDefaultSecurityGroup,
     }),
+    ...(input.autoReplicateNewDisks != null && { autoReplicateNewDisks: input.autoReplicateNewDisks }),
     ...(input.bandwidthThrottling != null && { bandwidthThrottling: input.bandwidthThrottling }),
     ...(input.createPublicIP != null && { createPublicIP: input.createPublicIP }),
     ...(input.dataPlaneRouting != null && { dataPlaneRouting: input.dataPlaneRouting }),
@@ -1089,6 +1090,7 @@ export const serializeAws_restJson1UpdateReplicationConfigurationCommand = async
     ...(input.associateDefaultSecurityGroup != null && {
       associateDefaultSecurityGroup: input.associateDefaultSecurityGroup,
     }),
+    ...(input.autoReplicateNewDisks != null && { autoReplicateNewDisks: input.autoReplicateNewDisks }),
     ...(input.bandwidthThrottling != null && { bandwidthThrottling: input.bandwidthThrottling }),
     ...(input.createPublicIP != null && { createPublicIP: input.createPublicIP }),
     ...(input.dataPlaneRouting != null && { dataPlaneRouting: input.dataPlaneRouting }),
@@ -1147,6 +1149,7 @@ export const serializeAws_restJson1UpdateReplicationConfigurationTemplateCommand
     ...(input.associateDefaultSecurityGroup != null && {
       associateDefaultSecurityGroup: input.associateDefaultSecurityGroup,
     }),
+    ...(input.autoReplicateNewDisks != null && { autoReplicateNewDisks: input.autoReplicateNewDisks }),
     ...(input.bandwidthThrottling != null && { bandwidthThrottling: input.bandwidthThrottling }),
     ...(input.createPublicIP != null && { createPublicIP: input.createPublicIP }),
     ...(input.dataPlaneRouting != null && { dataPlaneRouting: input.dataPlaneRouting }),
@@ -1262,6 +1265,9 @@ export const deserializeAws_restJson1CreateReplicationConfigurationTemplateComma
   }
   if (data.associateDefaultSecurityGroup != null) {
     contents.associateDefaultSecurityGroup = __expectBoolean(data.associateDefaultSecurityGroup);
+  }
+  if (data.autoReplicateNewDisks != null) {
+    contents.autoReplicateNewDisks = __expectBoolean(data.autoReplicateNewDisks);
   }
   if (data.bandwidthThrottling != null) {
     contents.bandwidthThrottling = __expectLong(data.bandwidthThrottling);
@@ -2156,6 +2162,9 @@ export const deserializeAws_restJson1GetReplicationConfigurationCommand = async 
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.associateDefaultSecurityGroup != null) {
     contents.associateDefaultSecurityGroup = __expectBoolean(data.associateDefaultSecurityGroup);
+  }
+  if (data.autoReplicateNewDisks != null) {
+    contents.autoReplicateNewDisks = __expectBoolean(data.autoReplicateNewDisks);
   }
   if (data.bandwidthThrottling != null) {
     contents.bandwidthThrottling = __expectLong(data.bandwidthThrottling);
@@ -3160,6 +3169,9 @@ export const deserializeAws_restJson1UpdateReplicationConfigurationCommand = asy
   if (data.associateDefaultSecurityGroup != null) {
     contents.associateDefaultSecurityGroup = __expectBoolean(data.associateDefaultSecurityGroup);
   }
+  if (data.autoReplicateNewDisks != null) {
+    contents.autoReplicateNewDisks = __expectBoolean(data.autoReplicateNewDisks);
+  }
   if (data.bandwidthThrottling != null) {
     contents.bandwidthThrottling = __expectLong(data.bandwidthThrottling);
   }
@@ -3272,6 +3284,9 @@ export const deserializeAws_restJson1UpdateReplicationConfigurationTemplateComma
   }
   if (data.associateDefaultSecurityGroup != null) {
     contents.associateDefaultSecurityGroup = __expectBoolean(data.associateDefaultSecurityGroup);
+  }
+  if (data.autoReplicateNewDisks != null) {
+    contents.autoReplicateNewDisks = __expectBoolean(data.autoReplicateNewDisks);
   }
   if (data.bandwidthThrottling != null) {
     contents.bandwidthThrottling = __expectLong(data.bandwidthThrottling);
@@ -4402,6 +4417,7 @@ const deserializeAws_restJson1ReplicationConfigurationTemplate = (
   return {
     arn: __expectString(output.arn),
     associateDefaultSecurityGroup: __expectBoolean(output.associateDefaultSecurityGroup),
+    autoReplicateNewDisks: __expectBoolean(output.autoReplicateNewDisks),
     bandwidthThrottling: __expectLong(output.bandwidthThrottling),
     createPublicIP: __expectBoolean(output.createPublicIP),
     dataPlaneRouting: __expectString(output.dataPlaneRouting),

@@ -78,6 +78,7 @@ export interface UpdateReplicationConfigurationTemplateCommandOutput
  *       enabled: true || false,
  *     },
  *   ],
+ *   autoReplicateNewDisks: true || false,
  * };
  * const command = new UpdateReplicationConfigurationTemplateCommand(input);
  * const response = await client.send(command);

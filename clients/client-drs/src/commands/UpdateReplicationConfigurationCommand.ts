@@ -85,6 +85,7 @@ export interface UpdateReplicationConfigurationCommandOutput extends Replication
  *       enabled: true || false,
  *     },
  *   ],
+ *   autoReplicateNewDisks: true || false,
  * };
  * const command = new UpdateReplicationConfigurationCommand(input);
  * const response = await client.send(command);
