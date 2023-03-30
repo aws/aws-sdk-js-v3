@@ -23,9 +23,9 @@ export interface AssumeRoleParams {
 
   /**
    * Specifies the maximum duration of the role session, in seconds.
-   The value can range from 900 seconds (15 minutes) up to the maximum
-   session duration setting for the role (which can be a maximum of 43200).
-   This is an optional parameter and by default, the value is set to 3600 seconds.
+   * The value can range from 900 seconds (15 minutes) up to the maximum
+   * session duration setting for the role (which can be a maximum of 43200).
+   * This is an optional parameter and by default, the value is set to 3600 seconds.
    */
   DurationSeconds?: number;
 
