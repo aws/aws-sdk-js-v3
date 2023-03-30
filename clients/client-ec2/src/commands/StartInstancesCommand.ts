@@ -14,7 +14,8 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { StartInstancesRequest, StartInstancesResult } from "../models/models_6";
+import { StartInstancesRequest } from "../models/models_6";
+import { StartInstancesResult } from "../models/models_7";
 import { deserializeAws_ec2StartInstancesCommand, serializeAws_ec2StartInstancesCommand } from "../protocols/Aws_ec2";
 
 /**

@@ -2209,6 +2209,11 @@ import {
   GetVpnConnectionDeviceTypesCommandOutput,
 } from "./commands/GetVpnConnectionDeviceTypesCommand";
 import {
+  GetVpnTunnelReplacementStatusCommand,
+  GetVpnTunnelReplacementStatusCommandInput,
+  GetVpnTunnelReplacementStatusCommandOutput,
+} from "./commands/GetVpnTunnelReplacementStatusCommand";
+import {
   ImportClientVpnClientCertificateRevocationListCommand,
   ImportClientVpnClientCertificateRevocationListCommandInput,
   ImportClientVpnClientCertificateRevocationListCommandOutput,
@@ -2692,6 +2697,11 @@ import {
   ReplaceTransitGatewayRouteCommandInput,
   ReplaceTransitGatewayRouteCommandOutput,
 } from "./commands/ReplaceTransitGatewayRouteCommand";
+import {
+  ReplaceVpnTunnelCommand,
+  ReplaceVpnTunnelCommandInput,
+  ReplaceVpnTunnelCommandOutput,
+} from "./commands/ReplaceVpnTunnelCommand";
 import {
   ReportInstanceStatusCommand,
   ReportInstanceStatusCommandInput,
@@ -19470,6 +19480,39 @@ export class EC2 extends EC2Client {
 
   /**
    * @public
+   * <p>Get details of available tunnel endpoint maintenance.</p>
+   */
+  public getVpnTunnelReplacementStatus(
+    args: GetVpnTunnelReplacementStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVpnTunnelReplacementStatusCommandOutput>;
+  public getVpnTunnelReplacementStatus(
+    args: GetVpnTunnelReplacementStatusCommandInput,
+    cb: (err: any, data?: GetVpnTunnelReplacementStatusCommandOutput) => void
+  ): void;
+  public getVpnTunnelReplacementStatus(
+    args: GetVpnTunnelReplacementStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVpnTunnelReplacementStatusCommandOutput) => void
+  ): void;
+  public getVpnTunnelReplacementStatus(
+    args: GetVpnTunnelReplacementStatusCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVpnTunnelReplacementStatusCommandOutput) => void),
+    cb?: (err: any, data?: GetVpnTunnelReplacementStatusCommandOutput) => void
+  ): Promise<GetVpnTunnelReplacementStatusCommandOutput> | void {
+    const command = new GetVpnTunnelReplacementStatusCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
    * <p>Uploads a client certificate revocation list to the specified Client VPN endpoint. Uploading a client certificate revocation list overwrites the existing client certificate revocation list.</p>
    *          <p>Uploading a client certificate revocation list resets existing client connections.</p>
    */
@@ -23317,6 +23360,39 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: ReplaceTransitGatewayRouteCommandOutput) => void
   ): Promise<ReplaceTransitGatewayRouteCommandOutput> | void {
     const command = new ReplaceTransitGatewayRouteCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Trigger replacement of specified VPN tunnel.</p>
+   */
+  public replaceVpnTunnel(
+    args: ReplaceVpnTunnelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ReplaceVpnTunnelCommandOutput>;
+  public replaceVpnTunnel(
+    args: ReplaceVpnTunnelCommandInput,
+    cb: (err: any, data?: ReplaceVpnTunnelCommandOutput) => void
+  ): void;
+  public replaceVpnTunnel(
+    args: ReplaceVpnTunnelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ReplaceVpnTunnelCommandOutput) => void
+  ): void;
+  public replaceVpnTunnel(
+    args: ReplaceVpnTunnelCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReplaceVpnTunnelCommandOutput) => void),
+    cb?: (err: any, data?: ReplaceVpnTunnelCommandOutput) => void
+  ): Promise<ReplaceVpnTunnelCommandOutput> | void {
+    const command = new ReplaceVpnTunnelCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

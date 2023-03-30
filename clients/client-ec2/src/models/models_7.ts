@@ -1,8 +1,115 @@
 // smithy-typescript generated code
-import { ByoipCidr, IpPermission, NatGatewayAddress } from "./models_0";
+import { ByoipCidr, IpPermission, NatGatewayAddress, TagSpecification } from "./models_0";
 import { ClientVpnConnectionStatus } from "./models_3";
-import { NetworkInsightsAnalysis } from "./models_4";
-import { InstanceMonitoring, InstanceStateChange } from "./models_6";
+import { InstanceState, NetworkInsightsAccessScopeAnalysis, NetworkInsightsAnalysis } from "./models_4";
+import { InstanceMonitoring } from "./models_6";
+
+/**
+ * @public
+ * <p>Describes an instance state change.</p>
+ */
+export interface InstanceStateChange {
+  /**
+   * <p>The current state of the instance.</p>
+   */
+  CurrentState?: InstanceState;
+
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The previous state of the instance.</p>
+   */
+  PreviousState?: InstanceState;
+}
+
+/**
+ * @public
+ */
+export interface StartInstancesResult {
+  /**
+   * <p>Information about the started instances.</p>
+   */
+  StartingInstances?: InstanceStateChange[];
+}
+
+/**
+ * @public
+ */
+export interface StartNetworkInsightsAccessScopeAnalysisRequest {
+  /**
+   * <p>The ID of the Network Access Scope.</p>
+   */
+  NetworkInsightsAccessScopeId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The tags to apply.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information,
+   *    see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+   */
+  ClientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface StartNetworkInsightsAccessScopeAnalysisResult {
+  /**
+   * <p>The Network Access Scope analysis.</p>
+   */
+  NetworkInsightsAccessScopeAnalysis?: NetworkInsightsAccessScopeAnalysis;
+}
+
+/**
+ * @public
+ */
+export interface StartNetworkInsightsAnalysisRequest {
+  /**
+   * <p>The ID of the path.</p>
+   */
+  NetworkInsightsPathId: string | undefined;
+
+  /**
+   * <p>The member accounts that contain resources that the path can traverse.</p>
+   */
+  AdditionalAccounts?: string[];
+
+  /**
+   * <p>The Amazon Resource Names (ARN) of the resources that the path must traverse.</p>
+   */
+  FilterInArns?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The tags to apply.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information,
+   *    see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
+   */
+  ClientToken?: string;
+}
 
 /**
  * @public

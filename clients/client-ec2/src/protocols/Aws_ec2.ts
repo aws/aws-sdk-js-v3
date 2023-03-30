@@ -1558,6 +1558,10 @@ import {
   GetVpnConnectionDeviceTypesCommandOutput,
 } from "../commands/GetVpnConnectionDeviceTypesCommand";
 import {
+  GetVpnTunnelReplacementStatusCommandInput,
+  GetVpnTunnelReplacementStatusCommandOutput,
+} from "../commands/GetVpnTunnelReplacementStatusCommand";
+import {
   ImportClientVpnClientCertificateRevocationListCommandInput,
   ImportClientVpnClientCertificateRevocationListCommandOutput,
 } from "../commands/ImportClientVpnClientCertificateRevocationListCommand";
@@ -1885,6 +1889,7 @@ import {
   ReplaceTransitGatewayRouteCommandInput,
   ReplaceTransitGatewayRouteCommandOutput,
 } from "../commands/ReplaceTransitGatewayRouteCommand";
+import { ReplaceVpnTunnelCommandInput, ReplaceVpnTunnelCommandOutput } from "../commands/ReplaceVpnTunnelCommand";
 import {
   ReportInstanceStatusCommandInput,
   ReportInstanceStatusCommandOutput,
@@ -3496,6 +3501,8 @@ import {
   GetVpnConnectionDeviceSampleConfigurationResult,
   GetVpnConnectionDeviceTypesRequest,
   GetVpnConnectionDeviceTypesResult,
+  GetVpnTunnelReplacementStatusRequest,
+  GetVpnTunnelReplacementStatusResult,
   ImageDiskContainer,
   ImportClientVpnClientCertificateRevocationListRequest,
   ImportClientVpnClientCertificateRevocationListResult,
@@ -3507,8 +3514,6 @@ import {
   ImportInstanceResult,
   ImportKeyPairRequest,
   ImportKeyPairResult,
-  ImportSnapshotRequest,
-  ImportSnapshotResult,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
   InstanceRequirementsWithMetadataRequest,
@@ -3521,6 +3526,7 @@ import {
   IpamDiscoveryFailureReason,
   IpamResourceCidr,
   Ipv6CidrAssociation,
+  MaintenanceDetails,
   MetricPoint,
   PrefixListAssociation,
   PrefixListEntry,
@@ -3529,7 +3535,6 @@ import {
   ReservationValue,
   ReservedInstanceReservationValue,
   ServiceDetail,
-  SnapshotDiskContainer,
   SpotPlacementScore,
   TargetConfiguration,
   TargetReservationValue,
@@ -3567,6 +3572,8 @@ import {
   EnclaveOptionsRequest,
   HibernationOptionsRequest,
   ImageRecycleBinInfo,
+  ImportSnapshotRequest,
+  ImportSnapshotResult,
   ImportVolumeRequest,
   ImportVolumeResult,
   InstanceBlockDeviceMappingSpecification,
@@ -3575,7 +3582,6 @@ import {
   InstanceMarketOptionsRequest,
   InstanceMetadataOptionsRequest,
   InstanceMonitoring,
-  InstanceStateChange,
   IpamCidrAuthorizationContext,
   LaunchPermissionModifications,
   LaunchTemplateSpecification,
@@ -3771,6 +3777,8 @@ import {
   ReplaceRouteTableAssociationResult,
   ReplaceTransitGatewayRouteRequest,
   ReplaceTransitGatewayRouteResult,
+  ReplaceVpnTunnelRequest,
+  ReplaceVpnTunnelResult,
   ReportInstanceReasonCodes,
   ReportInstanceStatusRequest,
   RequestSpotFleetRequest,
@@ -3826,13 +3834,10 @@ import {
   SecurityGroupRuleRequest,
   SecurityGroupRuleUpdate,
   SendDiagnosticInterruptRequest,
+  SnapshotDiskContainer,
   SnapshotRecycleBinInfo,
   SpotMarketOptions,
   StartInstancesRequest,
-  StartInstancesResult,
-  StartNetworkInsightsAccessScopeAnalysisRequest,
-  StartNetworkInsightsAccessScopeAnalysisResult,
-  StartNetworkInsightsAnalysisRequest,
   SuccessfulInstanceCreditSpecificationItem,
   TrafficMirrorFilterRuleField,
   TrafficMirrorSessionField,
@@ -3847,7 +3852,12 @@ import {
   VerifiedAccessLogS3DestinationOptions,
 } from "../models/models_6";
 import {
+  InstanceStateChange,
   SecurityGroupRuleDescription,
+  StartInstancesResult,
+  StartNetworkInsightsAccessScopeAnalysisRequest,
+  StartNetworkInsightsAccessScopeAnalysisResult,
+  StartNetworkInsightsAnalysisRequest,
   StartNetworkInsightsAnalysisResult,
   StartVpcEndpointServicePrivateDnsVerificationRequest,
   StartVpcEndpointServicePrivateDnsVerificationResult,
@@ -11089,6 +11099,22 @@ export const serializeAws_ec2GetVpnConnectionDeviceTypesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2GetVpnTunnelReplacementStatusCommand = async (
+  input: GetVpnTunnelReplacementStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2GetVpnTunnelReplacementStatusRequest(input, context),
+    Action: "GetVpnTunnelReplacementStatus",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2ImportClientVpnClientCertificateRevocationListCommand = async (
   input: ImportClientVpnClientCertificateRevocationListCommandInput,
   context: __SerdeContext
@@ -12684,6 +12710,22 @@ export const serializeAws_ec2ReplaceTransitGatewayRouteCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2ReplaceTransitGatewayRouteRequest(input, context),
     Action: "ReplaceTransitGatewayRoute",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2ReplaceVpnTunnelCommand = async (
+  input: ReplaceVpnTunnelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2ReplaceVpnTunnelRequest(input, context),
+    Action: "ReplaceVpnTunnel",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -28977,6 +29019,41 @@ const deserializeAws_ec2GetVpnConnectionDeviceTypesCommandError = async (
   });
 };
 
+export const deserializeAws_ec2GetVpnTunnelReplacementStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetVpnTunnelReplacementStatusCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2GetVpnTunnelReplacementStatusCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2GetVpnTunnelReplacementStatusResult(data, context);
+  const response: GetVpnTunnelReplacementStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2GetVpnTunnelReplacementStatusCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetVpnTunnelReplacementStatusCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
 export const deserializeAws_ec2ImportClientVpnClientCertificateRevocationListCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -32424,6 +32501,41 @@ const deserializeAws_ec2ReplaceTransitGatewayRouteCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ReplaceTransitGatewayRouteCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2ReplaceVpnTunnelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ReplaceVpnTunnelCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2ReplaceVpnTunnelCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2ReplaceVpnTunnelResult(data, context);
+  const response: ReplaceVpnTunnelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2ReplaceVpnTunnelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ReplaceVpnTunnelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -48044,6 +48156,23 @@ const serializeAws_ec2GetVpnConnectionDeviceTypesRequest = (
   return entries;
 };
 
+const serializeAws_ec2GetVpnTunnelReplacementStatusRequest = (
+  input: GetVpnTunnelReplacementStatusRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.VpnConnectionId != null) {
+    entries["VpnConnectionId"] = input.VpnConnectionId;
+  }
+  if (input.VpnTunnelOutsideIpAddress != null) {
+    entries["VpnTunnelOutsideIpAddress"] = input.VpnTunnelOutsideIpAddress;
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
 const serializeAws_ec2GroupIdentifier = (input: GroupIdentifier, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.GroupName != null) {
@@ -53142,6 +53271,9 @@ const serializeAws_ec2ModifyVpnTunnelOptionsRequest = (
   if (input.DryRun != null) {
     entries["DryRun"] = input.DryRun;
   }
+  if (input.SkipTunnelReplacement != null) {
+    entries["SkipTunnelReplacement"] = input.SkipTunnelReplacement;
+  }
   return entries;
 };
 
@@ -53271,6 +53403,9 @@ const serializeAws_ec2ModifyVpnTunnelOptionsSpecification = (
       const loc = `LogOptions.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.EnableTunnelLifecycleControl != null) {
+    entries["EnableTunnelLifecycleControl"] = input.EnableTunnelLifecycleControl;
   }
   return entries;
 };
@@ -55029,6 +55164,23 @@ const serializeAws_ec2ReplaceTransitGatewayRouteRequest = (
   }
   if (input.Blackhole != null) {
     entries["Blackhole"] = input.Blackhole;
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2ReplaceVpnTunnelRequest = (input: ReplaceVpnTunnelRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.VpnConnectionId != null) {
+    entries["VpnConnectionId"] = input.VpnConnectionId;
+  }
+  if (input.VpnTunnelOutsideIpAddress != null) {
+    entries["VpnTunnelOutsideIpAddress"] = input.VpnTunnelOutsideIpAddress;
+  }
+  if (input.ApplyPendingMaintenance != null) {
+    entries["ApplyPendingMaintenance"] = input.ApplyPendingMaintenance;
   }
   if (input.DryRun != null) {
     entries["DryRun"] = input.DryRun;
@@ -59082,6 +59234,9 @@ const serializeAws_ec2VpnTunnelOptionsSpecification = (
       const loc = `LogOptions.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.EnableTunnelLifecycleControl != null) {
+    entries["EnableTunnelLifecycleControl"] = input.EnableTunnelLifecycleControl;
   }
   return entries;
 };
@@ -70039,6 +70194,32 @@ const deserializeAws_ec2GetVpnConnectionDeviceTypesResult = (
   return contents;
 };
 
+const deserializeAws_ec2GetVpnTunnelReplacementStatusResult = (
+  output: any,
+  context: __SerdeContext
+): GetVpnTunnelReplacementStatusResult => {
+  const contents: any = {};
+  if (output["vpnConnectionId"] !== undefined) {
+    contents.VpnConnectionId = __expectString(output["vpnConnectionId"]);
+  }
+  if (output["transitGatewayId"] !== undefined) {
+    contents.TransitGatewayId = __expectString(output["transitGatewayId"]);
+  }
+  if (output["customerGatewayId"] !== undefined) {
+    contents.CustomerGatewayId = __expectString(output["customerGatewayId"]);
+  }
+  if (output["vpnGatewayId"] !== undefined) {
+    contents.VpnGatewayId = __expectString(output["vpnGatewayId"]);
+  }
+  if (output["vpnTunnelOutsideIpAddress"] !== undefined) {
+    contents.VpnTunnelOutsideIpAddress = __expectString(output["vpnTunnelOutsideIpAddress"]);
+  }
+  if (output["maintenanceDetails"] !== undefined) {
+    contents.MaintenanceDetails = deserializeAws_ec2MaintenanceDetails(output["maintenanceDetails"], context);
+  }
+  return contents;
+};
+
 const deserializeAws_ec2GpuDeviceInfo = (output: any, context: __SerdeContext): GpuDeviceInfo => {
   const contents: any = {};
   if (output["name"] !== undefined) {
@@ -74681,6 +74862,24 @@ const deserializeAws_ec2LocalStorageTypeSet = (output: any, context: __SerdeCont
     });
 };
 
+const deserializeAws_ec2MaintenanceDetails = (output: any, context: __SerdeContext): MaintenanceDetails => {
+  const contents: any = {};
+  if (output["pendingMaintenance"] !== undefined) {
+    contents.PendingMaintenance = __expectString(output["pendingMaintenance"]);
+  }
+  if (output["maintenanceAutoAppliedAfter"] !== undefined) {
+    contents.MaintenanceAutoAppliedAfter = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["maintenanceAutoAppliedAfter"])
+    );
+  }
+  if (output["lastMaintenanceApplied"] !== undefined) {
+    contents.LastMaintenanceApplied = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["lastMaintenanceApplied"])
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_ec2ManagedPrefixList = (output: any, context: __SerdeContext): ManagedPrefixList => {
   const contents: any = {};
   if (output["prefixListId"] !== undefined) {
@@ -77792,6 +77991,14 @@ const deserializeAws_ec2ReplaceTransitGatewayRouteResult = (
   const contents: any = {};
   if (output["route"] !== undefined) {
     contents.Route = deserializeAws_ec2TransitGatewayRoute(output["route"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2ReplaceVpnTunnelResult = (output: any, context: __SerdeContext): ReplaceVpnTunnelResult => {
+  const contents: any = {};
+  if (output["return"] !== undefined) {
+    contents.Return = __parseBoolean(output["return"]);
   }
   return contents;
 };
@@ -82582,6 +82789,9 @@ const deserializeAws_ec2TunnelOption = (output: any, context: __SerdeContext): T
   }
   if (output["logOptions"] !== undefined) {
     contents.LogOptions = deserializeAws_ec2VpnTunnelLogOptions(output["logOptions"], context);
+  }
+  if (output["enableTunnelLifecycleControl"] !== undefined) {
+    contents.EnableTunnelLifecycleControl = __parseBoolean(output["enableTunnelLifecycleControl"]);
   }
   return contents;
 };

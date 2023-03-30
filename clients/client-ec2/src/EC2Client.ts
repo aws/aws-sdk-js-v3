@@ -1584,6 +1584,10 @@ import {
   GetVpnConnectionDeviceTypesCommandOutput,
 } from "./commands/GetVpnConnectionDeviceTypesCommand";
 import {
+  GetVpnTunnelReplacementStatusCommandInput,
+  GetVpnTunnelReplacementStatusCommandOutput,
+} from "./commands/GetVpnTunnelReplacementStatusCommand";
+import {
   ImportClientVpnClientCertificateRevocationListCommandInput,
   ImportClientVpnClientCertificateRevocationListCommandOutput,
 } from "./commands/ImportClientVpnClientCertificateRevocationListCommand";
@@ -1911,6 +1915,7 @@ import {
   ReplaceTransitGatewayRouteCommandInput,
   ReplaceTransitGatewayRouteCommandOutput,
 } from "./commands/ReplaceTransitGatewayRouteCommand";
+import { ReplaceVpnTunnelCommandInput, ReplaceVpnTunnelCommandOutput } from "./commands/ReplaceVpnTunnelCommand";
 import {
   ReportInstanceStatusCommandInput,
   ReportInstanceStatusCommandOutput,
@@ -2505,6 +2510,7 @@ export type ServiceInputTypes =
   | GetVerifiedAccessGroupPolicyCommandInput
   | GetVpnConnectionDeviceSampleConfigurationCommandInput
   | GetVpnConnectionDeviceTypesCommandInput
+  | GetVpnTunnelReplacementStatusCommandInput
   | ImportClientVpnClientCertificateRevocationListCommandInput
   | ImportImageCommandInput
   | ImportInstanceCommandInput
@@ -2605,6 +2611,7 @@ export type ServiceInputTypes =
   | ReplaceRouteCommandInput
   | ReplaceRouteTableAssociationCommandInput
   | ReplaceTransitGatewayRouteCommandInput
+  | ReplaceVpnTunnelCommandInput
   | ReportInstanceStatusCommandInput
   | RequestSpotFleetCommandInput
   | RequestSpotInstancesCommandInput
@@ -3099,6 +3106,7 @@ export type ServiceOutputTypes =
   | GetVerifiedAccessGroupPolicyCommandOutput
   | GetVpnConnectionDeviceSampleConfigurationCommandOutput
   | GetVpnConnectionDeviceTypesCommandOutput
+  | GetVpnTunnelReplacementStatusCommandOutput
   | ImportClientVpnClientCertificateRevocationListCommandOutput
   | ImportImageCommandOutput
   | ImportInstanceCommandOutput
@@ -3199,6 +3207,7 @@ export type ServiceOutputTypes =
   | ReplaceRouteCommandOutput
   | ReplaceRouteTableAssociationCommandOutput
   | ReplaceTransitGatewayRouteCommandOutput
+  | ReplaceVpnTunnelCommandOutput
   | ReportInstanceStatusCommandOutput
   | RequestSpotFleetCommandOutput
   | RequestSpotInstancesCommandOutput

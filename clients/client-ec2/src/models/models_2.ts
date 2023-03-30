@@ -5471,6 +5471,11 @@ export interface VpnTunnelOptionsSpecification {
    * <p>Options for logging VPN tunnel activity.</p>
    */
   LogOptions?: VpnTunnelLogOptionsSpecification;
+
+  /**
+   * <p>Turn on or off tunnel endpoint lifecycle control feature.</p>
+   */
+  EnableTunnelLifecycleControl?: boolean;
 }
 
 /**
@@ -5838,6 +5843,11 @@ export interface TunnelOption {
    * <p>Options for logging VPN tunnel activity.</p>
    */
   LogOptions?: VpnTunnelLogOptions;
+
+  /**
+   * <p>Status of tunnel endpoint lifecycle control feature.</p>
+   */
+  EnableTunnelLifecycleControl?: boolean;
 }
 
 /**

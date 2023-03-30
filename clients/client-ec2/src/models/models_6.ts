@@ -26,6 +26,7 @@ import {
   Ipv6SupportValue,
   PortRange,
   RouteTableAssociationState,
+  Tag,
   TagSpecification,
   TransitGatewayAttachmentResourceType,
   TransitGatewayMulticastDomainAssociations,
@@ -121,17 +122,16 @@ import {
   IpamPoolCidr,
   LaunchPermission,
   PermissionGroup,
+  SnapshotTaskDetail,
   TpmSupportValues,
 } from "./models_3";
 import {
   CreateVolumePermission,
   ExcessCapacityTerminationPolicy,
   InstanceNetworkInterfaceSpecification,
-  InstanceState,
   InstanceStatusEvent,
   LaunchTemplateConfig,
   Monitoring,
-  NetworkInsightsAccessScopeAnalysis,
   PublicIpv4PoolRange,
   ReservedInstancesConfiguration,
   RunInstancesMonitoringEnabled,
@@ -145,15 +145,147 @@ import {
   VerifiedAccessInstanceLoggingConfiguration,
 } from "./models_4";
 import {
+  ClientData,
   DiskImageDetail,
   DiskImageDetailFilterSensitiveLog,
   InstanceFamilyCreditSpecification,
   IpamResourceCidr,
   Purchase,
   UnlimitedSupportedInstanceFamily,
+  UserBucket,
   VolumeDetail,
   VolumeModification,
 } from "./models_5";
+
+/**
+ * @public
+ * <p>The disk container object for the import snapshot request.</p>
+ */
+export interface SnapshotDiskContainer {
+  /**
+   * <p>The description of the disk image being imported.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The format of the disk image being imported.</p>
+   *          <p>Valid values: <code>VHD</code> | <code>VMDK</code> | <code>RAW</code>
+   *          </p>
+   */
+  Format?: string;
+
+  /**
+   * <p>The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon
+   *    S3 URL (s3://..).</p>
+   */
+  Url?: string;
+
+  /**
+   * <p>The Amazon S3 bucket for the disk image.</p>
+   */
+  UserBucket?: UserBucket;
+}
+
+/**
+ * @public
+ */
+export interface ImportSnapshotRequest {
+  /**
+   * <p>The client-specific data.</p>
+   */
+  ClientData?: ClientData;
+
+  /**
+   * <p>Token to enable idempotency for VM import requests.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The description string for the import snapshot task.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Information about the disk container.</p>
+   */
+  DiskContainer?: SnapshotDiskContainer;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is
+   *    used unless you specify a non-default KMS key using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the
+   *     <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  Encrypted?: boolean;
+
+  /**
+   * <p>An identifier for the symmetric KMS key to use when creating the
+   *    encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this
+   *    parameter is not specified, the default KMS key for EBS is used. If a <code>KmsKeyId</code> is
+   *    specified, the <code>Encrypted</code> flag must also be set. </p>
+   *          <p>The KMS key identifier may be provided in any of the following formats: </p>
+   *          <ul>
+   *             <li>
+   *                <p>Key ID</p>
+   *             </li>
+   *             <li>
+   *                <p>Key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>alias</code> namespace, and then the key alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>key</code> namespace, and then the key ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>ARN using key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>alias</code> namespace, and then the key alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p>
+   *             </li>
+   *          </ul>
+   *          <p>Amazon Web Services parses <code>KmsKeyId</code> asynchronously, meaning that the action you call may appear to complete even
+   *    though you provided an invalid identifier. This action will eventually report failure. </p>
+   *          <p>The specified KMS key must exist in the Region that the snapshot is being copied to.</p>
+   *          <p>Amazon EBS does not support asymmetric KMS keys.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>The name of the role to use when not using the default role, 'vmimport'.</p>
+   */
+  RoleName?: string;
+
+  /**
+   * <p>The tags to apply to the import snapshot task during creation.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+}
+
+/**
+ * @public
+ */
+export interface ImportSnapshotResult {
+  /**
+   * <p>A description of the import snapshot task.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ID of the import snapshot task.</p>
+   */
+  ImportTaskId?: string;
+
+  /**
+   * <p>Information about the import snapshot task.</p>
+   */
+  SnapshotTaskDetail?: SnapshotTaskDetail;
+
+  /**
+   * <p>Any tags assigned to the import snapshot task.</p>
+   */
+  Tags?: Tag[];
+}
 
 /**
  * @public
@@ -4568,6 +4700,11 @@ export interface ModifyVpnTunnelOptionsSpecification {
    * <p>Options for logging VPN tunnel activity.</p>
    */
   LogOptions?: VpnTunnelLogOptionsSpecification;
+
+  /**
+   * <p>Turn on or off tunnel endpoint lifecycle control feature.</p>
+   */
+  EnableTunnelLifecycleControl?: boolean;
 }
 
 /**
@@ -4596,6 +4733,13 @@ export interface ModifyVpnTunnelOptionsRequest {
    *                 <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>Choose whether or not to trigger immediate tunnel replacement.</p>
+   *          <p>Valid values: <code>True</code> | <code>False</code>
+   *          </p>
+   */
+  SkipTunnelReplacement?: boolean;
 }
 
 /**
@@ -5963,6 +6107,41 @@ export interface ReplaceTransitGatewayRouteResult {
    * <p>Information about the modified route.</p>
    */
   Route?: TransitGatewayRoute;
+}
+
+/**
+ * @public
+ */
+export interface ReplaceVpnTunnelRequest {
+  /**
+   * <p>The ID of the Site-to-Site VPN connection. </p>
+   */
+  VpnConnectionId: string | undefined;
+
+  /**
+   * <p>The external IP address of the VPN tunnel.</p>
+   */
+  VpnTunnelOutsideIpAddress: string | undefined;
+
+  /**
+   * <p>Trigger pending tunnel endpoint maintenance.</p>
+   */
+  ApplyPendingMaintenance?: boolean;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface ReplaceVpnTunnelResult {
+  /**
+   * <p>Confirmation of replace tunnel operation.</p>
+   */
+  Return?: boolean;
 }
 
 /**
@@ -8330,113 +8509,6 @@ export interface StartInstancesRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
-}
-
-/**
- * @public
- * <p>Describes an instance state change.</p>
- */
-export interface InstanceStateChange {
-  /**
-   * <p>The current state of the instance.</p>
-   */
-  CurrentState?: InstanceState;
-
-  /**
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>The previous state of the instance.</p>
-   */
-  PreviousState?: InstanceState;
-}
-
-/**
- * @public
- */
-export interface StartInstancesResult {
-  /**
-   * <p>Information about the started instances.</p>
-   */
-  StartingInstances?: InstanceStateChange[];
-}
-
-/**
- * @public
- */
-export interface StartNetworkInsightsAccessScopeAnalysisRequest {
-  /**
-   * <p>The ID of the Network Access Scope.</p>
-   */
-  NetworkInsightsAccessScopeId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The tags to apply.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information,
-   *    see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
-   */
-  ClientToken?: string;
-}
-
-/**
- * @public
- */
-export interface StartNetworkInsightsAccessScopeAnalysisResult {
-  /**
-   * <p>The Network Access Scope analysis.</p>
-   */
-  NetworkInsightsAccessScopeAnalysis?: NetworkInsightsAccessScopeAnalysis;
-}
-
-/**
- * @public
- */
-export interface StartNetworkInsightsAnalysisRequest {
-  /**
-   * <p>The ID of the path.</p>
-   */
-  NetworkInsightsPathId: string | undefined;
-
-  /**
-   * <p>The member accounts that contain resources that the path can traverse.</p>
-   */
-  AdditionalAccounts?: string[];
-
-  /**
-   * <p>The Amazon Resource Names (ARN) of the resources that the path must traverse.</p>
-   */
-  FilterInArns?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The tags to apply.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information,
-   *    see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
-   */
-  ClientToken?: string;
 }
 
 /**

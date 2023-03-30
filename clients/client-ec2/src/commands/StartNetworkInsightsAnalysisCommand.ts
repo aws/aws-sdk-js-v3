@@ -14,8 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { StartNetworkInsightsAnalysisRequest } from "../models/models_6";
-import { StartNetworkInsightsAnalysisResult } from "../models/models_7";
+import { StartNetworkInsightsAnalysisRequest, StartNetworkInsightsAnalysisResult } from "../models/models_7";
 import {
   deserializeAws_ec2StartNetworkInsightsAnalysisCommand,
   serializeAws_ec2StartNetworkInsightsAnalysisCommand,

@@ -102,8 +102,10 @@ export interface ModifyVpnTunnelOptionsCommandOutput extends ModifyVpnTunnelOpti
  *         LogOutputFormat: "STRING_VALUE",
  *       },
  *     },
+ *     EnableTunnelLifecycleControl: true || false,
  *   },
  *   DryRun: true || false,
+ *   SkipTunnelReplacement: true || false,
  * };
  * const command = new ModifyVpnTunnelOptionsCommand(input);
  * const response = await client.send(command);

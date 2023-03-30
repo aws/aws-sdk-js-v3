@@ -123,6 +123,7 @@ export interface CreateVpnConnectionCommandOutput extends CreateVpnConnectionRes
  *             LogOutputFormat: "STRING_VALUE",
  *           },
  *         },
+ *         EnableTunnelLifecycleControl: true || false,
  *       },
  *     ],
  *     LocalIpv4NetworkCidr: "STRING_VALUE",
