@@ -46,7 +46,7 @@ export interface UpdateReplicationJobCommandOutput extends UpdateReplicationJobR
  *   replicationJobId: "STRING_VALUE", // required
  *   frequency: Number("int"),
  *   nextReplicationRunStartTime: new Date("TIMESTAMP"),
- *   licenseType: "STRING_VALUE",
+ *   licenseType: "AWS" || "BYOL",
  *   roleName: "STRING_VALUE",
  *   description: "STRING_VALUE",
  *   numberOfRecentAmisToKeep: Number("int"),

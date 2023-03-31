@@ -45,7 +45,7 @@ export interface GenerateTemplateCommandOutput extends GenerateTemplateResponse,
  * const client = new SMSClient(config);
  * const input = { // GenerateTemplateRequest
  *   appId: "STRING_VALUE",
- *   templateFormat: "STRING_VALUE",
+ *   templateFormat: "JSON" || "YAML",
  * };
  * const command = new GenerateTemplateCommand(input);
  * const response = await client.send(command);

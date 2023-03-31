@@ -734,21 +734,21 @@ export interface CreateReplicationJobRequest {
   /**
    * <p>The ID of the KMS key for replication jobs that produce encrypted AMIs.
    *             This value can be any of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>KMS key ID</p>
+   *                <p>KMS key ID</p>
    *             </li>
    *             <li>
-   *                 <p>KMS key alias</p>
+   *                <p>KMS key alias</p>
    *             </li>
    *             <li>
-   *                 <p>ARN referring to the KMS key ID</p>
+   *                <p>ARN referring to the KMS key ID</p>
    *             </li>
    *             <li>
-   *                 <p>ARN referring to the KMS key alias</p>
+   *                <p>ARN referring to the KMS key alias</p>
    *             </li>
    *          </ul>
-   *         <p> If encrypted is <i>true</i> but a KMS key ID is not specified, the
+   *          <p> If encrypted is <i>true</i> but a KMS key ID is not specified, the
    *             customer's default KMS key for Amazon EBS is used. </p>
    */
   kmsKeyId?: string;
@@ -1254,21 +1254,21 @@ export interface ServerReplicationParameters {
   /**
    * <p>The ID of the KMS key for replication jobs that produce encrypted AMIs.
    *             This value can be any of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>KMS key ID</p>
+   *                <p>KMS key ID</p>
    *             </li>
    *             <li>
-   *                 <p>KMS key alias</p>
+   *                <p>KMS key alias</p>
    *             </li>
    *             <li>
-   *                 <p>ARN referring to the KMS key ID</p>
+   *                <p>ARN referring to the KMS key ID</p>
    *             </li>
    *             <li>
-   *                 <p>ARN referring to the KMS key alias</p>
+   *                <p>ARN referring to the KMS key alias</p>
    *             </li>
    *          </ul>
-   *         <p>If encrypted is enabled but a KMS key ID is not specified, the
+   *          <p>If encrypted is enabled but a KMS key ID is not specified, the
    *             customer's default KMS key for Amazon EBS is used.</p>
    */
   kmsKeyId?: string;
@@ -1758,21 +1758,21 @@ export interface ReplicationRun {
   /**
    * <p>The ID of the KMS key for replication jobs that produce encrypted AMIs.
    *             This value can be any of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>KMS key ID</p>
+   *                <p>KMS key ID</p>
    *             </li>
    *             <li>
-   *                 <p>KMS key alias</p>
+   *                <p>KMS key alias</p>
    *             </li>
    *             <li>
-   *                 <p>ARN referring to the KMS key ID</p>
+   *                <p>ARN referring to the KMS key ID</p>
    *             </li>
    *             <li>
-   *                 <p>ARN referring to the KMS key alias</p>
+   *                <p>ARN referring to the KMS key alias</p>
    *             </li>
    *          </ul>
-   *         <p> If encrypted is <i>true</i> but a KMS key ID is not specified, the
+   *          <p> If encrypted is <i>true</i> but a KMS key ID is not specified, the
    *             customer's default KMS key for Amazon EBS is used. </p>
    */
   kmsKeyId?: string;
@@ -1888,21 +1888,21 @@ export interface ReplicationJob {
   /**
    * <p>The ID of the KMS key for replication jobs that produce encrypted AMIs.
    *             This value can be any of the following: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>KMS key ID</p>
+   *                <p>KMS key ID</p>
    *             </li>
    *             <li>
-   *                 <p>KMS key alias</p>
+   *                <p>KMS key alias</p>
    *             </li>
    *             <li>
-   *                 <p>ARN referring to the KMS key ID</p>
+   *                <p>ARN referring to the KMS key ID</p>
    *             </li>
    *             <li>
-   *                 <p>ARN referring to the KMS key alias</p>
+   *                <p>ARN referring to the KMS key alias</p>
    *             </li>
    *          </ul>
-   *         <p>If encrypted is enabled but a KMS key ID is not specified, the
+   *          <p>If encrypted is enabled but a KMS key ID is not specified, the
    *             customer's default KMS key for Amazon EBS is used.</p>
    */
   kmsKeyId?: string;
@@ -2471,21 +2471,21 @@ export interface UpdateReplicationJobRequest {
   /**
    * <p>The ID of the KMS key for replication jobs that produce encrypted AMIs.
    *             This value can be any of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>KMS key ID</p>
+   *                <p>KMS key ID</p>
    *             </li>
    *             <li>
-   *                 <p>KMS key alias</p>
+   *                <p>KMS key alias</p>
    *             </li>
    *             <li>
-   *                 <p>ARN referring to the KMS key ID</p>
+   *                <p>ARN referring to the KMS key ID</p>
    *             </li>
    *             <li>
-   *                 <p>ARN referring to the KMS key alias</p>
+   *                <p>ARN referring to the KMS key alias</p>
    *             </li>
    *          </ul>
-   *         <p>If encrypted is enabled but a KMS key ID is not specified, the
+   *          <p>If encrypted is enabled but a KMS key ID is not specified, the
    *             customer's default KMS key for Amazon EBS is used.</p>
    */
   kmsKeyId?: string;

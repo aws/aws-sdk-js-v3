@@ -36,7 +36,7 @@ export interface DisassociateConnectorCommandOutput extends DisassociateConnecto
 /**
  * @public
  * <p>Disassociates the specified connector from Server Migration Service.</p>
- *         <p>After you disassociate a connector, it is no longer available to support
+ *          <p>After you disassociate a connector, it is no longer available to support
  *             replication jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

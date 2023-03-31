@@ -46,7 +46,7 @@ export interface NotifyAppValidationOutputCommandOutput extends NotifyAppValidat
  *   appId: "STRING_VALUE", // required
  *   notificationContext: { // NotificationContext
  *     validationId: "STRING_VALUE",
- *     status: "STRING_VALUE",
+ *     status: "READY_FOR_VALIDATION" || "PENDING" || "IN_PROGRESS" || "SUCCEEDED" || "FAILED",
  *     statusMessage: "STRING_VALUE",
  *   },
  * };

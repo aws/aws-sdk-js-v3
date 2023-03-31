@@ -152,6 +152,8 @@ import { SMSClient } from "./SMSClient";
 
 /**
  * @public
+ * @deprecated
+ *
  * <important>
  *             <p>
  *                <b>Product update</b>
@@ -161,19 +163,18 @@ import { SMSClient } from "./SMSClient";
  *                 unavailable in a specific Amazon Web Services Region, you can use the Server Migration Service APIs through March
  *                 2023.</p>
  *          </important>
- *
- *         <p>Server Migration Service (Server Migration Service) makes it easier and faster for you to migrate your
+ *          <p>Server Migration Service (Server Migration Service) makes it easier and faster for you to migrate your
  *             on-premises workloads to Amazon Web Services. To learn more about Server Migration Service, see the following
  *             resources:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a href="http://aws.amazon.com/server-migration-service/">Server Migration Service
  *                     product page</a>
  *                </p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/server-migration-service/latest/userguide/">Server Migration Service User Guide</a>
  *                </p>
  *             </li>
@@ -373,7 +374,7 @@ export class SMS extends SMSClient {
   /**
    * @public
    * <p>Deletes the specified replication job.</p>
-   *         <p>After you delete a replication job, there are no further replication runs. Amazon Web Services
+   *          <p>After you delete a replication job, there are no further replication runs. Amazon Web Services
    *             deletes the contents of the Amazon S3 bucket used to store Server Migration Service artifacts. The AMIs created
    *             by the replication runs are not deleted.</p>
    */
@@ -442,7 +443,7 @@ export class SMS extends SMSClient {
   /**
    * @public
    * <p>Disassociates the specified connector from Server Migration Service.</p>
-   *         <p>After you disassociate a connector, it is no longer available to support
+   *          <p>After you disassociate a connector, it is no longer available to support
    *             replication jobs.</p>
    */
   public disassociateConnector(
@@ -804,7 +805,7 @@ export class SMS extends SMSClient {
   /**
    * @public
    * <p>Describes the servers in your server catalog.</p>
-   *         <p>Before you can describe your servers, you must import them using <a>ImportServerCatalog</a>.</p>
+   *          <p>Before you can describe your servers, you must import them using <a>ImportServerCatalog</a>.</p>
    */
   public getServers(args: GetServersCommandInput, options?: __HttpHandlerOptions): Promise<GetServersCommandOutput>;
   public getServers(args: GetServersCommandInput, cb: (err: any, data?: GetServersCommandOutput) => void): void;
@@ -866,7 +867,7 @@ export class SMS extends SMSClient {
    * @public
    * <p>Gathers a complete list of on-premises servers. Connectors must be installed and
    *             monitoring all servers to import.</p>
-   *         <p>This call returns immediately, but might take additional time to retrieve all the
+   *          <p>This call returns immediately, but might take additional time to retrieve all the
    *             servers.</p>
    */
   public importServerCatalog(
@@ -1156,7 +1157,7 @@ export class SMS extends SMSClient {
    * <p>Starts an on-demand replication run for the specified replication job. This
    *             replication run starts immediately. This replication run is in addition to the ones
    *             already scheduled.</p>
-   *         <p>There is a limit on the number of on-demand replications runs that you can request
+   *          <p>There is a limit on the number of on-demand replications runs that you can request
    *             in a 24-hour period.</p>
    */
   public startOnDemandReplicationRun(

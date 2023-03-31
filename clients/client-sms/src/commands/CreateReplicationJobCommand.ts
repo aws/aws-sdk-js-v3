@@ -49,7 +49,7 @@ export interface CreateReplicationJobCommandOutput extends CreateReplicationJobR
  *   seedReplicationTime: new Date("TIMESTAMP"), // required
  *   frequency: Number("int"),
  *   runOnce: true || false,
- *   licenseType: "STRING_VALUE",
+ *   licenseType: "AWS" || "BYOL",
  *   roleName: "STRING_VALUE",
  *   description: "STRING_VALUE",
  *   numberOfRecentAmisToKeep: Number("int"),

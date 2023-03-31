@@ -40,7 +40,7 @@ export interface StartOnDemandReplicationRunCommandOutput
  * <p>Starts an on-demand replication run for the specified replication job. This
  *             replication run starts immediately. This replication run is in addition to the ones
  *             already scheduled.</p>
- *         <p>There is a limit on the number of on-demand replications runs that you can request
+ *          <p>There is a limit on the number of on-demand replications runs that you can request
  *             in a 24-hour period.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

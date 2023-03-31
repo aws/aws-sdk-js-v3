@@ -45,7 +45,7 @@ export interface GenerateChangeSetCommandOutput extends GenerateChangeSetRespons
  * const client = new SMSClient(config);
  * const input = { // GenerateChangeSetRequest
  *   appId: "STRING_VALUE",
- *   changesetFormat: "STRING_VALUE",
+ *   changesetFormat: "JSON" || "YAML",
  * };
  * const command = new GenerateChangeSetCommand(input);
  * const response = await client.send(command);

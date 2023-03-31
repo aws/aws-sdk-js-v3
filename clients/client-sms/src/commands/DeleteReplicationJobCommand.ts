@@ -36,7 +36,7 @@ export interface DeleteReplicationJobCommandOutput extends DeleteReplicationJobR
 /**
  * @public
  * <p>Deletes the specified replication job.</p>
- *         <p>After you delete a replication job, there are no further replication runs. Amazon Web Services
+ *          <p>After you delete a replication job, there are no further replication runs. Amazon Web Services
  *             deletes the contents of the Amazon S3 bucket used to store Server Migration Service artifacts. The AMIs created
  *             by the replication runs are not deleted.</p>
  * @example

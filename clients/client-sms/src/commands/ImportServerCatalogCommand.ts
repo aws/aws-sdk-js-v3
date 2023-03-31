@@ -37,7 +37,7 @@ export interface ImportServerCatalogCommandOutput extends ImportServerCatalogRes
  * @public
  * <p>Gathers a complete list of on-premises servers. Connectors must be installed and
  *             monitoring all servers to import.</p>
- *         <p>This call returns immediately, but might take additional time to retrieve all the
+ *          <p>This call returns immediately, but might take additional time to retrieve all the
  *             servers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

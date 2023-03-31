@@ -50,7 +50,7 @@ export interface PutAppValidationConfigurationCommandOutput
  *     { // AppValidationConfiguration
  *       validationId: "STRING_VALUE",
  *       name: "STRING_VALUE",
- *       appValidationStrategy: "STRING_VALUE",
+ *       appValidationStrategy: "SSM",
  *       ssmValidationParameters: { // SSMValidationParameters
  *         source: { // Source
  *           s3Location: { // S3Location
@@ -59,7 +59,7 @@ export interface PutAppValidationConfigurationCommandOutput
  *           },
  *         },
  *         instanceId: "STRING_VALUE",
- *         scriptType: "STRING_VALUE",
+ *         scriptType: "SHELL_SCRIPT" || "POWERSHELL_SCRIPT",
  *         command: "STRING_VALUE",
  *         executionTimeoutSeconds: Number("int"),
  *         outputS3BucketName: "STRING_VALUE",
@@ -73,7 +73,7 @@ export interface PutAppValidationConfigurationCommandOutput
  *         { // ServerValidationConfiguration
  *           server: { // Server
  *             serverId: "STRING_VALUE",
- *             serverType: "STRING_VALUE",
+ *             serverType: "VIRTUAL_MACHINE",
  *             vmServer: { // VmServer
  *               vmServerAddress: { // VmServerAddress
  *                 vmManagerId: "STRING_VALUE",
@@ -81,7 +81,7 @@ export interface PutAppValidationConfigurationCommandOutput
  *               },
  *               vmName: "STRING_VALUE",
  *               vmManagerName: "STRING_VALUE",
- *               vmManagerType: "STRING_VALUE",
+ *               vmManagerType: "VSPHERE" || "SCVMM" || "HYPERV-MANAGER",
  *               vmPath: "STRING_VALUE",
  *             },
  *             replicationJobId: "STRING_VALUE",
@@ -89,7 +89,7 @@ export interface PutAppValidationConfigurationCommandOutput
  *           },
  *           validationId: "STRING_VALUE",
  *           name: "STRING_VALUE",
- *           serverValidationStrategy: "STRING_VALUE",
+ *           serverValidationStrategy: "USERDATA",
  *           userDataValidationParameters: { // UserDataValidationParameters
  *             source: {
  *               s3Location: {
@@ -97,7 +97,7 @@ export interface PutAppValidationConfigurationCommandOutput
  *                 key: "STRING_VALUE",
  *               },
  *             },
- *             scriptType: "STRING_VALUE",
+ *             scriptType: "SHELL_SCRIPT" || "POWERSHELL_SCRIPT",
  *           },
  *         },
  *       ],

@@ -396,6 +396,8 @@ export interface SMSClientResolvedConfig extends SMSClientResolvedConfigType {}
 
 /**
  * @public
+ * @deprecated
+ *
  * <important>
  *             <p>
  *                <b>Product update</b>
@@ -405,19 +407,18 @@ export interface SMSClientResolvedConfig extends SMSClientResolvedConfigType {}
  *                 unavailable in a specific Amazon Web Services Region, you can use the Server Migration Service APIs through March
  *                 2023.</p>
  *          </important>
- *
- *         <p>Server Migration Service (Server Migration Service) makes it easier and faster for you to migrate your
+ *          <p>Server Migration Service (Server Migration Service) makes it easier and faster for you to migrate your
  *             on-premises workloads to Amazon Web Services. To learn more about Server Migration Service, see the following
  *             resources:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a href="http://aws.amazon.com/server-migration-service/">Server Migration Service
  *                     product page</a>
  *                </p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/server-migration-service/latest/userguide/">Server Migration Service User Guide</a>
  *                </p>
  *             </li>

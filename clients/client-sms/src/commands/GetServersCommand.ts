@@ -36,7 +36,7 @@ export interface GetServersCommandOutput extends GetServersResponse, __MetadataB
 /**
  * @public
  * <p>Describes the servers in your server catalog.</p>
- *         <p>Before you can describe your servers, you must import them using <a>ImportServerCatalog</a>.</p>
+ *          <p>Before you can describe your servers, you must import them using <a>ImportServerCatalog</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

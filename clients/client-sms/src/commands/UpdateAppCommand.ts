@@ -51,7 +51,7 @@ export interface UpdateAppCommandOutput extends UpdateAppResponse, __MetadataBea
  *       serverList: [ // ServerList
  *         { // Server
  *           serverId: "STRING_VALUE",
- *           serverType: "STRING_VALUE",
+ *           serverType: "VIRTUAL_MACHINE",
  *           vmServer: { // VmServer
  *             vmServerAddress: { // VmServerAddress
  *               vmManagerId: "STRING_VALUE",
@@ -59,7 +59,7 @@ export interface UpdateAppCommandOutput extends UpdateAppResponse, __MetadataBea
  *             },
  *             vmName: "STRING_VALUE",
  *             vmManagerName: "STRING_VALUE",
- *             vmManagerType: "STRING_VALUE",
+ *             vmManagerType: "VSPHERE" || "SCVMM" || "HYPERV-MANAGER",
  *             vmPath: "STRING_VALUE",
  *           },
  *           replicationJobId: "STRING_VALUE",
