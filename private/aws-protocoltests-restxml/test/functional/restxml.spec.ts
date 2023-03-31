@@ -4,7 +4,7 @@ import { buildQueryString } from "@aws-sdk/querystring-builder";
 import { Encoder as __Encoder } from "@aws-sdk/types";
 import { HeaderBag, HttpHandlerOptions } from "@aws-sdk/types";
 import { decodeHTML } from "entities";
-import { parse as xmlParse } from "fast-xml-parser";
+import { parse as xmlParse } from "../xml-parser";
 import { Readable } from "stream";
 
 import { AllQueryStringTypesCommand } from "../../src/commands/AllQueryStringTypesCommand";

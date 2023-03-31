@@ -167,7 +167,7 @@ final class AwsProtocolUtils {
                     writer.openBlock("if (encoded.length) {", "}", () -> {
                         writer.write("const parsedObj = xmlParse(encoded, { attributeNamePrefix: '', "
                                 + "ignoreAttributes: false, parseNodeValue: false, trimValues: false, "
-                                + "tagValueProcessor: (val) => (val.trim() === '' && val.includes('\\n'))"
+                                + "tagValueProcessor: (val: any) => (val.trim() === '' && val.includes('\\n'))"
                                 + " ? '': decodeHTML(val) });");
                         writer.write("const textNodeName = '#text';");
                         writer.write("const key = Object.keys(parsedObj)[0];");

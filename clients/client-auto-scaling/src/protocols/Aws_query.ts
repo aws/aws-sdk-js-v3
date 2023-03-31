@@ -21,7 +21,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 import { decodeHTML } from "entities";
-import { parse as xmlParse } from "fast-xml-parser";
+import { parse as xmlParse } from "../xml-parser";
 
 import { AttachInstancesCommandInput, AttachInstancesCommandOutput } from "../commands/AttachInstancesCommand";
 import {
@@ -9843,7 +9843,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
         ignoreAttributes: false,
         parseNodeValue: false,
         trimValues: false,
-        tagValueProcessor: (val) => (val.trim() === "" && val.includes("\n") ? "" : decodeHTML(val)),
+        tagValueProcessor: (val: any) => (val.trim() === "" && val.includes("\n") ? "" : decodeHTML(val)),
       });
       const textNodeName = "#text";
       const key = Object.keys(parsedObj)[0];
