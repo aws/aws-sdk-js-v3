@@ -45,6 +45,7 @@ import {
   InternalServerErrorException,
   InternalServerException,
   InternetHealth,
+  InternetMeasurementsLogDelivery,
   LimitExceededException,
   Monitor,
   Network,
@@ -53,6 +54,7 @@ import {
   PerformanceMeasurement,
   ResourceNotFoundException,
   RoundTripTime,
+  S3Config,
   ThrottlingException,
   TooManyRequestsException,
   ValidationException,
@@ -70,6 +72,12 @@ export const serializeAws_restJson1CreateMonitorCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.InternetMeasurementsLogDelivery != null && {
+      InternetMeasurementsLogDelivery: serializeAws_restJson1InternetMeasurementsLogDelivery(
+        input.InternetMeasurementsLogDelivery,
+        context
+      ),
+    }),
     ...(input.MaxCityNetworksToMonitor != null && { MaxCityNetworksToMonitor: input.MaxCityNetworksToMonitor }),
     ...(input.MonitorName != null && { MonitorName: input.MonitorName }),
     ...(input.Resources != null && { Resources: serializeAws_restJson1SetOfARNs(input.Resources, context) }),
@@ -295,6 +303,12 @@ export const serializeAws_restJson1UpdateMonitorCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.InternetMeasurementsLogDelivery != null && {
+      InternetMeasurementsLogDelivery: serializeAws_restJson1InternetMeasurementsLogDelivery(
+        input.InternetMeasurementsLogDelivery,
+        context
+      ),
+    }),
     ...(input.MaxCityNetworksToMonitor != null && { MaxCityNetworksToMonitor: input.MaxCityNetworksToMonitor }),
     ...(input.ResourcesToAdd != null && {
       ResourcesToAdd: serializeAws_restJson1SetOfARNs(input.ResourcesToAdd, context),
@@ -511,6 +525,12 @@ export const deserializeAws_restJson1GetMonitorCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreatedAt != null) {
     contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.CreatedAt));
+  }
+  if (data.InternetMeasurementsLogDelivery != null) {
+    contents.InternetMeasurementsLogDelivery = deserializeAws_restJson1InternetMeasurementsLogDelivery(
+      data.InternetMeasurementsLogDelivery,
+      context
+    );
   }
   if (data.MaxCityNetworksToMonitor != null) {
     contents.MaxCityNetworksToMonitor = __expectInt32(data.MaxCityNetworksToMonitor);
@@ -1070,6 +1090,23 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+const serializeAws_restJson1InternetMeasurementsLogDelivery = (
+  input: InternetMeasurementsLogDelivery,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.S3Config != null && { S3Config: serializeAws_restJson1S3Config(input.S3Config, context) }),
+  };
+};
+
+const serializeAws_restJson1S3Config = (input: S3Config, context: __SerdeContext): any => {
+  return {
+    ...(input.BucketName != null && { BucketName: input.BucketName }),
+    ...(input.BucketPrefix != null && { BucketPrefix: input.BucketPrefix }),
+    ...(input.LogDeliveryStatus != null && { LogDeliveryStatus: input.LogDeliveryStatus }),
+  };
+};
+
 const serializeAws_restJson1SetOfARNs = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -1181,6 +1218,15 @@ const deserializeAws_restJson1InternetHealth = (output: any, context: __SerdeCon
   } as any;
 };
 
+const deserializeAws_restJson1InternetMeasurementsLogDelivery = (
+  output: any,
+  context: __SerdeContext
+): InternetMeasurementsLogDelivery => {
+  return {
+    S3Config: output.S3Config != null ? deserializeAws_restJson1S3Config(output.S3Config, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1Monitor = (output: any, context: __SerdeContext): Monitor => {
   return {
     MonitorArn: __expectString(output.MonitorArn),
@@ -1247,6 +1293,14 @@ const deserializeAws_restJson1RoundTripTime = (output: any, context: __SerdeCont
     P50: __limitedParseDouble(output.P50),
     P90: __limitedParseDouble(output.P90),
     P95: __limitedParseDouble(output.P95),
+  } as any;
+};
+
+const deserializeAws_restJson1S3Config = (output: any, context: __SerdeContext): S3Config => {
+  return {
+    BucketName: __expectString(output.BucketName),
+    BucketPrefix: __expectString(output.BucketPrefix),
+    LogDeliveryStatus: __expectString(output.LogDeliveryStatus),
   } as any;
 };
 

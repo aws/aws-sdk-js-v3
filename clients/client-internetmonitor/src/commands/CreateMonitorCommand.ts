@@ -35,10 +35,13 @@ export interface CreateMonitorCommandOutput extends CreateMonitorOutput, __Metad
 
 /**
  * @public
- * <p>Creates a monitor in Amazon CloudWatch Internet Monitor. A monitor is built based on information from the application resources that you add: Virtual Private Clouds (VPCs),
- * 			Amazon CloudFront distributions, and WorkSpaces directories. </p>
- *          <p>After you create a monitor, you can view the internet performance for your application, scoped to a location, as well as any health events that are
- * 			impairing traffic. Internet Monitor can also diagnose whether the impairment is on the Amazon Web Services network or is an issue with an internet service provider (ISP).</p>
+ * <p>Creates a monitor in Amazon CloudWatch Internet Monitor. A monitor is built based on information from the application resources that you add: Amazon Virtual Private Clouds (VPCs),
+ * 			Amazon CloudFront distributions, and WorkSpaces directories. Internet Monitor then publishes internet measurements from Amazon Web Services that are specific to
+ * 			the <i>city-networks</i>, that is, the locations and ASNs (typically internet service providers or ISPs),
+ * 			where clients access your application. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-InternetMonitor.html">Using Amazon CloudWatch Internet Monitor</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
+ *          <p>When you create a monitor, you set a maximum limit for the number of city-networks where client traffic is monitored. The city-network maximum
+ * 			that you choose is the limit, but you only pay for the number of city-networks that are actually monitored. You can change the maximum at any time
+ * 			by updating your monitor. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html">Choosing a city-network maximum value</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +58,13 @@ export interface CreateMonitorCommandOutput extends CreateMonitorOutput, __Metad
  *     "<keys>": "STRING_VALUE",
  *   },
  *   MaxCityNetworksToMonitor: Number("int"), // required
+ *   InternetMeasurementsLogDelivery: { // InternetMeasurementsLogDelivery
+ *     S3Config: { // S3Config
+ *       BucketName: "STRING_VALUE",
+ *       BucketPrefix: "STRING_VALUE",
+ *       LogDeliveryStatus: "STRING_VALUE",
+ *     },
+ *   },
  * };
  * const command = new CreateMonitorCommand(input);
  * const response = await client.send(command);

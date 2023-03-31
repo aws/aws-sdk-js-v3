@@ -35,8 +35,11 @@ export interface UpdateMonitorCommandOutput extends UpdateMonitorOutput, __Metad
 
 /**
  * @public
- * <p>Updates a monitor. You can update a monitor to add or remove resources, or to change the status of the monitor. You can't change the name of a
- * 			monitor.</p>
+ * <p>Updates a monitor. You can update a monitor to change the maximum number of city-networks (locations and ASNs or
+ * 			internet service providers), to add or remove resources,
+ * 			or to change the status of the monitor. Note that you can't change the name of a monitor.</p>
+ *          <p>The city-network maximum that you choose is the limit, but you only pay for the number of city-networks that are actually monitored.
+ * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html">Choosing a city-network maximum value</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +57,13 @@ export interface UpdateMonitorCommandOutput extends UpdateMonitorOutput, __Metad
  *   Status: "STRING_VALUE",
  *   ClientToken: "STRING_VALUE",
  *   MaxCityNetworksToMonitor: Number("int"),
+ *   InternetMeasurementsLogDelivery: { // InternetMeasurementsLogDelivery
+ *     S3Config: { // S3Config
+ *       BucketName: "STRING_VALUE",
+ *       BucketPrefix: "STRING_VALUE",
+ *       LogDeliveryStatus: "STRING_VALUE",
+ *     },
+ *   },
  * };
  * const command = new UpdateMonitorCommand(input);
  * const response = await client.send(command);
