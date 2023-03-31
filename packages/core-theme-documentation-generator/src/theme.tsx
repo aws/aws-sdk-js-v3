@@ -250,11 +250,34 @@ class SdkThemeContext extends DefaultThemeRenderContext {
       footer {
 
       }
+
+      .documentation-developer-preview {
+        background-color: var(--color-background-secondary);
+        border: 1px solid var(--color-link);
+        padding: 1em;
+        border-radius: .8em;
+        margin-bottom: 1em;
+      }
+
+      .documentation-developer-preview h2 {
+        font-size: 1.5rem;
+      }
+
+      .documentation-developer-preview {
+        font-size: 1rem;
+      }
     `;
 
       return (
         <>
           <style>{style}</style>
+          <div class="documentation-developer-preview">
+            <h2>New API Documentation - Developer Preview Available</h2>
+            <p>
+              We are excited to introduce the <a href="/dev-preview">Developer Preview</a> of our new API documentation
+              for AWS SDK for JavaScript v3. Please follow instructions on the landing page to leave us your feedback.
+            </p>
+          </div>
           {oldHeader(props)}
           <div id="jump-to-content" tabIndex={-1} />
         </>
