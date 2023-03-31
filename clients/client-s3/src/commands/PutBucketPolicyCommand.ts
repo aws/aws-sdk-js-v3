@@ -49,7 +49,8 @@ export interface PutBucketPolicyCommandOutput extends __MetadataBearer {}
  *             always use this operation, even if the policy explicitly denies the root user the
  *             ability to perform this action. </p>
  *          </important>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html">Bucket policy examples</a>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html">Bucket policy
+ *             examples</a>.</p>
  *          <p>The following operations are related to <code>PutBucketPolicy</code>:</p>
  *          <ul>
  *             <li>

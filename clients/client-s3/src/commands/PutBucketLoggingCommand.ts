@@ -37,15 +37,18 @@ export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
 /**
  * @public
  * <p>Set the logging parameters for a bucket and to specify permissions for who can view and
- *          modify the logging parameters. All logs are saved to buckets in the same Amazon Web Services Region as the
- *          source bucket. To set the logging status of a bucket, you must be the bucket owner.</p>
- *          <p>The bucket owner is automatically granted FULL_CONTROL to all logs. You use the <code>Grantee</code> request element to grant access to other people. The
+ *          modify the logging parameters. All logs are saved to buckets in the same Amazon Web Services Region as
+ *          the source bucket. To set the logging status of a bucket, you must be the bucket
+ *          owner.</p>
+ *          <p>The bucket owner is automatically granted FULL_CONTROL to all logs. You use the
+ *             <code>Grantee</code> request element to grant access to other people. The
  *             <code>Permissions</code> request element specifies the kind of access the grantee has to
  *          the logs.</p>
  *          <important>
- *             <p>If the target bucket for log delivery uses the bucket owner enforced
- *             setting for S3 Object Ownership, you can't use the <code>Grantee</code> request element
- *             to grant access to others. Permissions can only be granted using policies. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html#grant-log-delivery-permissions-general">Permissions for server access log delivery</a> in the
+ *             <p>If the target bucket for log delivery uses the bucket owner enforced setting for S3
+ *             Object Ownership, you can't use the <code>Grantee</code> request element to grant access
+ *             to others. Permissions can only be granted using policies. For more information, see
+ *                <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html#grant-log-delivery-permissions-general">Permissions for server access log delivery</a> in the
  *                <i>Amazon S3 User Guide</i>.</p>
  *          </important>
  *          <p>
@@ -86,7 +89,8 @@ export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
  *             <code><BucketLoggingStatus xmlns="http://doc.s3.amazonaws.com/2006-03-01"
  *             /></code>
  *          </p>
- *          <p>For more information about server access logging, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerLogs.html">Server Access Logging</a> in the <i>Amazon S3 User Guide</i>. </p>
+ *          <p>For more information about server access logging, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerLogs.html">Server Access Logging</a> in the
+ *             <i>Amazon S3 User Guide</i>. </p>
  *          <p>For more information about creating a bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a>. For more
  *          information about returning the logging status of a bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLogging.html">GetBucketLogging</a>.</p>
  *          <p>The following operations are related to <code>PutBucketLogging</code>:</p>

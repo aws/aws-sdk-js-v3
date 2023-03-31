@@ -37,8 +37,8 @@ export interface PutBucketAclCommandOutput extends __MetadataBearer {}
 /**
  * @public
  * <p>Sets the permissions on an existing bucket using access control lists (ACL). For more
- *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html">Using ACLs</a>. To set
- *          the ACL of a bucket, you must have <code>WRITE_ACP</code> permission.</p>
+ *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html">Using ACLs</a>. To set the ACL of a
+ *          bucket, you must have <code>WRITE_ACP</code> permission.</p>
  *          <p>You can use one of the following two ways to set a bucket's permissions:</p>
  *          <ul>
  *             <li>
@@ -57,11 +57,12 @@ export interface PutBucketAclCommandOutput extends __MetadataBearer {}
  *          that updates a bucket ACL using the request body, then you can continue to use that
  *          approach.</p>
  *          <important>
- *             <p>If your bucket uses the bucket owner enforced setting for S3 Object Ownership, ACLs are disabled and no longer affect permissions.
- *             You must use policies to grant access to your bucket and the objects in it. Requests to set ACLs or update ACLs fail and
- *             return the <code>AccessControlListNotSupported</code> error code. Requests to read ACLs are still supported.
- *             For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling object ownership</a>
- *             in the <i>Amazon S3 User Guide</i>.</p>
+ *             <p>If your bucket uses the bucket owner enforced setting for S3 Object Ownership, ACLs
+ *             are disabled and no longer affect permissions. You must use policies to grant access to
+ *             your bucket and the objects in it. Requests to set ACLs or update ACLs fail and return
+ *             the <code>AccessControlListNotSupported</code> error code. Requests to read ACLs are
+ *             still supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling object
+ *                ownership</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          </important>
  *          <p>
  *             <b>Access Permissions</b>
@@ -73,7 +74,8 @@ export interface PutBucketAclCommandOutput extends __MetadataBearer {}
  *                a set of predefined ACLs, known as <i>canned ACLs</i>. Each canned ACL
  *                has a predefined set of grantees and permissions. Specify the canned ACL name as the
  *                value of <code>x-amz-acl</code>. If you use this header, you cannot use other access
- *                control-specific headers in your request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">Canned ACL</a>.</p>
+ *                control-specific headers in your request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">Canned
+ *                   ACL</a>.</p>
  *             </li>
  *             <li>
  *                <p>Specify access permissions explicitly with the <code>x-amz-grant-read</code>,
@@ -82,14 +84,15 @@ export interface PutBucketAclCommandOutput extends __MetadataBearer {}
  *                specify explicit access permissions and grantees (Amazon Web Services accounts or Amazon S3 groups) who
  *                will receive the permission. If you use these ACL-specific headers, you cannot use
  *                the <code>x-amz-acl</code> header to set a canned ACL. These parameters map to the
- *                set of permissions that Amazon S3 supports in an ACL. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL)
- *                Overview</a>.</p>
+ *                set of permissions that Amazon S3 supports in an ACL. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control
+ *                   List (ACL) Overview</a>.</p>
  *                <p>You specify each grantee as a type=value pair, where the type is one of the
  *                following:</p>
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <code>id</code> – if the value specified is the canonical user ID of an Amazon Web Services account</p>
+ *                         <code>id</code> – if the value specified is the canonical user ID of an
+ *                      Amazon Web Services account</p>
  *                   </li>
  *                   <li>
  *                      <p>
@@ -169,7 +172,7 @@ export interface PutBucketAclCommandOutput extends __MetadataBearer {}
  *                <p>By Email address:</p>
  *                <p>
  *                   <code><Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- *                   xsi:type="AmazonCustomerByEmail"><EmailAddress><>Grantees@email.com<></EmailAddress>lt;/Grantee></code>
+ *                   xsi:type="AmazonCustomerByEmail"><EmailAddress><>Grantees@email.com<></EmailAddress>&</Grantee></code>
  *                </p>
  *                <p>The grantee is resolved to the CanonicalUser and, in a response to a GET Object
  *                acl request, appears as the CanonicalUser. </p>

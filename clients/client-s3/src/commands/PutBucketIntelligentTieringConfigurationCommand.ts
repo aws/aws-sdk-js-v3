@@ -36,13 +36,12 @@ export interface PutBucketIntelligentTieringConfigurationCommandOutput extends _
 
 /**
  * @public
- * <p>Puts a S3 Intelligent-Tiering configuration to the specified bucket.
- *       You can have up to 1,000 S3 Intelligent-Tiering configurations per bucket.</p>
+ * <p>Puts a S3 Intelligent-Tiering configuration to the specified bucket. You can have up to
+ *          1,000 S3 Intelligent-Tiering configurations per bucket.</p>
  *          <p>The S3 Intelligent-Tiering storage class is designed to optimize storage costs by automatically moving data to the most cost-effective storage access tier, without performance impact or operational overhead. S3 Intelligent-Tiering delivers automatic cost savings in three low latency and high throughput access tiers. To get the lowest storage cost on data that can be accessed in minutes to hours, you can choose to activate additional archiving capabilities.</p>
  *          <p>The S3 Intelligent-Tiering storage class is  the ideal storage class for data with unknown, changing, or unpredictable access patterns, independent of object size or retention period. If the size of an object is less than 128 KB, it is not monitored and not eligible for auto-tiering. Smaller objects can be stored, but they are always charged at the Frequent Access tier rates in the S3 Intelligent-Tiering storage class.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access">Storage class for automatically optimizing frequently and infrequently accessed objects</a>.</p>
- *          <p>Operations related to
- *             <code>PutBucketIntelligentTieringConfiguration</code> include: </p>
+ *          <p>Operations related to <code>PutBucketIntelligentTieringConfiguration</code> include: </p>
  *          <ul>
  *             <li>
  *                <p>
@@ -62,8 +61,8 @@ export interface PutBucketIntelligentTieringConfigurationCommandOutput extends _
  *          </ul>
  *          <note>
  *             <p>You only need S3 Intelligent-Tiering enabled on a bucket if you want to automatically
- *             move objects stored in the S3 Intelligent-Tiering storage class to the
- *             Archive Access or Deep Archive Access tier.</p>
+ *             move objects stored in the S3 Intelligent-Tiering storage class to the Archive Access
+ *             or Deep Archive Access tier.</p>
  *          </note>
  *          <p class="title">
  *             <b>Special Errors</b>
@@ -112,8 +111,8 @@ export interface PutBucketIntelligentTieringConfigurationCommandOutput extends _
  *                   <li>
  *                      <p>
  *                         <i>Cause:</i> You are not the owner of the specified bucket,
- *                      or you do not have the <code>s3:PutIntelligentTieringConfiguration</code> bucket
- *                      permission to set the configuration on the bucket. </p>
+ *                      or you do not have the <code>s3:PutIntelligentTieringConfiguration</code>
+ *                      bucket permission to set the configuration on the bucket. </p>
  *                   </li>
  *                </ul>
  *             </li>

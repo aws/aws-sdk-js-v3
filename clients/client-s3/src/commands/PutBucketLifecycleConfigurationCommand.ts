@@ -37,10 +37,10 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
 /**
  * @public
  * <p>Creates a new lifecycle configuration for the bucket or replaces an existing lifecycle
- *          configuration. Keep in mind that this will overwrite an existing lifecycle configuration, so if
- *          you want to retain any configuration details, they must be included in the new lifecycle
- *          configuration. For information about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html">Managing your storage
- *             lifecycle</a>.</p>
+ *          configuration. Keep in mind that this will overwrite an existing lifecycle configuration,
+ *          so if you want to retain any configuration details, they must be included in the new
+ *          lifecycle configuration. For information about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html">Managing
+ *             your storage lifecycle</a>.</p>
  *          <note>
  *             <p>Bucket lifecycle configuration now supports specifying a lifecycle rule using an
  *             object key name prefix, one or more object tags, or a combination of both. Accordingly,
@@ -72,8 +72,8 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  *                versions.</p>
  *             </li>
  *          </ul>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html">Object
- *             Lifecycle Management</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html">Lifecycle Configuration Elements</a>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html">Object Lifecycle Management</a>
+ *          and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html">Lifecycle Configuration Elements</a>.</p>
  *          <p>
  *             <b>Permissions</b>
  *          </p>
@@ -103,8 +103,8 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  *                </p>
  *             </li>
  *          </ul>
- *          <p>For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to Your Amazon S3
- *             Resources</a>.</p>
+ *          <p>For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to
+ *             Your Amazon S3 Resources</a>.</p>
  *          <p>The following are related to <code>PutBucketLifecycleConfiguration</code>:</p>
  *          <ul>
  *             <li>

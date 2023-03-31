@@ -48,10 +48,11 @@ export interface GetObjectAclCommandOutput extends GetObjectAclOutput, __Metadat
  *          return ACL information about a different version, use the versionId subresource.</p>
  *          <note>
  *             <p>If your bucket uses the bucket owner enforced setting for S3 Object Ownership,
- *             requests to read ACLs are still supported and return the <code>bucket-owner-full-control</code>
- *             ACL with the owner being the account that created the bucket. For more information, see
- *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">
- *                Controlling object ownership and disabling ACLs</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *             requests to read ACLs are still supported and return the
+ *                <code>bucket-owner-full-control</code> ACL with the owner being the account that
+ *             created the bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html"> Controlling object
+ *                ownership and disabling ACLs</a> in the
+ *             <i>Amazon S3 User Guide</i>.</p>
  *          </note>
  *          <p>The following operations are related to <code>GetObjectAcl</code>:</p>
  *          <ul>

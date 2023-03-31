@@ -63,7 +63,8 @@ export interface PutObjectTaggingCommandOutput extends PutObjectTaggingOutput, _
  *                   <li>
  *                      <p>
  *                         <i>Cause: The tag provided was not a valid tag. This error can occur
- *                         if the tag did not pass input validation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html">Object Tagging</a>.</i>
+ *                         if the tag did not pass input validation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html">Object
+ *                            Tagging</a>.</i>
  *                      </p>
  *                   </li>
  *                </ul>
@@ -91,8 +92,8 @@ export interface PutObjectTaggingCommandOutput extends PutObjectTaggingOutput, _
  *                   </li>
  *                   <li>
  *                      <p>
- *                         <i>Cause: A conflicting conditional action is currently in
- *                         progress against this resource. Please try again.</i>
+ *                         <i>Cause: A conflicting conditional action is currently in progress
+ *                         against this resource. Please try again.</i>
  *                      </p>
  *                   </li>
  *                </ul>

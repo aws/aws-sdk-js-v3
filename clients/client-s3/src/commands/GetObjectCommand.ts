@@ -56,18 +56,19 @@ export interface GetObjectCommandOutput extends __WithSdkStreamMixin<GetObjectOu
  *          have the object <code>photos/2006/February/sample.jpg</code> in the bucket named
  *             <code>examplebucket</code>, specify the resource as
  *             <code>/examplebucket/photos/2006/February/sample.jpg</code>. For more information about
- *          request types, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html#VirtualHostingSpecifyBucket">HTTP Host Header Bucket Specification</a>.</p>
+ *          request types, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html#VirtualHostingSpecifyBucket">HTTP Host
+ *             Header Bucket Specification</a>.</p>
  *          <p>For more information about returning the ACL of an object, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html">GetObjectAcl</a>.</p>
  *          <p>If the object you are retrieving is stored in the S3 Glacier or
  *          S3 Glacier Deep Archive storage class, or S3 Intelligent-Tiering Archive or
  *          S3 Intelligent-Tiering Deep Archive tiers, before you can retrieve the object you must first restore a
  *          copy using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html">RestoreObject</a>. Otherwise, this action returns an
- *             <code>InvalidObjectStateError</code> error. For information about restoring archived
- *          objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/restoring-objects.html">Restoring Archived
- *             Objects</a>.</p>
+ *             <code>InvalidObjectState</code> error. For information about restoring archived objects,
+ *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/restoring-objects.html">Restoring
+ *             Archived Objects</a>.</p>
  *          <p>Encryption request headers, like <code>x-amz-server-side-encryption</code>, should not
- *          be sent for GET requests if your object uses server-side encryption with KMS keys (SSE-KMS)
- *          or server-side encryption with Amazon S3–managed encryption keys (SSE-S3). If your
+ *          be sent for GET requests if your object uses server-side encryption with KMS keys
+ *          (SSE-KMS) or server-side encryption with Amazon S3–managed encryption keys (SSE-S3). If your
  *          object does use these types of keys, you’ll get an HTTP 400 BadRequest error.</p>
  *          <p>If you encrypt an object by using server-side encryption with customer-provided
  *          encryption keys (SSE-C) when you store the object in Amazon S3, then when you GET the object,
@@ -83,19 +84,19 @@ export interface GetObjectCommandOutput extends __WithSdkStreamMixin<GetObjectOu
  *                <p>x-amz-server-side-encryption-customer-key-MD5</p>
  *             </li>
  *          </ul>
- *          <p>For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption (Using
- *             Customer-Provided Encryption Keys)</a>.</p>
- *          <p>Assuming you have the relevant permission to read object tags, the response also returns the
- *             <code>x-amz-tagging-count</code> header that provides the count of number of tags
+ *          <p>For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption
+ *             (Using Customer-Provided Encryption Keys)</a>.</p>
+ *          <p>Assuming you have the relevant permission to read object tags, the response also returns
+ *          the <code>x-amz-tagging-count</code> header that provides the count of number of tags
  *          associated with the object. You can use <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html">GetObjectTagging</a> to retrieve
  *          the tag set associated with an object.</p>
  *          <p>
  *             <b>Permissions</b>
  *          </p>
  *          <p>You need the relevant read object (or version) permission for this operation. For more
- *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying Permissions
- *             in a Policy</a>. If the object you request does not exist, the error Amazon S3 returns
- *          depends on whether you also have the <code>s3:ListBucket</code> permission.</p>
+ *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying Permissions in a
+ *             Policy</a>. If the object you request does not exist, the error Amazon S3 returns depends
+ *          on whether you also have the <code>s3:ListBucket</code> permission.</p>
  *          <ul>
  *             <li>
  *                <p>If you have the <code>s3:ListBucket</code> permission on the bucket, Amazon S3 will
@@ -114,11 +115,12 @@ export interface GetObjectCommandOutput extends __WithSdkStreamMixin<GetObjectOu
  *          <note>
  *             <ul>
  *                <li>
- *                   <p>
- *                     If you supply a <code>versionId</code>, you need the <code>s3:GetObjectVersion</code> permission to
- *                     access a specific version of an object. If you request a specific version, you do not need to have
- *                     the <code>s3:GetObject</code> permission.
- *                 </p>
+ *                   <p> If you supply a <code>versionId</code>, you need the
+ *                      <code>s3:GetObjectVersion</code> permission to access a specific version of an
+ *                   object. If you request a specific version, you do not need to have the
+ *                      <code>s3:GetObject</code> permission. If you request the current version
+ *                   without a specific version ID, only <code>s3:GetObject</code> permission is
+ *                   required. <code>s3:GetObjectVersion</code> permission won't be required.</p>
  *                </li>
  *                <li>
  *                   <p>If the current version of the object is a delete marker, Amazon S3 behaves as if the

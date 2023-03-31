@@ -70,8 +70,8 @@ export interface PutBucketCorsCommandOutput extends __MetadataBearer {}
  *             </p>
  *             </li>
  *          </ul>
- *          <p> For more information about CORS, go to <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html">Enabling
- *             Cross-Origin Resource Sharing</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *          <p> For more information about CORS, go to <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html">Enabling Cross-Origin Resource Sharing</a> in
+ *          the <i>Amazon S3 User Guide</i>.</p>
  *          <p class="title">
  *             <b>Related Resources</b>
  *          </p>
