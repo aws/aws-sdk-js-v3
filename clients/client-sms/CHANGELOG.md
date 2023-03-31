@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.304.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.303.0...v3.304.0) (2023-03-31)
+
+
+### Features
+
+* **client-sms:** Deprecating AWS Server Migration Service. ([4a0bb37](https://github.com/aws/aws-sdk-js-v3/commit/4a0bb37525717b6d07ef3fc9ef4351e17a36481f))
+
+
+
+
+
 # [3.303.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.302.0...v3.303.0) (2023-03-30)
 
 **Note:** Version bump only for package @aws-sdk/client-sms

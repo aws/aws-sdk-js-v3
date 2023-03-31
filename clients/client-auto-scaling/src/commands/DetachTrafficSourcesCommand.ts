@@ -69,6 +69,22 @@ export interface DetachTrafficSourcesCommandOutput extends DetachTrafficSourcesR
  *             instance, or load balancer).</p>
  *
  *
+ * @example To detach a target group from an Auto Scaling group
+ * ```javascript
+ * // This example detaches the specified target group from the specified Auto Scaling group.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group",
+ *   "TrafficSources": [
+ *     {
+ *       "Identifier": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067"
+ *     }
+ *   ]
+ * };
+ * const command = new DetachTrafficSourcesCommand(input);
+ * await client.send(command);
+ * // example id: to-detach-a-target-group-from-an-auto-scaling-group-1680040404169
+ * ```
+ *
  */
 export class DetachTrafficSourcesCommand extends $Command<
   DetachTrafficSourcesCommandInput,

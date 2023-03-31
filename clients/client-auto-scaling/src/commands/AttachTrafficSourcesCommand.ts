@@ -92,6 +92,22 @@ export interface AttachTrafficSourcesCommandOutput extends AttachTrafficSourcesR
  *  <p>The service-linked role is not yet ready for use.</p>
  *
  *
+ * @example To attach a target group to an Auto Scaling group
+ * ```javascript
+ * // This example attaches the specified target group to the specified Auto Scaling group.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group",
+ *   "TrafficSources": [
+ *     {
+ *       "Identifier": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067"
+ *     }
+ *   ]
+ * };
+ * const command = new AttachTrafficSourcesCommand(input);
+ * await client.send(command);
+ * // example id: to-attach-a-target-group-to-an-auto-scaling-group-1680036570089
+ * ```
+ *
  */
 export class AttachTrafficSourcesCommand extends $Command<
   AttachTrafficSourcesCommandInput,

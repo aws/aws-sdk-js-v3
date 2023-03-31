@@ -70,6 +70,29 @@ export interface DescribeTrafficSourcesCommandOutput extends DescribeTrafficSour
  *             instance, or load balancer).</p>
  *
  *
+ * @example To describe the target groups for an Auto Scaling group
+ * ```javascript
+ * // This example describes the target groups attached to the specified Auto Scaling group.
+ * const input = {
+ *   "AutoScalingGroupName": "my-auto-scaling-group"
+ * };
+ * const command = new DescribeTrafficSourcesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "NextToken": "",
+ *   "TrafficSources": [
+ *     {
+ *       "Identifier": "arn:aws:vpc-lattice:us-west-2:123456789012:targetgroup/tg-0e2f2665eEXAMPLE",
+ *       "State": "InService",
+ *       "Type": "vpc-lattice"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-the-target-groups-for-an-auto-scaling-group-1680040714521
+ * ```
+ *
  */
 export class DescribeTrafficSourcesCommand extends $Command<
   DescribeTrafficSourcesCommandInput,
