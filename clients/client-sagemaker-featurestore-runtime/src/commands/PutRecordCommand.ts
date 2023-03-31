@@ -76,8 +76,8 @@ export interface PutRecordCommandOutput extends __MetadataBearer {}
  *  <p>You do not have permission to perform an action.</p>
  *
  * @throws {@link InternalFailure} (server fault)
- *  <p>An internal failure occurred. Try your request again. If the problem
- *          persists, contact Amazon Web Services customer support.</p>
+ *  <p>An internal failure occurred. Try your request again. If the problem persists, contact
+ *             Amazon Web Services customer support.</p>
  *
  * @throws {@link ServiceUnavailable} (server fault)
  *  <p>The service is currently unavailable.</p>

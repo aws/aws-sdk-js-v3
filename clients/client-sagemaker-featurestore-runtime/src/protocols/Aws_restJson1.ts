@@ -86,6 +86,7 @@ export const serializeAws_restJson1DeleteRecordCommand = async (
       () => input.TargetStores !== void 0,
       () => (input.TargetStores! || []).map((_entry) => _entry as any),
     ],
+    DeletionMode: [, input.DeletionMode!],
   });
   let body: any;
   return new __HttpRequest({
