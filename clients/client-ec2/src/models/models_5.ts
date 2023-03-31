@@ -4686,7 +4686,8 @@ export interface GetFlowLogsIntegrationTemplateResult {
  */
 export interface GetGroupsForCapacityReservationRequest {
   /**
-   * <p>The ID of the Capacity Reservation.</p>
+   * <p>The ID of the Capacity Reservation. If you specify a Capacity Reservation that is shared
+   * 			with you, the operation returns only Capacity Reservation groups that you own.</p>
    */
   CapacityReservationId: string | undefined;
 

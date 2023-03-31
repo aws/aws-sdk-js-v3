@@ -616,7 +616,7 @@ export interface Instance {
   ElasticGpuAssociations?: ElasticGpuAssociation[];
 
   /**
-   * <p> The elastic inference accelerator associated with the instance.</p>
+   * <p>The elastic inference accelerator associated with the instance.</p>
    */
   ElasticInferenceAcceleratorAssociations?: ElasticInferenceAcceleratorAssociation[];
 
