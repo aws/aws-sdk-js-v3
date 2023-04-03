@@ -128,6 +128,10 @@ export const serializeAws_restJson1CreateEnvironmentCommand = async (
     ...(input.RequirementsS3Path != null && { RequirementsS3Path: input.RequirementsS3Path }),
     ...(input.Schedulers != null && { Schedulers: input.Schedulers }),
     ...(input.SourceBucketArn != null && { SourceBucketArn: input.SourceBucketArn }),
+    ...(input.StartupScriptS3ObjectVersion != null && {
+      StartupScriptS3ObjectVersion: input.StartupScriptS3ObjectVersion,
+    }),
+    ...(input.StartupScriptS3Path != null && { StartupScriptS3Path: input.StartupScriptS3Path }),
     ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
     ...(input.WebserverAccessMode != null && { WebserverAccessMode: input.WebserverAccessMode }),
     ...(input.WeeklyMaintenanceWindowStart != null && {
@@ -435,6 +439,10 @@ export const serializeAws_restJson1UpdateEnvironmentCommand = async (
     ...(input.RequirementsS3Path != null && { RequirementsS3Path: input.RequirementsS3Path }),
     ...(input.Schedulers != null && { Schedulers: input.Schedulers }),
     ...(input.SourceBucketArn != null && { SourceBucketArn: input.SourceBucketArn }),
+    ...(input.StartupScriptS3ObjectVersion != null && {
+      StartupScriptS3ObjectVersion: input.StartupScriptS3ObjectVersion,
+    }),
+    ...(input.StartupScriptS3Path != null && { StartupScriptS3Path: input.StartupScriptS3Path }),
     ...(input.WebserverAccessMode != null && { WebserverAccessMode: input.WebserverAccessMode }),
     ...(input.WeeklyMaintenanceWindowStart != null && {
       WeeklyMaintenanceWindowStart: input.WeeklyMaintenanceWindowStart,
@@ -1208,6 +1216,8 @@ const deserializeAws_restJson1Environment = (output: any, context: __SerdeContex
     Schedulers: __expectInt32(output.Schedulers),
     ServiceRoleArn: __expectString(output.ServiceRoleArn),
     SourceBucketArn: __expectString(output.SourceBucketArn),
+    StartupScriptS3ObjectVersion: __expectString(output.StartupScriptS3ObjectVersion),
+    StartupScriptS3Path: __expectString(output.StartupScriptS3Path),
     Status: __expectString(output.Status),
     Tags: output.Tags != null ? deserializeAws_restJson1TagMap(output.Tags, context) : undefined,
     WebserverAccessMode: __expectString(output.WebserverAccessMode),

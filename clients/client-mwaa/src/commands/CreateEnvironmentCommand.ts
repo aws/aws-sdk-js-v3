@@ -63,6 +63,8 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  *   PluginsS3ObjectVersion: "STRING_VALUE",
  *   RequirementsS3Path: "STRING_VALUE",
  *   RequirementsS3ObjectVersion: "STRING_VALUE",
+ *   StartupScriptS3Path: "STRING_VALUE",
+ *   StartupScriptS3ObjectVersion: "STRING_VALUE",
  *   AirflowConfigurationOptions: { // AirflowConfigurationOptions
  *     "<keys>": "STRING_VALUE",
  *   },
