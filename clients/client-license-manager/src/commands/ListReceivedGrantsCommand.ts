@@ -35,7 +35,9 @@ export interface ListReceivedGrantsCommandOutput extends ListReceivedGrantsRespo
 
 /**
  * @public
- * <p>Lists grants that are received but not accepted.</p>
+ * <p>Lists grants that are received. Received grants are grants created while specifying the
+ *          recipient as this Amazon Web Services account, your organization, or an organizational unit
+ *          (OU) to which this member account belongs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

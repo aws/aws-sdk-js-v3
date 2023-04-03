@@ -35,7 +35,9 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
 
 /**
  * @public
- * <p>Creates a grant for the specified license. A grant shares the use of license entitlements with specific Amazon Web Services accounts.</p>
+ * <p>Creates a grant for the specified license. A grant shares the use of license
+ *          entitlements with a specific Amazon Web Services account, an organization, or an
+ *          organizational unit (OU). For more information, see <a href="https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html">Granted licenses in License Manager</a> in the <i>License Manager User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

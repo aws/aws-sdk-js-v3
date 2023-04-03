@@ -279,6 +279,7 @@ import {
   ManagedResourceSummary,
   Metadata,
   NoEntitlementsAllowedException,
+  Options,
   OrganizationConfiguration,
   ProductInformation,
   ProductInformationFilter,
@@ -4180,6 +4181,7 @@ const serializeAws_json1_1CreateGrantVersionRequest = (
     ...(input.ClientToken != null && { ClientToken: input.ClientToken }),
     ...(input.GrantArn != null && { GrantArn: input.GrantArn }),
     ...(input.GrantName != null && { GrantName: input.GrantName }),
+    ...(input.Options != null && { Options: serializeAws_json1_1Options(input.Options, context) }),
     ...(input.SourceVersion != null && { SourceVersion: input.SourceVersion }),
     ...(input.Status != null && { Status: input.Status }),
     ...(input.StatusReason != null && { StatusReason: input.StatusReason }),
@@ -4745,6 +4747,12 @@ const serializeAws_json1_1MetadataList = (input: Metadata[], context: __SerdeCon
     .map((entry) => {
       return serializeAws_json1_1Metadata(entry, context);
     });
+};
+
+const serializeAws_json1_1Options = (input: Options, context: __SerdeContext): any => {
+  return {
+    ...(input.ActivationOverrideBehavior != null && { ActivationOverrideBehavior: input.ActivationOverrideBehavior }),
+  };
 };
 
 const serializeAws_json1_1OrganizationConfiguration = (
@@ -5477,6 +5485,7 @@ const deserializeAws_json1_1Grant = (output: any, context: __SerdeContext): Gran
     GranteePrincipalArn: __expectString(output.GranteePrincipalArn),
     HomeRegion: __expectString(output.HomeRegion),
     LicenseArn: __expectString(output.LicenseArn),
+    Options: output.Options != null ? deserializeAws_json1_1Options(output.Options, context) : undefined,
     ParentArn: __expectString(output.ParentArn),
     StatusReason: __expectString(output.StatusReason),
     Version: __expectString(output.Version),
@@ -6070,6 +6079,12 @@ const deserializeAws_json1_1NoEntitlementsAllowedException = (
 ): NoEntitlementsAllowedException => {
   return {
     Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1Options = (output: any, context: __SerdeContext): Options => {
+  return {
+    ActivationOverrideBehavior: __expectString(output.ActivationOverrideBehavior),
   } as any;
 };
 

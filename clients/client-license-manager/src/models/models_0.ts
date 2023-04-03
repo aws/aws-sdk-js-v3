@@ -213,6 +213,20 @@ export class ValidationException extends __BaseException {
  * @public
  * @enum
  */
+export const ActivationOverrideBehavior = {
+  ALL_GRANTS_PERMITTED_BY_ISSUER: "ALL_GRANTS_PERMITTED_BY_ISSUER",
+  DISTRIBUTED_GRANTS_ONLY: "DISTRIBUTED_GRANTS_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type ActivationOverrideBehavior = (typeof ActivationOverrideBehavior)[keyof typeof ActivationOverrideBehavior];
+
+/**
+ * @public
+ * @enum
+ */
 export const AllowedOperation = {
   CHECKOUT_BORROW_LICENSE: "CheckoutBorrowLicense",
   CHECKOUT_LICENSE: "CheckoutLicense",
@@ -682,7 +696,23 @@ export interface CreateGrantRequest {
   LicenseArn: string | undefined;
 
   /**
-   * <p>The grant principals. This value should be specified as an Amazon Resource Name (ARN).</p>
+   * <p>The grant principals. You can specify one of the following as an Amazon Resource Name
+   *          (ARN):</p>
+   *          <ul>
+   *             <li>
+   *                <p>An Amazon Web Services account, which includes only the account specified.</p>
+   *             </li>
+   *          </ul>
+   *          <ul>
+   *             <li>
+   *                <p>An organizational unit (OU), which includes all accounts in the OU.</p>
+   *             </li>
+   *          </ul>
+   *          <ul>
+   *             <li>
+   *                <p>An organization, which will include all accounts across your organization.</p>
+   *             </li>
+   *          </ul>
    */
   Principals: string[] | undefined;
 
@@ -715,6 +745,49 @@ export interface CreateGrantResponse {
    * <p>Grant version.</p>
    */
   Version?: string;
+}
+
+/**
+ * @public
+ * <p>The options you can specify when you create a new version of a grant, such as activation
+ *          override behavior. For more information, see <a href="https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html">Granted licenses in License Manager</a> in the <i>License Manager User Guide</i>.</p>
+ */
+export interface Options {
+  /**
+   * <p>An activation option for your grant that determines the behavior of activating a grant.
+   *          Activation options can only be used with granted licenses sourced from the Amazon Web Services Marketplace. Additionally, the operation must specify the value of <code>ACTIVE</code> for the
+   *             <code>Status</code> parameter.</p>
+   *          <ul>
+   *             <li>
+   *                <p>As a license administrator, you can optionally specify an
+   *                   <code>ActivationOverrideBehavior</code> when activating a grant.</p>
+   *             </li>
+   *             <li>
+   *                <p>As a grantor, you can optionally specify an
+   *                   <code>ActivationOverrideBehavior</code> when you activate a grant for a grantee
+   *                account in your organization.</p>
+   *             </li>
+   *             <li>
+   *                <p>As a grantee, if the grantor creating the distributed grant doesn’t specify an
+   *                   <code>ActivationOverrideBehavior</code>, you can optionally specify one when you
+   *                are activating the grant.</p>
+   *             </li>
+   *          </ul>
+   *          <dl>
+   *             <dt>DISTRIBUTED_GRANTS_ONLY</dt>
+   *             <dd>
+   *                <p>Use this value to activate a grant without replacing any member account’s
+   *                   active grants for the same product.</p>
+   *             </dd>
+   *             <dt>ALL_GRANTS_PERMITTED_BY_ISSUER</dt>
+   *             <dd>
+   *                <p>Use this value to activate a grant and disable other active grants in any
+   *                   member accounts for the same product. This action will also replace their
+   *                   previously activated grants with this activated grant.</p>
+   *             </dd>
+   *          </dl>
+   */
+  ActivationOverrideBehavior?: ActivationOverrideBehavior | string;
 }
 
 /**
@@ -755,6 +828,11 @@ export interface CreateGrantVersionRequest {
    * <p>Current version of the grant.</p>
    */
   SourceVersion?: string;
+
+  /**
+   * <p>The options specified for the grant.</p>
+   */
+  Options?: Options;
 }
 
 /**
@@ -1309,12 +1387,12 @@ export interface CreateLicenseConversionTaskForResourceRequest {
   /**
    * <p>Information that identifies the license type you are converting from.
    *
-   *          For the structure of the source license, see <a href="https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli">Convert a license type using the Amazon Web Services CLI</a> in the <i>License Manager User Guide</i>.</p>
+   *          For the structure of the source license, see <a href="https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli">Convert a license type using the CLI </a> in the <i>License Manager User Guide</i>.</p>
    */
   SourceLicenseContext: LicenseConversionContext | undefined;
 
   /**
-   * <p>Information that identifies the license type you are converting to. For the structure of the destination license, see <a href="https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli">Convert a license type using the Amazon Web Services CLI</a> in the <i>License Manager User Guide</i>.</p>
+   * <p>Information that identifies the license type you are converting to. For the structure of the destination license, see <a href="https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli">Convert a license type using the CLI </a> in the <i>License Manager User Guide</i>.</p>
    */
   DestinationLicenseContext: LicenseConversionContext | undefined;
 }
@@ -1850,6 +1928,11 @@ export interface Grant {
    * <p>Granted operations.</p>
    */
   GrantedOperations: (AllowedOperation | string)[] | undefined;
+
+  /**
+   * <p>The options specified for the grant.</p>
+   */
+  Options?: Options;
 }
 
 /**
@@ -2524,7 +2607,7 @@ export interface Filter {
   Name?: string;
 
   /**
-   * <p>Filter values. Filter values are case-sensitive.</p>
+   * <p>The value of the filter, which is case-sensitive. You can only specify one value for the filter.</p>
    */
   Values?: string[];
 }

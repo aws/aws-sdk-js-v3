@@ -351,7 +351,9 @@ export class LicenseManager extends LicenseManagerClient {
 
   /**
    * @public
-   * <p>Creates a grant for the specified license. A grant shares the use of license entitlements with specific Amazon Web Services accounts.</p>
+   * <p>Creates a grant for the specified license. A grant shares the use of license
+   *          entitlements with a specific Amazon Web Services account, an organization, or an
+   *          organizational unit (OU). For more information, see <a href="https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html">Granted licenses in License Manager</a> in the <i>License Manager User Guide</i>.</p>
    */
   public createGrant(args: CreateGrantCommandInput, options?: __HttpHandlerOptions): Promise<CreateGrantCommandOutput>;
   public createGrant(args: CreateGrantCommandInput, cb: (err: any, data?: CreateGrantCommandOutput) => void): void;
@@ -378,7 +380,8 @@ export class LicenseManager extends LicenseManagerClient {
 
   /**
    * @public
-   * <p>Creates a new version of the specified grant.</p>
+   * <p>Creates a new version of the specified grant. For more information, see
+   *          <a href="https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html">Granted licenses in License Manager</a> in the <i>License Manager User Guide</i>.</p>
    */
   public createGrantVersion(
     args: CreateGrantVersionCommandInput,
@@ -1356,7 +1359,9 @@ export class LicenseManager extends LicenseManagerClient {
 
   /**
    * @public
-   * <p>Lists grants that are received but not accepted.</p>
+   * <p>Lists grants that are received. Received grants are grants created while specifying the
+   *          recipient as this Amazon Web Services account, your organization, or an organizational unit
+   *          (OU) to which this member account belongs.</p>
    */
   public listReceivedGrants(
     args: ListReceivedGrantsCommandInput,

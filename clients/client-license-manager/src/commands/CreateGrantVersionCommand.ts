@@ -35,7 +35,8 @@ export interface CreateGrantVersionCommandOutput extends CreateGrantVersionRespo
 
 /**
  * @public
- * <p>Creates a new version of the specified grant.</p>
+ * <p>Creates a new version of the specified grant. For more information, see
+ *          <a href="https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html">Granted licenses in License Manager</a> in the <i>License Manager User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +53,9 @@ export interface CreateGrantVersionCommandOutput extends CreateGrantVersionRespo
  *   Status: "PENDING_WORKFLOW" || "PENDING_ACCEPT" || "REJECTED" || "ACTIVE" || "FAILED_WORKFLOW" || "DELETED" || "PENDING_DELETE" || "DISABLED" || "WORKFLOW_COMPLETED",
  *   StatusReason: "STRING_VALUE",
  *   SourceVersion: "STRING_VALUE",
+ *   Options: { // Options
+ *     ActivationOverrideBehavior: "DISTRIBUTED_GRANTS_ONLY" || "ALL_GRANTS_PERMITTED_BY_ISSUER",
+ *   },
  * };
  * const command = new CreateGrantVersionCommand(input);
  * const response = await client.send(command);
