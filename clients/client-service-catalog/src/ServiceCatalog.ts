@@ -353,6 +353,21 @@ import {
   ListTagOptionsCommandOutput,
 } from "./commands/ListTagOptionsCommand";
 import {
+  NotifyProvisionProductEngineWorkflowResultCommand,
+  NotifyProvisionProductEngineWorkflowResultCommandInput,
+  NotifyProvisionProductEngineWorkflowResultCommandOutput,
+} from "./commands/NotifyProvisionProductEngineWorkflowResultCommand";
+import {
+  NotifyTerminateProvisionedProductEngineWorkflowResultCommand,
+  NotifyTerminateProvisionedProductEngineWorkflowResultCommandInput,
+  NotifyTerminateProvisionedProductEngineWorkflowResultCommandOutput,
+} from "./commands/NotifyTerminateProvisionedProductEngineWorkflowResultCommand";
+import {
+  NotifyUpdateProvisionedProductEngineWorkflowResultCommand,
+  NotifyUpdateProvisionedProductEngineWorkflowResultCommandInput,
+  NotifyUpdateProvisionedProductEngineWorkflowResultCommandOutput,
+} from "./commands/NotifyUpdateProvisionedProductEngineWorkflowResultCommand";
+import {
   ProvisionProductCommand,
   ProvisionProductCommandInput,
   ProvisionProductCommandOutput,
@@ -2997,6 +3012,120 @@ export class ServiceCatalog extends ServiceCatalogClient {
     cb?: (err: any, data?: ListTagOptionsCommandOutput) => void
   ): Promise<ListTagOptionsCommandOutput> | void {
     const command = new ListTagOptionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>
+   *          Notifies the result
+   *          of the provisioning engine execution.
+   *       </p>
+   */
+  public notifyProvisionProductEngineWorkflowResult(
+    args: NotifyProvisionProductEngineWorkflowResultCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<NotifyProvisionProductEngineWorkflowResultCommandOutput>;
+  public notifyProvisionProductEngineWorkflowResult(
+    args: NotifyProvisionProductEngineWorkflowResultCommandInput,
+    cb: (err: any, data?: NotifyProvisionProductEngineWorkflowResultCommandOutput) => void
+  ): void;
+  public notifyProvisionProductEngineWorkflowResult(
+    args: NotifyProvisionProductEngineWorkflowResultCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: NotifyProvisionProductEngineWorkflowResultCommandOutput) => void
+  ): void;
+  public notifyProvisionProductEngineWorkflowResult(
+    args: NotifyProvisionProductEngineWorkflowResultCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: NotifyProvisionProductEngineWorkflowResultCommandOutput) => void),
+    cb?: (err: any, data?: NotifyProvisionProductEngineWorkflowResultCommandOutput) => void
+  ): Promise<NotifyProvisionProductEngineWorkflowResultCommandOutput> | void {
+    const command = new NotifyProvisionProductEngineWorkflowResultCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>
+   *          Notifies the result
+   *          of the terminate engine execution.
+   *       </p>
+   */
+  public notifyTerminateProvisionedProductEngineWorkflowResult(
+    args: NotifyTerminateProvisionedProductEngineWorkflowResultCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<NotifyTerminateProvisionedProductEngineWorkflowResultCommandOutput>;
+  public notifyTerminateProvisionedProductEngineWorkflowResult(
+    args: NotifyTerminateProvisionedProductEngineWorkflowResultCommandInput,
+    cb: (err: any, data?: NotifyTerminateProvisionedProductEngineWorkflowResultCommandOutput) => void
+  ): void;
+  public notifyTerminateProvisionedProductEngineWorkflowResult(
+    args: NotifyTerminateProvisionedProductEngineWorkflowResultCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: NotifyTerminateProvisionedProductEngineWorkflowResultCommandOutput) => void
+  ): void;
+  public notifyTerminateProvisionedProductEngineWorkflowResult(
+    args: NotifyTerminateProvisionedProductEngineWorkflowResultCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: NotifyTerminateProvisionedProductEngineWorkflowResultCommandOutput) => void),
+    cb?: (err: any, data?: NotifyTerminateProvisionedProductEngineWorkflowResultCommandOutput) => void
+  ): Promise<NotifyTerminateProvisionedProductEngineWorkflowResultCommandOutput> | void {
+    const command = new NotifyTerminateProvisionedProductEngineWorkflowResultCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>
+   *          Notifies the result
+   *          of the update engine execution.
+   *       </p>
+   */
+  public notifyUpdateProvisionedProductEngineWorkflowResult(
+    args: NotifyUpdateProvisionedProductEngineWorkflowResultCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<NotifyUpdateProvisionedProductEngineWorkflowResultCommandOutput>;
+  public notifyUpdateProvisionedProductEngineWorkflowResult(
+    args: NotifyUpdateProvisionedProductEngineWorkflowResultCommandInput,
+    cb: (err: any, data?: NotifyUpdateProvisionedProductEngineWorkflowResultCommandOutput) => void
+  ): void;
+  public notifyUpdateProvisionedProductEngineWorkflowResult(
+    args: NotifyUpdateProvisionedProductEngineWorkflowResultCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: NotifyUpdateProvisionedProductEngineWorkflowResultCommandOutput) => void
+  ): void;
+  public notifyUpdateProvisionedProductEngineWorkflowResult(
+    args: NotifyUpdateProvisionedProductEngineWorkflowResultCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: NotifyUpdateProvisionedProductEngineWorkflowResultCommandOutput) => void),
+    cb?: (err: any, data?: NotifyUpdateProvisionedProductEngineWorkflowResultCommandOutput) => void
+  ): Promise<NotifyUpdateProvisionedProductEngineWorkflowResultCommandOutput> | void {
+    const command = new NotifyUpdateProvisionedProductEngineWorkflowResultCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

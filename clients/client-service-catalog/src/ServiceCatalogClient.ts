@@ -276,6 +276,18 @@ import {
   ListStackInstancesForProvisionedProductCommandOutput,
 } from "./commands/ListStackInstancesForProvisionedProductCommand";
 import { ListTagOptionsCommandInput, ListTagOptionsCommandOutput } from "./commands/ListTagOptionsCommand";
+import {
+  NotifyProvisionProductEngineWorkflowResultCommandInput,
+  NotifyProvisionProductEngineWorkflowResultCommandOutput,
+} from "./commands/NotifyProvisionProductEngineWorkflowResultCommand";
+import {
+  NotifyTerminateProvisionedProductEngineWorkflowResultCommandInput,
+  NotifyTerminateProvisionedProductEngineWorkflowResultCommandOutput,
+} from "./commands/NotifyTerminateProvisionedProductEngineWorkflowResultCommand";
+import {
+  NotifyUpdateProvisionedProductEngineWorkflowResultCommandInput,
+  NotifyUpdateProvisionedProductEngineWorkflowResultCommandOutput,
+} from "./commands/NotifyUpdateProvisionedProductEngineWorkflowResultCommand";
 import { ProvisionProductCommandInput, ProvisionProductCommandOutput } from "./commands/ProvisionProductCommand";
 import {
   RejectPortfolioShareCommandInput,
@@ -405,6 +417,9 @@ export type ServiceInputTypes =
   | ListServiceActionsForProvisioningArtifactCommandInput
   | ListStackInstancesForProvisionedProductCommandInput
   | ListTagOptionsCommandInput
+  | NotifyProvisionProductEngineWorkflowResultCommandInput
+  | NotifyTerminateProvisionedProductEngineWorkflowResultCommandInput
+  | NotifyUpdateProvisionedProductEngineWorkflowResultCommandInput
   | ProvisionProductCommandInput
   | RejectPortfolioShareCommandInput
   | ScanProvisionedProductsCommandInput
@@ -497,6 +512,9 @@ export type ServiceOutputTypes =
   | ListServiceActionsForProvisioningArtifactCommandOutput
   | ListStackInstancesForProvisionedProductCommandOutput
   | ListTagOptionsCommandOutput
+  | NotifyProvisionProductEngineWorkflowResultCommandOutput
+  | NotifyTerminateProvisionedProductEngineWorkflowResultCommandOutput
+  | NotifyUpdateProvisionedProductEngineWorkflowResultCommandOutput
   | ProvisionProductCommandOutput
   | RejectPortfolioShareCommandOutput
   | ScanProvisionedProductsCommandOutput

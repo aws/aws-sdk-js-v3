@@ -245,6 +245,18 @@ import {
   ListStackInstancesForProvisionedProductCommandOutput,
 } from "../commands/ListStackInstancesForProvisionedProductCommand";
 import { ListTagOptionsCommandInput, ListTagOptionsCommandOutput } from "../commands/ListTagOptionsCommand";
+import {
+  NotifyProvisionProductEngineWorkflowResultCommandInput,
+  NotifyProvisionProductEngineWorkflowResultCommandOutput,
+} from "../commands/NotifyProvisionProductEngineWorkflowResultCommand";
+import {
+  NotifyTerminateProvisionedProductEngineWorkflowResultCommandInput,
+  NotifyTerminateProvisionedProductEngineWorkflowResultCommandOutput,
+} from "../commands/NotifyTerminateProvisionedProductEngineWorkflowResultCommand";
+import {
+  NotifyUpdateProvisionedProductEngineWorkflowResultCommandInput,
+  NotifyUpdateProvisionedProductEngineWorkflowResultCommandOutput,
+} from "../commands/NotifyUpdateProvisionedProductEngineWorkflowResultCommand";
 import { ProvisionProductCommandInput, ProvisionProductCommandOutput } from "../commands/ProvisionProductCommand";
 import {
   RejectPortfolioShareCommandInput,
@@ -396,6 +408,7 @@ import {
   DuplicateResourceException,
   EnableAWSOrganizationsAccessInput,
   EnableAWSOrganizationsAccessOutput,
+  EngineWorkflowResourceIdentifier,
   ExecuteProvisionedProductPlanInput,
   ExecuteProvisionedProductPlanOutput,
   ExecuteProvisionedProductServiceActionInput,
@@ -452,6 +465,12 @@ import {
   ListTagOptionsFilters,
   ListTagOptionsInput,
   ListTagOptionsOutput,
+  NotifyProvisionProductEngineWorkflowResultInput,
+  NotifyProvisionProductEngineWorkflowResultOutput,
+  NotifyTerminateProvisionedProductEngineWorkflowResultInput,
+  NotifyTerminateProvisionedProductEngineWorkflowResultOutput,
+  NotifyUpdateProvisionedProductEngineWorkflowResultInput,
+  NotifyUpdateProvisionedProductEngineWorkflowResultOutput,
   OperationNotSupportedException,
   OrganizationNode,
   ParameterConstraints,
@@ -518,6 +537,7 @@ import {
   TagOptionSummary,
   TerminateProvisionedProductInput,
   TerminateProvisionedProductOutput,
+  UniqueTagResourceIdentifier,
   UpdateConstraintInput,
   UpdateConstraintOutput,
   UpdatePortfolioInput,
@@ -1467,6 +1487,45 @@ export const serializeAws_json1_1ListTagOptionsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1NotifyProvisionProductEngineWorkflowResultCommand = async (
+  input: NotifyProvisionProductEngineWorkflowResultCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWS242ServiceCatalogService.NotifyProvisionProductEngineWorkflowResult",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1NotifyProvisionProductEngineWorkflowResultInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1NotifyTerminateProvisionedProductEngineWorkflowResultCommand = async (
+  input: NotifyTerminateProvisionedProductEngineWorkflowResultCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWS242ServiceCatalogService.NotifyTerminateProvisionedProductEngineWorkflowResult",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1NotifyTerminateProvisionedProductEngineWorkflowResultInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1NotifyUpdateProvisionedProductEngineWorkflowResultCommand = async (
+  input: NotifyUpdateProvisionedProductEngineWorkflowResultCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWS242ServiceCatalogService.NotifyUpdateProvisionedProductEngineWorkflowResult",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1NotifyUpdateProvisionedProductEngineWorkflowResultInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ProvisionProductCommand = async (
   input: ProvisionProductCommandInput,
   context: __SerdeContext
@@ -1896,6 +1955,9 @@ const deserializeAws_json1_1AssociateServiceActionWithProvisioningArtifactComman
     case "DuplicateResourceException":
     case "com.amazonaws.servicecatalog#DuplicateResourceException":
       throw await deserializeAws_json1_1DuplicateResourceExceptionResponse(parsedOutput, context);
+    case "InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
+      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.servicecatalog#LimitExceededException":
       throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
@@ -4877,6 +4939,138 @@ const deserializeAws_json1_1ListTagOptionsCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1NotifyProvisionProductEngineWorkflowResultCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<NotifyProvisionProductEngineWorkflowResultCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1NotifyProvisionProductEngineWorkflowResultCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1NotifyProvisionProductEngineWorkflowResultOutput(data, context);
+  const response: NotifyProvisionProductEngineWorkflowResultCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1NotifyProvisionProductEngineWorkflowResultCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<NotifyProvisionProductEngineWorkflowResultCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
+      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1NotifyTerminateProvisionedProductEngineWorkflowResultCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<NotifyTerminateProvisionedProductEngineWorkflowResultCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1NotifyTerminateProvisionedProductEngineWorkflowResultCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1NotifyTerminateProvisionedProductEngineWorkflowResultOutput(data, context);
+  const response: NotifyTerminateProvisionedProductEngineWorkflowResultCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1NotifyTerminateProvisionedProductEngineWorkflowResultCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<NotifyTerminateProvisionedProductEngineWorkflowResultCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
+      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1NotifyUpdateProvisionedProductEngineWorkflowResultCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<NotifyUpdateProvisionedProductEngineWorkflowResultCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1NotifyUpdateProvisionedProductEngineWorkflowResultCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1NotifyUpdateProvisionedProductEngineWorkflowResultOutput(data, context);
+  const response: NotifyUpdateProvisionedProductEngineWorkflowResultCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1NotifyUpdateProvisionedProductEngineWorkflowResultCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<NotifyUpdateProvisionedProductEngineWorkflowResultCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
+      throw await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1ProvisionProductCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -6272,6 +6466,17 @@ const serializeAws_json1_1EnableAWSOrganizationsAccessInput = (
   return {};
 };
 
+const serializeAws_json1_1EngineWorkflowResourceIdentifier = (
+  input: EngineWorkflowResourceIdentifier,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.UniqueTag != null && {
+      UniqueTag: serializeAws_json1_1UniqueTagResourceIdentifier(input.UniqueTag, context),
+    }),
+  };
+};
+
 const serializeAws_json1_1ExecuteProvisionedProductPlanInput = (
   input: ExecuteProvisionedProductPlanInput,
   context: __SerdeContext
@@ -6585,6 +6790,50 @@ const serializeAws_json1_1NotificationArns = (input: string[], context: __SerdeC
     });
 };
 
+const serializeAws_json1_1NotifyProvisionProductEngineWorkflowResultInput = (
+  input: NotifyProvisionProductEngineWorkflowResultInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FailureReason != null && { FailureReason: input.FailureReason }),
+    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
+    ...(input.Outputs != null && { Outputs: serializeAws_json1_1RecordOutputs(input.Outputs, context) }),
+    ...(input.RecordId != null && { RecordId: input.RecordId }),
+    ...(input.ResourceIdentifier != null && {
+      ResourceIdentifier: serializeAws_json1_1EngineWorkflowResourceIdentifier(input.ResourceIdentifier, context),
+    }),
+    ...(input.Status != null && { Status: input.Status }),
+    ...(input.WorkflowToken != null && { WorkflowToken: input.WorkflowToken }),
+  };
+};
+
+const serializeAws_json1_1NotifyTerminateProvisionedProductEngineWorkflowResultInput = (
+  input: NotifyTerminateProvisionedProductEngineWorkflowResultInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FailureReason != null && { FailureReason: input.FailureReason }),
+    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
+    ...(input.RecordId != null && { RecordId: input.RecordId }),
+    ...(input.Status != null && { Status: input.Status }),
+    ...(input.WorkflowToken != null && { WorkflowToken: input.WorkflowToken }),
+  };
+};
+
+const serializeAws_json1_1NotifyUpdateProvisionedProductEngineWorkflowResultInput = (
+  input: NotifyUpdateProvisionedProductEngineWorkflowResultInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FailureReason != null && { FailureReason: input.FailureReason }),
+    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
+    ...(input.Outputs != null && { Outputs: serializeAws_json1_1RecordOutputs(input.Outputs, context) }),
+    ...(input.RecordId != null && { RecordId: input.RecordId }),
+    ...(input.Status != null && { Status: input.Status }),
+    ...(input.WorkflowToken != null && { WorkflowToken: input.WorkflowToken }),
+  };
+};
+
 const serializeAws_json1_1OrganizationNode = (input: OrganizationNode, context: __SerdeContext): any => {
   return {
     ...(input.Type != null && { Type: input.Type }),
@@ -6738,6 +6987,22 @@ const serializeAws_json1_1ProvisionProductInput = (input: ProvisionProductInput,
     }),
     ...(input.Tags != null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
+};
+
+const serializeAws_json1_1RecordOutput = (input: RecordOutput, context: __SerdeContext): any => {
+  return {
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.OutputKey != null && { OutputKey: input.OutputKey }),
+    ...(input.OutputValue != null && { OutputValue: input.OutputValue }),
+  };
+};
+
+const serializeAws_json1_1RecordOutputs = (input: RecordOutput[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1RecordOutput(entry, context);
+    });
 };
 
 const serializeAws_json1_1RejectPortfolioShareInput = (
@@ -6942,6 +7207,16 @@ const serializeAws_json1_1TerminateProvisionedProductInput = (
     ...(input.ProvisionedProductName != null && { ProvisionedProductName: input.ProvisionedProductName }),
     ...(input.RetainPhysicalResources != null && { RetainPhysicalResources: input.RetainPhysicalResources }),
     TerminateToken: input.TerminateToken ?? generateIdempotencyToken(),
+  };
+};
+
+const serializeAws_json1_1UniqueTagResourceIdentifier = (
+  input: UniqueTagResourceIdentifier,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Key != null && { Key: input.Key }),
+    ...(input.Value != null && { Value: input.Value }),
   };
 };
 
@@ -8185,6 +8460,27 @@ const deserializeAws_json1_1NotificationArns = (output: any, context: __SerdeCon
       return __expectString(entry) as any;
     });
   return retVal;
+};
+
+const deserializeAws_json1_1NotifyProvisionProductEngineWorkflowResultOutput = (
+  output: any,
+  context: __SerdeContext
+): NotifyProvisionProductEngineWorkflowResultOutput => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1NotifyTerminateProvisionedProductEngineWorkflowResultOutput = (
+  output: any,
+  context: __SerdeContext
+): NotifyTerminateProvisionedProductEngineWorkflowResultOutput => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1NotifyUpdateProvisionedProductEngineWorkflowResultOutput = (
+  output: any,
+  context: __SerdeContext
+): NotifyUpdateProvisionedProductEngineWorkflowResultOutput => {
+  return {} as any;
 };
 
 const deserializeAws_json1_1OperationNotSupportedException = (

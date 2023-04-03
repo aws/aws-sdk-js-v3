@@ -14,74 +14,71 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  AssociateServiceActionWithProvisioningArtifactInput,
-  AssociateServiceActionWithProvisioningArtifactOutput,
+  NotifyTerminateProvisionedProductEngineWorkflowResultInput,
+  NotifyTerminateProvisionedProductEngineWorkflowResultOutput,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1AssociateServiceActionWithProvisioningArtifactCommand,
-  serializeAws_json1_1AssociateServiceActionWithProvisioningArtifactCommand,
+  deserializeAws_json1_1NotifyTerminateProvisionedProductEngineWorkflowResultCommand,
+  serializeAws_json1_1NotifyTerminateProvisionedProductEngineWorkflowResultCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
 /**
  * @public
  *
- * The input for {@link AssociateServiceActionWithProvisioningArtifactCommand}.
+ * The input for {@link NotifyTerminateProvisionedProductEngineWorkflowResultCommand}.
  */
-export interface AssociateServiceActionWithProvisioningArtifactCommandInput
-  extends AssociateServiceActionWithProvisioningArtifactInput {}
+export interface NotifyTerminateProvisionedProductEngineWorkflowResultCommandInput
+  extends NotifyTerminateProvisionedProductEngineWorkflowResultInput {}
 /**
  * @public
  *
- * The output of {@link AssociateServiceActionWithProvisioningArtifactCommand}.
+ * The output of {@link NotifyTerminateProvisionedProductEngineWorkflowResultCommand}.
  */
-export interface AssociateServiceActionWithProvisioningArtifactCommandOutput
-  extends AssociateServiceActionWithProvisioningArtifactOutput,
+export interface NotifyTerminateProvisionedProductEngineWorkflowResultCommandOutput
+  extends NotifyTerminateProvisionedProductEngineWorkflowResultOutput,
     __MetadataBearer {}
 
 /**
  * @public
- * <p>Associates a self-service action with a provisioning artifact.</p>
+ * <p>
+ *          Notifies the result
+ *          of the terminate engine execution.
+ *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogClient, AssociateServiceActionWithProvisioningArtifactCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
- * // const { ServiceCatalogClient, AssociateServiceActionWithProvisioningArtifactCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * import { ServiceCatalogClient, NotifyTerminateProvisionedProductEngineWorkflowResultCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, NotifyTerminateProvisionedProductEngineWorkflowResultCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
- * const input = { // AssociateServiceActionWithProvisioningArtifactInput
- *   ProductId: "STRING_VALUE", // required
- *   ProvisioningArtifactId: "STRING_VALUE", // required
- *   ServiceActionId: "STRING_VALUE", // required
- *   AcceptLanguage: "STRING_VALUE",
+ * const input = { // NotifyTerminateProvisionedProductEngineWorkflowResultInput
+ *   WorkflowToken: "STRING_VALUE", // required
+ *   RecordId: "STRING_VALUE", // required
+ *   Status: "SUCCEEDED" || "FAILED", // required
+ *   FailureReason: "STRING_VALUE",
+ *   IdempotencyToken: "STRING_VALUE", // required
  * };
- * const command = new AssociateServiceActionWithProvisioningArtifactCommand(input);
+ * const command = new NotifyTerminateProvisionedProductEngineWorkflowResultCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @param AssociateServiceActionWithProvisioningArtifactCommandInput - {@link AssociateServiceActionWithProvisioningArtifactCommandInput}
- * @returns {@link AssociateServiceActionWithProvisioningArtifactCommandOutput}
- * @see {@link AssociateServiceActionWithProvisioningArtifactCommandInput} for command's `input` shape.
- * @see {@link AssociateServiceActionWithProvisioningArtifactCommandOutput} for command's `response` shape.
+ * @param NotifyTerminateProvisionedProductEngineWorkflowResultCommandInput - {@link NotifyTerminateProvisionedProductEngineWorkflowResultCommandInput}
+ * @returns {@link NotifyTerminateProvisionedProductEngineWorkflowResultCommandOutput}
+ * @see {@link NotifyTerminateProvisionedProductEngineWorkflowResultCommandInput} for command's `input` shape.
+ * @see {@link NotifyTerminateProvisionedProductEngineWorkflowResultCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
- *
- * @throws {@link DuplicateResourceException} (client fault)
- *  <p>The specified resource is a duplicate.</p>
  *
  * @throws {@link InvalidParametersException} (client fault)
  *  <p>One or more parameters provided to the operation are not valid.</p>
- *
- * @throws {@link LimitExceededException} (client fault)
- *  <p>The current limits of the service would have been exceeded by this operation. Decrease your
- *          resource use or increase your service limits and retry the operation.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
  *
  */
-export class AssociateServiceActionWithProvisioningArtifactCommand extends $Command<
-  AssociateServiceActionWithProvisioningArtifactCommandInput,
-  AssociateServiceActionWithProvisioningArtifactCommandOutput,
+export class NotifyTerminateProvisionedProductEngineWorkflowResultCommand extends $Command<
+  NotifyTerminateProvisionedProductEngineWorkflowResultCommandInput,
+  NotifyTerminateProvisionedProductEngineWorkflowResultCommandOutput,
   ServiceCatalogClientResolvedConfig
 > {
   // Start section: command_properties
@@ -99,7 +96,7 @@ export class AssociateServiceActionWithProvisioningArtifactCommand extends $Comm
   /**
    * @public
    */
-  constructor(readonly input: AssociateServiceActionWithProvisioningArtifactCommandInput) {
+  constructor(readonly input: NotifyTerminateProvisionedProductEngineWorkflowResultCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -113,14 +110,14 @@ export class AssociateServiceActionWithProvisioningArtifactCommand extends $Comm
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<
-    AssociateServiceActionWithProvisioningArtifactCommandInput,
-    AssociateServiceActionWithProvisioningArtifactCommandOutput
+    NotifyTerminateProvisionedProductEngineWorkflowResultCommandInput,
+    NotifyTerminateProvisionedProductEngineWorkflowResultCommandOutput
   > {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
       getEndpointPlugin(
         configuration,
-        AssociateServiceActionWithProvisioningArtifactCommand.getEndpointParameterInstructions()
+        NotifyTerminateProvisionedProductEngineWorkflowResultCommand.getEndpointParameterInstructions()
       )
     );
 
@@ -128,7 +125,7 @@ export class AssociateServiceActionWithProvisioningArtifactCommand extends $Comm
 
     const { logger } = configuration;
     const clientName = "ServiceCatalogClient";
-    const commandName = "AssociateServiceActionWithProvisioningArtifactCommand";
+    const commandName = "NotifyTerminateProvisionedProductEngineWorkflowResultCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -148,10 +145,10 @@ export class AssociateServiceActionWithProvisioningArtifactCommand extends $Comm
    * @internal
    */
   private serialize(
-    input: AssociateServiceActionWithProvisioningArtifactCommandInput,
+    input: NotifyTerminateProvisionedProductEngineWorkflowResultCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateServiceActionWithProvisioningArtifactCommand(input, context);
+    return serializeAws_json1_1NotifyTerminateProvisionedProductEngineWorkflowResultCommand(input, context);
   }
 
   /**
@@ -160,8 +157,8 @@ export class AssociateServiceActionWithProvisioningArtifactCommand extends $Comm
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<AssociateServiceActionWithProvisioningArtifactCommandOutput> {
-    return deserializeAws_json1_1AssociateServiceActionWithProvisioningArtifactCommand(output, context);
+  ): Promise<NotifyTerminateProvisionedProductEngineWorkflowResultCommandOutput> {
+    return deserializeAws_json1_1NotifyTerminateProvisionedProductEngineWorkflowResultCommand(output, context);
   }
 
   // Start section: command_body_extra

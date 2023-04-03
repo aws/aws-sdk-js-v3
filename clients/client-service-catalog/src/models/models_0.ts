@@ -27,10 +27,6 @@ export interface AcceptPortfolioShareInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -283,10 +279,6 @@ export interface AssociatePrincipalWithPortfolioInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -303,7 +295,7 @@ export interface AssociatePrincipalWithPortfolioInput {
   PortfolioId: string | undefined;
 
   /**
-   * <p>The ARN of the principal (IAM user, role, or group). This field allows an ARN with no <code>accountID</code> if
+   * <p>The ARN of the principal (user, role, or group). This field allows an ARN with no <code>accountID</code> if
    *       <code>PrincipalType</code> is <code>IAM_PATTERN</code>. </p>
    *          <p>You can associate multiple <code>IAM</code> patterns even if the account has no principal with that name.
    *       This is useful in Principal Name Sharing if you want to share a principal without creating it in the
@@ -330,10 +322,6 @@ export interface AssociateProductWithPortfolioInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -389,10 +377,6 @@ export interface AssociateServiceActionWithProvisioningArtifactInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -513,10 +497,6 @@ export interface BatchAssociateServiceActionWithProvisioningArtifactInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -535,6 +515,7 @@ export interface BatchAssociateServiceActionWithProvisioningArtifactInput {
 export const ServiceActionAssociationErrorCode = {
   DuplicateResourceException: "DUPLICATE_RESOURCE",
   InternalFailure: "INTERNAL_FAILURE",
+  InvalidParameterException: "INVALID_PARAMETER",
   LimitExceededException: "LIMIT_EXCEEDED",
   ResourceNotFoundException: "RESOURCE_NOT_FOUND",
   ThrottlingException: "THROTTLING",
@@ -601,10 +582,6 @@ export interface BatchDisassociateServiceActionFromProvisioningArtifactInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -660,10 +637,6 @@ export interface CopyProductInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -727,10 +700,6 @@ export interface CreateConstraintInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -953,10 +922,6 @@ export interface CreatePortfolioInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -1085,10 +1050,6 @@ export interface CreatePortfolioShareInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -1172,7 +1133,9 @@ export class OperationNotSupportedException extends __BaseException {
  */
 export const ProductType = {
   CLOUD_FORMATION_TEMPLATE: "CLOUD_FORMATION_TEMPLATE",
+  DEFAULT_CUSTOM: "DEFAULT_CUSTOM",
   MARKETPLACE: "MARKETPLACE",
+  TERRAFORM_OPEN_SOURCE: "TERRAFORM_OPEN_SOURCE",
 } as const;
 
 /**
@@ -1186,8 +1149,10 @@ export type ProductType = (typeof ProductType)[keyof typeof ProductType];
  */
 export const ProvisioningArtifactType = {
   CLOUD_FORMATION_TEMPLATE: "CLOUD_FORMATION_TEMPLATE",
+  DEFAULT_CUSTOM: "DEFAULT_CUSTOM",
   MARKETPLACE_AMI: "MARKETPLACE_AMI",
   MARKETPLACE_CAR: "MARKETPLACE_CAR",
+  TERRAFORM_OPEN_SOURCE: "TERRAFORM_OPEN_SOURCE",
 } as const;
 
 /**
@@ -1330,10 +1295,6 @@ export interface CreateProductInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -1805,10 +1766,6 @@ export interface CreateProvisionedProductPlanInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -1914,10 +1871,6 @@ export interface CreateProvisioningArtifactInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -2058,10 +2011,6 @@ export interface CreateServiceActionInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -2196,10 +2145,6 @@ export interface DeleteConstraintInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -2228,10 +2173,6 @@ export interface DeletePortfolioInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -2286,10 +2227,6 @@ export interface DeletePortfolioShareInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -2335,10 +2272,6 @@ export interface DeleteProductInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -2367,10 +2300,6 @@ export interface DeleteProvisionedProductPlanInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -2407,10 +2336,6 @@ export interface DeleteProvisioningArtifactInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -2453,10 +2378,6 @@ export interface DeleteServiceActionInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -2495,10 +2416,6 @@ export interface DescribeConstraintInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -2544,10 +2461,6 @@ export interface DescribeCopyProductStatusInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -2608,10 +2521,6 @@ export interface DescribePortfolioInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -2865,10 +2774,6 @@ export interface DescribeProductInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -2969,10 +2874,6 @@ export interface DescribeProductAsAdminInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -3076,10 +2977,6 @@ export interface DescribeProductViewInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -3128,10 +3025,6 @@ export interface DescribeProvisionedProductInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -3356,10 +3249,6 @@ export interface DescribeProvisionedProductPlanInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -3685,10 +3574,6 @@ export interface DescribeProvisioningArtifactInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -3752,10 +3637,6 @@ export interface DescribeProvisioningParametersInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -4041,10 +3922,6 @@ export interface DescribeRecordInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -4295,10 +4172,6 @@ export interface DescribeServiceActionInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -4337,10 +4210,6 @@ export interface DescribeServiceActionExecutionParametersInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -4444,10 +4313,6 @@ export interface DisassociatePrincipalFromPortfolioInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -4464,7 +4329,7 @@ export interface DisassociatePrincipalFromPortfolioInput {
   PortfolioId: string | undefined;
 
   /**
-   * <p>The ARN of the principal (IAM user, role, or group). This field allows an ARN with no <code>accountID</code> if
+   * <p>The ARN of the principal (user, role, or group). This field allows an ARN with no <code>accountID</code> if
    *          <code>PrincipalType</code> is <code>IAM_PATTERN</code>.</p>
    */
   PrincipalARN: string | undefined;
@@ -4488,10 +4353,6 @@ export interface DisassociateProductFromPortfolioInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -4542,10 +4403,6 @@ export interface DisassociateServiceActionFromProvisioningArtifactInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -4601,10 +4458,6 @@ export interface ExecuteProvisionedProductPlanInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -4663,10 +4516,6 @@ export interface ExecuteProvisionedProductServiceActionInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -4717,10 +4566,6 @@ export interface GetProvisionedProductOutputsInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -4784,10 +4629,6 @@ export interface ImportAsProvisionedProductInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -4843,10 +4684,6 @@ export interface ListAcceptedPortfolioSharesInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -4914,10 +4751,6 @@ export interface ListBudgetsForResourceInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -4966,10 +4799,6 @@ export interface ListConstraintsForPortfolioInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -5025,10 +4854,6 @@ export interface ListLaunchPathsInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -5107,10 +4932,6 @@ export interface ListOrganizationPortfolioAccessInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -5180,10 +5001,6 @@ export interface ListPortfolioAccessInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -5239,10 +5056,6 @@ export interface ListPortfoliosInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -5286,10 +5099,6 @@ export interface ListPortfoliosForProductInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -5342,10 +5151,6 @@ export interface ListPrincipalsForPortfolioInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -5378,7 +5183,7 @@ export interface ListPrincipalsForPortfolioInput {
  */
 export interface Principal {
   /**
-   * <p>The ARN of the principal (IAM user, role, or group). This field allows for an ARN with no <code>accountID</code> if the
+   * <p>The ARN of the principal (user, role, or group). This field allows for an ARN with no <code>accountID</code> if the
    *       <code>PrincipalType</code> is an <code>IAM_PATTERN</code>. </p>
    */
   PrincipalARN?: string;
@@ -5412,10 +5217,6 @@ export interface ListProvisionedProductPlansInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -5509,10 +5310,6 @@ export interface ListProvisioningArtifactsInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -5566,10 +5363,6 @@ export interface ListProvisioningArtifactsForServiceActionInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -5647,10 +5440,6 @@ export interface ListRecordHistoryInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -5791,10 +5580,6 @@ export interface ListServiceActionsInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -5860,10 +5645,6 @@ export interface ListServiceActionsForProvisioningArtifactInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -5897,10 +5678,6 @@ export interface ListStackInstancesForProvisionedProductInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -6054,6 +5831,250 @@ export interface ListTagOptionsOutput {
 
 /**
  * @public
+ * <p>
+ *          The unique key-value pair
+ *          for a tag
+ *          that identifies provisioned product resources.
+ *       </p>
+ */
+export interface UniqueTagResourceIdentifier {
+  /**
+   * <p>
+   *          A unique key
+   *          that's attached
+   *          to a resource.
+   *       </p>
+   */
+  Key?: string;
+
+  /**
+   * <p>
+   *          A unique value
+   *          that's attached
+   *          to a resource.
+   *       </p>
+   */
+  Value?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *          The ID
+ *          for the provisioned product resources
+ *          that are part
+ *          of a resource group.
+ *       </p>
+ */
+export interface EngineWorkflowResourceIdentifier {
+  /**
+   * <p>
+   *          The unique key-value pair
+   *          for a tag
+   *          that identifies provisioned product resources.
+   *       </p>
+   */
+  UniqueTag?: UniqueTagResourceIdentifier;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EngineWorkflowStatus = {
+  FAILED: "FAILED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type EngineWorkflowStatus = (typeof EngineWorkflowStatus)[keyof typeof EngineWorkflowStatus];
+
+/**
+ * @public
+ */
+export interface NotifyProvisionProductEngineWorkflowResultInput {
+  /**
+   * <p>
+   *          The encrypted contents
+   *          of the provisioning engine execution payload
+   *          that Service Catalog sends
+   *          after the Terraform product provisioning workflow starts.
+   *       </p>
+   */
+  WorkflowToken: string | undefined;
+
+  /**
+   * <p>
+   *          The identifier
+   *          of the record.
+   *       </p>
+   */
+  RecordId: string | undefined;
+
+  /**
+   * <p>
+   *          The status
+   *          of the provisioning engine execution.
+   *       </p>
+   */
+  Status: EngineWorkflowStatus | string | undefined;
+
+  /**
+   * <p>
+   *          The reason
+   *          why the provisioning engine execution failed.
+   *       </p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>
+   *          The ID
+   *          for the provisioned product resources
+   *          that are part
+   *          of a resource group.
+   *       </p>
+   */
+  ResourceIdentifier?: EngineWorkflowResourceIdentifier;
+
+  /**
+   * <p>
+   *          The output
+   *          of the provisioning engine execution.
+   *       </p>
+   */
+  Outputs?: RecordOutput[];
+
+  /**
+   * <p>
+   *          The idempotency token
+   *          that identifies the provisioning engine execution.
+   *       </p>
+   */
+  IdempotencyToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface NotifyProvisionProductEngineWorkflowResultOutput {}
+
+/**
+ * @public
+ */
+export interface NotifyTerminateProvisionedProductEngineWorkflowResultInput {
+  /**
+   * <p>
+   *          The encrypted contents
+   *          of the terminate engine execution payload
+   *          that Service Catalog sends
+   *          after the Terraform product terminate workflow starts.
+   *       </p>
+   */
+  WorkflowToken: string | undefined;
+
+  /**
+   * <p>
+   *          The identifier
+   *          of the record.
+   *       </p>
+   */
+  RecordId: string | undefined;
+
+  /**
+   * <p>
+   *          The status
+   *          of the terminate engine execution.
+   *       </p>
+   */
+  Status: EngineWorkflowStatus | string | undefined;
+
+  /**
+   * <p>
+   *          The reason
+   *          why the terminate engine execution failed.
+   *       </p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>
+   *          The idempotency token
+   *          that identifies the terminate engine execution.
+   *       </p>
+   */
+  IdempotencyToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface NotifyTerminateProvisionedProductEngineWorkflowResultOutput {}
+
+/**
+ * @public
+ */
+export interface NotifyUpdateProvisionedProductEngineWorkflowResultInput {
+  /**
+   * <p>
+   *          The encrypted contents
+   *          of the update engine execution payload
+   *          that Service Catalog sends
+   *          after the Terraform product update workflow starts.
+   *       </p>
+   */
+  WorkflowToken: string | undefined;
+
+  /**
+   * <p>
+   *          The identifier
+   *          of the record.
+   *       </p>
+   */
+  RecordId: string | undefined;
+
+  /**
+   * <p>
+   *          The status
+   *          of the update engine execution.
+   *       </p>
+   */
+  Status: EngineWorkflowStatus | string | undefined;
+
+  /**
+   * <p>
+   *          The reason
+   *          why the update engine execution failed.
+   *       </p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>
+   *          The output
+   *          of the update engine execution.
+   *       </p>
+   */
+  Outputs?: RecordOutput[];
+
+  /**
+   * <p>
+   *          The idempotency token
+   *          that identifies the update engine execution.
+   *       </p>
+   */
+  IdempotencyToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface NotifyUpdateProvisionedProductEngineWorkflowResultOutput {}
+
+/**
+ * @public
  * <p>Information about a parameter used to provision a product.</p>
  */
 export interface ProvisioningParameter {
@@ -6139,10 +6160,6 @@ export interface ProvisionProductInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -6240,10 +6257,6 @@ export interface RejectPortfolioShareInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -6294,10 +6307,6 @@ export interface ScanProvisionedProductsInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -6393,10 +6402,6 @@ export interface SearchProductsInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -6495,10 +6500,6 @@ export interface SearchProductsAsAdminInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -6582,10 +6583,6 @@ export interface SearchProvisionedProductsInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -6802,12 +6799,12 @@ export interface ProvisionedProductAttribute {
   ProvisioningArtifactName?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM user.</p>
+   * <p>The Amazon Resource Name (ARN) of the user.</p>
    */
   UserArn?: string;
 
   /**
-   * <p>The ARN of the IAM user in the session. This ARN might contain a session ID.</p>
+   * <p>The ARN of the user in the session. This ARN might contain a session ID.</p>
    */
   UserArnSession?: string;
 }
@@ -6867,10 +6864,6 @@ export interface TerminateProvisionedProductInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -6907,10 +6900,6 @@ export interface UpdateConstraintInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -7019,10 +7008,6 @@ export interface UpdatePortfolioInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -7088,10 +7073,6 @@ export interface UpdatePortfolioShareInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -7154,10 +7135,6 @@ export interface UpdateProductInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -7354,10 +7331,6 @@ export interface UpdateProvisionedProductInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -7464,10 +7437,6 @@ export interface UpdateProvisionedProductPropertiesInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>jp</code> - Japanese</p>
    *             </li>
    *             <li>
@@ -7491,7 +7460,7 @@ export interface UpdateProvisionedProductPropertiesInput {
    *          calls a provisioning operation such as <code>UpdateProvisionedProduct</code>,
    *             <code>TerminateProvisionedProduct</code>, or
    *             <code>ExecuteProvisionedProductServiceAction</code>. Only a role ARN is valid. A user ARN is invalid. </p>
-   *          <p>The <code>OWNER</code> key accepts IAM user ARNs, IAM role ARNs, and STS
+   *          <p>The <code>OWNER</code> key accepts user ARNs, IAM role ARNs, and STS
    *          assumed-role ARNs. The owner is the user that has permission to see, update, terminate, and
    *          execute service actions in the provisioned product.</p>
    *          <p>The administrator can change the owner of a provisioned product to another IAM or STS entity within the
@@ -7545,10 +7514,6 @@ export interface UpdateProvisioningArtifactInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -7644,10 +7609,6 @@ export interface UpdateServiceActionInput {
   /**
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
