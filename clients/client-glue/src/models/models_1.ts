@@ -7,7 +7,6 @@ import {
   AuditContext,
   Blueprint,
   Column,
-  Compatibility,
   ConnectionsList,
   ConnectionType,
   Crawler,
@@ -20,6 +19,7 @@ import {
   DevEndpoint,
   ErrorDetail,
   EventBatchingCondition,
+  FederatedDatabase,
   GlueTable,
   JobRun,
   Partition,
@@ -28,7 +28,6 @@ import {
   PhysicalConnectionRequirements,
   Predicate,
   PrincipalPermissions,
-  RegistryId,
   SchemaId,
   StorageDescriptor,
   TaskStatusType,
@@ -41,6 +40,161 @@ import {
   Workflow,
   WorkflowRun,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface CreateRegistryInput {
+  /**
+   * <p>Name of the registry to be created of max length of 255, and may only contain letters, numbers, hyphen, underscore, dollar sign, or hash mark.  No whitespace.</p>
+   */
+  RegistryName: string | undefined;
+
+  /**
+   * <p>A description of the registry. If description is not provided, there will not be any default value for this.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Amazon Web Services tags that contain a key value pair and may be searched by console, command line, or API.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface CreateRegistryResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the newly created registry.</p>
+   */
+  RegistryArn?: string;
+
+  /**
+   * <p>The name of the registry.</p>
+   */
+  RegistryName?: string;
+
+  /**
+   * <p>A description of the registry.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The tags for the registry.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Compatibility = {
+  BACKWARD: "BACKWARD",
+  BACKWARD_ALL: "BACKWARD_ALL",
+  DISABLED: "DISABLED",
+  FORWARD: "FORWARD",
+  FORWARD_ALL: "FORWARD_ALL",
+  FULL: "FULL",
+  FULL_ALL: "FULL_ALL",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type Compatibility = (typeof Compatibility)[keyof typeof Compatibility];
+
+/**
+ * @public
+ * <p>A wrapper structure that may contain the registry name and Amazon Resource Name (ARN).</p>
+ */
+export interface RegistryId {
+  /**
+   * <p>Name of the registry. Used only for lookup. One of <code>RegistryArn</code> or <code>RegistryName</code> has to be provided. </p>
+   */
+  RegistryName?: string;
+
+  /**
+   * <p>Arn of the registry to be updated. One of <code>RegistryArn</code> or <code>RegistryName</code> has to be provided.</p>
+   */
+  RegistryArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateSchemaInput {
+  /**
+   * <p> This is a wrapper shape to contain the registry identity fields. If this is not provided, the default registry will be used. The ARN format for the same will be: <code>arn:aws:glue:us-east-2:<customer id>:registry/default-registry:random-5-letter-id</code>.</p>
+   */
+  RegistryId?: RegistryId;
+
+  /**
+   * <p>Name of the schema to be created of max length of 255, and may only contain letters, numbers, hyphen, underscore, dollar sign, or hash mark. No whitespace.</p>
+   */
+  SchemaName: string | undefined;
+
+  /**
+   * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
+   */
+  DataFormat: DataFormat | string | undefined;
+
+  /**
+   * <p>The compatibility mode of the schema. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <i>NONE</i>: No compatibility mode applies. You can use this choice in development scenarios or if you do not know the compatibility mode that you want to apply to schemas. Any new version added will be accepted without undergoing a compatibility check.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>DISABLED</i>: This compatibility choice prevents versioning for a particular schema. You can use this choice to prevent future versioning of a schema.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>BACKWARD</i>: This compatibility choice is recommended as it allows data receivers to read both the current and one previous schema version. This means that for instance, a new schema version cannot drop data fields or change the type of these fields, so they can't be read by readers using the previous version.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>BACKWARD_ALL</i>: This compatibility choice allows data receivers to read both the current and all previous schema versions. You can use this choice when you need to delete fields or add optional fields, and check compatibility against all previous schema versions. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>FORWARD</i>: This compatibility choice allows data receivers to read both the current and one next schema version, but not necessarily later versions. You can use this choice when you need to add fields or delete optional fields, but only check compatibility against the last schema version.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>FORWARD_ALL</i>: This compatibility choice allows data receivers to read written by producers of any new registered schema. You can use this choice when you need to add fields or delete optional fields, and check compatibility against all previous schema versions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>FULL</i>: This compatibility choice allows data receivers to read data written by producers using the previous or next version of the schema, but not necessarily earlier or later versions. You can use this choice when you need to add or remove optional fields, but only check compatibility against the last schema version.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>FULL_ALL</i>: This compatibility choice allows data receivers to read data written by producers using all previous schema versions. You can use this choice when you need to add or remove optional fields, and check compatibility against all previous schema versions.</p>
+   *             </li>
+   *          </ul>
+   */
+  Compatibility?: Compatibility | string;
+
+  /**
+   * <p>An optional description of the schema. If description is not provided, there will not be any automatic default value for this.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Amazon Web Services tags that contain a key value pair and may be searched by console, command line, or API. If specified, follows the Amazon Web Services tags-on-create pattern.</p>
+   */
+  Tags?: Record<string, string>;
+
+  /**
+   * <p>The schema definition using the <code>DataFormat</code> setting for <code>SchemaName</code>.</p>
+   */
+  SchemaDefinition?: string;
+}
 
 /**
  * @public
@@ -449,12 +603,20 @@ export interface CreateSessionRequest {
   Command: SessionCommand | undefined;
 
   /**
-   * <p>The number of seconds before request times out. </p>
+   * <p>
+   *         The number of minutes before session times out. Default for Spark ETL
+   *         jobs is 48 hours (2880 minutes), the maximum session lifetime for this job type.
+   *         Consult the documentation for other job types.
+   *     </p>
    */
   Timeout?: number;
 
   /**
-   * <p>The number of seconds when idle before request times out. </p>
+   * <p>
+   *         The number of minutes when idle before session times out. Default for
+   *         Spark ETL jobs is value of Timeout. Consult the documentation
+   *         for other job types.
+   *     </p>
    */
   IdleTimeout?: number;
 
@@ -2482,7 +2644,11 @@ export interface ColumnStatisticsData {
   DateColumnStatisticsData?: DateColumnStatisticsData;
 
   /**
-   * <p>Decimal column statistics data.</p>
+   * <p>
+   *         Decimal column statistics data. UnscaledValues within are Base64-encoded
+   *         binary objects storing big-endian, two's complement representations of
+   *         the decimal's unscaled value.
+   *     </p>
    */
   DecimalColumnStatisticsData?: DecimalColumnStatisticsData;
 
@@ -2595,7 +2761,7 @@ export interface GetColumnStatisticsForTableRequest {
  */
 export interface GetColumnStatisticsForTableResponse {
   /**
-   * <p>List of ColumnStatistics that failed to be retrieved.</p>
+   * <p>List of ColumnStatistics.</p>
    */
   ColumnStatisticsList?: ColumnStatistics[];
 
@@ -3151,6 +3317,11 @@ export interface Database {
    * <p>The ID of the Data Catalog in which the database resides.</p>
    */
   CatalogId?: string;
+
+  /**
+   * <p>A <code>FederatedDatabase</code> structure that references an entity outside the Glue Data Catalog.</p>
+   */
+  FederatedDatabase?: FederatedDatabase;
 }
 
 /**
@@ -3169,6 +3340,7 @@ export interface GetDatabaseResponse {
  */
 export const ResourceShareType = {
   ALL: "ALL",
+  FEDERATED: "FEDERATED",
   FOREIGN: "FOREIGN",
 } as const;
 
@@ -3198,8 +3370,11 @@ export interface GetDatabasesRequest {
   MaxResults?: number;
 
   /**
-   * <p>Allows you to specify that you want to list the databases shared with your account. The allowable values are <code>FOREIGN</code> or <code>ALL</code>. </p>
+   * <p>Allows you to specify that you want to list the databases shared with your account. The allowable values are <code>FEDERATED</code>, <code>FOREIGN</code> or <code>ALL</code>. </p>
    *          <ul>
+   *             <li>
+   *                <p>If set to <code>FEDERATED</code>, will list the federated databases (referencing an external entity) shared with your account.</p>
+   *             </li>
    *             <li>
    *                <p>If set to <code>FOREIGN</code>, will list the databases shared with your account. </p>
    *             </li>
@@ -6030,6 +6205,27 @@ export interface GetTableRequest {
 
 /**
  * @public
+ * <p>A table that points to an entity outside the Glue Data Catalog.</p>
+ */
+export interface FederatedTable {
+  /**
+   * <p>A unique identifier for the federated table.</p>
+   */
+  Identifier?: string;
+
+  /**
+   * <p>A unique identifier for the federated database.</p>
+   */
+  DatabaseIdentifier?: string;
+
+  /**
+   * <p>The name of the connection to the external metastore.</p>
+   */
+  ConnectionName?: string;
+}
+
+/**
+ * @public
  * <p>Represents a collection of related data organized in columns and rows.</p>
  */
 export interface Table {
@@ -6159,6 +6355,11 @@ export interface Table {
    * <p>The ID of the table version.</p>
    */
   VersionId?: string;
+
+  /**
+   * <p>A <code>FederatedTable</code> structure that references an entity outside the Glue Data Catalog.</p>
+   */
+  FederatedTable?: FederatedTable;
 }
 
 /**
@@ -6483,10 +6684,15 @@ export interface GetUnfilteredPartitionMetadataResponse {
 
 /**
  * @public
+ * <p>The operation timed out.</p>
  */
 export class PermissionTypeMismatchException extends __BaseException {
   readonly name: "PermissionTypeMismatchException" = "PermissionTypeMismatchException";
   readonly $fault: "client" = "client";
+  /**
+   * <p>There is a mismatch between the SupportedPermissionType used in the query request
+   *           and the permissions defined on the target table.</p>
+   */
   Message?: string;
   /**
    * @internal
@@ -6943,83 +7149,3 @@ export interface GetWorkflowRunResponse {
    */
   Run?: WorkflowRun;
 }
-
-/**
- * @public
- */
-export interface GetWorkflowRunPropertiesRequest {
-  /**
-   * <p>Name of the workflow which was run.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The ID of the workflow run whose run properties should be returned.</p>
-   */
-  RunId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetWorkflowRunPropertiesResponse {
-  /**
-   * <p>The workflow run properties which were set during the specified run.</p>
-   */
-  RunProperties?: Record<string, string>;
-}
-
-/**
- * @public
- */
-export interface GetWorkflowRunsRequest {
-  /**
-   * <p>Name of the workflow whose metadata of runs should be returned.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>Specifies whether to include the workflow graph in response or not.</p>
-   */
-  IncludeGraph?: boolean;
-
-  /**
-   * <p>The maximum size of the response.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of workflow runs to be included in the response.</p>
-   */
-  MaxResults?: number;
-}
-
-/**
- * @public
- */
-export interface GetWorkflowRunsResponse {
-  /**
-   * <p>A list of workflow run metadata objects.</p>
-   */
-  Runs?: WorkflowRun[];
-
-  /**
-   * <p>A continuation token, if not all requested workflow runs have been returned.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ImportCatalogToGlueRequest {
-  /**
-   * <p>The ID of the catalog to import. Currently, this should be the Amazon Web Services account ID.</p>
-   */
-  CatalogId?: string;
-}
-
-/**
- * @public
- */
-export interface ImportCatalogToGlueResponse {}

@@ -46,7 +46,7 @@ export interface GetDatabasesCommandOutput extends GetDatabasesResponse, __Metad
  *   CatalogId: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   ResourceShareType: "FOREIGN" || "ALL",
+ *   ResourceShareType: "FOREIGN" || "ALL" || "FEDERATED",
  * };
  * const command = new GetDatabasesCommand(input);
  * const response = await client.send(command);

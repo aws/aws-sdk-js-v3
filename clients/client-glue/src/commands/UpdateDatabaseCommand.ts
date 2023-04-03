@@ -66,6 +66,10 @@ export interface UpdateDatabaseCommandOutput extends UpdateDatabaseResponse, __M
  *       CatalogId: "STRING_VALUE",
  *       DatabaseName: "STRING_VALUE",
  *     },
+ *     FederatedDatabase: { // FederatedDatabase
+ *       Identifier: "STRING_VALUE",
+ *       ConnectionName: "STRING_VALUE",
+ *     },
  *   },
  * };
  * const command = new UpdateDatabaseCommand(input);

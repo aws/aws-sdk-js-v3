@@ -59,6 +59,9 @@ export interface GetDatabaseCommandOutput extends GetDatabaseResponse, __Metadat
  * @throws {@link EntityNotFoundException} (client fault)
  *  <p>A specified entity does not exist</p>
  *
+ * @throws {@link FederationSourceException} (client fault)
+ *  <p>A federation source failed.</p>
+ *
  * @throws {@link GlueEncryptionException} (client fault)
  *  <p>An encryption operation failed.</p>
  *

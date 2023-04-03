@@ -249,11 +249,11 @@ export interface AthenaConnectorSource {
 
 /**
  * @public
- * <p>A structure containing information for audit.</p>
+ * <p>A structure containing the Lake Formation audit context.</p>
  */
 export interface AuditContext {
   /**
-   * <p>The context for the audit..</p>
+   * <p>A string containing the additional audit context information.</p>
    */
   AdditionalAuditContext?: string;
 
@@ -599,6 +599,11 @@ export class EntityNotFoundException extends __BaseException {
    * <p>A message describing the problem.</p>
    */
   Message?: string;
+
+  /**
+   * <p>Indicates whether or not the exception relates to a federated source.</p>
+   */
+  FromFederationSource?: boolean;
   /**
    * @internal
    */
@@ -610,6 +615,7 @@ export class EntityNotFoundException extends __BaseException {
     });
     Object.setPrototypeOf(this, EntityNotFoundException.prototype);
     this.Message = opts.Message;
+    this.FromFederationSource = opts.FromFederationSource;
   }
 }
 
@@ -674,6 +680,11 @@ export class InvalidInputException extends __BaseException {
    * <p>A message describing the problem.</p>
    */
   Message?: string;
+
+  /**
+   * <p>Indicates whether or not the exception relates to a federated source.</p>
+   */
+  FromFederationSource?: boolean;
   /**
    * @internal
    */
@@ -685,6 +696,7 @@ export class InvalidInputException extends __BaseException {
     });
     Object.setPrototypeOf(this, InvalidInputException.prototype);
     this.Message = opts.Message;
+    this.FromFederationSource = opts.FromFederationSource;
   }
 }
 
@@ -5351,6 +5363,75 @@ export interface BatchGetPartitionResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const FederationSourceErrorCode = {
+  InternalServiceException: "InternalServiceException",
+  InvalidResponseException: "InvalidResponseException",
+  OperationNotSupportedException: "OperationNotSupportedException",
+  OperationTimeoutException: "OperationTimeoutException",
+  ThrottlingException: "ThrottlingException",
+} as const;
+
+/**
+ * @public
+ */
+export type FederationSourceErrorCode = (typeof FederationSourceErrorCode)[keyof typeof FederationSourceErrorCode];
+
+/**
+ * @public
+ * <p>A federation source failed.</p>
+ */
+export class FederationSourceException extends __BaseException {
+  readonly name: "FederationSourceException" = "FederationSourceException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The error code of the problem.</p>
+   */
+  FederationSourceErrorCode?: FederationSourceErrorCode | string;
+
+  /**
+   * <p>The message describing the problem.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FederationSourceException, __BaseException>) {
+    super({
+      name: "FederationSourceException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FederationSourceException.prototype);
+    this.FederationSourceErrorCode = opts.FederationSourceErrorCode;
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export class FederationSourceRetryableException extends __BaseException {
+  readonly name: "FederationSourceRetryableException" = "FederationSourceRetryableException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FederationSourceRetryableException, __BaseException>) {
+    super({
+      name: "FederationSourceRetryableException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FederationSourceRetryableException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
  * <p>An error that indicates your data is in an invalid state.</p>
  */
 export class InvalidStateException extends __BaseException {
@@ -7209,6 +7290,22 @@ export interface PrincipalPermissions {
 
 /**
  * @public
+ * <p>A database that points to an entity outside the Glue Data Catalog.</p>
+ */
+export interface FederatedDatabase {
+  /**
+   * <p>A unique identifier for the federated database.</p>
+   */
+  Identifier?: string;
+
+  /**
+   * <p>The name of the connection to the external metastore.</p>
+   */
+  ConnectionName?: string;
+}
+
+/**
+ * @public
  * <p>A structure that describes a target database for resource linking.</p>
  */
 export interface DatabaseIdentifier {
@@ -7260,6 +7357,11 @@ export interface DatabaseInput {
    * <p>A <code>DatabaseIdentifier</code> structure that describes a target database for resource linking.</p>
    */
   TargetDatabase?: DatabaseIdentifier;
+
+  /**
+   * <p>A <code>FederatedDatabase</code> structure that references an entity outside the Glue Data Catalog.</p>
+   */
+  FederatedDatabase?: FederatedDatabase;
 }
 
 /**
@@ -7287,6 +7389,37 @@ export interface CreateDatabaseRequest {
  * @public
  */
 export interface CreateDatabaseResponse {}
+
+/**
+ * @public
+ * <p>A federated resource already exists.</p>
+ */
+export class FederatedResourceAlreadyExistsException extends __BaseException {
+  readonly name: "FederatedResourceAlreadyExistsException" = "FederatedResourceAlreadyExistsException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The message describing the problem.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The associated Glue resource already exists.</p>
+   */
+  AssociatedGlueResource?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FederatedResourceAlreadyExistsException, __BaseException>) {
+    super({
+      name: "FederatedResourceAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FederatedResourceAlreadyExistsException.prototype);
+    this.Message = opts.Message;
+    this.AssociatedGlueResource = opts.AssociatedGlueResource;
+  }
+}
 
 /**
  * @public
@@ -7961,158 +8094,3 @@ export interface CreatePartitionIndexRequest {
  * @public
  */
 export interface CreatePartitionIndexResponse {}
-
-/**
- * @public
- */
-export interface CreateRegistryInput {
-  /**
-   * <p>Name of the registry to be created of max length of 255, and may only contain letters, numbers, hyphen, underscore, dollar sign, or hash mark.  No whitespace.</p>
-   */
-  RegistryName: string | undefined;
-
-  /**
-   * <p>A description of the registry. If description is not provided, there will not be any default value for this.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Amazon Web Services tags that contain a key value pair and may be searched by console, command line, or API.</p>
-   */
-  Tags?: Record<string, string>;
-}
-
-/**
- * @public
- */
-export interface CreateRegistryResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the newly created registry.</p>
-   */
-  RegistryArn?: string;
-
-  /**
-   * <p>The name of the registry.</p>
-   */
-  RegistryName?: string;
-
-  /**
-   * <p>A description of the registry.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The tags for the registry.</p>
-   */
-  Tags?: Record<string, string>;
-}
-
-/**
- * @public
- * @enum
- */
-export const Compatibility = {
-  BACKWARD: "BACKWARD",
-  BACKWARD_ALL: "BACKWARD_ALL",
-  DISABLED: "DISABLED",
-  FORWARD: "FORWARD",
-  FORWARD_ALL: "FORWARD_ALL",
-  FULL: "FULL",
-  FULL_ALL: "FULL_ALL",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type Compatibility = (typeof Compatibility)[keyof typeof Compatibility];
-
-/**
- * @public
- * <p>A wrapper structure that may contain the registry name and Amazon Resource Name (ARN).</p>
- */
-export interface RegistryId {
-  /**
-   * <p>Name of the registry. Used only for lookup. One of <code>RegistryArn</code> or <code>RegistryName</code> has to be provided. </p>
-   */
-  RegistryName?: string;
-
-  /**
-   * <p>Arn of the registry to be updated. One of <code>RegistryArn</code> or <code>RegistryName</code> has to be provided.</p>
-   */
-  RegistryArn?: string;
-}
-
-/**
- * @public
- */
-export interface CreateSchemaInput {
-  /**
-   * <p> This is a wrapper shape to contain the registry identity fields. If this is not provided, the default registry will be used. The ARN format for the same will be: <code>arn:aws:glue:us-east-2:<customer id>:registry/default-registry:random-5-letter-id</code>.</p>
-   */
-  RegistryId?: RegistryId;
-
-  /**
-   * <p>Name of the schema to be created of max length of 255, and may only contain letters, numbers, hyphen, underscore, dollar sign, or hash mark. No whitespace.</p>
-   */
-  SchemaName: string | undefined;
-
-  /**
-   * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
-   */
-  DataFormat: DataFormat | string | undefined;
-
-  /**
-   * <p>The compatibility mode of the schema. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <i>NONE</i>: No compatibility mode applies. You can use this choice in development scenarios or if you do not know the compatibility mode that you want to apply to schemas. Any new version added will be accepted without undergoing a compatibility check.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <i>DISABLED</i>: This compatibility choice prevents versioning for a particular schema. You can use this choice to prevent future versioning of a schema.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <i>BACKWARD</i>: This compatibility choice is recommended as it allows data receivers to read both the current and one previous schema version. This means that for instance, a new schema version cannot drop data fields or change the type of these fields, so they can't be read by readers using the previous version.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <i>BACKWARD_ALL</i>: This compatibility choice allows data receivers to read both the current and all previous schema versions. You can use this choice when you need to delete fields or add optional fields, and check compatibility against all previous schema versions. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <i>FORWARD</i>: This compatibility choice allows data receivers to read both the current and one next schema version, but not necessarily later versions. You can use this choice when you need to add fields or delete optional fields, but only check compatibility against the last schema version.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <i>FORWARD_ALL</i>: This compatibility choice allows data receivers to read written by producers of any new registered schema. You can use this choice when you need to add fields or delete optional fields, and check compatibility against all previous schema versions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <i>FULL</i>: This compatibility choice allows data receivers to read data written by producers using the previous or next version of the schema, but not necessarily earlier or later versions. You can use this choice when you need to add or remove optional fields, but only check compatibility against the last schema version.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <i>FULL_ALL</i>: This compatibility choice allows data receivers to read data written by producers using all previous schema versions. You can use this choice when you need to add or remove optional fields, and check compatibility against all previous schema versions.</p>
-   *             </li>
-   *          </ul>
-   */
-  Compatibility?: Compatibility | string;
-
-  /**
-   * <p>An optional description of the schema. If description is not provided, there will not be any automatic default value for this.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Amazon Web Services tags that contain a key value pair and may be searched by console, command line, or API. If specified, follows the Amazon Web Services tags-on-create pattern.</p>
-   */
-  Tags?: Record<string, string>;
-
-  /**
-   * <p>The schema definition using the <code>DataFormat</code> setting for <code>SchemaName</code>.</p>
-   */
-  SchemaDefinition?: string;
-}

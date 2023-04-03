@@ -541,9 +541,6 @@ import {
   CreatePartitionIndexResponse,
   CreatePartitionRequest,
   CreatePartitionResponse,
-  CreateRegistryInput,
-  CreateRegistryResponse,
-  CreateSchemaInput,
   CreateXMLClassifierRequest,
   CustomCode,
   CustomEntityType,
@@ -575,6 +572,10 @@ import {
   EvaluateDataQuality,
   EventBatchingCondition,
   ExecutionProperty,
+  FederatedDatabase,
+  FederatedResourceAlreadyExistsException,
+  FederationSourceException,
+  FederationSourceRetryableException,
   FillMissingValues,
   Filter,
   FilterExpression,
@@ -640,7 +641,6 @@ import {
   RecrawlPolicy,
   RedshiftSource,
   RedshiftTarget,
-  RegistryId,
   RelationalCatalogSource,
   RenameField,
   ResourceNotReadyException,
@@ -720,6 +720,9 @@ import {
   ConnectionPasswordEncryption,
   CrawlerMetrics,
   CrawlerRunningException,
+  CreateRegistryInput,
+  CreateRegistryResponse,
+  CreateSchemaInput,
   CreateSchemaResponse,
   CreateScriptRequest,
   CreateScriptResponse,
@@ -798,6 +801,7 @@ import {
   ErrorDetails,
   EvaluationMetrics,
   ExportLabelsTaskRunProperties,
+  FederatedTable,
   FindMatchesMetrics,
   FindMatchesTaskRunProperties,
   GetBlueprintRequest,
@@ -923,16 +927,10 @@ import {
   GetUserDefinedFunctionsResponse,
   GetWorkflowRequest,
   GetWorkflowResponse,
-  GetWorkflowRunPropertiesRequest,
-  GetWorkflowRunPropertiesResponse,
   GetWorkflowRunRequest,
   GetWorkflowRunResponse,
-  GetWorkflowRunsRequest,
-  GetWorkflowRunsResponse,
   GluePolicy,
   GrokClassifier,
-  ImportCatalogToGlueRequest,
-  ImportCatalogToGlueResponse,
   ImportLabelsTaskRunProperties,
   JobBookmarkEntry,
   JobBookmarksEncryption,
@@ -946,6 +944,7 @@ import {
   PartitionIndexDescriptor,
   PermissionType,
   PermissionTypeMismatchException,
+  RegistryId,
   ResourceUri,
   S3Encryption,
   SchedulerTransitioningException,
@@ -997,8 +996,14 @@ import {
   DevEndpointCustomLibraries,
   GetJobResponse,
   GetJobsResponse,
+  GetWorkflowRunPropertiesRequest,
+  GetWorkflowRunPropertiesResponse,
+  GetWorkflowRunsRequest,
+  GetWorkflowRunsResponse,
   IllegalBlueprintStateException,
   IllegalWorkflowStateException,
+  ImportCatalogToGlueRequest,
+  ImportCatalogToGlueResponse,
   Job,
   JobUpdate,
   ListBlueprintsRequest,
@@ -4357,6 +4362,12 @@ const deserializeAws_json1_1BatchGetPartitionCommandError = async (
     case "EntityNotFoundException":
     case "com.amazonaws.glue#EntityNotFoundException":
       throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+    case "FederationSourceException":
+    case "com.amazonaws.glue#FederationSourceException":
+      throw await deserializeAws_json1_1FederationSourceExceptionResponse(parsedOutput, context);
+    case "FederationSourceRetryableException":
+    case "com.amazonaws.glue#FederationSourceRetryableException":
+      throw await deserializeAws_json1_1FederationSourceRetryableExceptionResponse(parsedOutput, context);
     case "GlueEncryptionException":
     case "com.amazonaws.glue#GlueEncryptionException":
       throw await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context);
@@ -5125,6 +5136,9 @@ const deserializeAws_json1_1CreateDatabaseCommandError = async (
     case "ConcurrentModificationException":
     case "com.amazonaws.glue#ConcurrentModificationException":
       throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+    case "FederatedResourceAlreadyExistsException":
+    case "com.amazonaws.glue#FederatedResourceAlreadyExistsException":
+      throw await deserializeAws_json1_1FederatedResourceAlreadyExistsExceptionResponse(parsedOutput, context);
     case "GlueEncryptionException":
     case "com.amazonaws.glue#GlueEncryptionException":
       throw await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context);
@@ -7977,6 +7991,9 @@ const deserializeAws_json1_1GetDatabaseCommandError = async (
     case "EntityNotFoundException":
     case "com.amazonaws.glue#EntityNotFoundException":
       throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+    case "FederationSourceException":
+    case "com.amazonaws.glue#FederationSourceException":
+      throw await deserializeAws_json1_1FederationSourceExceptionResponse(parsedOutput, context);
     case "GlueEncryptionException":
     case "com.amazonaws.glue#GlueEncryptionException":
       throw await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context);
@@ -8977,6 +8994,12 @@ const deserializeAws_json1_1GetPartitionCommandError = async (
     case "EntityNotFoundException":
     case "com.amazonaws.glue#EntityNotFoundException":
       throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+    case "FederationSourceException":
+    case "com.amazonaws.glue#FederationSourceException":
+      throw await deserializeAws_json1_1FederationSourceExceptionResponse(parsedOutput, context);
+    case "FederationSourceRetryableException":
+    case "com.amazonaws.glue#FederationSourceRetryableException":
+      throw await deserializeAws_json1_1FederationSourceRetryableExceptionResponse(parsedOutput, context);
     case "GlueEncryptionException":
     case "com.amazonaws.glue#GlueEncryptionException":
       throw await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context);
@@ -9083,6 +9106,12 @@ const deserializeAws_json1_1GetPartitionsCommandError = async (
     case "EntityNotFoundException":
     case "com.amazonaws.glue#EntityNotFoundException":
       throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+    case "FederationSourceException":
+    case "com.amazonaws.glue#FederationSourceException":
+      throw await deserializeAws_json1_1FederationSourceExceptionResponse(parsedOutput, context);
+    case "FederationSourceRetryableException":
+    case "com.amazonaws.glue#FederationSourceRetryableException":
+      throw await deserializeAws_json1_1FederationSourceRetryableExceptionResponse(parsedOutput, context);
     case "GlueEncryptionException":
     case "com.amazonaws.glue#GlueEncryptionException":
       throw await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context);
@@ -9748,6 +9777,12 @@ const deserializeAws_json1_1GetTableCommandError = async (
     case "EntityNotFoundException":
     case "com.amazonaws.glue#EntityNotFoundException":
       throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+    case "FederationSourceException":
+    case "com.amazonaws.glue#FederationSourceException":
+      throw await deserializeAws_json1_1FederationSourceExceptionResponse(parsedOutput, context);
+    case "FederationSourceRetryableException":
+    case "com.amazonaws.glue#FederationSourceRetryableException":
+      throw await deserializeAws_json1_1FederationSourceRetryableExceptionResponse(parsedOutput, context);
     case "GlueEncryptionException":
     case "com.amazonaws.glue#GlueEncryptionException":
       throw await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context);
@@ -9804,6 +9839,12 @@ const deserializeAws_json1_1GetTablesCommandError = async (
     case "EntityNotFoundException":
     case "com.amazonaws.glue#EntityNotFoundException":
       throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+    case "FederationSourceException":
+    case "com.amazonaws.glue#FederationSourceException":
+      throw await deserializeAws_json1_1FederationSourceExceptionResponse(parsedOutput, context);
+    case "FederationSourceRetryableException":
+    case "com.amazonaws.glue#FederationSourceRetryableException":
+      throw await deserializeAws_json1_1FederationSourceRetryableExceptionResponse(parsedOutput, context);
     case "GlueEncryptionException":
     case "com.amazonaws.glue#GlueEncryptionException":
       throw await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context);
@@ -10113,6 +10154,12 @@ const deserializeAws_json1_1GetUnfilteredPartitionMetadataCommandError = async (
     case "EntityNotFoundException":
     case "com.amazonaws.glue#EntityNotFoundException":
       throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+    case "FederationSourceException":
+    case "com.amazonaws.glue#FederationSourceException":
+      throw await deserializeAws_json1_1FederationSourceExceptionResponse(parsedOutput, context);
+    case "FederationSourceRetryableException":
+    case "com.amazonaws.glue#FederationSourceRetryableException":
+      throw await deserializeAws_json1_1FederationSourceRetryableExceptionResponse(parsedOutput, context);
     case "GlueEncryptionException":
     case "com.amazonaws.glue#GlueEncryptionException":
       throw await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context);
@@ -10169,6 +10216,12 @@ const deserializeAws_json1_1GetUnfilteredPartitionsMetadataCommandError = async 
     case "EntityNotFoundException":
     case "com.amazonaws.glue#EntityNotFoundException":
       throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+    case "FederationSourceException":
+    case "com.amazonaws.glue#FederationSourceException":
+      throw await deserializeAws_json1_1FederationSourceExceptionResponse(parsedOutput, context);
+    case "FederationSourceRetryableException":
+    case "com.amazonaws.glue#FederationSourceRetryableException":
+      throw await deserializeAws_json1_1FederationSourceRetryableExceptionResponse(parsedOutput, context);
     case "GlueEncryptionException":
     case "com.amazonaws.glue#GlueEncryptionException":
       throw await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context);
@@ -10225,6 +10278,12 @@ const deserializeAws_json1_1GetUnfilteredTableMetadataCommandError = async (
     case "EntityNotFoundException":
     case "com.amazonaws.glue#EntityNotFoundException":
       throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+    case "FederationSourceException":
+    case "com.amazonaws.glue#FederationSourceException":
+      throw await deserializeAws_json1_1FederationSourceExceptionResponse(parsedOutput, context);
+    case "FederationSourceRetryableException":
+    case "com.amazonaws.glue#FederationSourceRetryableException":
+      throw await deserializeAws_json1_1FederationSourceRetryableExceptionResponse(parsedOutput, context);
     case "GlueEncryptionException":
     case "com.amazonaws.glue#GlueEncryptionException":
       throw await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context);
@@ -14322,6 +14381,45 @@ const deserializeAws_json1_1EntityNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_json1_1FederatedResourceAlreadyExistsExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<FederatedResourceAlreadyExistsException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1FederatedResourceAlreadyExistsException(body, context);
+  const exception = new FederatedResourceAlreadyExistsException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1FederationSourceExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<FederationSourceException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1FederationSourceException(body, context);
+  const exception = new FederationSourceException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1FederationSourceRetryableExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<FederationSourceRetryableException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1FederationSourceRetryableException(body, context);
+  const exception = new FederationSourceRetryableException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_json1_1GlueEncryptionExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -16016,6 +16114,9 @@ const serializeAws_json1_1DatabaseInput = (input: DatabaseInput, context: __Serd
       ),
     }),
     ...(input.Description != null && { Description: input.Description }),
+    ...(input.FederatedDatabase != null && {
+      FederatedDatabase: serializeAws_json1_1FederatedDatabase(input.FederatedDatabase, context),
+    }),
     ...(input.LocationUri != null && { LocationUri: input.LocationUri }),
     ...(input.Name != null && { Name: input.Name }),
     ...(input.Parameters != null && { Parameters: serializeAws_json1_1ParametersMap(input.Parameters, context) }),
@@ -16656,6 +16757,13 @@ const serializeAws_json1_1EventBatchingCondition = (input: EventBatchingConditio
 const serializeAws_json1_1ExecutionProperty = (input: ExecutionProperty, context: __SerdeContext): any => {
   return {
     ...(input.MaxConcurrentRuns != null && { MaxConcurrentRuns: input.MaxConcurrentRuns }),
+  };
+};
+
+const serializeAws_json1_1FederatedDatabase = (input: FederatedDatabase, context: __SerdeContext): any => {
+  return {
+    ...(input.ConnectionName != null && { ConnectionName: input.ConnectionName }),
+    ...(input.Identifier != null && { Identifier: input.Identifier }),
   };
 };
 
@@ -21764,6 +21872,10 @@ const deserializeAws_json1_1Database = (output: any, context: __SerdeContext): D
     CreateTime:
       output.CreateTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateTime))) : undefined,
     Description: __expectString(output.Description),
+    FederatedDatabase:
+      output.FederatedDatabase != null
+        ? deserializeAws_json1_1FederatedDatabase(output.FederatedDatabase, context)
+        : undefined,
     LocationUri: __expectString(output.LocationUri),
     Name: __expectString(output.Name),
     Parameters: output.Parameters != null ? deserializeAws_json1_1ParametersMap(output.Parameters, context) : undefined,
@@ -22607,6 +22719,7 @@ const deserializeAws_json1_1EntityNotFoundException = (
   context: __SerdeContext
 ): EntityNotFoundException => {
   return {
+    FromFederationSource: __expectBoolean(output.FromFederationSource),
     Message: __expectString(output.Message),
   } as any;
 };
@@ -22681,6 +22794,50 @@ const deserializeAws_json1_1ExportLabelsTaskRunProperties = (
 ): ExportLabelsTaskRunProperties => {
   return {
     OutputS3Path: __expectString(output.OutputS3Path),
+  } as any;
+};
+
+const deserializeAws_json1_1FederatedDatabase = (output: any, context: __SerdeContext): FederatedDatabase => {
+  return {
+    ConnectionName: __expectString(output.ConnectionName),
+    Identifier: __expectString(output.Identifier),
+  } as any;
+};
+
+const deserializeAws_json1_1FederatedResourceAlreadyExistsException = (
+  output: any,
+  context: __SerdeContext
+): FederatedResourceAlreadyExistsException => {
+  return {
+    AssociatedGlueResource: __expectString(output.AssociatedGlueResource),
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1FederatedTable = (output: any, context: __SerdeContext): FederatedTable => {
+  return {
+    ConnectionName: __expectString(output.ConnectionName),
+    DatabaseIdentifier: __expectString(output.DatabaseIdentifier),
+    Identifier: __expectString(output.Identifier),
+  } as any;
+};
+
+const deserializeAws_json1_1FederationSourceException = (
+  output: any,
+  context: __SerdeContext
+): FederationSourceException => {
+  return {
+    FederationSourceErrorCode: __expectString(output.FederationSourceErrorCode),
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1FederationSourceRetryableException = (
+  output: any,
+  context: __SerdeContext
+): FederationSourceRetryableException => {
+  return {
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -23767,6 +23924,7 @@ const deserializeAws_json1_1InternalServiceException = (
 
 const deserializeAws_json1_1InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
   return {
+    FromFederationSource: __expectBoolean(output.FromFederationSource),
     Message: __expectString(output.Message),
   } as any;
 };
@@ -26310,6 +26468,8 @@ const deserializeAws_json1_1Table = (output: any, context: __SerdeContext): Tabl
     CreatedBy: __expectString(output.CreatedBy),
     DatabaseName: __expectString(output.DatabaseName),
     Description: __expectString(output.Description),
+    FederatedTable:
+      output.FederatedTable != null ? deserializeAws_json1_1FederatedTable(output.FederatedTable, context) : undefined,
     IsRegisteredWithLakeFormation: __expectBoolean(output.IsRegisteredWithLakeFormation),
     LastAccessTime:
       output.LastAccessTime != null

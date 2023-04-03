@@ -12,7 +12,6 @@ import {
   CatalogKafkaSource,
   CatalogKinesisSource,
   CatalogSource,
-  Compatibility,
   ConnectionInput,
   ConnectionsList,
   CrawlerTargets,
@@ -61,7 +60,6 @@ import {
   RecrawlPolicy,
   RedshiftSource,
   RedshiftTarget,
-  RegistryId,
   RelationalCatalogSource,
   RenameField,
   S3CatalogDeltaSource,
@@ -96,12 +94,15 @@ import {
   Trigger,
   Union,
   WorkerType,
+  WorkflowRun,
 } from "./models_0";
 import {
   ColumnStatistics,
+  Compatibility,
   DataCatalogEncryptionSettings,
   DataQualityEvaluationRunAdditionalRunOptions,
   JobBookmarkEntry,
+  RegistryId,
   RegistryStatus,
   ResourceShareType,
   SchemaStatus,
@@ -115,6 +116,86 @@ import {
   TransformSortCriteria,
   UserDefinedFunctionInput,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface GetWorkflowRunPropertiesRequest {
+  /**
+   * <p>Name of the workflow which was run.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The ID of the workflow run whose run properties should be returned.</p>
+   */
+  RunId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetWorkflowRunPropertiesResponse {
+  /**
+   * <p>The workflow run properties which were set during the specified run.</p>
+   */
+  RunProperties?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface GetWorkflowRunsRequest {
+  /**
+   * <p>Name of the workflow whose metadata of runs should be returned.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Specifies whether to include the workflow graph in response or not.</p>
+   */
+  IncludeGraph?: boolean;
+
+  /**
+   * <p>The maximum size of the response.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of workflow runs to be included in the response.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface GetWorkflowRunsResponse {
+  /**
+   * <p>A list of workflow run metadata objects.</p>
+   */
+  Runs?: WorkflowRun[];
+
+  /**
+   * <p>A continuation token, if not all requested workflow runs have been returned.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ImportCatalogToGlueRequest {
+  /**
+   * <p>The ID of the catalog to import. Currently, this should be the Amazon Web Services account ID.</p>
+   */
+  CatalogId?: string;
+}
+
+/**
+ * @public
+ */
+export interface ImportCatalogToGlueResponse {}
 
 /**
  * @public
@@ -4531,7 +4612,7 @@ export interface Job {
    *             </li>
    *             <li>
    *                <p>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl") or Apache
-   *             Spark streaming ETL job (<code>JobCommand.Name</code>="gluestreaming"), you can allocate a minimum of 2 DPUs.
+   *             Spark streaming ETL job (<code>JobCommand.Name</code>="gluestreaming"), you can allocate from 2 to 100 DPUs.
    *             The default is 10 DPUs. This job type cannot have a fractional DPU allocation.</p>
    *             </li>
    *          </ul>

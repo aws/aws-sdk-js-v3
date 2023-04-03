@@ -65,6 +65,10 @@ export interface CreateDatabaseCommandOutput extends CreateDatabaseResponse, __M
  *       CatalogId: "STRING_VALUE",
  *       DatabaseName: "STRING_VALUE",
  *     },
+ *     FederatedDatabase: { // FederatedDatabase
+ *       Identifier: "STRING_VALUE",
+ *       ConnectionName: "STRING_VALUE",
+ *     },
  *   },
  *   Tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
@@ -85,6 +89,9 @@ export interface CreateDatabaseCommandOutput extends CreateDatabaseResponse, __M
  *
  * @throws {@link ConcurrentModificationException} (client fault)
  *  <p>Two processes are trying to modify a resource simultaneously.</p>
+ *
+ * @throws {@link FederatedResourceAlreadyExistsException} (client fault)
+ *  <p>A federated resource already exists.</p>
  *
  * @throws {@link GlueEncryptionException} (client fault)
  *  <p>An encryption operation failed.</p>

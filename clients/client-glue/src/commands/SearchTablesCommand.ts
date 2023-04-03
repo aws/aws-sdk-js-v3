@@ -61,7 +61,7 @@ export interface SearchTablesCommandOutput extends SearchTablesResponse, __Metad
  *     },
  *   ],
  *   MaxResults: Number("int"),
- *   ResourceShareType: "FOREIGN" || "ALL",
+ *   ResourceShareType: "FOREIGN" || "ALL" || "FEDERATED",
  * };
  * const command = new SearchTablesCommand(input);
  * const response = await client.send(command);

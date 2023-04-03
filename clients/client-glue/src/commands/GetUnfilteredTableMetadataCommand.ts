@@ -72,6 +72,11 @@ export interface GetUnfilteredTableMetadataCommandOutput extends GetUnfilteredTa
  * @throws {@link EntityNotFoundException} (client fault)
  *  <p>A specified entity does not exist</p>
  *
+ * @throws {@link FederationSourceException} (client fault)
+ *  <p>A federation source failed.</p>
+ *
+ * @throws {@link FederationSourceRetryableException} (client fault)
+ *
  * @throws {@link GlueEncryptionException} (client fault)
  *  <p>An encryption operation failed.</p>
  *
@@ -85,6 +90,7 @@ export interface GetUnfilteredTableMetadataCommandOutput extends GetUnfilteredTa
  *  <p>The operation timed out.</p>
  *
  * @throws {@link PermissionTypeMismatchException} (client fault)
+ *  <p>The operation timed out.</p>
  *
  *
  */
