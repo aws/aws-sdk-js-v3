@@ -45,6 +45,7 @@ export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __M
  * const input = { // UpdateResourceRequest
  *   RoleArn: "STRING_VALUE", // required
  *   ResourceArn: "STRING_VALUE", // required
+ *   WithFederation: true || false,
  * };
  * const command = new UpdateResourceCommand(input);
  * const response = await client.send(command);
@@ -57,7 +58,7 @@ export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __M
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *  <p>A specified entity does not exist.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>An internal service error occurred.</p>

@@ -1178,6 +1178,7 @@ export const serializeAws_restJson1RegisterResourceCommand = async (
     ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
     ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
     ...(input.UseServiceLinkedRole != null && { UseServiceLinkedRole: input.UseServiceLinkedRole }),
+    ...(input.WithFederation != null && { WithFederation: input.WithFederation }),
   });
   return new __HttpRequest({
     protocol,
@@ -1428,6 +1429,7 @@ export const serializeAws_restJson1UpdateResourceCommand = async (
   body = JSON.stringify({
     ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
     ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
+    ...(input.WithFederation != null && { WithFederation: input.WithFederation }),
   });
   return new __HttpRequest({
     protocol,
@@ -5257,6 +5259,7 @@ const deserializeAws_restJson1ResourceInfo = (output: any, context: __SerdeConte
         : undefined,
     ResourceArn: __expectString(output.ResourceArn),
     RoleArn: __expectString(output.RoleArn),
+    WithFederation: __expectBoolean(output.WithFederation),
   } as any;
 };
 

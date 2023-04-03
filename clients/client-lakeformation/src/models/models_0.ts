@@ -397,7 +397,7 @@ export class ConcurrentModificationException extends __BaseException {
 
 /**
  * @public
- * <p>A specified entity does not exist</p>
+ * <p>A specified entity does not exist.</p>
  */
 export class EntityNotFoundException extends __BaseException {
   readonly name: "EntityNotFoundException" = "EntityNotFoundException";
@@ -1173,6 +1173,11 @@ export interface ResourceInfo {
    * <p>The date and time the resource was last modified.</p>
    */
   LastModified?: Date;
+
+  /**
+   * <p>Whether or not the resource is a federated resource.</p>
+   */
+  WithFederation?: boolean;
 }
 
 /**
@@ -2664,6 +2669,11 @@ export interface RegisterResourceRequest {
    * <p>The identifier for the role that registers the resource.</p>
    */
   RoleArn?: string;
+
+  /**
+   * <p>Whether or not the resource is a federated resource.</p>
+   */
+  WithFederation?: boolean;
 }
 
 /**
@@ -3008,6 +3018,11 @@ export interface UpdateResourceRequest {
    * <p>The resource ARN.</p>
    */
   ResourceArn: string | undefined;
+
+  /**
+   * <p>Whether or not the resource is a federated resource.</p>
+   */
+  WithFederation?: boolean;
 }
 
 /**

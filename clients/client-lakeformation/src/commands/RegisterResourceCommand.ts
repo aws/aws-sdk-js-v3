@@ -56,6 +56,7 @@ export interface RegisterResourceCommandOutput extends RegisterResourceResponse,
  *   ResourceArn: "STRING_VALUE", // required
  *   UseServiceLinkedRole: true || false,
  *   RoleArn: "STRING_VALUE",
+ *   WithFederation: true || false,
  * };
  * const command = new RegisterResourceCommand(input);
  * const response = await client.send(command);
@@ -74,7 +75,7 @@ export interface RegisterResourceCommandOutput extends RegisterResourceResponse,
  *  <p>A resource to be created or added already exists.</p>
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *  <p>A specified entity does not exist.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>An internal service error occurred.</p>
