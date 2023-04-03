@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.305.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.304.0...v3.305.0) (2023-04-03)
+
+
+### Features
+
+* **client-glue:** Add support for database-level federation ([11ea352](https://github.com/aws/aws-sdk-js-v3/commit/11ea3520adcee0393a290fa35a588363e17829cd))
+* **client-lakeformation:** Add support for database-level federation ([7aa3a7b](https://github.com/aws/aws-sdk-js-v3/commit/7aa3a7b9a9f9303cc1f2fce0fd31c245a382d1c5))
+* **client-license-manager:** This release adds grant override options to the CreateGrantVersion API. These options can be used to specify grant replacement behavior during grant activation. ([a301edd](https://github.com/aws/aws-sdk-js-v3/commit/a301edd8686009df5b0604b96be2b33db73523e9))
+* **client-mwaa:** This Amazon MWAA release adds the ability to customize the Apache Airflow environment by launching a shell script at startup. This shell script is hosted in your environment's Amazon S3 bucket. Amazon MWAA runs the script before installing requirements and initializing the Apache Airflow process. ([ee8fc76](https://github.com/aws/aws-sdk-js-v3/commit/ee8fc7641bfa5c13d8849a6971e9f5ab19ed2954))
+* **client-rekognitionstreaming:** add rekognition-streaming client and refactor websocket implementations ([#4548](https://github.com/aws/aws-sdk-js-v3/issues/4548)) ([29ed27d](https://github.com/aws/aws-sdk-js-v3/commit/29ed27d3f4148946ac8c35c0f4d1b759b6f168b0))
+* **client-service-catalog:** This release introduces Service Catalog support for Terraform open source. It enables 1. The notify* APIs to Service Catalog. These APIs are used by the terraform engine to notify the result of the provisioning engine execution. 2. Adds a new TERRAFORM_OPEN_SOURCE product type in CreateProduct API. ([1aa221d](https://github.com/aws/aws-sdk-js-v3/commit/1aa221d21ee551f9d296af84f1542b758a4d65a7))
+* **client-wafv2:** For web ACLs that protect CloudFront protections, the default request body inspection size is now 16 KB, and you can use the new association configuration to increase the inspection size further, up to 64 KB. Sizes over 16 KB can incur additional costs. ([e11d2f9](https://github.com/aws/aws-sdk-js-v3/commit/e11d2f95c0c12c79b08c3cbbcf28836d4d60c9e3))
+* **clients:** update client endpoints as of 2023-04-03 ([a096494](https://github.com/aws/aws-sdk-js-v3/commit/a0964944f3584d673a7c29fea277cc3f5a4c68ed))
+
+
+
+
+
 # [3.304.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.303.0...v3.304.0) (2023-03-31)
 
 

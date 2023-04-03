@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.305.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.304.0...v3.305.0) (2023-04-03)
+
+
+### Features
+
+* **client-service-catalog:** This release introduces Service Catalog support for Terraform open source. It enables 1. The notify* APIs to Service Catalog. These APIs are used by the terraform engine to notify the result of the provisioning engine execution. 2. Adds a new TERRAFORM_OPEN_SOURCE product type in CreateProduct API. ([1aa221d](https://github.com/aws/aws-sdk-js-v3/commit/1aa221d21ee551f9d296af84f1542b758a4d65a7))
+
+
+
+
+
 # [3.303.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.302.0...v3.303.0) (2023-03-30)
 
 **Note:** Version bump only for package @aws-sdk/client-service-catalog

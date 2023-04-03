@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.305.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.304.0...v3.305.0) (2023-04-03)
+
+
+### Features
+
+* **client-license-manager:** This release adds grant override options to the CreateGrantVersion API. These options can be used to specify grant replacement behavior during grant activation. ([a301edd](https://github.com/aws/aws-sdk-js-v3/commit/a301edd8686009df5b0604b96be2b33db73523e9))
+
+
+
+
+
 # [3.303.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.302.0...v3.303.0) (2023-03-30)
 
 **Note:** Version bump only for package @aws-sdk/client-license-manager
