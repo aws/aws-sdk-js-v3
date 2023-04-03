@@ -124,6 +124,11 @@ class SdkThemeContext extends DefaultThemeRenderContext {
       // wait for container to exist
       waitForElm('.container-main')
         .then(elm => {
+          elm.role = "main"
+          elm.tabIndex = "-1"
+
+          document.querySelector('.tsd-navigation.secondary')['ariaLabel'] = "Types"
+
           if (document.querySelectorAll('img[alt~="NPM"]').length > 0) {
             const versionEl = document.querySelector('img[alt="NPM version"]')
             const downloadsEl = document.querySelector('img[alt="NPM downloads"]')
@@ -136,7 +141,7 @@ class SdkThemeContext extends DefaultThemeRenderContext {
                 return res.json()
               })
               .then(({ version }) => {
-                versionEl.alt += ' ' + version
+                versionEl.alt = "NPM latest version V" + version
               })
               .catch(err => {
                 console.error(err)
@@ -148,7 +153,12 @@ class SdkThemeContext extends DefaultThemeRenderContext {
                 return res.json()
               })
               .then(({ downloads }) => {
-                downloadsEl.alt += ' ' + downloads.toString() + ' per month'
+                function formatDownloads(num) {
+                  if (num < 1000) return num.toString()
+                  if (num < 1000000) return (num.toPrecision(2) / 1000).toString() + 'k'
+                  if (num < 1000000000) return (num.toPrecision(2) / 1000000).toString() + 'M'
+                }
+                downloadsEl.alt = 'downloads ' + formatDownloads(downloads) + '/month'
               })
               .catch(err => {
                 console.error(err)
@@ -331,6 +341,7 @@ class SdkThemeContext extends DefaultThemeRenderContext {
       return (
         <div>
           {categories.map((category: ReflectionCategory) => {
+            if (category.children.length === 0) return "";
             return (
               <nav class="tsd-navigation" aria-label={category.title}>
                 <details class="tsd-index-accordion" open={true}>
