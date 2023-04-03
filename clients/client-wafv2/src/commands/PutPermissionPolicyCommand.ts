@@ -102,7 +102,7 @@ export interface PutPermissionPolicyCommandOutput extends PutPermissionPolicyRes
  *          <p>The policy specifications must conform to the following:</p>
  *          <ul>
  *             <li>
- *                <p>The policy must be composed using IAM Policy version 2012-10-17 or version 2015-01-01.</p>
+ *                <p>The policy must be composed using IAM Policy version 2012-10-17.</p>
  *             </li>
  *             <li>
  *                <p>The policy must include specifications for <code>Effect</code>, <code>Action</code>, and <code>Principal</code>.</p>
