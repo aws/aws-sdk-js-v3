@@ -73,6 +73,51 @@
         }
       }
     },
+    "com.amazonaws.rekognitionstreaming#ChallengeConfig": {
+      "type": "structure",
+      "members": {
+        "BlazeFaceDetectionThreshold": {
+          "target": "com.amazonaws.rekognitionstreaming#Float"
+        },
+        "FaceDistanceThresholdMin": {
+          "target": "com.amazonaws.rekognitionstreaming#Float"
+        },
+        "FaceDistanceThreshold": {
+          "target": "com.amazonaws.rekognitionstreaming#Float"
+        },
+        "FaceDistanceThresholdMax": {
+          "target": "com.amazonaws.rekognitionstreaming#Float"
+        },
+        "OvalIouThreshold": {
+          "target": "com.amazonaws.rekognitionstreaming#Float"
+        },
+        "OvalHeightWidthRatio": {
+          "target": "com.amazonaws.rekognitionstreaming#Float"
+        },
+        "OvalIouWidthThreshold": {
+          "target": "com.amazonaws.rekognitionstreaming#Float"
+        },
+        "OvalIouHeightThreshold": {
+          "target": "com.amazonaws.rekognitionstreaming#Float"
+        },
+        "FaceIouWidthThreshold": {
+          "target": "com.amazonaws.rekognitionstreaming#Float"
+        },
+        "FaceIouHeightThreshold": {
+          "target": "com.amazonaws.rekognitionstreaming#Float"
+        }
+      }
+    },
+    "com.amazonaws.rekognitionstreaming#ChallengeVersions": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 15,
+          "max": 150
+        },
+        "smithy.api#pattern": "^([a-zA-Z]{10,}_\\d+\\.\\d+\\.\\d+){1}(,[a-zA-Z]{10,}_\\d+\\.\\d+\\.\\d+)*$"
+      }
+    },
     "com.amazonaws.rekognitionstreaming#ClientChallenge": {
       "type": "union",
       "members": {
@@ -84,12 +129,6 @@
     "com.amazonaws.rekognitionstreaming#ClientSessionInformationEvent": {
       "type": "structure",
       "members": {
-        "DeviceInformation": {
-          "target": "com.amazonaws.rekognitionstreaming#DeviceInformation",
-          "traits": {
-            "smithy.api#required": {}
-          }
-        },
         "Challenge": {
           "target": "com.amazonaws.rekognitionstreaming#ClientChallenge",
           "traits": {
@@ -138,7 +177,7 @@
           }
         },
         "CurrentColorStartTimestamp": {
-          "target": "com.amazonaws.rekognitionstreaming#ULong",
+          "target": "com.amazonaws.rekognitionstreaming#EpochMillis",
           "traits": {
             "smithy.api#required": {}
           }
@@ -183,37 +222,23 @@
         "target": "com.amazonaws.rekognitionstreaming#ColorSequence"
       }
     },
-    "com.amazonaws.rekognitionstreaming#DeviceInformation": {
+    "com.amazonaws.rekognitionstreaming#DisconnectionEvent": {
       "type": "structure",
       "members": {
-        "VideoHeight": {
-          "target": "com.amazonaws.rekognitionstreaming#Float",
-          "traits": {
-            "smithy.api#required": {}
-          }
-        },
-        "VideoWidth": {
-          "target": "com.amazonaws.rekognitionstreaming#Float",
-          "traits": {
-            "smithy.api#required": {}
-          }
-        },
-        "ClientSDKVersion": {
-          "target": "com.amazonaws.rekognitionstreaming#String",
+        "TimestampMillis": {
+          "target": "com.amazonaws.rekognitionstreaming#EpochMillis",
           "traits": {
             "smithy.api#required": {}
           }
         }
       }
     },
-    "com.amazonaws.rekognitionstreaming#DisconnectionEvent": {
-      "type": "structure",
-      "members": {
-        "TimestampMillis": {
-          "target": "com.amazonaws.rekognitionstreaming#ULong",
-          "traits": {
-            "smithy.api#required": {}
-          }
+    "com.amazonaws.rekognitionstreaming#EpochMillis": {
+      "type": "long",
+      "traits": {
+        "smithy.api#range": {
+          "min": 1640995200000,
+          "max": 2272147200000
         }
       }
     },
@@ -227,7 +252,10 @@
           }
         },
         "VideoStartTimestamp": {
-          "target": "com.amazonaws.rekognitionstreaming#ULong"
+          "target": "com.amazonaws.rekognitionstreaming#EpochMillis"
+        },
+        "VideoEndTimestamp": {
+          "target": "com.amazonaws.rekognitionstreaming#EpochMillis"
         },
         "InitialFace": {
           "target": "com.amazonaws.rekognitionstreaming#InitialFace"
@@ -243,14 +271,20 @@
     "com.amazonaws.rekognitionstreaming#FaceMovementAndLightServerChallenge": {
       "type": "structure",
       "members": {
-        "OvalScaleFactors": {
-          "target": "com.amazonaws.rekognitionstreaming#OvalScaleFactors",
+        "OvalParameters": {
+          "target": "com.amazonaws.rekognitionstreaming#OvalParameters",
           "traits": {
             "smithy.api#required": {}
           }
         },
         "LightChallengeType": {
           "target": "com.amazonaws.rekognitionstreaming#LightChallengeType",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        },
+        "ChallengeConfig": {
+          "target": "com.amazonaws.rekognitionstreaming#ChallengeConfig",
           "traits": {
             "smithy.api#required": {}
           }
@@ -287,7 +321,7 @@
           }
         },
         "InitialFaceDetectedTimestamp": {
-          "target": "com.amazonaws.rekognitionstreaming#ULong",
+          "target": "com.amazonaws.rekognitionstreaming#EpochMillis",
           "traits": {
             "smithy.api#required": {}
           }
@@ -316,12 +350,6 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "SEQUENTIAL"
-          }
-        },
-        "SIMULTANEOUS": {
-          "target": "smithy.api#Unit",
-          "traits": {
-            "smithy.api#enumValue": "SIMULTANEOUS"
           }
         }
       }
@@ -360,16 +388,25 @@
         },
         "ServiceQuotaExceededException": {
           "target": "com.amazonaws.rekognitionstreaming#ServiceQuotaExceededException"
+        },
+        "ServiceUnavailableException": {
+          "target": "com.amazonaws.rekognitionstreaming#ServiceUnavailableException"
         }
       },
       "traits": {
         "smithy.api#streaming": {}
       }
     },
-    "com.amazonaws.rekognitionstreaming#OvalScaleFactors": {
+    "com.amazonaws.rekognitionstreaming#OvalParameters": {
       "type": "structure",
       "members": {
         "Width": {
+          "target": "com.amazonaws.rekognitionstreaming#Float",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        },
+        "Height": {
           "target": "com.amazonaws.rekognitionstreaming#Float",
           "traits": {
             "smithy.api#required": {}
@@ -395,9 +432,6 @@
       "operations": [
         {
           "target": "com.amazonaws.rekognitionstreaming#StartFaceLivenessSession"
-        },
-        {
-          "target": "com.amazonaws.rekognitionstreaming#StartStreamingLivenessSession"
         }
       ],
       "traits": {
@@ -447,13 +481,12 @@
             {
               "conditions": [
                 {
-                  "fn": "aws.partition",
+                  "fn": "isSet",
                   "argv": [
                     {
-                      "ref": "Region"
+                      "ref": "Endpoint"
                     }
-                  ],
-                  "assign": "PartitionResult"
+                  ]
                 }
               ],
               "type": "tree",
@@ -461,23 +494,20 @@
                 {
                   "conditions": [
                     {
-                      "fn": "isSet",
+                      "fn": "booleanEquals",
                       "argv": [
                         {
-                          "ref": "Endpoint"
-                        }
+                          "ref": "UseFIPS"
+                        },
+                        true
                       ]
-                    },
-                    {
-                      "fn": "parseURL",
-                      "argv": [
-                        {
-                          "ref": "Endpoint"
-                        }
-                      ],
-                      "assign": "url"
                     }
                   ],
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [],
                   "type": "tree",
                   "rules": [
                     {
@@ -486,19 +516,201 @@
                           "fn": "booleanEquals",
                           "argv": [
                             {
-                              "ref": "UseFIPS"
+                              "ref": "UseDualStack"
                             },
                             true
                           ]
                         }
                       ],
-                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
                       "type": "error"
                     },
                     {
                       "conditions": [],
+                      "endpoint": {
+                        "url": {
+                          "ref": "Endpoint"
+                        },
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "conditions": [],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "aws.partition",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            }
+                          ],
+                          "assign": "PartitionResult"
+                        }
+                      ],
                       "type": "tree",
                       "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://rekognitionstreaming-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://rekognitionstreaming-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS is enabled but this partition does not support FIPS",
+                              "type": "error"
+                            }
+                          ]
+                        },
                         {
                           "conditions": [
                             {
@@ -511,212 +723,75 @@
                               ]
                             }
                           ],
-                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
-                          "type": "error"
-                        },
-                        {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": {
-                              "ref": "Endpoint"
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://rekognitionstreaming.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
                             },
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    },
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
                             {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
-                              ]
+                              "conditions": [],
+                              "error": "DualStack is enabled but this partition does not support DualStack",
+                              "type": "error"
                             }
                           ]
                         },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
                         {
                           "conditions": [],
-                          "endpoint": {
-                            "url": "https://rekognitionstreaming-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
+                          "type": "tree",
+                          "rules": [
                             {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
-                              ]
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://rekognitionstreaming.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
                             }
                           ]
                         }
-                      ],
-                      "type": "tree",
-                      "rules": [
-                        {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": "https://rekognitionstreaming-fips.{Region}.{PartitionResult#dnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
                       ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "FIPS is enabled but this partition does not support FIPS",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
-                        {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": "https://rekognitionstreaming.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "DualStack is enabled but this partition does not support DualStack",
-                      "type": "error"
                     }
                   ]
                 },
                 {
                   "conditions": [],
-                  "endpoint": {
-                    "url": "https://rekognitionstreaming.{Region}.{PartitionResult#dnsSuffix}",
-                    "properties": {},
-                    "headers": {}
-                  },
-                  "type": "endpoint"
+                  "error": "Invalid Configuration: Missing Region",
+                  "type": "error"
                 }
               ]
             }
@@ -732,8 +807,8 @@
                 }
               },
               "params": {
-                "UseDualStack": true,
                 "UseFIPS": true,
+                "UseDualStack": true,
                 "Region": "us-gov-east-1"
               }
             },
@@ -745,8 +820,8 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "UseFIPS": true,
+                "UseDualStack": false,
                 "Region": "us-gov-east-1"
               }
             },
@@ -758,8 +833,8 @@
                 }
               },
               "params": {
-                "UseDualStack": true,
                 "UseFIPS": false,
+                "UseDualStack": true,
                 "Region": "us-gov-east-1"
               }
             },
@@ -771,8 +846,8 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "UseFIPS": false,
+                "UseDualStack": false,
                 "Region": "us-gov-east-1"
               }
             },
@@ -784,8 +859,8 @@
                 }
               },
               "params": {
-                "UseDualStack": true,
                 "UseFIPS": true,
+                "UseDualStack": true,
                 "Region": "cn-north-1"
               }
             },
@@ -797,8 +872,8 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "UseFIPS": true,
+                "UseDualStack": false,
                 "Region": "cn-north-1"
               }
             },
@@ -810,8 +885,8 @@
                 }
               },
               "params": {
-                "UseDualStack": true,
                 "UseFIPS": false,
+                "UseDualStack": true,
                 "Region": "cn-north-1"
               }
             },
@@ -823,8 +898,8 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "UseFIPS": false,
+                "UseDualStack": false,
                 "Region": "cn-north-1"
               }
             },
@@ -834,8 +909,8 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
-                "UseDualStack": true,
                 "UseFIPS": true,
+                "UseDualStack": true,
                 "Region": "us-iso-east-1"
               }
             },
@@ -847,8 +922,8 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "UseFIPS": true,
+                "UseDualStack": false,
                 "Region": "us-iso-east-1"
               }
             },
@@ -858,8 +933,8 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
-                "UseDualStack": true,
                 "UseFIPS": false,
+                "UseDualStack": true,
                 "Region": "us-iso-east-1"
               }
             },
@@ -871,8 +946,8 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "UseFIPS": false,
+                "UseDualStack": false,
                 "Region": "us-iso-east-1"
               }
             },
@@ -884,8 +959,8 @@
                 }
               },
               "params": {
-                "UseDualStack": true,
                 "UseFIPS": true,
+                "UseDualStack": true,
                 "Region": "us-east-1"
               }
             },
@@ -897,8 +972,8 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "UseFIPS": true,
+                "UseDualStack": false,
                 "Region": "us-east-1"
               }
             },
@@ -910,8 +985,8 @@
                 }
               },
               "params": {
-                "UseDualStack": true,
                 "UseFIPS": false,
+                "UseDualStack": true,
                 "Region": "us-east-1"
               }
             },
@@ -923,8 +998,8 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "UseFIPS": false,
+                "UseDualStack": false,
                 "Region": "us-east-1"
               }
             },
@@ -934,8 +1009,8 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
-                "UseDualStack": true,
                 "UseFIPS": true,
+                "UseDualStack": true,
                 "Region": "us-isob-east-1"
               }
             },
@@ -947,8 +1022,8 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "UseFIPS": true,
+                "UseDualStack": false,
                 "Region": "us-isob-east-1"
               }
             },
@@ -958,8 +1033,8 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
-                "UseDualStack": true,
                 "UseFIPS": false,
+                "UseDualStack": true,
                 "Region": "us-isob-east-1"
               }
             },
@@ -971,8 +1046,8 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "UseFIPS": false,
+                "UseDualStack": false,
                 "Region": "us-isob-east-1"
               }
             },
@@ -984,8 +1059,8 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "UseFIPS": false,
+                "UseDualStack": false,
                 "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
@@ -996,8 +1071,8 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
-                "UseDualStack": false,
                 "UseFIPS": true,
+                "UseDualStack": false,
                 "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
@@ -1008,8 +1083,8 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
-                "UseDualStack": true,
                 "UseFIPS": false,
+                "UseDualStack": true,
                 "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
@@ -1051,6 +1126,21 @@
       "traits": {
         "smithy.api#error": "client",
         "smithy.api#httpError": 429
+      }
+    },
+    "com.amazonaws.rekognitionstreaming#ServiceUnavailableException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.rekognitionstreaming#String"
+        },
+        "Code": {
+          "target": "com.amazonaws.rekognitionstreaming#String"
+        }
+      },
+      "traits": {
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 503
       }
     },
     "com.amazonaws.rekognitionstreaming#SessionInformation": {
@@ -1098,6 +1188,9 @@
           "target": "com.amazonaws.rekognitionstreaming#ServiceQuotaExceededException"
         },
         {
+          "target": "com.amazonaws.rekognitionstreaming#ServiceUnavailableException"
+        },
+        {
           "target": "com.amazonaws.rekognitionstreaming#SessionNotFoundException"
         },
         {
@@ -1125,11 +1218,24 @@
             "smithy.api#required": {}
           }
         },
-        "ClientSDKVersion": {
-          "target": "com.amazonaws.rekognitionstreaming#String",
+        "VideoWidth": {
+          "target": "com.amazonaws.rekognitionstreaming#VideoWidth",
           "traits": {
-            "smithy.api#httpHeader": "x-amz-rekognition-streaming-liveness-client-sdk-version",
+            "smithy.api#httpHeader": "x-amz-rekognition-streaming-liveness-video-width",
             "smithy.api#required": {}
+          }
+        },
+        "VideoHeight": {
+          "target": "com.amazonaws.rekognitionstreaming#VideoHeight",
+          "traits": {
+            "smithy.api#httpHeader": "x-amz-rekognition-streaming-liveness-video-height",
+            "smithy.api#required": {}
+          }
+        },
+        "ChallengeVersions": {
+          "target": "com.amazonaws.rekognitionstreaming#ChallengeVersions",
+          "traits": {
+            "smithy.api#httpHeader": "x-amz-rekognition-streaming-liveness-challenge-versions"
           }
         },
         "LivenessRequestStream": {
@@ -1138,6 +1244,9 @@
             "smithy.api#httpPayload": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.rekognitionstreaming#StartFaceLivenessSessionResponse": {
@@ -1156,85 +1265,9 @@
             "smithy.api#httpPayload": {}
           }
         }
-      }
-    },
-    "com.amazonaws.rekognitionstreaming#StartStreamingLivenessSession": {
-      "type": "operation",
-      "input": {
-        "target": "com.amazonaws.rekognitionstreaming#StartStreamingLivenessSessionRequest"
       },
-      "output": {
-        "target": "com.amazonaws.rekognitionstreaming#StartStreamingLivenessSessionResponse"
-      },
-      "errors": [
-        {
-          "target": "com.amazonaws.rekognitionstreaming#AccessDeniedException"
-        },
-        {
-          "target": "com.amazonaws.rekognitionstreaming#InternalServerException"
-        },
-        {
-          "target": "com.amazonaws.rekognitionstreaming#ServiceQuotaExceededException"
-        },
-        {
-          "target": "com.amazonaws.rekognitionstreaming#SessionNotFoundException"
-        },
-        {
-          "target": "com.amazonaws.rekognitionstreaming#ThrottlingException"
-        },
-        {
-          "target": "com.amazonaws.rekognitionstreaming#ValidationException"
-        }
-      ],
       "traits": {
-        "smithy.api#http": {
-          "method": "POST",
-          "uri": "/start-streaming-liveness-session",
-          "code": 200
-        }
-      }
-    },
-    "com.amazonaws.rekognitionstreaming#StartStreamingLivenessSessionRequest": {
-      "type": "structure",
-      "members": {
-        "SessionId": {
-          "target": "com.amazonaws.rekognitionstreaming#UUID",
-          "traits": {
-            "smithy.api#httpHeader": "x-amz-rekognition-streaming-liveness-session-id",
-            "smithy.api#required": {}
-          }
-        },
-        "ClientSDKVersion": {
-          "target": "com.amazonaws.rekognitionstreaming#String",
-          "traits": {
-            "smithy.api#httpHeader": "x-amz-rekognition-streaming-liveness-client-sdk-version",
-            "smithy.api#required": {}
-          }
-        },
-        "LivenessRequestStream": {
-          "target": "com.amazonaws.rekognitionstreaming#LivenessRequestStream",
-          "traits": {
-            "smithy.api#httpPayload": {}
-          }
-        }
-      }
-    },
-    "com.amazonaws.rekognitionstreaming#StartStreamingLivenessSessionResponse": {
-      "type": "structure",
-      "members": {
-        "SessionId": {
-          "target": "com.amazonaws.rekognitionstreaming#UUID",
-          "traits": {
-            "smithy.api#httpHeader": "x-amz-rekognition-streaming-liveness-session-id",
-            "smithy.api#required": {}
-          }
-        },
-        "LivenessResponseStream": {
-          "target": "com.amazonaws.rekognitionstreaming#LivenessResponseStream",
-          "traits": {
-            "smithy.api#httpPayload": {}
-          }
-        }
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.rekognitionstreaming#String": {
@@ -1250,13 +1283,13 @@
           }
         },
         "FaceDetectedInTargetPositionStartTimestamp": {
-          "target": "com.amazonaws.rekognitionstreaming#ULong",
+          "target": "com.amazonaws.rekognitionstreaming#EpochMillis",
           "traits": {
             "smithy.api#required": {}
           }
         },
         "FaceDetectedInTargetPositionEndTimestamp": {
-          "target": "com.amazonaws.rekognitionstreaming#ULong",
+          "target": "com.amazonaws.rekognitionstreaming#EpochMillis",
           "traits": {
             "smithy.api#required": {}
           }
@@ -1276,14 +1309,6 @@
       "traits": {
         "smithy.api#error": "client",
         "smithy.api#httpError": 429
-      }
-    },
-    "com.amazonaws.rekognitionstreaming#ULong": {
-      "type": "long",
-      "traits": {
-        "smithy.api#range": {
-          "min": 0
-        }
       }
     },
     "com.amazonaws.rekognitionstreaming#UUID": {
@@ -1321,8 +1346,28 @@
           "target": "com.amazonaws.rekognitionstreaming#VideoChunk"
         },
         "TimestampMillis": {
-          "target": "com.amazonaws.rekognitionstreaming#ULong"
+          "target": "com.amazonaws.rekognitionstreaming#EpochMillis"
         }
+      }
+    },
+    "com.amazonaws.rekognitionstreaming#VideoHeight": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 3,
+          "max": 4
+        },
+        "smithy.api#pattern": "^[0-9]{3,}$"
+      }
+    },
+    "com.amazonaws.rekognitionstreaming#VideoWidth": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 3,
+          "max": 4
+        },
+        "smithy.api#pattern": "^[0-9]{3,}$"
       }
     }
   }

@@ -67,10 +67,6 @@ import {
   StartFaceLivenessSessionCommandOutput,
 } from "./commands/StartFaceLivenessSessionCommand";
 import {
-  StartStreamingLivenessSessionCommandInput,
-  StartStreamingLivenessSessionCommandOutput,
-} from "./commands/StartStreamingLivenessSessionCommand";
-import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
   EndpointParameters,
@@ -81,12 +77,12 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 /**
  * @public
  */
-export type ServiceInputTypes = StartFaceLivenessSessionCommandInput | StartStreamingLivenessSessionCommandInput;
+export type ServiceInputTypes = StartFaceLivenessSessionCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = StartFaceLivenessSessionCommandOutput | StartStreamingLivenessSessionCommandOutput;
+export type ServiceOutputTypes = StartFaceLivenessSessionCommandOutput;
 
 /**
  * @public

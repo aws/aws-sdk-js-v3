@@ -39,6 +39,22 @@ export interface BoundingBox {
 /**
  * @public
  */
+export interface ChallengeConfig {
+  BlazeFaceDetectionThreshold?: number;
+  FaceDistanceThresholdMin?: number;
+  FaceDistanceThreshold?: number;
+  FaceDistanceThresholdMax?: number;
+  OvalIouThreshold?: number;
+  OvalHeightWidthRatio?: number;
+  OvalIouWidthThreshold?: number;
+  OvalIouHeightThreshold?: number;
+  FaceIouWidthThreshold?: number;
+  FaceIouHeightThreshold?: number;
+}
+
+/**
+ * @public
+ */
 export interface FreshnessColor {
   RGB: number[] | undefined;
 }
@@ -76,6 +92,7 @@ export interface TargetFace {
 export interface FaceMovementAndLightClientChallenge {
   ChallengeId: string | undefined;
   VideoStartTimestamp?: number;
+  VideoEndTimestamp?: number;
   InitialFace?: InitialFace;
   TargetFace?: TargetFace;
   ColorDisplayed?: ColorDisplayed;
@@ -115,17 +132,7 @@ export namespace ClientChallenge {
 /**
  * @public
  */
-export interface DeviceInformation {
-  VideoHeight: number | undefined;
-  VideoWidth: number | undefined;
-  ClientSDKVersion: string | undefined;
-}
-
-/**
- * @public
- */
 export interface ClientSessionInformationEvent {
-  DeviceInformation: DeviceInformation | undefined;
   Challenge: ClientChallenge | undefined;
 }
 
@@ -151,7 +158,6 @@ export interface DisconnectionEvent {
  */
 export const LightChallengeType = {
   SEQUENTIAL: "SEQUENTIAL",
-  SIMULTANEOUS: "SIMULTANEOUS",
 } as const;
 
 /**
@@ -162,8 +168,9 @@ export type LightChallengeType = (typeof LightChallengeType)[keyof typeof LightC
 /**
  * @public
  */
-export interface OvalScaleFactors {
+export interface OvalParameters {
   Width: number | undefined;
+  Height: number | undefined;
   CenterX: number | undefined;
   CenterY: number | undefined;
 }
@@ -172,8 +179,9 @@ export interface OvalScaleFactors {
  * @public
  */
 export interface FaceMovementAndLightServerChallenge {
-  OvalScaleFactors: OvalScaleFactors | undefined;
+  OvalParameters: OvalParameters | undefined;
   LightChallengeType: LightChallengeType | string | undefined;
+  ChallengeConfig: ChallengeConfig | undefined;
   ColorSequences: ColorSequence[] | undefined;
 }
 
@@ -323,6 +331,29 @@ export class ServiceQuotaExceededException extends __BaseException {
 /**
  * @public
  */
+export class ServiceUnavailableException extends __BaseException {
+  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
+  readonly $fault: "server" = "server";
+  Message?: string;
+  Code?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+  }
+}
+
+/**
+ * @public
+ */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
@@ -374,6 +405,7 @@ export type LivenessResponseStream =
   | LivenessResponseStream.InternalServerExceptionMember
   | LivenessResponseStream.ServerSessionInformationEventMember
   | LivenessResponseStream.ServiceQuotaExceededExceptionMember
+  | LivenessResponseStream.ServiceUnavailableExceptionMember
   | LivenessResponseStream.ThrottlingExceptionMember
   | LivenessResponseStream.ValidationExceptionMember
   | LivenessResponseStream.$UnknownMember;
@@ -389,6 +421,7 @@ export namespace LivenessResponseStream {
     InternalServerException?: never;
     ThrottlingException?: never;
     ServiceQuotaExceededException?: never;
+    ServiceUnavailableException?: never;
     $unknown?: never;
   }
 
@@ -399,6 +432,7 @@ export namespace LivenessResponseStream {
     InternalServerException?: never;
     ThrottlingException?: never;
     ServiceQuotaExceededException?: never;
+    ServiceUnavailableException?: never;
     $unknown?: never;
   }
 
@@ -409,6 +443,7 @@ export namespace LivenessResponseStream {
     InternalServerException?: never;
     ThrottlingException?: never;
     ServiceQuotaExceededException?: never;
+    ServiceUnavailableException?: never;
     $unknown?: never;
   }
 
@@ -419,6 +454,7 @@ export namespace LivenessResponseStream {
     InternalServerException: InternalServerException;
     ThrottlingException?: never;
     ServiceQuotaExceededException?: never;
+    ServiceUnavailableException?: never;
     $unknown?: never;
   }
 
@@ -429,6 +465,7 @@ export namespace LivenessResponseStream {
     InternalServerException?: never;
     ThrottlingException: ThrottlingException;
     ServiceQuotaExceededException?: never;
+    ServiceUnavailableException?: never;
     $unknown?: never;
   }
 
@@ -439,6 +476,18 @@ export namespace LivenessResponseStream {
     InternalServerException?: never;
     ThrottlingException?: never;
     ServiceQuotaExceededException: ServiceQuotaExceededException;
+    ServiceUnavailableException?: never;
+    $unknown?: never;
+  }
+
+  export interface ServiceUnavailableExceptionMember {
+    ServerSessionInformationEvent?: never;
+    DisconnectionEvent?: never;
+    ValidationException?: never;
+    InternalServerException?: never;
+    ThrottlingException?: never;
+    ServiceQuotaExceededException?: never;
+    ServiceUnavailableException: ServiceUnavailableException;
     $unknown?: never;
   }
 
@@ -449,6 +498,7 @@ export namespace LivenessResponseStream {
     InternalServerException?: never;
     ThrottlingException?: never;
     ServiceQuotaExceededException?: never;
+    ServiceUnavailableException?: never;
     $unknown: [string, any];
   }
 
@@ -459,6 +509,7 @@ export namespace LivenessResponseStream {
     InternalServerException: (value: InternalServerException) => T;
     ThrottlingException: (value: ThrottlingException) => T;
     ServiceQuotaExceededException: (value: ServiceQuotaExceededException) => T;
+    ServiceUnavailableException: (value: ServiceUnavailableException) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -472,6 +523,8 @@ export namespace LivenessResponseStream {
     if (value.ThrottlingException !== undefined) return visitor.ThrottlingException(value.ThrottlingException);
     if (value.ServiceQuotaExceededException !== undefined)
       return visitor.ServiceQuotaExceededException(value.ServiceQuotaExceededException);
+    if (value.ServiceUnavailableException !== undefined)
+      return visitor.ServiceUnavailableException(value.ServiceUnavailableException);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -504,7 +557,9 @@ export class SessionNotFoundException extends __BaseException {
  */
 export interface StartFaceLivenessSessionRequest {
   SessionId: string | undefined;
-  ClientSDKVersion: string | undefined;
+  VideoWidth: string | undefined;
+  VideoHeight: string | undefined;
+  ChallengeVersions?: string;
   LivenessRequestStream?: AsyncIterable<LivenessRequestStream>;
 }
 
@@ -512,23 +567,6 @@ export interface StartFaceLivenessSessionRequest {
  * @public
  */
 export interface StartFaceLivenessSessionResponse {
-  SessionId: string | undefined;
-  LivenessResponseStream?: AsyncIterable<LivenessResponseStream>;
-}
-
-/**
- * @public
- */
-export interface StartStreamingLivenessSessionRequest {
-  SessionId: string | undefined;
-  ClientSDKVersion: string | undefined;
-  LivenessRequestStream?: AsyncIterable<LivenessRequestStream>;
-}
-
-/**
- * @public
- */
-export interface StartStreamingLivenessSessionResponse {
   SessionId: string | undefined;
   LivenessResponseStream?: AsyncIterable<LivenessResponseStream>;
 }
@@ -555,6 +593,8 @@ export const LivenessResponseStreamFilterSensitiveLog = (obj: LivenessResponseSt
   if (obj.ThrottlingException !== undefined) return { ThrottlingException: obj.ThrottlingException };
   if (obj.ServiceQuotaExceededException !== undefined)
     return { ServiceQuotaExceededException: obj.ServiceQuotaExceededException };
+  if (obj.ServiceUnavailableException !== undefined)
+    return { ServiceUnavailableException: obj.ServiceUnavailableException };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
@@ -570,26 +610,6 @@ export const StartFaceLivenessSessionRequestFilterSensitiveLog = (obj: StartFace
  * @internal
  */
 export const StartFaceLivenessSessionResponseFilterSensitiveLog = (obj: StartFaceLivenessSessionResponse): any => ({
-  ...obj,
-  ...(obj.LivenessResponseStream && { LivenessResponseStream: "STREAMING_CONTENT" }),
-});
-
-/**
- * @internal
- */
-export const StartStreamingLivenessSessionRequestFilterSensitiveLog = (
-  obj: StartStreamingLivenessSessionRequest
-): any => ({
-  ...obj,
-  ...(obj.LivenessRequestStream && { LivenessRequestStream: "STREAMING_CONTENT" }),
-});
-
-/**
- * @internal
- */
-export const StartStreamingLivenessSessionResponseFilterSensitiveLog = (
-  obj: StartStreamingLivenessSessionResponse
-): any => ({
   ...obj,
   ...(obj.LivenessResponseStream && { LivenessResponseStream: "STREAMING_CONTENT" }),
 });
