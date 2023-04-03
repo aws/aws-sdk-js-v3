@@ -1,13 +1,14 @@
+// TODO: remove this file as duplicated to @aws-sdk/middleware-websocket
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { RequestPresigningArguments, RequestSigningArguments } from "@aws-sdk/types";
 
-import { SignatureV4 } from "./signer";
+import { WebsocketSignatureV4 } from "./WebsocketSignatureV4";
 
 jest.mock("@aws-sdk/protocol-http");
 
-describe("signer", () => {
+describe("WebsocketSignatureV4", () => {
   const mockPresignedRequest = { req: "mockPresignedRequest" };
-  const mockSignedRequest = { reg: "mockSignedRequest" };
+  const mockSignedRequest = { req: "mockSignedRequest" };
 
   const presign = jest.fn().mockResolvedValue(mockPresignedRequest);
   const sign = jest.fn().mockResolvedValue(mockSignedRequest);
@@ -20,8 +21,8 @@ describe("signer", () => {
   const body = "body";
   const method = "method";
 
-  const request = { headers, body, method };
-  const sigV4 = new SignatureV4({ signer: { sign, presign } as any });
+  const request = { headers, body, method, protocol: "wss:" };
+  const sigV4 = new WebsocketSignatureV4({ signer: { sign, presign } as any });
 
   afterEach(() => {
     jest.clearAllMocks();
@@ -42,7 +43,7 @@ describe("signer", () => {
 
     it("with options", async () => {
       const options = {
-        expiresIn: 300,
+        expiresIn: 60,
       };
       const result = await sigV4.presign(request as any, options);
       expectPresignArgs(result, options);
@@ -68,7 +69,7 @@ describe("signer", () => {
         expect(presign).toHaveBeenCalledWith(
           { ...request, body: "" },
           {
-            expiresIn: 300,
+            expiresIn: 60,
             unsignableHeaders: new Set(Object.keys(request.headers).filter((header) => header !== "host")),
           }
         );

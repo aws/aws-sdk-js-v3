@@ -21,7 +21,6 @@ import {
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
 import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@aws-sdk/middleware-retry";
-import { getTranscribeStreamingPlugin } from "@aws-sdk/middleware-sdk-transcribe-streaming";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -64,17 +63,13 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  StartCallAnalyticsStreamTranscriptionCommandInput,
-  StartCallAnalyticsStreamTranscriptionCommandOutput,
-} from "./commands/StartCallAnalyticsStreamTranscriptionCommand";
+  StartFaceLivenessSessionCommandInput,
+  StartFaceLivenessSessionCommandOutput,
+} from "./commands/StartFaceLivenessSessionCommand";
 import {
-  StartMedicalStreamTranscriptionCommandInput,
-  StartMedicalStreamTranscriptionCommandOutput,
-} from "./commands/StartMedicalStreamTranscriptionCommand";
-import {
-  StartStreamTranscriptionCommandInput,
-  StartStreamTranscriptionCommandOutput,
-} from "./commands/StartStreamTranscriptionCommand";
+  StartStreamingLivenessSessionCommandInput,
+  StartStreamingLivenessSessionCommandOutput,
+} from "./commands/StartStreamingLivenessSessionCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -86,18 +81,12 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 /**
  * @public
  */
-export type ServiceInputTypes =
-  | StartCallAnalyticsStreamTranscriptionCommandInput
-  | StartMedicalStreamTranscriptionCommandInput
-  | StartStreamTranscriptionCommandInput;
+export type ServiceInputTypes = StartFaceLivenessSessionCommandInput | StartStreamingLivenessSessionCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes =
-  | StartCallAnalyticsStreamTranscriptionCommandOutput
-  | StartMedicalStreamTranscriptionCommandOutput
-  | StartStreamTranscriptionCommandOutput;
+export type ServiceOutputTypes = StartFaceLivenessSessionCommandOutput | StartStreamingLivenessSessionCommandOutput;
 
 /**
  * @public
@@ -237,7 +226,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 /**
  * @public
  */
-type TranscribeStreamingClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type RekognitionStreamingClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointInputConfig<EndpointParameters> &
@@ -252,14 +241,14 @@ type TranscribeStreamingClientConfigType = Partial<__SmithyConfiguration<__HttpH
 /**
  * @public
  *
- *  The configuration interface of TranscribeStreamingClient class constructor that set the region, credentials and other options.
+ *  The configuration interface of RekognitionStreamingClient class constructor that set the region, credentials and other options.
  */
-export interface TranscribeStreamingClientConfig extends TranscribeStreamingClientConfigType {}
+export interface RekognitionStreamingClientConfig extends RekognitionStreamingClientConfigType {}
 
 /**
  * @public
  */
-type TranscribeStreamingClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type RekognitionStreamingClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &
@@ -274,48 +263,25 @@ type TranscribeStreamingClientResolvedConfigType = __SmithyResolvedConfiguration
 /**
  * @public
  *
- *  The resolved configuration interface of TranscribeStreamingClient class. This is resolved and normalized from the {@link TranscribeStreamingClientConfig | constructor configuration interface}.
+ *  The resolved configuration interface of RekognitionStreamingClient class. This is resolved and normalized from the {@link RekognitionStreamingClientConfig | constructor configuration interface}.
  */
-export interface TranscribeStreamingClientResolvedConfig extends TranscribeStreamingClientResolvedConfigType {}
+export interface RekognitionStreamingClientResolvedConfig extends RekognitionStreamingClientResolvedConfigType {}
 
 /**
  * @public
- * <p>Amazon Transcribe streaming offers three main types of real-time transcription:
- *       <b>Standard</b>, <b>Medical</b>, and
- *       <b>Call Analytics</b>.</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>Standard transcriptions</b> are the most common option. Refer
- *       to  for details.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Medical transcriptions</b> are tailored to medical professionals
- *       and incorporate medical terms. A common use case for this service is transcribing doctor-patient
- *       dialogue in real time, so doctors can focus on their patient instead of taking notes. Refer to
- *        for details.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Call Analytics transcriptions</b> are designed for use with call
- *           center audio on two different channels; if you're looking for insight into customer service calls, use this
- *           option. Refer to  for details.</p>
- *             </li>
- *          </ul>
  */
-export class TranscribeStreamingClient extends __Client<
+export class RekognitionStreamingClient extends __Client<
   __HttpHandlerOptions,
   ServiceInputTypes,
   ServiceOutputTypes,
-  TranscribeStreamingClientResolvedConfig
+  RekognitionStreamingClientResolvedConfig
 > {
   /**
-   * The resolved configuration of TranscribeStreamingClient class. This is resolved and normalized from the {@link TranscribeStreamingClientConfig | constructor configuration interface}.
+   * The resolved configuration of RekognitionStreamingClient class. This is resolved and normalized from the {@link RekognitionStreamingClientConfig | constructor configuration interface}.
    */
-  readonly config: TranscribeStreamingClientResolvedConfig;
+  readonly config: RekognitionStreamingClientResolvedConfig;
 
-  constructor(configuration: TranscribeStreamingClientConfig) {
+  constructor(configuration: RekognitionStreamingClientConfig) {
     const _config_0 = __getRuntimeConfig(configuration);
     const _config_1 = resolveClientEndpointParameters(_config_0);
     const _config_2 = resolveRegionConfig(_config_1);
@@ -335,7 +301,6 @@ export class TranscribeStreamingClient extends __Client<
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
-    this.middlewareStack.use(getTranscribeStreamingPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
   }
 

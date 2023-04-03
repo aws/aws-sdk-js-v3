@@ -8,22 +8,28 @@ import {
 } from "@aws-sdk/types";
 
 /**
- * Middleware that generates WebSocket URL to TranscribeStreaming service
- * Reference: https://docs.aws.amazon.com/transcribe/latest/dg/websocket.html
+ * Middleware that modify the request to from http to WebSocket
+ * This middleware can only be applied to commands that supports bi-directional event streaming via WebSocket.
+ * Example of headerPrefix is "x-amz-rekognition-streaming-liveness-*" prefix exists for all rekognition streaming
+ * websocket API's headers. The common prefix are to be removed when moving them from headers to querystring.
  */
-export const websocketURLMiddleware =
-  (options: { requestHandler: RequestHandler<any, any> }): BuildMiddleware<any, any> =>
+export const websocketEndpointMiddleware =
+  (
+    config: { requestHandler: RequestHandler<any, any> },
+    options: { headerPrefix: string }
+  ): BuildMiddleware<any, any> =>
   (next: BuildHandler<any, any>) =>
   (args: BuildHandlerArguments<any>) => {
     const { request } = args;
-    if (HttpRequest.isInstance(request) && options.requestHandler.metadata?.handlerProtocol === "websocket") {
+    if (
+      HttpRequest.isInstance(request) &&
+      config.requestHandler.metadata?.handlerProtocol?.toLowerCase().includes("websocket")
+    ) {
       // Update http/2 endpoint to WebSocket-specific endpoint.
       request.protocol = "wss:";
-      // Append port to hostname because it needs to be signed together
-      request.hostname = `${request.hostname}:8443`;
-      request.path = `${request.path}-websocket`;
       request.method = "GET";
 
+      request.path = `${request.path}-websocket`;
       // Move headers to query string. Because the signature is generated with
       // headers moved to query, the endpoint url needs to tally with the signature.
       const { headers } = request;
@@ -34,11 +40,9 @@ export const websocketURLMiddleware =
       delete headers["Content-Type"];
       delete headers["x-amz-content-sha256"];
 
-      // Serialized header like 'x-amzn-transcribe-sample-rate' should be 'sample-rate'
-      // in WebSocket URL.
       for (const name of Object.keys(headers)) {
-        if (name.indexOf("x-amzn-transcribe-") === 0) {
-          const chunkedName = name.replace("x-amzn-transcribe-", "");
+        if (name.indexOf(options.headerPrefix) === 0) {
+          const chunkedName = name.replace(options.headerPrefix, "");
           request.query[chunkedName] = headers[name];
         }
       }
@@ -49,13 +53,13 @@ export const websocketURLMiddleware =
         request.query["user-agent"] = headers["x-amz-user-agent"];
       }
       // Host header is required for signing
-      request.headers = { host: request.hostname };
+      request.headers = { host: headers.host ?? request.hostname };
     }
     return next(args);
   };
 
-export const websocketURLMiddlewareOptions: RelativeMiddlewareOptions = {
-  name: "websocketURLMiddleware",
+export const websocketEndpointMiddlewareOptions: RelativeMiddlewareOptions = {
+  name: "websocketEndpointMiddleware",
   tags: ["WEBSOCKET", "EVENT_STREAM"],
   relation: "after",
   toMiddleware: "eventStreamHeaderMiddleware",

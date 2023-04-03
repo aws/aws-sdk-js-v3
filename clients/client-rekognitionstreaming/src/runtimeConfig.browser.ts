@@ -7,12 +7,14 @@ import { DEFAULT_USE_DUALSTACK_ENDPOINT, DEFAULT_USE_FIPS_ENDPOINT } from "@aws-
 import { eventStreamSerdeProvider } from "@aws-sdk/eventstream-serde-browser";
 import { FetchHttpHandler as HttpRequestHandler, streamCollector } from "@aws-sdk/fetch-http-handler";
 import { invalidProvider } from "@aws-sdk/invalid-dependency";
-import { eventStreamPayloadHandler } from "@aws-sdk/middleware-sdk-transcribe-streaming";
-import { WebSocketFetchHandler as WebSocketRequestHandler } from "@aws-sdk/middleware-websocket";
+import {
+  WebSocketFetchHandler as WebSocketRequestHandler,
+  eventStreamPayloadHandlerProvider,
+} from "@aws-sdk/middleware-websocket";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-browser";
 import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@aws-sdk/util-retry";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-browser";
-import { TranscribeStreamingClientConfig } from "./TranscribeStreamingClient";
+import { RekognitionStreamingClientConfig } from "./RekognitionStreamingClient";
 import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
 import { loadConfigsForDefaultMode } from "@aws-sdk/smithy-client";
 import { resolveDefaultsModeConfig } from "@aws-sdk/util-defaults-mode-browser";
@@ -20,7 +22,7 @@ import { resolveDefaultsModeConfig } from "@aws-sdk/util-defaults-mode-browser";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: TranscribeStreamingClientConfig) => {
+export const getRuntimeConfig = (config: RekognitionStreamingClientConfig) => {
   const defaultsMode = resolveDefaultsModeConfig(config);
   const defaultConfigProvider = () => defaultsMode().then(loadConfigsForDefaultMode);
   const clientSharedValues = getSharedRuntimeConfig(config);
@@ -35,7 +37,7 @@ export const getRuntimeConfig = (config: TranscribeStreamingClientConfig) => {
     defaultUserAgentProvider:
       config?.defaultUserAgentProvider ??
       defaultUserAgent({ serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version }),
-    eventStreamPayloadHandlerProvider: config?.eventStreamPayloadHandlerProvider ?? (() => eventStreamPayloadHandler),
+    eventStreamPayloadHandlerProvider: config?.eventStreamPayloadHandlerProvider ?? eventStreamPayloadHandlerProvider,
     eventStreamSerdeProvider: config?.eventStreamSerdeProvider ?? eventStreamSerdeProvider,
     maxAttempts: config?.maxAttempts ?? DEFAULT_MAX_ATTEMPTS,
     region: config?.region ?? invalidProvider("Region is missing"),
