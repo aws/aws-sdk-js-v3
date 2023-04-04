@@ -126,11 +126,15 @@ export interface CreateEndpointConfigCommandOutput extends CreateEndpointConfigO
  *     },
  *     OutputConfig: { // AsyncInferenceOutputConfig
  *       KmsKeyId: "STRING_VALUE",
- *       S3OutputPath: "STRING_VALUE", // required
+ *       S3OutputPath: "STRING_VALUE",
  *       NotificationConfig: { // AsyncInferenceNotificationConfig
  *         SuccessTopic: "STRING_VALUE",
  *         ErrorTopic: "STRING_VALUE",
+ *         IncludeInferenceResponseIn: [ // AsyncNotificationTopicTypeList
+ *           "SUCCESS_NOTIFICATION_TOPIC" || "ERROR_NOTIFICATION_TOPIC",
+ *         ],
  *       },
+ *       S3FailurePath: "STRING_VALUE",
  *     },
  *   },
  *   ExplainerConfig: { // ExplainerConfig

@@ -10,12 +10,14 @@ import {
   ArtifactSource,
   AsyncInferenceConfig,
   AthenaDatasetDefinition,
+  AutoRollbackConfig,
   AwsManagedHumanLoopRequestSource,
   BatchDataCaptureConfig,
   BatchStrategy,
   BatchTransformInput,
   BestObjectiveNotImproving,
   Bias,
+  BlueGreenUpdatePolicy,
   CaptureContentTypeHeader,
   CaptureOption,
   CaptureStatus,
@@ -31,7 +33,6 @@ import {
   ContentClassifier,
   ContinuousParameterRange,
   ConvergenceDetected,
-  DeploymentConfig,
   EndpointInput,
   HyperParameterScalingType,
   HyperParameterTuningJobObjective,
@@ -66,6 +67,29 @@ import {
   UserSettings,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * @public
+ * <p>The deployment configuration for an endpoint, which contains the desired deployment
+ *             strategy and rollback configurations.</p>
+ */
+export interface DeploymentConfig {
+  /**
+   * <p>Update policy for a blue/green deployment. If this update policy is specified, SageMaker
+   *             creates a new fleet during the deployment while maintaining the old fleet. SageMaker flips
+   *             traffic to the new fleet according to the specified traffic routing configuration. Only
+   *             one update policy should be used in the deployment configuration. If no update policy is
+   *             specified, SageMaker uses a blue/green deployment strategy with all at once traffic shifting
+   *             by default.</p>
+   */
+  BlueGreenUpdatePolicy: BlueGreenUpdatePolicy | undefined;
+
+  /**
+   * <p>Automatic rollback configuration for handling endpoint deployment failures and
+   *             recovery.</p>
+   */
+  AutoRollbackConfiguration?: AutoRollbackConfig;
+}
 
 /**
  * @public
@@ -1948,9 +1972,7 @@ export interface HyperbandStrategyConfig {
    *          value, it is stopped. If a value for <code>MaxResource</code> is not provided, and
    *             <code>Hyperband</code> is selected as the hyperparameter tuning strategy,
    *             <code>HyperbandTrainingJ</code> attempts to infer <code>MaxResource</code> from the
-   *          following keys (if present) in <code>
-   *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html#sagemaker-Type-HyperParameterTrainingJobDefinition-StaticHyperParameters">StaticsHyperParameters</a>
-   *             </code>:</p>
+   *          following keys (if present) in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html#sagemaker-Type-HyperParameterTrainingJobDefinition-StaticHyperParameters">StaticsHyperParameters</a>:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2134,8 +2156,8 @@ export interface HyperParameterAlgorithmSpecification {
    *             information about Docker registry paths for built-in algorithms, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html">Algorithms
    *                 Provided by Amazon SageMaker: Common Parameters</a>. SageMaker supports both
    *                 <code>registry/repository[:tag]</code> and <code>registry/repository[@digest]</code>
-   *             image path formats. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with Amazon
-   *                 SageMaker</a>.</p>
+   *             image path formats. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with
+   *             Amazon SageMaker</a>.</p>
    */
   TrainingImage?: string;
 
@@ -8662,8 +8684,8 @@ export interface CreateTrainingJobRequest {
    * <p>The registry path of the Docker image that contains the training algorithm and
    *             algorithm-specific metadata, including the input mode. For more information about
    *             algorithms provided by SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>. For information about
-   *             providing your own algorithms, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with Amazon
-   *                 SageMaker</a>. </p>
+   *             providing your own algorithms, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with Amazon SageMaker</a>.
+   *         </p>
    */
   AlgorithmSpecification: AlgorithmSpecification | undefined;
 
@@ -10341,11 +10363,6 @@ export interface DeleteTagsInput {
    */
   TagKeys: string[] | undefined;
 }
-
-/**
- * @public
- */
-export interface DeleteTagsOutput {}
 
 /**
  * @internal

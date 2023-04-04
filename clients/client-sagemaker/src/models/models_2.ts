@@ -45,7 +45,6 @@ import {
   DataQualityBaselineConfig,
   DataQualityJobInput,
   DefaultSpaceSettings,
-  DeploymentConfig,
   DeviceSelectionConfig,
   DomainSettings,
   EdgeDeploymentConfig,
@@ -92,6 +91,7 @@ import {
   DebugHookConfig,
   DebugRuleConfiguration,
   DebugRuleEvaluationStatus,
+  DeploymentConfig,
   DirectInternetAccess,
   DriftCheckBaselines,
   EndpointInfo,
@@ -175,6 +175,11 @@ import {
   TrialComponentStatus,
   VendorGuidance,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface DeleteTagsOutput {}
 
 /**
  * @public
@@ -5729,8 +5734,7 @@ export interface DescribeNotebookInstanceOutput {
   /**
    * <p>A list of the Elastic Inference (EI) instance types associated with this notebook
    *             instance. Currently only one EI instance type can be associated with a notebook
-   *             instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon
-   *                 SageMaker</a>.</p>
+   *             instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon SageMaker</a>.</p>
    */
   AcceleratorTypes?: (NotebookInstanceAcceleratorType | string)[];
 
@@ -10620,78 +10624,6 @@ export interface LabelingJobForWorkteamSummary {
    * <p>The configured number of workers per data object.</p>
    */
   NumberOfHumanWorkersPerDataObject?: number;
-}
-
-/**
- * @public
- * <p>Provides summary information about a labeling job.</p>
- */
-export interface LabelingJobSummary {
-  /**
-   * <p>The name of the labeling job.</p>
-   */
-  LabelingJobName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) assigned to the labeling job when it was
-   *             created.</p>
-   */
-  LabelingJobArn: string | undefined;
-
-  /**
-   * <p>The date and time that the job was created (timestamp).</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The date and time that the job was last modified (timestamp).</p>
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The current status of the labeling job. </p>
-   */
-  LabelingJobStatus: LabelingJobStatus | string | undefined;
-
-  /**
-   * <p>Counts showing the progress of the labeling job.</p>
-   */
-  LabelCounters: LabelCounters | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the work team assigned to the job.</p>
-   */
-  WorkteamArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a Lambda function. The function is run before each
-   *             data object is sent to a worker.</p>
-   */
-  PreHumanTaskLambdaArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Lambda function used to consolidate the
-   *             annotations from individual workers into a label for a data object. For more
-   *             information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-annotation-consolidation.html">Annotation
-   *                 Consolidation</a>.</p>
-   */
-  AnnotationConsolidationLambdaArn?: string;
-
-  /**
-   * <p>If the <code>LabelingJobStatus</code> field is <code>Failed</code>, this field
-   *             contains a description of the error.</p>
-   */
-  FailureReason?: string;
-
-  /**
-   * <p>The location of the output produced by the labeling job.</p>
-   */
-  LabelingJobOutput?: LabelingJobOutput;
-
-  /**
-   * <p>Input configuration for the labeling job.</p>
-   */
-  InputConfig?: LabelingJobInputConfig;
 }
 
 /**

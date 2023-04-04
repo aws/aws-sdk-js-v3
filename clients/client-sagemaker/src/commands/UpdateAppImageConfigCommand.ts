@@ -13,8 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateAppImageConfigRequest } from "../models/models_3";
-import { UpdateAppImageConfigResponse } from "../models/models_4";
+import { UpdateAppImageConfigRequest, UpdateAppImageConfigResponse } from "../models/models_4";
 import {
   deserializeAws_json1_1UpdateAppImageConfigCommand,
   serializeAws_json1_1UpdateAppImageConfigCommand,

@@ -6,14 +6,15 @@ import {
   AppSecurityGroupManagement,
   BooleanOperator,
   DefaultSpaceSettings,
-  DeploymentConfig,
   EdgeOutputConfig,
+  KernelGatewayImageConfig,
   ModelApprovalStatus,
   Tag,
   UserSettings,
 } from "./models_0";
 import {
   _InstanceType,
+  DeploymentConfig,
   FeatureDefinition,
   InferenceExperimentDataStorageConfig,
   InferenceExperimentSchedule,
@@ -55,6 +56,21 @@ import {
   Workteam,
 } from "./models_2";
 import { NestedFilters, ProfilerConfigForUpdate, ResourceConfigForUpdate, SearchSortOrder } from "./models_3";
+
+/**
+ * @public
+ */
+export interface UpdateAppImageConfigRequest {
+  /**
+   * <p>The name of the AppImageConfig to update.</p>
+   */
+  AppImageConfigName: string | undefined;
+
+  /**
+   * <p>The new KernelGateway app to run on the image.</p>
+   */
+  KernelGatewayImageConfig?: KernelGatewayImageConfig;
+}
 
 /**
  * @public
@@ -967,8 +983,7 @@ export interface UpdateNotebookInstanceInput {
   /**
    * <p>A list of the Elastic Inference (EI) instance types to associate with this notebook
    *             instance. Currently only one EI instance type can be associated with a notebook
-   *             instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon
-   *                 SageMaker</a>.</p>
+   *             instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon SageMaker</a>.</p>
    */
   AcceleratorTypes?: (NotebookInstanceAcceleratorType | string)[];
 
