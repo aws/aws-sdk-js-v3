@@ -344,6 +344,11 @@ export interface ExchangeCodeForTokenRequestBody {
    * <p>The location of the application that will receive the access code.</p>
    */
   redirectUri: string | undefined;
+
+  /**
+   * <p>The ID of the client to request the token from.</p>
+   */
+  clientId?: string;
 }
 
 /**
@@ -561,124 +566,113 @@ export interface FormDataTypeConfig {
 
 /**
  * @public
- * <p>Describes the configuration for an input field on a form. Use
- *       <code>FormInputValueProperty</code> to specify the values to render or bind by
- *       default.</p>
+ * @enum
  */
-export interface FormInputValueProperty {
+export const StorageAccessLevel = {
+  PRIVATE: "private",
+  PROTECTED: "protected",
+  PUBLIC: "public",
+} as const;
+
+/**
+ * @public
+ */
+export type StorageAccessLevel = (typeof StorageAccessLevel)[keyof typeof StorageAccessLevel];
+
+/**
+ * @public
+ * <p>Describes the configuration for the file uploader field.</p>
+ */
+export interface FileUploaderFieldConfig {
   /**
-   * <p>The value to assign to the input field.</p>
+   * <p>The access level to assign to the uploaded files in the Amazon S3 bucket where
+   *       they are stored. The valid values for this property are <code>private</code>,
+   *         <code>protected</code>, or <code>public</code>. For detailed information about the
+   *       permissions associated with each access level, see <a href="https://docs.amplify.aws/lib/storage/configureaccess/q/platform/js/">File access
+   *         levels</a> in the <i>Amplify documentation</i>.</p>
    */
-  value?: string;
+  accessLevel: StorageAccessLevel | string | undefined;
+
+  /**
+   * <p>The file types that are allowed to be uploaded by the file uploader. Provide this
+   *       information in an array of strings specifying the valid file extensions.</p>
+   */
+  acceptedFileTypes: string[] | undefined;
+
+  /**
+   * <p>Specifies whether to display or hide the image preview after selecting a file for upload.
+   *       The default value is <code>true</code> to display the image preview.</p>
+   */
+  showThumbnails?: boolean;
+
+  /**
+   * <p>Allows the file upload operation to be paused and resumed. The default value is
+   *         <code>false</code>.</p>
+   *          <p>When <code>isResumable</code> is set to <code>true</code>, the file uploader uses a
+   *       multipart upload to break the files into chunks before upload. The progress of the upload
+   *       isn't continuous, because the file uploader uploads a chunk at a time.</p>
+   */
+  isResumable?: boolean;
+
+  /**
+   * <p>Specifies the maximum number of files that can be selected to upload. The default value is
+   *       an unlimited number of files.</p>
+   */
+  maxFileCount?: number;
+
+  /**
+   * <p>The maximum file size in bytes that the file uploader will accept. The default value is an
+   *       unlimited file size.</p>
+   */
+  maxSize?: number;
 }
 
 /**
  * @public
- * <p>Associates a complex object with a display value. Use <code>ValueMapping</code> to store
- *       how to represent complex objects when they are displayed.</p>
+ * <p>Represents the data binding configuration for a specific property using data stored in
+ *         Amazon Web Services. For Amazon Web Services connected properties, you can bind a property to
+ *       data stored in an Amplify DataStore model.</p>
  */
-export interface ValueMapping {
+export interface FormInputBindingPropertiesValueProperties {
   /**
-   * <p>The value to display for the complex object.</p>
+   * <p>An Amplify DataStore model.</p>
    */
-  displayValue?: FormInputValueProperty;
-
-  /**
-   * <p>The complex object.</p>
-   */
-  value: FormInputValueProperty | undefined;
+  model?: string;
 }
 
 /**
  * @public
- * <p>Represents the data binding configuration for a value map.</p>
+ * <p>Represents the data binding configuration for a form's input fields at runtime.You can use
+ *         <code>FormInputBindingPropertiesValue</code> to add exposed properties to a form to allow
+ *       different values to be entered when a form is reused in different places in an app.</p>
  */
-export interface ValueMappings {
+export interface FormInputBindingPropertiesValue {
   /**
-   * <p>The value and display value pairs.</p>
+   * <p>The property type.</p>
    */
-  values: ValueMapping[] | undefined;
+  type?: string;
+
+  /**
+   * <p>Describes the properties to customize with data at runtime.</p>
+   */
+  bindingProperties?: FormInputBindingPropertiesValueProperties;
 }
 
 /**
  * @public
- * <p>Describes the configuration for the default input values to display for a field.</p>
+ * <p>Associates a form property to a binding property. This enables exposed properties on the
+ *       top level form to propagate data to the form's property values.</p>
  */
-export interface FieldInputConfig {
+export interface FormInputValuePropertyBindingProperties {
   /**
-   * <p>The input type for the field. </p>
+   * <p>The form property to bind to the data field.</p>
    */
-  type: string | undefined;
+  property: string | undefined;
 
   /**
-   * <p>Specifies a field that requires input.</p>
+   * <p>The data field to bind the property to.</p>
    */
-  required?: boolean;
-
-  /**
-   * <p>Specifies a read only field.</p>
-   */
-  readOnly?: boolean;
-
-  /**
-   * <p>The text to display as a placeholder for the field.</p>
-   */
-  placeholder?: string;
-
-  /**
-   * <p>The default value for the field.</p>
-   */
-  defaultValue?: string;
-
-  /**
-   * <p>The text to display to describe the field.</p>
-   */
-  descriptiveText?: string;
-
-  /**
-   * <p>Specifies whether a field has a default value.</p>
-   */
-  defaultChecked?: boolean;
-
-  /**
-   * <p>The default country code for a phone number.</p>
-   */
-  defaultCountryCode?: string;
-
-  /**
-   * <p>The information to use to customize the input fields with data at runtime.</p>
-   */
-  valueMappings?: ValueMappings;
-
-  /**
-   * <p>The name of the field.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The minimum value to display for the field.</p>
-   */
-  minValue?: number;
-
-  /**
-   * <p>The maximum value to display for the field.</p>
-   */
-  maxValue?: number;
-
-  /**
-   * <p>The stepping increment for a numeric value in a field.</p>
-   */
-  step?: number;
-
-  /**
-   * <p>The value for the field.</p>
-   */
-  value?: string;
-
-  /**
-   * <p>Specifies whether to render the field as an array. This property is ignored if the <code>dataSourceType</code> for the form is a Data Store.</p>
-   */
-  isArray?: boolean;
+  field?: string;
 }
 
 /**
@@ -710,37 +704,6 @@ export interface FieldValidationConfiguration {
 
 /**
  * @public
- * <p>Describes the configuration information for a field in a table.</p>
- */
-export interface FieldConfig {
-  /**
-   * <p>The label for the field.</p>
-   */
-  label?: string;
-
-  /**
-   * <p>Specifies the field position.</p>
-   */
-  position?: FieldPosition;
-
-  /**
-   * <p>Specifies whether to hide a field.</p>
-   */
-  excluded?: boolean;
-
-  /**
-   * <p>Describes the configuration for the default input value to display for a field.</p>
-   */
-  inputType?: FieldInputConfig;
-
-  /**
-   * <p>The validations to perform on the value in the field.</p>
-   */
-  validations?: FieldValidationConfiguration[];
-}
-
-/**
- * @public
  * @enum
  */
 export const FormActionType = {
@@ -752,6 +715,21 @@ export const FormActionType = {
  * @public
  */
 export type FormActionType = (typeof FormActionType)[keyof typeof FormActionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const LabelDecorator = {
+  NONE: "none",
+  OPTIONAL: "optional",
+  REQUIRED: "required",
+} as const;
+
+/**
+ * @public
+ */
+export type LabelDecorator = (typeof LabelDecorator)[keyof typeof LabelDecorator];
 
 /**
  * @public
@@ -785,9 +763,15 @@ export interface SectionalElement {
 
   /**
    * <p>Specifies the orientation for a <code>Divider</code> sectional element. Valid values are
-   *       <code>horizontal</code> or <code>vertical</code>.</p>
+   *         <code>horizontal</code> or <code>vertical</code>.</p>
    */
   orientation?: string;
+
+  /**
+   * <p>Excludes a sectional element that was generated by default for a specified data
+   *       model.</p>
+   */
+  excluded?: boolean;
 }
 
 /**
@@ -864,163 +848,6 @@ export interface FormStyle {
 
 /**
  * @public
- * <p>Represents all of the information that is required to create a form.</p>
- */
-export interface CreateFormData {
-  /**
-   * <p>The name of the form.</p>
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The type of data source to use to create the form.</p>
-   */
-  dataType: FormDataTypeConfig | undefined;
-
-  /**
-   * <p>Specifies whether to perform a create or update action on the form.</p>
-   */
-  formActionType: FormActionType | string | undefined;
-
-  /**
-   * <p>The configuration information for the form's fields.</p>
-   */
-  fields: Record<string, FieldConfig> | undefined;
-
-  /**
-   * <p>The configuration for the form's style.</p>
-   */
-  style: FormStyle | undefined;
-
-  /**
-   * <p>The configuration information for the visual helper elements for the form. These elements
-   *       are not associated with any data.</p>
-   */
-  sectionalElements: Record<string, SectionalElement> | undefined;
-
-  /**
-   * <p>The schema version of the form.</p>
-   */
-  schemaVersion: string | undefined;
-
-  /**
-   * <p>The <code>FormCTA</code> object that stores the call to action configuration for the
-   *       form.</p>
-   */
-  cta?: FormCTA;
-
-  /**
-   * <p>One or more key-value pairs to use when tagging the form data.</p>
-   */
-  tags?: Record<string, string>;
-}
-
-/**
- * @public
- */
-export interface CreateFormRequest {
-  /**
-   * <p>The unique ID of the Amplify app to associate with the form.</p>
-   */
-  appId: string | undefined;
-
-  /**
-   * <p>The name of the backend environment that is a part of the Amplify app.</p>
-   */
-  environmentName: string | undefined;
-
-  /**
-   * <p>The unique client token.</p>
-   */
-  clientToken?: string;
-
-  /**
-   * <p>Represents the configuration of the form to create.</p>
-   */
-  formToCreate: CreateFormData | undefined;
-}
-
-/**
- * @public
- * <p>Contains the configuration settings for a <code>Form</code> user interface (UI) element
- *       for an Amplify app. A form is a component you can add to your project by specifying a data
- *       source as the default configuration for the form.</p>
- */
-export interface Form {
-  /**
-   * <p>The unique ID of the Amplify app associated with the form.</p>
-   */
-  appId: string | undefined;
-
-  /**
-   * <p>The name of the backend environment that is a part of the Amplify app.</p>
-   */
-  environmentName: string | undefined;
-
-  /**
-   * <p>The unique ID of the form.</p>
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The name of the form.</p>
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The operation to perform on the specified form.</p>
-   */
-  formActionType: FormActionType | string | undefined;
-
-  /**
-   * <p>Stores the configuration for the form's style.</p>
-   */
-  style: FormStyle | undefined;
-
-  /**
-   * <p>The type of data source to use to create the form.</p>
-   */
-  dataType: FormDataTypeConfig | undefined;
-
-  /**
-   * <p>Stores the information about the form's fields.</p>
-   */
-  fields: Record<string, FieldConfig> | undefined;
-
-  /**
-   * <p>Stores the visual helper elements for the form that are not associated with any
-   *       data.</p>
-   */
-  sectionalElements: Record<string, SectionalElement> | undefined;
-
-  /**
-   * <p>The schema version of the form when it was imported.</p>
-   */
-  schemaVersion: string | undefined;
-
-  /**
-   * <p>One or more key-value pairs to use when tagging the form.</p>
-   */
-  tags?: Record<string, string>;
-
-  /**
-   * <p>Stores the call to action configuration for the form.</p>
-   */
-  cta?: FormCTA;
-}
-
-/**
- * @public
- */
-export interface CreateFormResponse {
-  /**
-   * <p>Describes the configuration of the new form.</p>
-   */
-  entity?: Form;
-}
-
-/**
- * @public
  */
 export interface DeleteFormRequest {
   /**
@@ -1062,21 +889,6 @@ export interface ExportFormsRequest {
 /**
  * @public
  */
-export interface ExportFormsResponse {
-  /**
-   * <p>Represents the configuration of the exported forms.</p>
-   */
-  entities: Form[] | undefined;
-
-  /**
-   * <p>The pagination token that's included if more results are available.</p>
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- */
 export interface GetFormRequest {
   /**
    * <p>The unique ID of the Amplify app.</p>
@@ -1092,16 +904,6 @@ export interface GetFormRequest {
    * <p>The unique ID of the form.</p>
    */
   id: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetFormResponse {
-  /**
-   * <p>Represents the configuration settings for the form.</p>
-   */
-  form?: Form;
 }
 
 /**
@@ -1182,94 +984,6 @@ export interface ListFormsResponse {
 
 /**
  * @public
- * <p>Updates and saves all of the information about a form, based on form ID.</p>
- */
-export interface UpdateFormData {
-  /**
-   * <p>The name of the form.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The type of data source to use to create the form.</p>
-   */
-  dataType?: FormDataTypeConfig;
-
-  /**
-   * <p>Specifies whether to perform a create or update action on the form.</p>
-   */
-  formActionType?: FormActionType | string;
-
-  /**
-   * <p>The configuration information for the form's fields.</p>
-   */
-  fields?: Record<string, FieldConfig>;
-
-  /**
-   * <p>The configuration for the form's style.</p>
-   */
-  style?: FormStyle;
-
-  /**
-   * <p>The configuration information for the visual helper elements for the form. These elements
-   *       are not associated with any data.</p>
-   */
-  sectionalElements?: Record<string, SectionalElement>;
-
-  /**
-   * <p>The schema version of the form.</p>
-   */
-  schemaVersion?: string;
-
-  /**
-   * <p>The <code>FormCTA</code> object that stores the call to action configuration for the
-   *       form.</p>
-   */
-  cta?: FormCTA;
-}
-
-/**
- * @public
- */
-export interface UpdateFormRequest {
-  /**
-   * <p>The unique ID for the Amplify app.</p>
-   */
-  appId: string | undefined;
-
-  /**
-   * <p>The name of the backend environment that is part of the Amplify app.</p>
-   */
-  environmentName: string | undefined;
-
-  /**
-   * <p>The unique ID for the form.</p>
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The unique client token.</p>
-   */
-  clientToken?: string;
-
-  /**
-   * <p>The request accepts the following data in JSON format.</p>
-   */
-  updatedForm: UpdateFormData | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateFormResponse {
-  /**
-   * <p>Describes the configuration of the updated form.</p>
-   */
-  entity?: Form;
-}
-
-/**
- * @public
  */
 export interface GetMetadataRequest {
   /**
@@ -1315,7 +1029,7 @@ export class UnauthorizedException extends __BaseException {
 
 /**
  * @public
- * <p>Stores the metadata information about a feature on a form or view.</p>
+ * <p>Stores the metadata information about a feature on a form.</p>
  */
 export interface PutMetadataFlagBody {
   /**
@@ -1359,6 +1073,11 @@ export interface RefreshTokenRequestBody {
    *       expired.</p>
    */
   token: string | undefined;
+
+  /**
+   * <p>The ID of the client to request the token from.</p>
+   */
+  clientId?: string;
 }
 
 /**
@@ -1522,6 +1241,30 @@ export interface ListThemesResponse {
 
 /**
  * @public
+ * <p>Describes the configuration for an input field on a form. Use
+ *         <code>FormInputValueProperty</code> to specify the values to render or bind by
+ *       default.</p>
+ */
+export interface FormInputValueProperty {
+  /**
+   * <p>The value to assign to the input field.</p>
+   */
+  value?: string;
+
+  /**
+   * <p>The information to bind fields to data at runtime.</p>
+   */
+  bindingProperties?: FormInputValuePropertyBindingProperties;
+
+  /**
+   * <p>A list of form properties to concatenate to create the value to assign to this field
+   *       property.</p>
+   */
+  concat?: FormInputValueProperty[];
+}
+
+/**
+ * @public
  * <p>Describes the configuration of a theme's properties.</p>
  */
 export interface ThemeValue {
@@ -1582,6 +1325,11 @@ export interface Predicate {
    * <p>The value to use when performing the evaluation.</p>
    */
   operand?: string;
+
+  /**
+   * <p>The type of value to use when performing the evaluation.</p>
+   */
+  operandType?: string;
 }
 
 /**
@@ -1749,6 +1497,23 @@ export interface ComponentProperty {
 
 /**
  * @public
+ * <p>Associates a complex object with a display value. Use <code>ValueMapping</code> to store
+ *       how to represent complex objects when they are displayed.</p>
+ */
+export interface ValueMapping {
+  /**
+   * <p>The value to display for the complex object.</p>
+   */
+  displayValue?: FormInputValueProperty;
+
+  /**
+   * <p>The complex object.</p>
+   */
+  value: FormInputValueProperty | undefined;
+}
+
+/**
+ * @public
  * <p>Represents the data binding configuration for a component at runtime. You can use
  *         <code>ComponentBindingPropertiesValue</code> to add exposed properties to a component to
  *       allow different values to be entered when a component is reused in different places in an
@@ -1879,8 +1644,8 @@ export interface UpdateThemeData {
 
 /**
  * @public
- * <p>Represents the state configuration when an action modifies a property of another
- *       element within the same component.</p>
+ * <p>Represents the state configuration when an action modifies a property of another element
+ *       within the same component.</p>
  */
 export interface MutationActionSetStateParameter {
   /**
@@ -2031,6 +1796,22 @@ export interface UpdateThemeResponse {
 
 /**
  * @public
+ * <p>Represents the data binding configuration for a value map.</p>
+ */
+export interface ValueMappings {
+  /**
+   * <p>The value and display value pairs.</p>
+   */
+  values: ValueMapping[] | undefined;
+
+  /**
+   * <p>The information to bind fields to data at runtime.</p>
+   */
+  bindingProperties?: Record<string, FormInputBindingPropertiesValue>;
+}
+
+/**
+ * @public
  */
 export interface ExportThemesResponse {
   /**
@@ -2046,14 +1827,418 @@ export interface ExportThemesResponse {
 
 /**
  * @public
- * <p>Represents the event action configuration for an element of a <code>Component</code>
- *       or <code>ComponentChild</code>. Use for the workflow feature in Amplify Studio
+ * <p>Describes the configuration for the default input values to display for a field.</p>
+ */
+export interface FieldInputConfig {
+  /**
+   * <p>The input type for the field. </p>
+   */
+  type: string | undefined;
+
+  /**
+   * <p>Specifies a field that requires input.</p>
+   */
+  required?: boolean;
+
+  /**
+   * <p>Specifies a read only field.</p>
+   */
+  readOnly?: boolean;
+
+  /**
+   * <p>The text to display as a placeholder for the field.</p>
+   */
+  placeholder?: string;
+
+  /**
+   * <p>The default value for the field.</p>
+   */
+  defaultValue?: string;
+
+  /**
+   * <p>The text to display to describe the field.</p>
+   */
+  descriptiveText?: string;
+
+  /**
+   * <p>Specifies whether a field has a default value.</p>
+   */
+  defaultChecked?: boolean;
+
+  /**
+   * <p>The default country code for a phone number.</p>
+   */
+  defaultCountryCode?: string;
+
+  /**
+   * <p>The information to use to customize the input fields with data at runtime.</p>
+   */
+  valueMappings?: ValueMappings;
+
+  /**
+   * <p>The name of the field.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The minimum value to display for the field.</p>
+   */
+  minValue?: number;
+
+  /**
+   * <p>The maximum value to display for the field.</p>
+   */
+  maxValue?: number;
+
+  /**
+   * <p>The stepping increment for a numeric value in a field.</p>
+   */
+  step?: number;
+
+  /**
+   * <p>The value for the field.</p>
+   */
+  value?: string;
+
+  /**
+   * <p>Specifies whether to render the field as an array. This property is ignored if the
+   *         <code>dataSourceType</code> for the form is a Data Store.</p>
+   */
+  isArray?: boolean;
+
+  /**
+   * <p>The configuration for the file uploader field.</p>
+   */
+  fileUploaderConfig?: FileUploaderFieldConfig;
+}
+
+/**
+ * @public
+ * <p>Describes the configuration information for a field in a table.</p>
+ */
+export interface FieldConfig {
+  /**
+   * <p>The label for the field.</p>
+   */
+  label?: string;
+
+  /**
+   * <p>Specifies the field position.</p>
+   */
+  position?: FieldPosition;
+
+  /**
+   * <p>Specifies whether to hide a field.</p>
+   */
+  excluded?: boolean;
+
+  /**
+   * <p>Describes the configuration for the default input value to display for a field.</p>
+   */
+  inputType?: FieldInputConfig;
+
+  /**
+   * <p>The validations to perform on the value in the field.</p>
+   */
+  validations?: FieldValidationConfiguration[];
+}
+
+/**
+ * @public
+ * <p>Represents all of the information that is required to create a form.</p>
+ */
+export interface CreateFormData {
+  /**
+   * <p>The name of the form.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of data source to use to create the form.</p>
+   */
+  dataType: FormDataTypeConfig | undefined;
+
+  /**
+   * <p>Specifies whether to perform a create or update action on the form.</p>
+   */
+  formActionType: FormActionType | string | undefined;
+
+  /**
+   * <p>The configuration information for the form's fields.</p>
+   */
+  fields: Record<string, FieldConfig> | undefined;
+
+  /**
+   * <p>The configuration for the form's style.</p>
+   */
+  style: FormStyle | undefined;
+
+  /**
+   * <p>The configuration information for the visual helper elements for the form. These elements
+   *       are not associated with any data.</p>
+   */
+  sectionalElements: Record<string, SectionalElement> | undefined;
+
+  /**
+   * <p>The schema version of the form.</p>
+   */
+  schemaVersion: string | undefined;
+
+  /**
+   * <p>The <code>FormCTA</code> object that stores the call to action configuration for the
+   *       form.</p>
+   */
+  cta?: FormCTA;
+
+  /**
+   * <p>One or more key-value pairs to use when tagging the form data.</p>
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * <p>Specifies an icon or decoration to display on the form.</p>
+   */
+  labelDecorator?: LabelDecorator | string;
+}
+
+/**
+ * @public
+ * <p>Contains the configuration settings for a <code>Form</code> user interface (UI) element
+ *       for an Amplify app. A form is a component you can add to your project by specifying a data
+ *       source as the default configuration for the form.</p>
+ */
+export interface Form {
+  /**
+   * <p>The unique ID of the Amplify app associated with the form.</p>
+   */
+  appId: string | undefined;
+
+  /**
+   * <p>The name of the backend environment that is a part of the Amplify app.</p>
+   */
+  environmentName: string | undefined;
+
+  /**
+   * <p>The unique ID of the form.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the form.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The operation to perform on the specified form.</p>
+   */
+  formActionType: FormActionType | string | undefined;
+
+  /**
+   * <p>Stores the configuration for the form's style.</p>
+   */
+  style: FormStyle | undefined;
+
+  /**
+   * <p>The type of data source to use to create the form.</p>
+   */
+  dataType: FormDataTypeConfig | undefined;
+
+  /**
+   * <p>Stores the information about the form's fields.</p>
+   */
+  fields: Record<string, FieldConfig> | undefined;
+
+  /**
+   * <p>Stores the visual helper elements for the form that are not associated with any
+   *       data.</p>
+   */
+  sectionalElements: Record<string, SectionalElement> | undefined;
+
+  /**
+   * <p>The schema version of the form when it was imported.</p>
+   */
+  schemaVersion: string | undefined;
+
+  /**
+   * <p>One or more key-value pairs to use when tagging the form.</p>
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * <p>Stores the call to action configuration for the form.</p>
+   */
+  cta?: FormCTA;
+
+  /**
+   * <p>Specifies an icon or decoration to display on the form.</p>
+   */
+  labelDecorator?: LabelDecorator | string;
+}
+
+/**
+ * @public
+ * <p>Updates and saves all of the information about a form, based on form ID.</p>
+ */
+export interface UpdateFormData {
+  /**
+   * <p>The name of the form.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The type of data source to use to create the form.</p>
+   */
+  dataType?: FormDataTypeConfig;
+
+  /**
+   * <p>Specifies whether to perform a create or update action on the form.</p>
+   */
+  formActionType?: FormActionType | string;
+
+  /**
+   * <p>The configuration information for the form's fields.</p>
+   */
+  fields?: Record<string, FieldConfig>;
+
+  /**
+   * <p>The configuration for the form's style.</p>
+   */
+  style?: FormStyle;
+
+  /**
+   * <p>The configuration information for the visual helper elements for the form. These elements
+   *       are not associated with any data.</p>
+   */
+  sectionalElements?: Record<string, SectionalElement>;
+
+  /**
+   * <p>The schema version of the form.</p>
+   */
+  schemaVersion?: string;
+
+  /**
+   * <p>The <code>FormCTA</code> object that stores the call to action configuration for the
+   *       form.</p>
+   */
+  cta?: FormCTA;
+
+  /**
+   * <p>Specifies an icon or decoration to display on the form.</p>
+   */
+  labelDecorator?: LabelDecorator | string;
+}
+
+/**
+ * @public
+ */
+export interface CreateFormRequest {
+  /**
+   * <p>The unique ID of the Amplify app to associate with the form.</p>
+   */
+  appId: string | undefined;
+
+  /**
+   * <p>The name of the backend environment that is a part of the Amplify app.</p>
+   */
+  environmentName: string | undefined;
+
+  /**
+   * <p>The unique client token.</p>
+   */
+  clientToken?: string;
+
+  /**
+   * <p>Represents the configuration of the form to create.</p>
+   */
+  formToCreate: CreateFormData | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateFormResponse {
+  /**
+   * <p>Describes the configuration of the new form.</p>
+   */
+  entity?: Form;
+}
+
+/**
+ * @public
+ */
+export interface GetFormResponse {
+  /**
+   * <p>Represents the configuration settings for the form.</p>
+   */
+  form?: Form;
+}
+
+/**
+ * @public
+ */
+export interface UpdateFormRequest {
+  /**
+   * <p>The unique ID for the Amplify app.</p>
+   */
+  appId: string | undefined;
+
+  /**
+   * <p>The name of the backend environment that is part of the Amplify app.</p>
+   */
+  environmentName: string | undefined;
+
+  /**
+   * <p>The unique ID for the form.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The unique client token.</p>
+   */
+  clientToken?: string;
+
+  /**
+   * <p>The request accepts the following data in JSON format.</p>
+   */
+  updatedForm: UpdateFormData | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateFormResponse {
+  /**
+   * <p>Describes the configuration of the updated form.</p>
+   */
+  entity?: Form;
+}
+
+/**
+ * @public
+ */
+export interface ExportFormsResponse {
+  /**
+   * <p>Represents the configuration of the exported forms.</p>
+   */
+  entities: Form[] | undefined;
+
+  /**
+   * <p>The pagination token that's included if more results are available.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * <p>Represents the event action configuration for an element of a <code>Component</code> or
+ *         <code>ComponentChild</code>. Use for the workflow feature in Amplify Studio
  *       that allows you to bind events and actions to components. <code>ActionParameters</code>
  *       defines the action that is performed when an event occurs on the component.</p>
  */
 export interface ActionParameters {
   /**
-   * <p>The type of navigation action. Valid values are <code>url</code> and <code>anchor</code>. This value is required for a navigation action.</p>
+   * <p>The type of navigation action. Valid values are <code>url</code> and <code>anchor</code>.
+   *       This value is required for a navigation action.</p>
    */
   type?: ComponentProperty;
 
@@ -2063,7 +2248,8 @@ export interface ActionParameters {
   url?: ComponentProperty;
 
   /**
-   * <p>The HTML anchor link to the location to open. Specify this value for a navigation action.</p>
+   * <p>The HTML anchor link to the location to open. Specify this value for a navigation
+   *       action.</p>
    */
   anchor?: ComponentProperty;
 
@@ -2073,13 +2259,13 @@ export interface ActionParameters {
   target?: ComponentProperty;
 
   /**
-   * <p>Specifies whether the user should be signed out globally. Specify this value for an auth sign out action.</p>
+   * <p>Specifies whether the user should be signed out globally. Specify this value for an auth
+   *       sign out action.</p>
    */
   global?: ComponentProperty;
 
   /**
-   * <p>The name of the data model. Use when the action performs an operation on an Amplify DataStore
-   *       model.</p>
+   * <p>The name of the data model. Use when the action performs an operation on an Amplify DataStore model.</p>
    */
   model?: string;
 
@@ -2089,8 +2275,9 @@ export interface ActionParameters {
   id?: ComponentProperty;
 
   /**
-   * <p>A dictionary of key-value pairs mapping Amplify Studio properties to fields in a data model. Use when the action
-   *       performs an operation on an Amplify DataStore model.</p>
+   * <p>A dictionary of key-value pairs mapping Amplify Studio properties to fields
+   *       in a data model. Use when the action performs an operation on an Amplify
+   *       DataStore model.</p>
    */
   fields?: Record<string, ComponentProperty>;
 
@@ -2102,9 +2289,9 @@ export interface ActionParameters {
 
 /**
  * @public
- * <p>Describes the configuration of an event. You can bind an event and a corresponding
- *       action to a <code>Component</code> or a <code>ComponentChild</code>. A button click
- *       is an example of an event. </p>
+ * <p>Describes the configuration of an event. You can bind an event and a corresponding action
+ *       to a <code>Component</code> or a <code>ComponentChild</code>. A button click is an example of
+ *       an event. </p>
  */
 export interface ComponentEvent {
   /**
@@ -2151,8 +2338,9 @@ export interface ComponentChild {
   children?: ComponentChild[];
 
   /**
-   * <p>Describes the events that can be raised on the child component. Use for the workflow feature in Amplify Studio that allows you to
-   *       bind events and actions to components.</p>
+   * <p>Describes the events that can be raised on the child component. Use for the workflow
+   *       feature in Amplify Studio that allows you to bind events and actions to
+   *       components.</p>
    */
   events?: Record<string, ComponentEvent>;
 
@@ -2256,8 +2444,9 @@ export interface Component {
   tags?: Record<string, string>;
 
   /**
-   * <p>Describes the events that can be raised on the component. Use for the workflow feature in Amplify Studio that allows you to
-   *       bind events and actions to components.</p>
+   * <p>Describes the events that can be raised on the component. Use for the workflow feature in
+   *         Amplify Studio that allows you to bind events and actions to
+   *       components.</p>
    */
   events?: Record<string, ComponentEvent>;
 
@@ -2511,6 +2700,7 @@ export interface ExportComponentsResponse {
 export const ExchangeCodeForTokenRequestBodyFilterSensitiveLog = (obj: ExchangeCodeForTokenRequestBody): any => ({
   ...obj,
   ...(obj.code && { code: SENSITIVE_STRING }),
+  ...(obj.clientId && { clientId: SENSITIVE_STRING }),
 });
 
 /**
@@ -2536,6 +2726,7 @@ export const ExchangeCodeForTokenResponseFilterSensitiveLog = (obj: ExchangeCode
 export const RefreshTokenRequestBodyFilterSensitiveLog = (obj: RefreshTokenRequestBody): any => ({
   ...obj,
   ...(obj.token && { token: SENSITIVE_STRING }),
+  ...(obj.clientId && { clientId: SENSITIVE_STRING }),
 });
 
 /**

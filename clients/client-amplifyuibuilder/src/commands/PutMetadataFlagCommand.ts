@@ -35,7 +35,7 @@ export interface PutMetadataFlagCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Stores the metadata information about a feature on a form or view.</p>
+ * <p>Stores the metadata information about a feature on a form.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -77,12 +77,34 @@ export interface UpdateFormCommandOutput extends UpdateFormResponse, __MetadataB
  *               { // ValueMapping
  *                 displayValue: { // FormInputValueProperty
  *                   value: "STRING_VALUE",
+ *                   bindingProperties: { // FormInputValuePropertyBindingProperties
+ *                     property: "STRING_VALUE", // required
+ *                     field: "STRING_VALUE",
+ *                   },
+ *                   concat: [ // FormInputValuePropertyList
+ *                     {
+ *                       value: "STRING_VALUE",
+ *                       bindingProperties: {
+ *                         property: "STRING_VALUE", // required
+ *                         field: "STRING_VALUE",
+ *                       },
+ *                       concat: [
+ *                         "<FormInputValueProperty>",
+ *                       ],
+ *                     },
+ *                   ],
  *                 },
- *                 value: {
- *                   value: "STRING_VALUE",
- *                 },
+ *                 value: "<FormInputValueProperty>", // required
  *               },
  *             ],
+ *             bindingProperties: { // FormInputBindingProperties
+ *               "<keys>": { // FormInputBindingPropertiesValue
+ *                 type: "STRING_VALUE",
+ *                 bindingProperties: { // FormInputBindingPropertiesValueProperties
+ *                   model: "STRING_VALUE",
+ *                 },
+ *               },
+ *             },
  *           },
  *           name: "STRING_VALUE",
  *           minValue: Number("float"),
@@ -90,11 +112,21 @@ export interface UpdateFormCommandOutput extends UpdateFormResponse, __MetadataB
  *           step: Number("float"),
  *           value: "STRING_VALUE",
  *           isArray: true || false,
+ *           fileUploaderConfig: { // FileUploaderFieldConfig
+ *             accessLevel: "STRING_VALUE", // required
+ *             acceptedFileTypes: [ // StrValues // required
+ *               "STRING_VALUE",
+ *             ],
+ *             showThumbnails: true || false,
+ *             isResumable: true || false,
+ *             maxFileCount: Number("int"),
+ *             maxSize: Number("int"),
+ *           },
  *         },
  *         validations: [ // ValidationsList
  *           { // FieldValidationConfiguration
  *             type: "STRING_VALUE", // required
- *             strValues: [ // StrValues
+ *             strValues: [
  *               "STRING_VALUE",
  *             ],
  *             numValues: [ // NumValues
@@ -130,6 +162,7 @@ export interface UpdateFormCommandOutput extends UpdateFormResponse, __MetadataB
  *         text: "STRING_VALUE",
  *         level: Number("int"),
  *         orientation: "STRING_VALUE",
+ *         excluded: true || false,
  *       },
  *     },
  *     schemaVersion: "STRING_VALUE",
@@ -163,6 +196,7 @@ export interface UpdateFormCommandOutput extends UpdateFormResponse, __MetadataB
  *         },
  *       },
  *     },
+ *     labelDecorator: "STRING_VALUE",
  *   },
  * };
  * const command = new UpdateFormCommand(input);

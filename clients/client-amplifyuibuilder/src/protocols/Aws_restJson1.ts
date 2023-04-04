@@ -70,12 +70,16 @@ import {
   FieldInputConfig,
   FieldPosition,
   FieldValidationConfiguration,
+  FileUploaderFieldConfig,
   Form,
   FormBindingElement,
   FormButton,
   FormCTA,
   FormDataTypeConfig,
+  FormInputBindingPropertiesValue,
+  FormInputBindingPropertiesValueProperties,
   FormInputValueProperty,
+  FormInputValuePropertyBindingProperties,
   FormStyle,
   FormStyleConfig,
   FormSummary,
@@ -2263,6 +2267,7 @@ const serializeAws_restJson1CreateFormData = (input: CreateFormData, context: __
     ...(input.dataType != null && { dataType: serializeAws_restJson1FormDataTypeConfig(input.dataType, context) }),
     ...(input.fields != null && { fields: serializeAws_restJson1FieldsMap(input.fields, context) }),
     ...(input.formActionType != null && { formActionType: input.formActionType }),
+    ...(input.labelDecorator != null && { labelDecorator: input.labelDecorator }),
     ...(input.name != null && { name: input.name }),
     ...(input.schemaVersion != null && { schemaVersion: input.schemaVersion }),
     ...(input.sectionalElements != null && {
@@ -2287,6 +2292,7 @@ const serializeAws_restJson1ExchangeCodeForTokenRequestBody = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.clientId != null && { clientId: input.clientId }),
     ...(input.code != null && { code: input.code }),
     ...(input.redirectUri != null && { redirectUri: input.redirectUri }),
   };
@@ -2310,6 +2316,9 @@ const serializeAws_restJson1FieldInputConfig = (input: FieldInputConfig, context
     ...(input.defaultCountryCode != null && { defaultCountryCode: input.defaultCountryCode }),
     ...(input.defaultValue != null && { defaultValue: input.defaultValue }),
     ...(input.descriptiveText != null && { descriptiveText: input.descriptiveText }),
+    ...(input.fileUploaderConfig != null && {
+      fileUploaderConfig: serializeAws_restJson1FileUploaderFieldConfig(input.fileUploaderConfig, context),
+    }),
     ...(input.isArray != null && { isArray: input.isArray }),
     ...(input.maxValue != null && { maxValue: __serializeFloat(input.maxValue) }),
     ...(input.minValue != null && { minValue: __serializeFloat(input.minValue) }),
@@ -2357,6 +2366,22 @@ const serializeAws_restJson1FieldValidationConfiguration = (
   };
 };
 
+const serializeAws_restJson1FileUploaderFieldConfig = (
+  input: FileUploaderFieldConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.acceptedFileTypes != null && {
+      acceptedFileTypes: serializeAws_restJson1StrValues(input.acceptedFileTypes, context),
+    }),
+    ...(input.accessLevel != null && { accessLevel: input.accessLevel }),
+    ...(input.isResumable != null && { isResumable: input.isResumable }),
+    ...(input.maxFileCount != null && { maxFileCount: input.maxFileCount }),
+    ...(input.maxSize != null && { maxSize: input.maxSize }),
+    ...(input.showThumbnails != null && { showThumbnails: input.showThumbnails }),
+  };
+};
+
 const serializeAws_restJson1FormBindingElement = (input: FormBindingElement, context: __SerdeContext): any => {
   return {
     ...(input.element != null && { element: input.element }),
@@ -2401,10 +2426,75 @@ const serializeAws_restJson1FormDataTypeConfig = (input: FormDataTypeConfig, con
   };
 };
 
+const serializeAws_restJson1FormInputBindingProperties = (
+  input: Record<string, FormInputBindingPropertiesValue>,
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = serializeAws_restJson1FormInputBindingPropertiesValue(value, context);
+    return acc;
+  }, {});
+};
+
+const serializeAws_restJson1FormInputBindingPropertiesValue = (
+  input: FormInputBindingPropertiesValue,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.bindingProperties != null && {
+      bindingProperties: serializeAws_restJson1FormInputBindingPropertiesValueProperties(
+        input.bindingProperties,
+        context
+      ),
+    }),
+    ...(input.type != null && { type: input.type }),
+  };
+};
+
+const serializeAws_restJson1FormInputBindingPropertiesValueProperties = (
+  input: FormInputBindingPropertiesValueProperties,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.model != null && { model: input.model }),
+  };
+};
+
 const serializeAws_restJson1FormInputValueProperty = (input: FormInputValueProperty, context: __SerdeContext): any => {
   return {
+    ...(input.bindingProperties != null && {
+      bindingProperties: serializeAws_restJson1FormInputValuePropertyBindingProperties(
+        input.bindingProperties,
+        context
+      ),
+    }),
+    ...(input.concat != null && { concat: serializeAws_restJson1FormInputValuePropertyList(input.concat, context) }),
     ...(input.value != null && { value: input.value }),
   };
+};
+
+const serializeAws_restJson1FormInputValuePropertyBindingProperties = (
+  input: FormInputValuePropertyBindingProperties,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.field != null && { field: input.field }),
+    ...(input.property != null && { property: input.property }),
+  };
+};
+
+const serializeAws_restJson1FormInputValuePropertyList = (
+  input: FormInputValueProperty[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1FormInputValueProperty(entry, context);
+    });
 };
 
 const serializeAws_restJson1FormStyle = (input: FormStyle, context: __SerdeContext): any => {
@@ -2461,6 +2551,7 @@ const serializeAws_restJson1Predicate = (input: Predicate, context: __SerdeConte
     ...(input.and != null && { and: serializeAws_restJson1PredicateList(input.and, context) }),
     ...(input.field != null && { field: input.field }),
     ...(input.operand != null && { operand: input.operand }),
+    ...(input.operandType != null && { operandType: input.operandType }),
     ...(input.operator != null && { operator: input.operator }),
     ...(input.or != null && { or: serializeAws_restJson1PredicateList(input.or, context) }),
   };
@@ -2485,12 +2576,14 @@ const serializeAws_restJson1RefreshTokenRequestBody = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.clientId != null && { clientId: input.clientId }),
     ...(input.token != null && { token: input.token }),
   };
 };
 
 const serializeAws_restJson1SectionalElement = (input: SectionalElement, context: __SerdeContext): any => {
   return {
+    ...(input.excluded != null && { excluded: input.excluded }),
     ...(input.level != null && { level: input.level }),
     ...(input.orientation != null && { orientation: input.orientation }),
     ...(input.position != null && { position: serializeAws_restJson1FieldPosition(input.position, context) }),
@@ -2596,6 +2689,7 @@ const serializeAws_restJson1UpdateFormData = (input: UpdateFormData, context: __
     ...(input.dataType != null && { dataType: serializeAws_restJson1FormDataTypeConfig(input.dataType, context) }),
     ...(input.fields != null && { fields: serializeAws_restJson1FieldsMap(input.fields, context) }),
     ...(input.formActionType != null && { formActionType: input.formActionType }),
+    ...(input.labelDecorator != null && { labelDecorator: input.labelDecorator }),
     ...(input.name != null && { name: input.name }),
     ...(input.schemaVersion != null && { schemaVersion: input.schemaVersion }),
     ...(input.sectionalElements != null && {
@@ -2641,6 +2735,9 @@ const serializeAws_restJson1ValueMappingList = (input: ValueMapping[], context: 
 
 const serializeAws_restJson1ValueMappings = (input: ValueMappings, context: __SerdeContext): any => {
   return {
+    ...(input.bindingProperties != null && {
+      bindingProperties: serializeAws_restJson1FormInputBindingProperties(input.bindingProperties, context),
+    }),
     ...(input.values != null && { values: serializeAws_restJson1ValueMappingList(input.values, context) }),
   };
 };
@@ -3022,6 +3119,10 @@ const deserializeAws_restJson1FieldInputConfig = (output: any, context: __SerdeC
     defaultCountryCode: __expectString(output.defaultCountryCode),
     defaultValue: __expectString(output.defaultValue),
     descriptiveText: __expectString(output.descriptiveText),
+    fileUploaderConfig:
+      output.fileUploaderConfig != null
+        ? deserializeAws_restJson1FileUploaderFieldConfig(output.fileUploaderConfig, context)
+        : undefined,
     isArray: __expectBoolean(output.isArray),
     maxValue: __limitedParseFloat32(output.maxValue),
     minValue: __limitedParseFloat32(output.minValue),
@@ -3072,6 +3173,23 @@ const deserializeAws_restJson1FieldValidationConfiguration = (
   } as any;
 };
 
+const deserializeAws_restJson1FileUploaderFieldConfig = (
+  output: any,
+  context: __SerdeContext
+): FileUploaderFieldConfig => {
+  return {
+    acceptedFileTypes:
+      output.acceptedFileTypes != null
+        ? deserializeAws_restJson1StrValues(output.acceptedFileTypes, context)
+        : undefined,
+    accessLevel: __expectString(output.accessLevel),
+    isResumable: __expectBoolean(output.isResumable),
+    maxFileCount: __expectInt32(output.maxFileCount),
+    maxSize: __expectInt32(output.maxSize),
+    showThumbnails: __expectBoolean(output.showThumbnails),
+  } as any;
+};
+
 const deserializeAws_restJson1Form = (output: any, context: __SerdeContext): Form => {
   return {
     appId: __expectString(output.appId),
@@ -3082,6 +3200,7 @@ const deserializeAws_restJson1Form = (output: any, context: __SerdeContext): For
     fields: output.fields != null ? deserializeAws_restJson1FieldsMap(output.fields, context) : undefined,
     formActionType: __expectString(output.formActionType),
     id: __expectString(output.id),
+    labelDecorator: __expectString(output.labelDecorator),
     name: __expectString(output.name),
     schemaVersion: __expectString(output.schemaVersion),
     sectionalElements:
@@ -3140,13 +3259,82 @@ const deserializeAws_restJson1FormDataTypeConfig = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_restJson1FormInputBindingProperties = (
+  output: any,
+  context: __SerdeContext
+): Record<string, FormInputBindingPropertiesValue> => {
+  return Object.entries(output).reduce(
+    (acc: Record<string, FormInputBindingPropertiesValue>, [key, value]: [string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = deserializeAws_restJson1FormInputBindingPropertiesValue(value, context);
+      return acc;
+    },
+    {}
+  );
+};
+
+const deserializeAws_restJson1FormInputBindingPropertiesValue = (
+  output: any,
+  context: __SerdeContext
+): FormInputBindingPropertiesValue => {
+  return {
+    bindingProperties:
+      output.bindingProperties != null
+        ? deserializeAws_restJson1FormInputBindingPropertiesValueProperties(output.bindingProperties, context)
+        : undefined,
+    type: __expectString(output.type),
+  } as any;
+};
+
+const deserializeAws_restJson1FormInputBindingPropertiesValueProperties = (
+  output: any,
+  context: __SerdeContext
+): FormInputBindingPropertiesValueProperties => {
+  return {
+    model: __expectString(output.model),
+  } as any;
+};
+
 const deserializeAws_restJson1FormInputValueProperty = (
   output: any,
   context: __SerdeContext
 ): FormInputValueProperty => {
   return {
+    bindingProperties:
+      output.bindingProperties != null
+        ? deserializeAws_restJson1FormInputValuePropertyBindingProperties(output.bindingProperties, context)
+        : undefined,
+    concat:
+      output.concat != null ? deserializeAws_restJson1FormInputValuePropertyList(output.concat, context) : undefined,
     value: __expectString(output.value),
   } as any;
+};
+
+const deserializeAws_restJson1FormInputValuePropertyBindingProperties = (
+  output: any,
+  context: __SerdeContext
+): FormInputValuePropertyBindingProperties => {
+  return {
+    field: __expectString(output.field),
+    property: __expectString(output.property),
+  } as any;
+};
+
+const deserializeAws_restJson1FormInputValuePropertyList = (
+  output: any,
+  context: __SerdeContext
+): FormInputValueProperty[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1FormInputValueProperty(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1FormList = (output: any, context: __SerdeContext): Form[] => {
@@ -3252,6 +3440,7 @@ const deserializeAws_restJson1Predicate = (output: any, context: __SerdeContext)
     and: output.and != null ? deserializeAws_restJson1PredicateList(output.and, context) : undefined,
     field: __expectString(output.field),
     operand: __expectString(output.operand),
+    operandType: __expectString(output.operandType),
     operator: __expectString(output.operator),
     or: output.or != null ? deserializeAws_restJson1PredicateList(output.or, context) : undefined,
   } as any;
@@ -3271,6 +3460,7 @@ const deserializeAws_restJson1PredicateList = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1SectionalElement = (output: any, context: __SerdeContext): SectionalElement => {
   return {
+    excluded: __expectBoolean(output.excluded),
     level: __expectInt32(output.level),
     orientation: __expectString(output.orientation),
     position:
@@ -3451,6 +3641,10 @@ const deserializeAws_restJson1ValueMappingList = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1ValueMappings = (output: any, context: __SerdeContext): ValueMappings => {
   return {
+    bindingProperties:
+      output.bindingProperties != null
+        ? deserializeAws_restJson1FormInputBindingProperties(output.bindingProperties, context)
+        : undefined,
     values: output.values != null ? deserializeAws_restJson1ValueMappingList(output.values, context) : undefined,
   } as any;
 };
