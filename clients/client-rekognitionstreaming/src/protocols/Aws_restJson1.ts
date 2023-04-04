@@ -25,17 +25,13 @@ import {
   StartFaceLivenessSessionCommandOutput,
 } from "../commands/StartFaceLivenessSessionCommand";
 import {
-  StartStreamingLivenessSessionCommandInput,
-  StartStreamingLivenessSessionCommandOutput,
-} from "../commands/StartStreamingLivenessSessionCommand";
-import {
   AccessDeniedException,
   BoundingBox,
+  ChallengeConfig,
   ClientChallenge,
   ClientSessionInformationEvent,
   ColorDisplayed,
   ColorSequence,
-  DeviceInformation,
   DisconnectionEvent,
   FaceMovementAndLightClientChallenge,
   FaceMovementAndLightServerChallenge,
@@ -44,10 +40,11 @@ import {
   InternalServerException,
   LivenessRequestStream,
   LivenessResponseStream,
-  OvalScaleFactors,
+  OvalParameters,
   ServerChallenge,
   ServerSessionInformationEvent,
   ServiceQuotaExceededException,
+  ServiceUnavailableException,
   SessionInformation,
   SessionNotFoundException,
   TargetFace,
@@ -64,36 +61,12 @@ export const serializeAws_restJson1StartFaceLivenessSessionCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-rekognition-streaming-liveness-session-id": input.SessionId!,
-    "x-amz-rekognition-streaming-liveness-client-sdk-version": input.ClientSDKVersion!,
+    "x-amz-rekognition-streaming-liveness-video-width": input.VideoWidth!,
+    "x-amz-rekognition-streaming-liveness-video-height": input.VideoHeight!,
+    "x-amz-rekognition-streaming-liveness-challenge-versions": input.ChallengeVersions!,
   });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/start-face-liveness-session";
-  let body: any;
-  if (input.LivenessRequestStream !== undefined) {
-    body = serializeAws_restJson1LivenessRequestStream(input.LivenessRequestStream, context);
-  }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
-};
-
-export const serializeAws_restJson1StartStreamingLivenessSessionCommand = async (
-  input: StartStreamingLivenessSessionCommandInput,
-  context: __SerdeContext & __EventStreamSerdeContext
-): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-rekognition-streaming-liveness-session-id": input.SessionId!,
-    "x-amz-rekognition-streaming-liveness-client-sdk-version": input.ClientSDKVersion!,
-  });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/start-streaming-liveness-session";
   let body: any;
   if (input.LivenessRequestStream !== undefined) {
     body = serializeAws_restJson1LivenessRequestStream(input.LivenessRequestStream, context);
@@ -144,61 +117,9 @@ const deserializeAws_restJson1StartFaceLivenessSessionCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.rekognitionstreaming#ServiceQuotaExceededException":
       throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
-    case "SessionNotFoundException":
-    case "com.amazonaws.rekognitionstreaming#SessionNotFoundException":
-      throw await deserializeAws_restJson1SessionNotFoundExceptionResponse(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognitionstreaming#ThrottlingException":
-      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.rekognitionstreaming#ValidationException":
-      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      throwDefaultError({
-        output,
-        parsedBody,
-        exceptionCtor: __BaseException,
-        errorCode,
-      });
-  }
-};
-
-export const deserializeAws_restJson1StartStreamingLivenessSessionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext & __EventStreamSerdeContext
-): Promise<StartStreamingLivenessSessionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StartStreamingLivenessSessionCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-    SessionId: [, output.headers["x-amz-rekognition-streaming-liveness-session-id"]],
-  });
-  const data: any = output.body;
-  contents.LivenessResponseStream = deserializeAws_restJson1LivenessResponseStream(data, context);
-  return contents;
-};
-
-const deserializeAws_restJson1StartStreamingLivenessSessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartStreamingLivenessSessionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognitionstreaming#AccessDeniedException":
-      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.rekognitionstreaming#InternalServerException":
-      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.rekognitionstreaming#ServiceQuotaExceededException":
-      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.rekognitionstreaming#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "SessionNotFoundException":
     case "com.amazonaws.rekognitionstreaming#SessionNotFoundException":
       throw await deserializeAws_restJson1SessionNotFoundExceptionResponse(parsedOutput, context);
@@ -271,6 +192,25 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
     contents.Message = __expectString(data.Message);
   }
   const exception = new ServiceQuotaExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServiceUnavailableException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  if (data.Code != null) {
+    contents.Code = __expectString(data.Code);
+  }
+  if (data.Message != null) {
+    contents.Message = __expectString(data.Message);
+  }
+  const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -425,6 +365,14 @@ const deserializeAws_restJson1LivenessResponseStream = (
         ),
       };
     }
+    if (event["ServiceUnavailableException"] != null) {
+      return {
+        ServiceUnavailableException: await deserializeAws_restJson1ServiceUnavailableException_event(
+          event["ServiceUnavailableException"],
+          context
+        ),
+      };
+    }
     return { $unknown: output };
   });
 };
@@ -465,6 +413,16 @@ const deserializeAws_restJson1ServiceQuotaExceededException_event = async (
     body: await parseBody(output.body, context),
   };
   return deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+};
+const deserializeAws_restJson1ServiceUnavailableException_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<ServiceUnavailableException> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  return deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
 };
 const deserializeAws_restJson1ThrottlingException_event = async (
   output: any,
@@ -510,9 +468,6 @@ const serializeAws_restJson1ClientSessionInformationEvent = (
 ): any => {
   return {
     ...(input.Challenge != null && { Challenge: serializeAws_restJson1ClientChallenge(input.Challenge, context) }),
-    ...(input.DeviceInformation != null && {
-      DeviceInformation: serializeAws_restJson1DeviceInformation(input.DeviceInformation, context),
-    }),
   };
 };
 
@@ -537,14 +492,6 @@ const serializeAws_restJson1ColorDisplayed = (input: ColorDisplayed, context: __
   };
 };
 
-const serializeAws_restJson1DeviceInformation = (input: DeviceInformation, context: __SerdeContext): any => {
-  return {
-    ...(input.ClientSDKVersion != null && { ClientSDKVersion: input.ClientSDKVersion }),
-    ...(input.VideoHeight != null && { VideoHeight: __serializeFloat(input.VideoHeight) }),
-    ...(input.VideoWidth != null && { VideoWidth: __serializeFloat(input.VideoWidth) }),
-  };
-};
-
 const serializeAws_restJson1FaceMovementAndLightClientChallenge = (
   input: FaceMovementAndLightClientChallenge,
   context: __SerdeContext
@@ -556,6 +503,7 @@ const serializeAws_restJson1FaceMovementAndLightClientChallenge = (
     }),
     ...(input.InitialFace != null && { InitialFace: serializeAws_restJson1InitialFace(input.InitialFace, context) }),
     ...(input.TargetFace != null && { TargetFace: serializeAws_restJson1TargetFace(input.TargetFace, context) }),
+    ...(input.VideoEndTimestamp != null && { VideoEndTimestamp: input.VideoEndTimestamp }),
     ...(input.VideoStartTimestamp != null && { VideoStartTimestamp: input.VideoStartTimestamp }),
   };
 };
@@ -592,6 +540,21 @@ const serializeAws_restJson1VideoEvent = (input: VideoEvent, context: __SerdeCon
     ...(input.TimestampMillis != null && { TimestampMillis: input.TimestampMillis }),
     ...(input.VideoChunk != null && { VideoChunk: context.base64Encoder(input.VideoChunk) }),
   };
+};
+
+const deserializeAws_restJson1ChallengeConfig = (output: any, context: __SerdeContext): ChallengeConfig => {
+  return {
+    BlazeFaceDetectionThreshold: __limitedParseFloat32(output.BlazeFaceDetectionThreshold),
+    FaceDistanceThreshold: __limitedParseFloat32(output.FaceDistanceThreshold),
+    FaceDistanceThresholdMax: __limitedParseFloat32(output.FaceDistanceThresholdMax),
+    FaceDistanceThresholdMin: __limitedParseFloat32(output.FaceDistanceThresholdMin),
+    FaceIouHeightThreshold: __limitedParseFloat32(output.FaceIouHeightThreshold),
+    FaceIouWidthThreshold: __limitedParseFloat32(output.FaceIouWidthThreshold),
+    OvalHeightWidthRatio: __limitedParseFloat32(output.OvalHeightWidthRatio),
+    OvalIouHeightThreshold: __limitedParseFloat32(output.OvalIouHeightThreshold),
+    OvalIouThreshold: __limitedParseFloat32(output.OvalIouThreshold),
+    OvalIouWidthThreshold: __limitedParseFloat32(output.OvalIouWidthThreshold),
+  } as any;
 };
 
 const deserializeAws_restJson1ColorComponentList = (output: any, context: __SerdeContext): number[] => {
@@ -640,14 +603,18 @@ const deserializeAws_restJson1FaceMovementAndLightServerChallenge = (
   context: __SerdeContext
 ): FaceMovementAndLightServerChallenge => {
   return {
+    ChallengeConfig:
+      output.ChallengeConfig != null
+        ? deserializeAws_restJson1ChallengeConfig(output.ChallengeConfig, context)
+        : undefined,
     ColorSequences:
       output.ColorSequences != null
         ? deserializeAws_restJson1ColorSequences(output.ColorSequences, context)
         : undefined,
     LightChallengeType: __expectString(output.LightChallengeType),
-    OvalScaleFactors:
-      output.OvalScaleFactors != null
-        ? deserializeAws_restJson1OvalScaleFactors(output.OvalScaleFactors, context)
+    OvalParameters:
+      output.OvalParameters != null
+        ? deserializeAws_restJson1OvalParameters(output.OvalParameters, context)
         : undefined,
   } as any;
 };
@@ -658,10 +625,11 @@ const deserializeAws_restJson1FreshnessColor = (output: any, context: __SerdeCon
   } as any;
 };
 
-const deserializeAws_restJson1OvalScaleFactors = (output: any, context: __SerdeContext): OvalScaleFactors => {
+const deserializeAws_restJson1OvalParameters = (output: any, context: __SerdeContext): OvalParameters => {
   return {
     CenterX: __limitedParseFloat32(output.CenterX),
     CenterY: __limitedParseFloat32(output.CenterY),
+    Height: __limitedParseFloat32(output.Height),
     Width: __limitedParseFloat32(output.Width),
   } as any;
 };

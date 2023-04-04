@@ -212,11 +212,3 @@ StartFaceLivenessSession
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognitionstreaming/classes/startfacelivenesssessioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognitionstreaming/interfaces/startfacelivenesssessioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognitionstreaming/interfaces/startfacelivenesssessioncommandoutput.html)
 
 </details>
-<details>
-<summary>
-StartStreamingLivenessSession
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognitionstreaming/classes/startstreaminglivenesssessioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognitionstreaming/interfaces/startstreaminglivenesssessioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rekognitionstreaming/interfaces/startstreaminglivenesssessioncommandoutput.html)
-
-</details>
