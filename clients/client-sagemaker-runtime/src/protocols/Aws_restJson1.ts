@@ -181,6 +181,7 @@ export const deserializeAws_restJson1InvokeEndpointAsyncCommand = async (
   const contents: any = map({
     $metadata: deserializeMetadata(output),
     OutputLocation: [, output.headers["x-amzn-sagemaker-outputlocation"]],
+    FailureLocation: [, output.headers["x-amzn-sagemaker-failurelocation"]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.InferenceId != null) {

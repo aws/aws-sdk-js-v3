@@ -362,6 +362,11 @@ export interface InvokeEndpointAsyncOutput {
    * <p>The Amazon S3 URI where the inference response payload is stored.</p>
    */
   OutputLocation?: string;
+
+  /**
+   * <p>The Amazon S3 URI where the inference failure response payload is stored.</p>
+   */
+  FailureLocation?: string;
 }
 
 /**
