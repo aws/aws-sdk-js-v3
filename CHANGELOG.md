@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.306.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.305.0...v3.306.0) (2023-04-04)
+
+
+### Bug Fixes
+
+* **types:** node-http-handler type imports and @aws-sdk/types exports ([#4610](https://github.com/aws/aws-sdk-js-v3/issues/4610)) ([8ee06d4](https://github.com/aws/aws-sdk-js-v3/commit/8ee06d4af4513ffc9aaa8909f48b5482522834b4))
+
+
+### Features
+
+* **client-amplifyuibuilder:** Support StorageField and custom displays for data-bound options in form builder. Support non-string operands for predicates in collections. Support choosing client to get token from. ([b24e527](https://github.com/aws/aws-sdk-js-v3/commit/b24e52735b1760d8c0422e0b258960a785031348))
+* **client-dataexchange:** This release updates the value of MaxResults. ([b795ebc](https://github.com/aws/aws-sdk-js-v3/commit/b795ebc16c56c838d6539fda509ff5baf6197d8b))
+* **client-ec2:** C6in, M6in, M6idn, R6in and R6idn bare metal instances are powered by 3rd Generation Intel Xeon Scalable processors and offer up to 200 Gbps of network bandwidth. ([01bddbc](https://github.com/aws/aws-sdk-js-v3/commit/01bddbc14a6fec92283fa53e5050d50f5fb63750))
+* **client-elastic-inference:** Updated public documentation for the Describe and Tagging APIs. ([e28258e](https://github.com/aws/aws-sdk-js-v3/commit/e28258e790182f2529ac6f17da16087a74df65e1))
+* **client-rekognitionstreaming:** update model ([#4609](https://github.com/aws/aws-sdk-js-v3/issues/4609)) ([ddb0c5d](https://github.com/aws/aws-sdk-js-v3/commit/ddb0c5d84defd4352adabdcef0767db78ffb137c))
+* **client-sagemaker-runtime:** Amazon SageMaker Asynchronous Inference now provides customers a FailureLocation as a response parameter in InvokeEndpointAsync API to capture the model failure responses. ([62f9c4d](https://github.com/aws/aws-sdk-js-v3/commit/62f9c4de0c6c712b738000be6467a1f9be23c559))
+* **client-sagemaker:** Amazon SageMaker Asynchronous Inference now allows customer's to receive failure model responses in S3 and receive success/failure model responses in SNS notifications. ([bbc2fd1](https://github.com/aws/aws-sdk-js-v3/commit/bbc2fd17d9e3778a250453927d5dc3abdb2feeb6))
+* **client-wafv2:** This release rolls back association config feature for webACLs that protect CloudFront protections. ([f96b649](https://github.com/aws/aws-sdk-js-v3/commit/f96b6490cc6ddf1d7777c6586dc51bbdfa618162))
+* **clients:** update client endpoints as of 2023-04-04 ([597085d](https://github.com/aws/aws-sdk-js-v3/commit/597085dddede592dca2685f8e7b2b76f98cda0f5))
+
+
+
+
+
 # [3.305.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.304.0...v3.305.0) (2023-04-03)
 
 

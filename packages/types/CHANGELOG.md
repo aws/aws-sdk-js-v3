@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.306.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.305.0...v3.306.0) (2023-04-04)
+
+
+### Bug Fixes
+
+* **types:** node-http-handler type imports and @aws-sdk/types exports ([#4610](https://github.com/aws/aws-sdk-js-v3/issues/4610)) ([8ee06d4](https://github.com/aws/aws-sdk-js-v3/commit/8ee06d4af4513ffc9aaa8909f48b5482522834b4))
+
+
+
+
+
 # [3.303.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.302.0...v3.303.0) (2023-03-30)
 
 **Note:** Version bump only for package @aws-sdk/types

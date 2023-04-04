@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.306.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.305.0...v3.306.0) (2023-04-04)
+
+
+### Features
+
+* **client-elastic-inference:** Updated public documentation for the Describe and Tagging APIs. ([e28258e](https://github.com/aws/aws-sdk-js-v3/commit/e28258e790182f2529ac6f17da16087a74df65e1))
+
+
+
+
+
 # [3.303.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.302.0...v3.303.0) (2023-03-30)
 
 **Note:** Version bump only for package @aws-sdk/client-elastic-inference
