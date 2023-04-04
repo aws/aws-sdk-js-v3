@@ -369,13 +369,12 @@ export class AutoScaling extends AutoScalingClient {
   /**
    * @public
    * <note>
-   *             <p>This API call has been replaced with a new "traffic sources" API call
-   *                     (<code>AttachTrafficSources</code>) that can attach multiple traffic sources
-   *                 types. While we continue to support <code>AttachLoadBalancers</code>, and you can
-   *                 use both the original <code>AttachLoadBalancers</code> API call and the new
-   *                     <code>AttachTrafficSources</code> API call on the same Auto Scaling group, we recommend
-   *                 using the new "traffic sources" API call to simplify how you manage traffic
-   *                 sources.</p>
+   *             <p>This API operation is superseded by <a>AttachTrafficSources</a>, which
+   *                 can attach multiple traffic sources types. We recommend using
+   *                     <code>AttachTrafficSources</code> to simplify how you manage traffic sources.
+   *                 However, we continue to support <code>AttachLoadBalancers</code>. You can use both
+   *                 the original <code>AttachLoadBalancers</code> API operation and
+   *                     <code>AttachTrafficSources</code> on the same Auto Scaling group.</p>
    *          </note>
    *          <p>Attaches one or more Classic Load Balancers to the specified Auto Scaling group. Amazon EC2 Auto Scaling registers the
    *             running instances with these Classic Load Balancers.</p>
@@ -419,13 +418,12 @@ export class AutoScaling extends AutoScalingClient {
   /**
    * @public
    * <note>
-   *             <p>This API call has been replaced with a new "traffic sources" API call
-   *                     (<code>AttachTrafficSources</code>) that can attach multiple traffic sources
-   *                 types. While we continue to support <code>AttachLoadBalancerTargetGroups</code>, and
-   *                 you can use both the original <code>AttachLoadBalancerTargetGroups</code> API call
-   *                 and the new <code>AttachTrafficSources</code> API call on the same Auto Scaling group, we
-   *                 recommend using the new "traffic sources" API call to simplify how you manage
-   *                 traffic sources.</p>
+   *             <p>This API operation is superseded by <a>AttachTrafficSources</a>, which
+   *                 can attach multiple traffic sources types. We recommend using
+   *                     <code>AttachTrafficSources</code> to simplify how you manage traffic sources.
+   *                 However, we continue to support <code>AttachLoadBalancerTargetGroups</code>. You can
+   *                 use both the original <code>AttachLoadBalancerTargetGroups</code> API operation and
+   *                     <code>AttachTrafficSources</code> on the same Auto Scaling group.</p>
    *          </note>
    *          <p>Attaches one or more target groups to the specified Auto Scaling group.</p>
    *          <p>This operation is used with the following load balancer types: </p>
@@ -491,10 +489,10 @@ export class AutoScaling extends AutoScalingClient {
    *                <p>Classic Load Balancer</p>
    *             </li>
    *             <li>
-   *                <p>Network Load Balancer</p>
+   *                <p>Gateway Load Balancer</p>
    *             </li>
    *             <li>
-   *                <p>Gateway Load Balancer</p>
+   *                <p>Network Load Balancer</p>
    *             </li>
    *             <li>
    *                <p>VPC Lattice</p>
@@ -1475,13 +1473,12 @@ export class AutoScaling extends AutoScalingClient {
   /**
    * @public
    * <note>
-   *             <p>This API call has been replaced with a new "traffic sources" API call
-   *                     (<code>DescribeTrafficSources</code>) that can describe multiple traffic sources
-   *                 types. While we continue to support <code>DescribeLoadBalancers</code>, and you can
-   *                 use both the original <code>DescribeLoadBalancers</code> API call and the new
-   *                     <code>DescribeTrafficSources</code> API call on the same Auto Scaling group, we
-   *                 recommend using the new "traffic sources" API call to simplify how you manage
-   *                 traffic sources.</p>
+   *             <p>This API operation is superseded by <a>DescribeTrafficSources</a>,
+   *                 which can describe multiple traffic sources types. We recommend using
+   *                     <code>DescribeTrafficSources</code> to simplify how you manage traffic sources.
+   *                 However, we continue to support <code>DescribeLoadBalancers</code>. You can use both
+   *                 the original <code>DescribeLoadBalancers</code> API operation and
+   *                     <code>DescribeTrafficSources</code> on the same Auto Scaling group.</p>
    *          </note>
    *          <p>Gets information about the load balancers for the specified Auto Scaling group.</p>
    *          <p>This operation describes only Classic Load Balancers. If you have Application Load Balancers, Network Load Balancers, or Gateway Load Balancers, use the
@@ -1539,13 +1536,12 @@ export class AutoScaling extends AutoScalingClient {
   /**
    * @public
    * <note>
-   *             <p>This API call has been replaced with a new "traffic sources" API call
-   *                     (<code>DescribeTrafficSources</code>) that can describe multiple traffic sources
-   *                 types. While we continue to support <code>DescribeLoadBalancerTargetGroups</code>,
-   *                 and you can use both the original <code>DescribeLoadBalancerTargetGroups</code> API
-   *                 call and the new <code>DescribeTrafficSources</code> API call on the same Auto Scaling
-   *                 group, we recommend using the new "traffic sources" API call to simplify how you
-   *                 manage traffic sources.</p>
+   *             <p>This API operation is superseded by <a>DescribeTrafficSources</a>,
+   *                 which can describe multiple traffic sources types. We recommend using
+   *                     <code>DetachTrafficSources</code> to simplify how you manage traffic sources.
+   *                 However, we continue to support <code>DescribeLoadBalancerTargetGroups</code>. You
+   *                 can use both the original <code>DescribeLoadBalancerTargetGroups</code> API
+   *                 operation and <code>DescribeTrafficSources</code> on the same Auto Scaling group.</p>
    *          </note>
    *          <p>Gets information about the Elastic Load Balancing target groups for the specified Auto Scaling group.</p>
    *          <p>To determine the attachment status of the target group, use the <code>State</code>
@@ -2004,13 +2000,12 @@ export class AutoScaling extends AutoScalingClient {
   /**
    * @public
    * <note>
-   *             <p>This API call has been replaced with a new "traffic sources" API call
-   *                 (<code>DetachTrafficSources</code>) that can detach multiple traffic sources
-   *                 types. While we continue to support <code>DetachLoadBalancers</code>, and you can
-   *                 use both the original <code>DetachLoadBalancers</code> API call and the new
-   *                     <code>DetachTrafficSources</code> API call on the same Auto Scaling group, we recommend
-   *                 using the new "traffic sources" API call to simplify how you manage traffic
-   *                 sources.</p>
+   *             <p>This API operation is superseded by <a>DetachTrafficSources</a>, which
+   *                 can detach multiple traffic sources types. We recommend using
+   *                     <code>DetachTrafficSources</code> to simplify how you manage traffic sources.
+   *                 However, we continue to support <code>DetachLoadBalancers</code>. You can use both
+   *                 the original <code>DetachLoadBalancers</code> API operation and
+   *                     <code>DetachTrafficSources</code> on the same Auto Scaling group.</p>
    *          </note>
    *          <p>Detaches one or more Classic Load Balancers from the specified Auto Scaling group.</p>
    *          <p>This operation detaches only Classic Load Balancers. If you have Application Load Balancers, Network Load Balancers, or
@@ -2051,13 +2046,12 @@ export class AutoScaling extends AutoScalingClient {
   /**
    * @public
    * <note>
-   *             <p>This API call has been replaced with a new "traffic sources" API call
-   *                     (<code>DetachTrafficSources</code>) that can detach multiple traffic sources
-   *                 types. While we continue to support <code>DetachLoadBalancerTargetGroups</code>, and
-   *                 you can use both the original <code>DetachLoadBalancerTargetGroups</code> API call
-   *                 and the new <code>DetachTrafficSources</code> API call on the same Auto Scaling group, we
-   *                 recommend using the new "traffic sources" API call to simplify how you manage
-   *                 traffic sources.</p>
+   *             <p>This API operation is superseded by <a>DetachTrafficSources</a>, which
+   *                 can detach multiple traffic sources types. We recommend using
+   *                     <code>DetachTrafficSources</code> to simplify how you manage traffic sources.
+   *                 However, we continue to support <code>DetachLoadBalancerTargetGroups</code>. You can
+   *                 use both the original <code>DetachLoadBalancerTargetGroups</code> API operation and
+   *                     <code>DetachTrafficSources</code> on the same Auto Scaling group.</p>
    *          </note>
    *          <p>Detaches one or more target groups from the specified Auto Scaling group.</p>
    *          <p>When you detach a target group, it enters the <code>Removing</code> state while

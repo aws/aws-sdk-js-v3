@@ -36,13 +36,12 @@ export interface AttachLoadBalancersCommandOutput extends AttachLoadBalancersRes
 /**
  * @public
  * <note>
- *             <p>This API call has been replaced with a new "traffic sources" API call
- *                     (<code>AttachTrafficSources</code>) that can attach multiple traffic sources
- *                 types. While we continue to support <code>AttachLoadBalancers</code>, and you can
- *                 use both the original <code>AttachLoadBalancers</code> API call and the new
- *                     <code>AttachTrafficSources</code> API call on the same Auto Scaling group, we recommend
- *                 using the new "traffic sources" API call to simplify how you manage traffic
- *                 sources.</p>
+ *             <p>This API operation is superseded by <a>AttachTrafficSources</a>, which
+ *                 can attach multiple traffic sources types. We recommend using
+ *                     <code>AttachTrafficSources</code> to simplify how you manage traffic sources.
+ *                 However, we continue to support <code>AttachLoadBalancers</code>. You can use both
+ *                 the original <code>AttachLoadBalancers</code> API operation and
+ *                     <code>AttachTrafficSources</code> on the same Auto Scaling group.</p>
  *          </note>
  *          <p>Attaches one or more Classic Load Balancers to the specified Auto Scaling group. Amazon EC2 Auto Scaling registers the
  *             running instances with these Classic Load Balancers.</p>

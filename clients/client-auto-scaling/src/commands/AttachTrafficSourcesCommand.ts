@@ -45,10 +45,10 @@ export interface AttachTrafficSourcesCommandOutput extends AttachTrafficSourcesR
  *                <p>Classic Load Balancer</p>
  *             </li>
  *             <li>
- *                <p>Network Load Balancer</p>
+ *                <p>Gateway Load Balancer</p>
  *             </li>
  *             <li>
- *                <p>Gateway Load Balancer</p>
+ *                <p>Network Load Balancer</p>
  *             </li>
  *             <li>
  *                <p>VPC Lattice</p>

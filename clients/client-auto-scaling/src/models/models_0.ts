@@ -1706,11 +1706,13 @@ export interface CreateAutoScalingGroupType {
   TargetGroupARNs?: string[];
 
   /**
-   * <p>A comma-separated list of one or more health check types.</p>
+   * <p>A comma-separated value string of one or more health check types.</p>
    *          <p>The valid values are <code>EC2</code>, <code>ELB</code>, and <code>VPC_LATTICE</code>.
    *                 <code>EC2</code> is the default health check and cannot be disabled. For more
    *             information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health checks for Auto Scaling
    *                 instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *          <p>Only specify <code>EC2</code> if you must clear a value that was previously
+   *             set.</p>
    */
   HealthCheckType?: string;
 
@@ -3009,7 +3011,7 @@ export interface AutoScalingGroup {
   TargetGroupARNs?: string[];
 
   /**
-   * <p>A comma-separated list of one or more health check types.</p>
+   * <p>A comma-separated value string of one or more health check types.</p>
    */
   HealthCheckType: string | undefined;
 
@@ -6046,8 +6048,8 @@ export interface DetachTrafficSourcesType {
   AutoScalingGroupName: string | undefined;
 
   /**
-   * <p>The unique identifiers of one or more traffic sources you are detaching. You can
-   *             specify up to 10 traffic sources.</p>
+   * <p>The unique identifiers of one or more traffic sources. You can specify up to 10
+   *             traffic sources.</p>
    */
   TrafficSources: TrafficSourceIdentifier[] | undefined;
 }
@@ -7325,11 +7327,13 @@ export interface UpdateAutoScalingGroupType {
   AvailabilityZones?: string[];
 
   /**
-   * <p>A comma-separated list of one or more health check types.</p>
+   * <p>A comma-separated value string of one or more health check types.</p>
    *          <p>The valid values are <code>EC2</code>, <code>ELB</code>, and <code>VPC_LATTICE</code>.
    *                 <code>EC2</code> is the default health check and cannot be disabled. For more
    *             information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health checks for Auto Scaling
    *                 instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *          <p>Only specify <code>EC2</code> if you must clear a value that was previously
+   *             set.</p>
    */
   HealthCheckType?: string;
 
