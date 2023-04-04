@@ -1,4 +1,4 @@
-import { ConnectionPool } from "@aws-sdk/types/src/connection/pool";
+import { ConnectionPool } from "@aws-sdk/types";
 import { ClientHttp2Session } from "http2";
 
 export class NodeHttp2ConnectionPool implements ConnectionPool<ClientHttp2Session> {
