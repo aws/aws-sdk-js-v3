@@ -36,7 +36,7 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
 /**
  * @public
  * <p>Creates a <a>WebACL</a> per the specifications provided.</p>
- *          <p> A web ACL defines a collection of rules to use to inspect and control web requests. Each rule has an action defined (allow, block, or count) for requests that match the statement of the rule. In the web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a web ACL can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule group. You can associate a web ACL with one or more Amazon Web Services resources to protect. The resources can be an Amazon CloudFront distribution, an Amazon API Gateway REST API, an Application Load Balancer, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+ *          <p> A web ACL defines a collection of rules to use to inspect and control web requests. Each rule has an action defined (allow, block, or count) for requests that match the statement of the rule. In the web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a web ACL can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule group. You can associate a web ACL with one or more Amazon Web Services resources to protect. The resources can be an Amazon CloudFront distribution, an Amazon API Gateway REST API, an Application Load Balancer, an AppSync GraphQL API, Amazon Cognito user pool, or an App Runner service.  </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -802,13 +802,6 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *   TokenDomains: [ // TokenDomains
  *     "STRING_VALUE",
  *   ],
- *   AssociationConfig: { // AssociationConfig
- *     RequestBody: { // RequestBody
- *       "<keys>": { // RequestBodyAssociatedResourceTypeConfig
- *         DefaultSizeInspectionLimit: "KB_16" || "KB_32" || "KB_48" || "KB_64", // required
- *       },
- *     },
- *   },
  * };
  * const command = new CreateWebACLCommand(input);
  * const response = await client.send(command);
