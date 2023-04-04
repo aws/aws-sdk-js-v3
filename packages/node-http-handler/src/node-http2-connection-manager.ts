@@ -1,6 +1,6 @@
 import { RequestContext } from "@aws-sdk/types";
-import { ConnectConfiguration } from "@aws-sdk/types/src/connection/config";
-import { ConnectionManager, ConnectionManagerConfiguration } from "@aws-sdk/types/src/connection/manager";
+import { ConnectConfiguration } from "@aws-sdk/types";
+import { ConnectionManager, ConnectionManagerConfiguration } from "@aws-sdk/types";
 import http2, { ClientHttp2Session } from "http2";
 
 import { NodeHttp2ConnectionPool } from "./node-http2-connection-pool";
@@ -37,9 +37,9 @@ export class NodeHttp2ConnectionManager implements ConnectionManager<ClientHttp2
         if (err) {
           throw new Error(
             "Fail to set maxConcurrentStreams to " +
-              this.config.maxConcurrency +
-              "when creating new session for " +
-              requestContext.destination.toString()
+            this.config.maxConcurrency +
+            "when creating new session for " +
+            requestContext.destination.toString()
           );
         }
       });

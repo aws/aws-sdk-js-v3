@@ -3,6 +3,7 @@ export * from "./auth";
 export * from "./checksum";
 export * from "./client";
 export * from "./command";
+export * from "./connection";
 export * from "./credentials";
 export * from "./crypto";
 export * from "./dns";
