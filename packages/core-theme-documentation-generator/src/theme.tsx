@@ -127,6 +127,8 @@ class SdkThemeContext extends DefaultThemeRenderContext {
           elm.role = "main"
           elm.tabIndex = "-1"
 
+          document.querySelector('.container-main').id = 'jump-to-content'
+          
           document.querySelector('.tsd-navigation.secondary')['ariaLabel'] = "Types"
 
           if (document.querySelectorAll('img[alt~="NPM"]').length > 0) {
@@ -266,7 +268,6 @@ class SdkThemeContext extends DefaultThemeRenderContext {
         <>
           <style>{style}</style>
           {oldHeader(props)}
-          <div id="jump-to-content" tabIndex={-1} />
         </>
       );
     };
