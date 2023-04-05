@@ -70,15 +70,14 @@ export interface CustomHTTPHeader {
  * <p>Custom request handling behavior that inserts custom headers into a web request. You can
  *       add custom request handling for WAF to use when the rule action doesn't block the request.
  *           For example, <code>CaptchaAction</code> for requests with valid t okens, and <code>AllowAction</code>. </p>
- *          <p>For information about customizing web requests and responses,
- *            see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a>
- *     in the <i>WAF Developer Guide</i>. </p>
+ *          <p>For information about customizing web requests and responses, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the
+ *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
  */
 export interface CustomRequestHandling {
   /**
    * <p>The HTTP headers to insert into the request. Duplicate header names are not allowed. </p>
-   *          <p>For information about the limits on count and size for custom request and response settings, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a>
-   *      in the <i>WAF Developer Guide</i>. </p>
+   *          <p>For information about the limits on count and size for custom request and response settings, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a> in the
+   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
    */
   InsertHeaders: CustomHTTPHeader[] | undefined;
 }
@@ -92,9 +91,8 @@ export interface CustomRequestHandling {
 export interface AllowAction {
   /**
    * <p>Defines custom handling for the web request.</p>
-   *          <p>For information about customizing web requests and responses,
-   *            see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a>
-   *     in the <i>WAF Developer Guide</i>. </p>
+   *          <p>For information about customizing web requests and responses, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the
+   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
    */
   CustomRequestHandling?: CustomRequestHandling;
 }
@@ -132,11 +130,9 @@ export type OversizeHandling = (typeof OversizeHandling)[keyof typeof OversizeHa
 export interface Body {
   /**
    * <p>What WAF should do if the body is larger than WAF can inspect.
-   *     WAF does not support inspecting the entire contents of the web request body if the body
-   *     exceeds the limit for the resource type. If the body is larger than the limit, the underlying host service
-   *     only forwards the contents that are below the limit to WAF for inspection. </p>
-   *          <p>The default limit is 8 KB (8,192 kilobytes) for regional resources and 16 KB (16,384 kilobytes) for CloudFront distributions. For CloudFront distributions,
-   *     you can increase the limit in the web ACL <code>AssociationConfig</code>, for additional processing fees. </p>
+   *     WAF does not support inspecting the entire contents of the body of a web request
+   *       when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to
+   *     WAF by the underlying host service. </p>
    *          <p>The options for oversize handling are the following:</p>
    *          <ul>
    *             <li>
@@ -155,7 +151,7 @@ export interface Body {
    *             </li>
    *          </ul>
    *          <p>You can combine the <code>MATCH</code> or <code>NO_MATCH</code>
-   *       settings for oversize handling with your rule and web ACL action settings, so that you block any request whose body is over the limit. </p>
+   *       settings for oversize handling with your rule and web ACL action settings, so that you block any request whose body is over 8 KB. </p>
    *          <p>Default: <code>CONTINUE</code>
    *          </p>
    */
@@ -470,11 +466,9 @@ export interface JsonBody {
 
   /**
    * <p>What WAF should do if the body is larger than WAF can inspect.
-   *     WAF does not support inspecting the entire contents of the web request body if the body
-   *     exceeds the limit for the resource type. If the body is larger than the limit, the underlying host service
-   *     only forwards the contents that are below the limit to WAF for inspection. </p>
-   *          <p>The default limit is 8 KB (8,192 kilobytes) for regional resources and 16 KB (16,384 kilobytes) for CloudFront distributions. For CloudFront distributions,
-   *     you can increase the limit in the web ACL <code>AssociationConfig</code>, for additional processing fees. </p>
+   *     WAF does not support inspecting the entire contents of the body of a web request
+   *       when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to
+   *     WAF by the underlying host service. </p>
    *          <p>The options for oversize handling are the following:</p>
    *          <ul>
    *             <li>
@@ -493,7 +487,7 @@ export interface JsonBody {
    *             </li>
    *          </ul>
    *          <p>You can combine the <code>MATCH</code> or <code>NO_MATCH</code>
-   *       settings for oversize handling with your rule and web ACL action settings, so that you block any request whose body is over the limit. </p>
+   *       settings for oversize handling with your rule and web ACL action settings, so that you block any request whose body is over 8 KB. </p>
    *          <p>Default: <code>CONTINUE</code>
    *          </p>
    */
@@ -622,10 +616,8 @@ export interface FieldToMatch {
    * <p>Inspect the request body as plain text. The request body immediately follows the request
    *          headers. This is the part of a request that contains any additional data that you want to
    *          send to your web server as the HTTP request body, such as data from a form. </p>
-   *          <p>A limited amount of the request body is forwarded to WAF for
-   *       inspection by the underlying host service. For regional resources, the limit is 8 KB (8,192 kilobytes) and for CloudFront distributions, the limit is 16 KB (16,384 kilobytes). For CloudFront distributions,
-   *     you can increase the limit in the web ACL's <code>AssociationConfig</code>, for additional processing fees. </p>
-   *          <p>For information about how to handle oversized
+   *          <p>Only the first 8 KB (8192 bytes) of the request body are forwarded to WAF for
+   *          inspection by the underlying host service. For information about how to handle oversized
    *          request bodies, see the <code>Body</code> object configuration. </p>
    */
   Body?: Body;
@@ -640,10 +632,8 @@ export interface FieldToMatch {
    * <p>Inspect the request body as JSON. The request body immediately follows the request
    *          headers. This is the part of a request that contains any additional data that you want to
    *          send to your web server as the HTTP request body, such as data from a form. </p>
-   *          <p>A limited amount of the request body is forwarded to WAF for
-   *       inspection by the underlying host service. For regional resources, the limit is 8 KB (8,192 kilobytes) and for CloudFront distributions, the limit is 16 KB (16,384 kilobytes). For CloudFront distributions,
-   *     you can increase the limit in the web ACL's <code>AssociationConfig</code>, for additional processing fees. </p>
-   *          <p>For information about how to handle oversized
+   *          <p>Only the first 8 KB (8192 bytes) of the request body are forwarded to WAF for
+   *          inspection by the underlying host service. For information about how to handle oversized
    *          request bodies, see the <code>JsonBody</code> object configuration. </p>
    */
   JsonBody?: JsonBody;
@@ -1808,8 +1798,7 @@ export interface AWSManagedRulesBotControlRuleSet {
   /**
    * <p>The inspection level to use for the Bot Control rule group. The common level is the least expensive. The
    *            targeted level includes all common level rules and adds rules with more advanced inspection criteria. For
-   *    details, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html">WAF Bot Control rule group</a>
-   *                in the <i>WAF Developer Guide</i>.</p>
+   *    details, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html">WAF Bot Control rule group</a>.</p>
    */
   InspectionLevel: InspectionLevel | string | undefined;
 }
@@ -1888,15 +1877,14 @@ export interface ManagedRuleGroupConfig {
  * @public
  * <p>A custom response to send to the client. You can define a custom response for rule
  *          actions and default web ACL actions that are set to <a>BlockAction</a>. </p>
- *          <p>For information about customizing web requests and responses,
- *            see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a>
- *     in the <i>WAF Developer Guide</i>. </p>
+ *          <p>For information about customizing web requests and responses, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the
+ *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
  */
 export interface CustomResponse {
   /**
    * <p>The HTTP status code to return to the client. </p>
-   *          <p>For a list of status codes that you can use in your custom responses, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/customizing-the-response-status-codes.html">Supported status codes for custom response</a>
-   *      in the <i>WAF Developer Guide</i>. </p>
+   *          <p>For a list of status codes that you can use in your custom responses, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/customizing-the-response-status-codes.html">Supported status codes for custom response</a> in the
+   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
    */
   ResponseCode: number | undefined;
 
@@ -1912,8 +1900,8 @@ export interface CustomResponse {
 
   /**
    * <p>The HTTP headers to use in the response. Duplicate header names are not allowed. </p>
-   *          <p>For information about the limits on count and size for custom request and response settings, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a>
-   *      in the <i>WAF Developer Guide</i>. </p>
+   *          <p>For information about the limits on count and size for custom request and response settings, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a> in the
+   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
    */
   ResponseHeaders?: CustomHTTPHeader[];
 }
@@ -1927,9 +1915,8 @@ export interface CustomResponse {
 export interface BlockAction {
   /**
    * <p>Defines a custom response for the web request.</p>
-   *          <p>For information about customizing web requests and responses,
-   *            see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a>
-   *     in the <i>WAF Developer Guide</i>. </p>
+   *          <p>For information about customizing web requests and responses, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the
+   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
    */
   CustomResponse?: CustomResponse;
 }
@@ -1968,9 +1955,8 @@ export interface BlockAction {
 export interface CaptchaAction {
   /**
    * <p>Defines custom handling for the web request, used when the <code>CAPTCHA</code> inspection determines that the request's token is valid and unexpired.</p>
-   *          <p>For information about customizing web requests and responses,
-   *            see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a>
-   *     in the <i>WAF Developer Guide</i>. </p>
+   *          <p>For information about customizing web requests and responses, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the
+   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
    */
   CustomRequestHandling?: CustomRequestHandling;
 }
@@ -2013,9 +1999,8 @@ export interface CaptchaAction {
 export interface ChallengeAction {
   /**
    * <p>Defines custom handling for the web request, used when the challenge inspection determines that the request's token is valid and unexpired.</p>
-   *          <p>For information about customizing web requests and responses,
-   *            see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a>
-   *     in the <i>WAF Developer Guide</i>. </p>
+   *          <p>For information about customizing web requests and responses, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the
+   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
    */
   CustomRequestHandling?: CustomRequestHandling;
 }
@@ -2029,9 +2014,8 @@ export interface ChallengeAction {
 export interface CountAction {
   /**
    * <p>Defines custom handling for the web request.</p>
-   *          <p>For information about customizing web requests and responses,
-   *            see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a>
-   *     in the <i>WAF Developer Guide</i>. </p>
+   *          <p>For information about customizing web requests and responses, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the
+   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
    */
   CustomRequestHandling?: CustomRequestHandling;
 }
@@ -2196,7 +2180,7 @@ export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof Compar
 /**
  * @public
  * <p>A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). For example, you can use a size constraint statement to look for query strings that are longer than 100 bytes. </p>
- *          <p>If you configure WAF to inspect the request body, WAF inspects only the number of bytes of the body up to the limit for the web ACL. By default, for regional web ACLs, this limit is 8 KB (8,192 kilobytes) and for CloudFront web ACLs, this limit is 16 KB (16,384 kilobytes). For CloudFront web ACLs, you can increase the limit in the web ACL <code>AssociationConfig</code>, for additional fees. If you know that the request body for your web requests should never exceed the inspection limit, you could use a size constraint statement to block requests that have a larger request body size.</p>
+ *          <p>If you configure WAF to inspect the request body, WAF inspects only the first 8192 bytes (8 KB). If the request body for your web requests never exceeds 8192 bytes, you could use a size constraint statement to block requests that have a request body greater than 8192 bytes.</p>
  *          <p>If you choose URI for the value of Part of the request to filter on, the slash (/) in the URI counts as one character. For example, the URI <code>/logo.jpg</code> is nine characters long.</p>
  */
 export interface SizeConstraintStatement {
@@ -2292,19 +2276,6 @@ export interface XssMatchStatement {
 
 /**
  * @public
- * @enum
- */
-export const AssociatedResourceType = {
-  CLOUDFRONT: "CLOUDFRONT",
-} as const;
-
-/**
- * @public
- */
-export type AssociatedResourceType = (typeof AssociatedResourceType)[keyof typeof AssociatedResourceType];
-
-/**
- * @public
  */
 export interface AssociateWebACLRequest {
   /**
@@ -2318,27 +2289,27 @@ export interface AssociateWebACLRequest {
    *          <p>The ARN must be in one of the following formats:</p>
    *          <ul>
    *             <li>
-   *                <p>For an Application Load Balancer: <code>arn:<i>partition</i>:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i>
+   *                <p>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i>
    *                   </code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>For an Amazon API Gateway REST API: <code>arn:<i>partition</i>:apigateway:<i>region</i>::/restapis/<i>api-id</i>/stages/<i>stage-name</i>
+   *                <p>For an Amazon API Gateway REST API: <code>arn:aws:apigateway:<i>region</i>::/restapis/<i>api-id</i>/stages/<i>stage-name</i>
    *                   </code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>For an AppSync GraphQL API: <code>arn:<i>partition</i>:appsync:<i>region</i>:<i>account-id</i>:apis/<i>GraphQLApiId</i>
+   *                <p>For an AppSync GraphQL API: <code>arn:aws:appsync:<i>region</i>:<i>account-id</i>:apis/<i>GraphQLApiId</i>
    *                   </code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>For an Amazon Cognito user pool: <code>arn:<i>partition</i>:cognito-idp:<i>region</i>:<i>account-id</i>:userpool/<i>user-pool-id</i>
+   *                <p>For an Amazon Cognito user pool: <code>arn:aws:cognito-idp:<i>region</i>:<i>account-id</i>:userpool/<i>user-pool-id</i>
    *                   </code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>For an App Runner service: <code>arn:<i>partition</i>:apprunner:<i>region</i>:<i>account-id</i>:service/<i>apprunner-service-name</i>/<i>apprunner-service-id</i>
+   *                <p>For an App Runner service: <code>arn:aws:apprunner:<i>region</i>:<i>account-id</i>:service/<i>apprunner-service-name</i>/<i>apprunner-service-id</i>
    *                   </code>
    *                </p>
    *             </li>
@@ -2404,7 +2375,6 @@ export class WAFInvalidOperationException extends __BaseException {
 export const ParameterExceptionField = {
   AND_STATEMENT: "AND_STATEMENT",
   ASSOCIABLE_RESOURCE: "ASSOCIABLE_RESOURCE",
-  ASSOCIATED_RESOURCE_TYPE: "ASSOCIATED_RESOURCE_TYPE",
   ATP_RULE_SET_RESPONSE_INSPECTION: "ATP_RULE_SET_RESPONSE_INSPECTION",
   BODY_PARSING_FALLBACK_BEHAVIOR: "BODY_PARSING_FALLBACK_BEHAVIOR",
   BYTE_MATCH_STATEMENT: "BYTE_MATCH_STATEMENT",
@@ -2585,57 +2555,6 @@ export class WAFUnavailableEntityException extends __BaseException {
 
 /**
  * @public
- * @enum
- */
-export const SizeInspectionLimit = {
-  KB_16: "KB_16",
-  KB_32: "KB_32",
-  KB_48: "KB_48",
-  KB_64: "KB_64",
-} as const;
-
-/**
- * @public
- */
-export type SizeInspectionLimit = (typeof SizeInspectionLimit)[keyof typeof SizeInspectionLimit];
-
-/**
- * @public
- * <p>Customizes the maximum size of the request body that your protected CloudFront distributions forward to WAF for inspection. The default size is 16 KB (16,384 kilobytes). </p>
- *          <note>
- *             <p>You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see <a href="http://aws.amazon.com/waf/pricing/">WAF Pricing</a>.</p>
- *          </note>
- *          <p>This is used in the <code>AssociationConfig</code> of the web ACL. </p>
- */
-export interface RequestBodyAssociatedResourceTypeConfig {
-  /**
-   * <p>Specifies the maximum size of the web request body component that an associated CloudFront distribution should send to WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. </p>
-   *          <p>Default: <code>16 KB (16,384 kilobytes)</code>
-   *          </p>
-   */
-  DefaultSizeInspectionLimit: SizeInspectionLimit | string | undefined;
-}
-
-/**
- * @public
- * <p>Specifies custom configurations for the associations between the web ACL and protected resources.  </p>
- *          <p>Use this to customize the maximum size of the request body that your protected CloudFront distributions forward to WAF for inspection. The default is 16 KB (16,384 kilobytes). </p>
- *          <note>
- *             <p>You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see <a href="http://aws.amazon.com/waf/pricing/">WAF Pricing</a>.</p>
- *          </note>
- */
-export interface AssociationConfig {
-  /**
-   * <p>Customizes the maximum size of the request body that your protected CloudFront distributions forward to WAF for inspection. The default size is 16 KB (16,384 kilobytes). </p>
-   *          <note>
-   *             <p>You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see <a href="http://aws.amazon.com/waf/pricing/">WAF Pricing</a>.</p>
-   *          </note>
-   */
-  RequestBody?: Record<string, RequestBodyAssociatedResourceTypeConfig>;
-}
-
-/**
- * @public
  * <p>Used for CAPTCHA and challenge token settings. Determines
  *        how long a <code>CAPTCHA</code> or challenge timestamp remains valid after WAF updates it for a successful <code>CAPTCHA</code> or challenge response. </p>
  */
@@ -2737,7 +2656,7 @@ export interface VisibilityConfig {
   /**
    * <p>A boolean indicating whether the associated resource sends metrics to Amazon CloudWatch. For the
    *          list of available metrics, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics">WAF
-   *             Metrics</a> in the <i>WAF Developer Guide</i>.</p>
+   *             Metrics</a>.</p>
    */
   CloudWatchMetricsEnabled: boolean | undefined;
 
@@ -2921,7 +2840,7 @@ export interface CreateIPSetRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -3144,7 +3063,7 @@ export interface CreateRegexPatternSetRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -3246,8 +3165,8 @@ export interface CustomResponseBody {
    * <p>The payload of the custom response. </p>
    *          <p>You can use JSON escape strings in JSON content. To do this, you must specify JSON
    *          content in the <code>ContentType</code> setting. </p>
-   *          <p>For information about the limits on count and size for custom request and response settings, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a>
-   *      in the <i>WAF Developer Guide</i>. </p>
+   *          <p>For information about the limits on count and size for custom request and response settings, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a> in the
+   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
    */
   Content: string | undefined;
 }
@@ -3419,7 +3338,7 @@ export interface DeleteIPSetRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -3513,7 +3432,7 @@ export interface DeleteRegexPatternSetRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -3552,7 +3471,7 @@ export interface DeleteRuleGroupRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -3591,7 +3510,7 @@ export interface DeleteWebACLRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -3635,7 +3554,7 @@ export interface DescribeManagedRuleGroupRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -3714,15 +3633,12 @@ export interface DescribeManagedRuleGroupResponse {
   SnsTopicArn?: string;
 
   /**
-   * <p>The web ACL capacity units (WCUs) required for this rule group.</p>
-   *          <p>WAF uses WCUs to calculate and control the operating
-   *          resources that are used to run your rules, rule groups, and web ACLs. WAF
-   *          calculates capacity differently for each rule type, to reflect the relative cost of each rule.
-   *          Simple rules that cost little to run use fewer WCUs than more complex rules
-   * 				that use more processing power.
-   * 				Rule group capacity is fixed at creation, which helps users plan their
-   *          web ACL WCU usage when they use a rule group. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/aws-waf-capacity-units.html">WAF web ACL capacity units (WCU)</a>
-   *     in the <i>WAF Developer Guide</i>. </p>
+   * <p>The web ACL capacity units (WCUs) required for this rule group. WAF uses web ACL
+   *          capacity units (WCU) to calculate and control the operating resources that are used to run
+   *          your rules, rule groups, and web ACLs. WAF calculates capacity differently for each rule
+   *          type, to reflect each rule's relative cost. Rule group capacity is fixed at creation, so
+   *          users can plan their web ACL WCU usage when they use a rule group. The WCU limit for web
+   *          ACLs is 1,500. </p>
    */
   Capacity?: number;
 
@@ -3769,27 +3685,27 @@ export interface DisassociateWebACLRequest {
    *          <p>The ARN must be in one of the following formats:</p>
    *          <ul>
    *             <li>
-   *                <p>For an Application Load Balancer: <code>arn:<i>partition</i>:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i>
+   *                <p>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i>
    *                   </code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>For an Amazon API Gateway REST API: <code>arn:<i>partition</i>:apigateway:<i>region</i>::/restapis/<i>api-id</i>/stages/<i>stage-name</i>
+   *                <p>For an Amazon API Gateway REST API: <code>arn:aws:apigateway:<i>region</i>::/restapis/<i>api-id</i>/stages/<i>stage-name</i>
    *                   </code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>For an AppSync GraphQL API: <code>arn:<i>partition</i>:appsync:<i>region</i>:<i>account-id</i>:apis/<i>GraphQLApiId</i>
+   *                <p>For an AppSync GraphQL API: <code>arn:aws:appsync:<i>region</i>:<i>account-id</i>:apis/<i>GraphQLApiId</i>
    *                   </code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>For an Amazon Cognito user pool: <code>arn:<i>partition</i>:cognito-idp:<i>region</i>:<i>account-id</i>:userpool/<i>user-pool-id</i>
+   *                <p>For an Amazon Cognito user pool: <code>arn:aws:cognito-idp:<i>region</i>:<i>account-id</i>:userpool/<i>user-pool-id</i>
    *                   </code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>For an App Runner service: <code>arn:<i>partition</i>:apprunner:<i>region</i>:<i>account-id</i>:service/<i>apprunner-service-name</i>/<i>apprunner-service-id</i>
+   *                <p>For an App Runner service: <code>arn:aws:apprunner:<i>region</i>:<i>account-id</i>:service/<i>apprunner-service-name</i>/<i>apprunner-service-id</i>
    *                   </code>
    *                </p>
    *             </li>
@@ -3853,7 +3769,7 @@ export interface GetIPSetRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -4169,7 +4085,7 @@ export interface GetManagedRuleSetRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -4211,8 +4127,8 @@ export interface ManagedRuleSetVersion {
    *          Simple rules that cost little to run use fewer WCUs than more complex rules
    * 				that use more processing power.
    * 				Rule group capacity is fixed at creation, which helps users plan their
-   *          web ACL WCU usage when they use a rule group. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/aws-waf-capacity-units.html">WAF web ACL capacity units (WCU)</a>
-   *     in the <i>WAF Developer Guide</i>. </p>
+   *          web ACL WCU usage when they use a rule group.
+   *          The WCU limit for web ACLs is 1,500.  </p>
    */
   Capacity?: number;
 
@@ -4396,7 +4312,7 @@ export interface GetPermissionPolicyResponse {
  */
 export interface GetRateBasedStatementManagedKeysRequest {
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -4474,7 +4390,7 @@ export interface GetRegexPatternSetRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -4551,7 +4467,7 @@ export interface GetRuleGroupRequest {
   Name?: string;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -4629,7 +4545,7 @@ export interface GetSampledRequestsRequest {
   RuleMetricName: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -4914,7 +4830,7 @@ export interface GetWebACLRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -4942,27 +4858,27 @@ export interface GetWebACLForResourceRequest {
    *          <p>The ARN must be in one of the following formats:</p>
    *          <ul>
    *             <li>
-   *                <p>For an Application Load Balancer: <code>arn:<i>partition</i>:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i>
+   *                <p>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i>
    *                   </code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>For an Amazon API Gateway REST API: <code>arn:<i>partition</i>:apigateway:<i>region</i>::/restapis/<i>api-id</i>/stages/<i>stage-name</i>
+   *                <p>For an Amazon API Gateway REST API: <code>arn:aws:apigateway:<i>region</i>::/restapis/<i>api-id</i>/stages/<i>stage-name</i>
    *                   </code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>For an AppSync GraphQL API: <code>arn:<i>partition</i>:appsync:<i>region</i>:<i>account-id</i>:apis/<i>GraphQLApiId</i>
+   *                <p>For an AppSync GraphQL API: <code>arn:aws:appsync:<i>region</i>:<i>account-id</i>:apis/<i>GraphQLApiId</i>
    *                   </code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>For an Amazon Cognito user pool: <code>arn:<i>partition</i>:cognito-idp:<i>region</i>:<i>account-id</i>:userpool/<i>user-pool-id</i>
+   *                <p>For an Amazon Cognito user pool: <code>arn:aws:cognito-idp:<i>region</i>:<i>account-id</i>:userpool/<i>user-pool-id</i>
    *                   </code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>For an App Runner service: <code>arn:<i>partition</i>:apprunner:<i>region</i>:<i>account-id</i>:service/<i>apprunner-service-name</i>/<i>apprunner-service-id</i>
+   *                <p>For an App Runner service: <code>arn:aws:apprunner:<i>region</i>:<i>account-id</i>:service/<i>apprunner-service-name</i>/<i>apprunner-service-id</i>
    *                   </code>
    *                </p>
    *             </li>
@@ -4976,7 +4892,7 @@ export interface GetWebACLForResourceRequest {
  */
 export interface ListAvailableManagedRuleGroupsRequest {
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -5063,7 +4979,7 @@ export interface ListAvailableManagedRuleGroupVersionsRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -5135,7 +5051,7 @@ export interface ListAvailableManagedRuleGroupVersionsResponse {
  */
 export interface ListIPSetsRequest {
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -5186,7 +5102,7 @@ export interface ListIPSetsResponse {
  */
 export interface ListLoggingConfigurationsRequest {
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -5236,7 +5152,7 @@ export interface ListLoggingConfigurationsResponse {
  */
 export interface ListManagedRuleSetsRequest {
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -5397,7 +5313,7 @@ export interface ListMobileSdkReleasesResponse {
  */
 export interface ListRegexPatternSetsRequest {
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -5470,7 +5386,7 @@ export interface ListResourcesForWebACLRequest {
 
   /**
    * <p>Used for web ACLs that are scoped for regional applications.
-   *          A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service. </p>
+   *          A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service. </p>
    *          <note>
    *             <p>If you don't provide a resource type, the call uses the resource type <code>APPLICATION_LOAD_BALANCER</code>. </p>
    *          </note>
@@ -5495,7 +5411,7 @@ export interface ListResourcesForWebACLResponse {
  */
 export interface ListRuleGroupsRequest {
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -5611,7 +5527,7 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListWebACLsRequest {
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -5761,7 +5677,7 @@ export interface PutManagedRuleSetVersionsRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -5822,7 +5738,7 @@ export interface PutPermissionPolicyRequest {
    *          <p>The policy specifications must conform to the following:</p>
    *          <ul>
    *             <li>
-   *                <p>The policy must be composed using IAM Policy version 2012-10-17.</p>
+   *                <p>The policy must be composed using IAM Policy version 2012-10-17 or version 2015-01-01.</p>
    *             </li>
    *             <li>
    *                <p>The policy must include specifications for <code>Effect</code>, <code>Action</code>, and <code>Principal</code>.</p>
@@ -5857,7 +5773,7 @@ export interface PutPermissionPolicyResponse {}
  *          <p>The policy specifications must conform to the following:</p>
  *          <ul>
  *             <li>
- *                <p>The policy must be composed using IAM Policy version 2012-10-17.</p>
+ *                <p>The policy must be composed using IAM Policy version 2012-10-17 or version 2015-01-01.</p>
  *             </li>
  *             <li>
  *                <p>The policy must include specifications for <code>Effect</code>, <code>Action</code>, and <code>Principal</code>.</p>
@@ -5946,7 +5862,7 @@ export interface UpdateIPSetRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -6036,7 +5952,7 @@ export interface UpdateManagedRuleSetVersionExpiryDateRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -6103,7 +6019,7 @@ export interface UpdateRegexPatternSetRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -6192,7 +6108,7 @@ export interface Statement {
 
   /**
    * <p>A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). For example, you can use a size constraint statement to look for query strings that are longer than 100 bytes. </p>
-   *          <p>If you configure WAF to inspect the request body, WAF inspects only the number of bytes of the body up to the limit for the web ACL. By default, for regional web ACLs, this limit is 8 KB (8,192 kilobytes) and for CloudFront web ACLs, this limit is 16 KB (16,384 kilobytes). For CloudFront web ACLs, you can increase the limit in the web ACL <code>AssociationConfig</code>, for additional fees. If you know that the request body for your web requests should never exceed the inspection limit, you could use a size constraint statement to block requests that have a larger request body size.</p>
+   *          <p>If you configure WAF to inspect the request body, WAF inspects only the first 8192 bytes (8 KB). If the request body for your web requests never exceeds 8192 bytes, you could use a size constraint statement to block requests that have a request body greater than 8192 bytes.</p>
    *          <p>If you choose URI for the value of Part of the request to filter on, the slash (/) in the URI counts as one character. For example, the URI <code>/logo.jpg</code> is nine characters long.</p>
    */
   SizeConstraintStatement?: SizeConstraintStatement;
@@ -6541,16 +6457,22 @@ export interface OrStatement {
 
 /**
  * @public
- * <p>The processing guidance for an Firewall Manager rule. This is like a regular rule <a>Statement</a>, but it can only contain a single rule group reference.</p>
+ * <p>The processing guidance for an Firewall Manager rule. This is like a regular rule <a>Statement</a>, but it can only contain a rule group reference.</p>
  */
 export interface FirewallManagerStatement {
   /**
-   * <p>A statement used by Firewall Manager to run the rules that are defined in a managed rule group. This is managed by Firewall Manager for an Firewall Manager WAF policy.</p>
+   * <p>A rule statement used to run the rules that are defined in a managed rule group. To use this, provide the vendor name and the name of the rule group in this statement. You can retrieve the required names by calling <a>ListAvailableManagedRuleGroups</a>.</p>
+   *          <p>You cannot nest a <code>ManagedRuleGroupStatement</code>, for example for use inside a <code>NotStatement</code> or <code>OrStatement</code>. It can only be referenced as a top-level statement within a rule.</p>
+   *          <note>
+   *             <p>You are charged additional fees when you use the WAF Bot Control managed rule group <code>AWSManagedRulesBotControlRuleSet</code> or the WAF Fraud Control account takeover prevention (ATP) managed rule group <code>AWSManagedRulesATPRuleSet</code>. For more information, see <a href="http://aws.amazon.com/waf/pricing/">WAF Pricing</a>.</p>
+   *          </note>
    */
   ManagedRuleGroupStatement?: ManagedRuleGroupStatement;
 
   /**
-   * <p>A statement used by Firewall Manager to run the rules that are defined in a rule group. This is managed by Firewall Manager for an Firewall Manager WAF policy.</p>
+   * <p>A rule statement used to run the rules that are defined in a <a>RuleGroup</a>. To use this, create a rule group with your rules, then provide the ARN of the rule group in this statement.</p>
+   *          <p>You cannot nest a <code>RuleGroupReferenceStatement</code>, for example for use inside a <code>NotStatement</code> or <code>OrStatement</code>. You
+   *       can only use a rule group reference statement at the top level inside a web ACL. </p>
    */
   RuleGroupReferenceStatement?: RuleGroupReferenceStatement;
 }
@@ -6599,7 +6521,7 @@ export interface FirewallManagerRuleGroup {
  */
 export interface CheckCapacityRequest {
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -6629,7 +6551,7 @@ export interface CreateRuleGroupRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -6653,8 +6575,8 @@ export interface CreateRuleGroupRequest {
    *          Simple rules that cost little to run use fewer WCUs than more complex rules
    * 				that use more processing power.
    * 				Rule group capacity is fixed at creation, which helps users plan their
-   *          web ACL WCU usage when they use a rule group. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/aws-waf-capacity-units.html">WAF web ACL capacity units (WCU)</a>
-   *     in the <i>WAF Developer Guide</i>. </p>
+   *          web ACL WCU usage when they use a rule group.
+   *          The WCU limit for web ACLs is 1,500.  </p>
    */
   Capacity: number | undefined;
 
@@ -6683,11 +6605,10 @@ export interface CreateRuleGroupRequest {
 
   /**
    * <p>A map of custom response keys and content bodies. When you create a rule with a block action, you can send a custom response to the web request. You define these for the rule group, and then use them in the rules that you define in the rule group. </p>
-   *          <p>For information about customizing web requests and responses,
-   *            see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a>
-   *     in the <i>WAF Developer Guide</i>. </p>
-   *          <p>For information about the limits on count and size for custom request and response settings, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a>
-   *      in the <i>WAF Developer Guide</i>. </p>
+   *          <p>For information about customizing web requests and responses, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the
+   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
+   *          <p>For information about the limits on count and size for custom request and response settings, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a> in the
+   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
    */
   CustomResponseBodies?: Record<string, CustomResponseBody>;
 }
@@ -6702,7 +6623,7 @@ export interface CreateWebACLRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -6745,11 +6666,10 @@ export interface CreateWebACLRequest {
 
   /**
    * <p>A map of custom response keys and content bodies. When you create a rule with a block action, you can send a custom response to the web request. You define these for the web ACL, and then use them in the rules and default actions that you define in the web ACL. </p>
-   *          <p>For information about customizing web requests and responses,
-   *            see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a>
-   *     in the <i>WAF Developer Guide</i>. </p>
-   *          <p>For information about the limits on count and size for custom request and response settings, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a>
-   *      in the <i>WAF Developer Guide</i>. </p>
+   *          <p>For information about customizing web requests and responses, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the
+   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
+   *          <p>For information about the limits on count and size for custom request and response settings, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a> in the
+   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
    */
   CustomResponseBodies?: Record<string, CustomResponseBody>;
 
@@ -6771,15 +6691,6 @@ export interface CreateWebACLRequest {
    *          <p>Public suffixes aren't allowed. For example, you can't use <code>usa.gov</code> or <code>co.uk</code> as token domains.</p>
    */
   TokenDomains?: string[];
-
-  /**
-   * <p>Specifies custom configurations for the associations between the web ACL and protected resources.  </p>
-   *          <p>Use this to customize the maximum size of the request body that your protected CloudFront distributions forward to WAF for inspection. The default is 16 KB (16,384 kilobytes). </p>
-   *          <note>
-   *             <p>You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see <a href="http://aws.amazon.com/waf/pricing/">WAF Pricing</a>.</p>
-   *          </note>
-   */
-  AssociationConfig?: AssociationConfig;
 }
 
 /**
@@ -6808,8 +6719,8 @@ export interface RuleGroup {
    *          Simple rules that cost little to run use fewer WCUs than more complex rules
    * 				that use more processing power.
    * 				Rule group capacity is fixed at creation, which helps users plan their
-   *          web ACL WCU usage when they use a rule group. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/aws-waf-capacity-units.html">WAF web ACL capacity units (WCU)</a>
-   *     in the <i>WAF Developer Guide</i>. </p>
+   *          web ACL WCU usage when they use a rule group.
+   *          The WCU limit for web ACLs is 1,500.  </p>
    */
   Capacity: number | undefined;
 
@@ -6857,11 +6768,10 @@ export interface RuleGroup {
 
   /**
    * <p>A map of custom response keys and content bodies. When you create a rule with a block action, you can send a custom response to the web request. You define these for the rule group, and then use them in the rules that you define in the rule group. </p>
-   *          <p>For information about customizing web requests and responses,
-   *            see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a>
-   *     in the <i>WAF Developer Guide</i>. </p>
-   *          <p>For information about the limits on count and size for custom request and response settings, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a>
-   *      in the <i>WAF Developer Guide</i>. </p>
+   *          <p>For information about customizing web requests and responses, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the
+   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
+   *          <p>For information about the limits on count and size for custom request and response settings, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a> in the
+   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
    */
   CustomResponseBodies?: Record<string, CustomResponseBody>;
 
@@ -6886,7 +6796,7 @@ export interface UpdateRuleGroupRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -6929,11 +6839,10 @@ export interface UpdateRuleGroupRequest {
 
   /**
    * <p>A map of custom response keys and content bodies. When you create a rule with a block action, you can send a custom response to the web request. You define these for the rule group, and then use them in the rules that you define in the rule group. </p>
-   *          <p>For information about customizing web requests and responses,
-   *            see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a>
-   *     in the <i>WAF Developer Guide</i>. </p>
-   *          <p>For information about the limits on count and size for custom request and response settings, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a>
-   *      in the <i>WAF Developer Guide</i>. </p>
+   *          <p>For information about customizing web requests and responses, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the
+   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
+   *          <p>For information about the limits on count and size for custom request and response settings, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a> in the
+   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
    */
   CustomResponseBodies?: Record<string, CustomResponseBody>;
 }
@@ -6948,7 +6857,7 @@ export interface UpdateWebACLRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -6996,11 +6905,10 @@ export interface UpdateWebACLRequest {
 
   /**
    * <p>A map of custom response keys and content bodies. When you create a rule with a block action, you can send a custom response to the web request. You define these for the web ACL, and then use them in the rules and default actions that you define in the web ACL. </p>
-   *          <p>For information about customizing web requests and responses,
-   *            see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a>
-   *     in the <i>WAF Developer Guide</i>. </p>
-   *          <p>For information about the limits on count and size for custom request and response settings, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a>
-   *      in the <i>WAF Developer Guide</i>. </p>
+   *          <p>For information about customizing web requests and responses, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the
+   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
+   *          <p>For information about the limits on count and size for custom request and response settings, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a> in the
+   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
    */
   CustomResponseBodies?: Record<string, CustomResponseBody>;
 
@@ -7022,15 +6930,6 @@ export interface UpdateWebACLRequest {
    *          <p>Public suffixes aren't allowed. For example, you can't use <code>usa.gov</code> or <code>co.uk</code> as token domains.</p>
    */
   TokenDomains?: string[];
-
-  /**
-   * <p>Specifies custom configurations for the associations between the web ACL and protected resources.  </p>
-   *          <p>Use this to customize the maximum size of the request body that your protected CloudFront distributions forward to WAF for inspection. The default is 16 KB (16,384 kilobytes). </p>
-   *          <note>
-   *             <p>You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see <a href="http://aws.amazon.com/waf/pricing/">WAF Pricing</a>.</p>
-   *          </note>
-   */
-  AssociationConfig?: AssociationConfig;
 }
 
 /**
@@ -7050,7 +6949,7 @@ export interface GetRuleGroupResponse {
 
 /**
  * @public
- * <p> A web ACL defines a collection of rules to use to inspect and control web requests. Each rule has an action defined (allow, block, or count) for requests that match the statement of the rule. In the web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a web ACL can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule group. You can associate a web ACL with one or more Amazon Web Services resources to protect. The resources can be an Amazon CloudFront distribution, an Amazon API Gateway REST API, an Application Load Balancer, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+ * <p> A web ACL defines a collection of rules to use to inspect and control web requests. Each rule has an action defined (allow, block, or count) for requests that match the statement of the rule. In the web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a web ACL can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule group. You can associate a web ACL with one or more Amazon Web Services resources to protect. The resources can be an Amazon CloudFront distribution, an Amazon API Gateway REST API, an Application Load Balancer, an AppSync GraphQL API, Amazon Cognito user pool, or an App Runner service.  </p>
  */
 export interface WebACL {
   /**
@@ -7102,8 +7001,8 @@ export interface WebACL {
    *          Simple rules that cost little to run use fewer WCUs than more complex rules
    * 				that use more processing power.
    * 				Rule group capacity is fixed at creation, which helps users plan their
-   *          web ACL WCU usage when they use a rule group. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/aws-waf-capacity-units.html">WAF web ACL capacity units (WCU)</a>
-   *     in the <i>WAF Developer Guide</i>. </p>
+   *          web ACL WCU usage when they use a rule group.
+   *          The WCU limit for web ACLs is 1,500.  </p>
    */
   Capacity?: number;
 
@@ -7156,11 +7055,10 @@ export interface WebACL {
 
   /**
    * <p>A map of custom response keys and content bodies. When you create a rule with a block action, you can send a custom response to the web request. You define these for the web ACL, and then use them in the rules and default actions that you define in the web ACL. </p>
-   *          <p>For information about customizing web requests and responses,
-   *            see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a>
-   *     in the <i>WAF Developer Guide</i>. </p>
-   *          <p>For information about the limits on count and size for custom request and response settings, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a>
-   *      in the <i>WAF Developer Guide</i>. </p>
+   *          <p>For information about customizing web requests and responses, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the
+   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
+   *          <p>For information about the limits on count and size for custom request and response settings, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a> in the
+   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
    */
   CustomResponseBodies?: Record<string, CustomResponseBody>;
 
@@ -7179,15 +7077,6 @@ export interface WebACL {
    * <p>Specifies the domains that WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When WAF provides a token, it uses the domain of the Amazon Web Services resource that the web ACL is protecting. If you don't specify a list of token domains, WAF accepts tokens only for the domain of the protected resource. With a token domain list, WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.</p>
    */
   TokenDomains?: string[];
-
-  /**
-   * <p>Specifies custom configurations for the associations between the web ACL and protected resources.  </p>
-   *          <p>Use this to customize the maximum size of the request body that your protected CloudFront distributions forward to WAF for inspection. The default is 16 KB (16,384 kilobytes). </p>
-   *          <note>
-   *             <p>You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see <a href="http://aws.amazon.com/waf/pricing/">WAF Pricing</a>.</p>
-   *          </note>
-   */
-  AssociationConfig?: AssociationConfig;
 }
 
 /**
@@ -7217,8 +7106,7 @@ export interface GetWebACLResponse {
   LockToken?: string;
 
   /**
-   * <p>The URL to use in SDK integrations with Amazon Web Services managed rule groups. For example, you can use the integration SDKs with the account takeover prevention managed rule group <code>AWSManagedRulesATPRuleSet</code>. This is only populated if you are using a rule group in your web ACL that integrates with your applications in this way. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF client application integration</a>
-   * in the <i>WAF Developer Guide</i>.</p>
+   * <p>The URL to use in SDK integrations with Amazon Web Services managed rule groups. For example, you can use the integration SDKs with the account takeover prevention managed rule group <code>AWSManagedRulesATPRuleSet</code>. This is only populated if you are using a rule group in your web ACL that integrates with your applications in this way. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF client application integration</a> in the <i>WAF Developer Guide</i>.</p>
    */
   ApplicationIntegrationURL?: string;
 }

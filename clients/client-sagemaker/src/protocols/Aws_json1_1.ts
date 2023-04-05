@@ -812,6 +812,7 @@ import {
   AsyncInferenceConfig,
   AsyncInferenceNotificationConfig,
   AsyncInferenceOutputConfig,
+  AsyncNotificationTopicTypes,
   AthenaDatasetDefinition,
   AutoMLAlgorithm,
   AutoMLAlgorithmConfig,
@@ -917,7 +918,6 @@ import {
   DataQualityJobInput,
   DataSource,
   DefaultSpaceSettings,
-  DeploymentConfig,
   DeploymentStage,
   DeviceSelectionConfig,
   DomainSettings,
@@ -1141,7 +1141,7 @@ import {
   DeleteSpaceRequest,
   DeleteStudioLifecycleConfigRequest,
   DeleteTagsInput,
-  DeleteTagsOutput,
+  DeploymentConfig,
   DriftCheckBaselines,
   DriftCheckBias,
   DriftCheckExplainability,
@@ -1275,6 +1275,7 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_1";
 import {
+  DeleteTagsOutput,
   DeleteTrialComponentRequest,
   DeleteTrialComponentResponse,
   DeleteTrialRequest,
@@ -1477,7 +1478,6 @@ import {
   LabelCountersForWorkteam,
   LabelingJobForWorkteamSummary,
   LabelingJobOutput,
-  LabelingJobSummary,
   LastUpdateStatus,
   MetricData,
   ModelArtifacts,
@@ -1520,6 +1520,7 @@ import {
   Workteam,
 } from "../models/models_2";
 import {
+  LabelingJobSummary,
   LambdaStepMetadata,
   LineageGroupSummary,
   LineageType,
@@ -1768,7 +1769,6 @@ import {
   TuningJobStepMetaData,
   UpdateActionRequest,
   UpdateActionResponse,
-  UpdateAppImageConfigRequest,
   UserProfileDetails,
   Vertex,
 } from "../models/models_3";
@@ -1776,6 +1776,7 @@ import {
   SearchExpression,
   SearchRequest,
   ServiceCatalogProvisioningUpdateDetails,
+  UpdateAppImageConfigRequest,
   UpdateAppImageConfigResponse,
   UpdateArtifactRequest,
   UpdateArtifactResponse,
@@ -17938,6 +17939,12 @@ const serializeAws_json1_1AsyncInferenceNotificationConfig = (
 ): any => {
   return {
     ...(input.ErrorTopic != null && { ErrorTopic: input.ErrorTopic }),
+    ...(input.IncludeInferenceResponseIn != null && {
+      IncludeInferenceResponseIn: serializeAws_json1_1AsyncNotificationTopicTypeList(
+        input.IncludeInferenceResponseIn,
+        context
+      ),
+    }),
     ...(input.SuccessTopic != null && { SuccessTopic: input.SuccessTopic }),
   };
 };
@@ -17951,8 +17958,20 @@ const serializeAws_json1_1AsyncInferenceOutputConfig = (
     ...(input.NotificationConfig != null && {
       NotificationConfig: serializeAws_json1_1AsyncInferenceNotificationConfig(input.NotificationConfig, context),
     }),
+    ...(input.S3FailurePath != null && { S3FailurePath: input.S3FailurePath }),
     ...(input.S3OutputPath != null && { S3OutputPath: input.S3OutputPath }),
   };
+};
+
+const serializeAws_json1_1AsyncNotificationTopicTypeList = (
+  input: (AsyncNotificationTopicTypes | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
 };
 
 const serializeAws_json1_1AthenaDatasetDefinition = (input: AthenaDatasetDefinition, context: __SerdeContext): any => {
@@ -26904,6 +26923,10 @@ const deserializeAws_json1_1AsyncInferenceNotificationConfig = (
 ): AsyncInferenceNotificationConfig => {
   return {
     ErrorTopic: __expectString(output.ErrorTopic),
+    IncludeInferenceResponseIn:
+      output.IncludeInferenceResponseIn != null
+        ? deserializeAws_json1_1AsyncNotificationTopicTypeList(output.IncludeInferenceResponseIn, context)
+        : undefined,
     SuccessTopic: __expectString(output.SuccessTopic),
   } as any;
 };
@@ -26918,8 +26941,24 @@ const deserializeAws_json1_1AsyncInferenceOutputConfig = (
       output.NotificationConfig != null
         ? deserializeAws_json1_1AsyncInferenceNotificationConfig(output.NotificationConfig, context)
         : undefined,
+    S3FailurePath: __expectString(output.S3FailurePath),
     S3OutputPath: __expectString(output.S3OutputPath),
   } as any;
+};
+
+const deserializeAws_json1_1AsyncNotificationTopicTypeList = (
+  output: any,
+  context: __SerdeContext
+): (AsyncNotificationTopicTypes | string)[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1AthenaDatasetDefinition = (

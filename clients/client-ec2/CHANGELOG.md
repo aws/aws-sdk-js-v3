@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.306.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.305.0...v3.306.0) (2023-04-04)
+
+
+### Features
+
+* **client-ec2:** C6in, M6in, M6idn, R6in and R6idn bare metal instances are powered by 3rd Generation Intel Xeon Scalable processors and offer up to 200 Gbps of network bandwidth. ([01bddbc](https://github.com/aws/aws-sdk-js-v3/commit/01bddbc14a6fec92283fa53e5050d50f5fb63750))
+
+
+
+
+
 # [3.304.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.303.0...v3.304.0) (2023-03-31)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2

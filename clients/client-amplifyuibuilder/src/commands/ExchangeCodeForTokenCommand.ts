@@ -52,6 +52,7 @@ export interface ExchangeCodeForTokenCommandOutput extends ExchangeCodeForTokenR
  *   request: { // ExchangeCodeForTokenRequestBody
  *     code: "STRING_VALUE", // required
  *     redirectUri: "STRING_VALUE", // required
+ *     clientId: "STRING_VALUE",
  *   },
  * };
  * const command = new ExchangeCodeForTokenCommand(input);

@@ -73,8 +73,18 @@ export interface AcceleratorType {
 
 /**
  * @public
+ * @enum
  */
-export type LocationType = "availability-zone" | "availability-zone-id" | "region";
+export const LocationType = {
+  availability_zone: "availability-zone",
+  availability_zone_id: "availability-zone-id",
+  region: "region",
+} as const;
+
+/**
+ * @public
+ */
+export type LocationType = (typeof LocationType)[keyof typeof LocationType];
 
 /**
  * @public

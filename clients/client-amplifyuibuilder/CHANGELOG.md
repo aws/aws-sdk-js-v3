@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.306.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.305.0...v3.306.0) (2023-04-04)
+
+
+### Features
+
+* **client-amplifyuibuilder:** Support StorageField and custom displays for data-bound options in form builder. Support non-string operands for predicates in collections. Support choosing client to get token from. ([b24e527](https://github.com/aws/aws-sdk-js-v3/commit/b24e52735b1760d8c0422e0b258960a785031348))
+
+
+
+
+
 # [3.303.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.302.0...v3.303.0) (2023-03-30)
 
 **Note:** Version bump only for package @aws-sdk/client-amplifyuibuilder

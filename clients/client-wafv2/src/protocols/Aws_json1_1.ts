@@ -147,10 +147,8 @@ import {
   AllowAction,
   AllQueryArguments,
   AndStatement,
-  AssociatedResourceType,
   AssociateWebACLRequest,
   AssociateWebACLResponse,
-  AssociationConfig,
   AWSManagedRulesATPRuleSet,
   AWSManagedRulesBotControlRuleSet,
   BlockAction,
@@ -299,7 +297,6 @@ import {
   RegexPatternSetReferenceStatement,
   RegexPatternSetSummary,
   ReleaseSummary,
-  RequestBodyAssociatedResourceTypeConfig,
   RequestInspection,
   ResponseInspection,
   ResponseInspectionBodyContains,
@@ -3880,12 +3877,6 @@ const serializeAws_json1_1AssociateWebACLRequest = (input: AssociateWebACLReques
   };
 };
 
-const serializeAws_json1_1AssociationConfig = (input: AssociationConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.RequestBody != null && { RequestBody: serializeAws_json1_1RequestBody(input.RequestBody, context) }),
-  };
-};
-
 const serializeAws_json1_1AWSManagedRulesATPRuleSet = (
   input: AWSManagedRulesATPRuleSet,
   context: __SerdeContext
@@ -4084,9 +4075,6 @@ const serializeAws_json1_1CreateRuleGroupRequest = (input: CreateRuleGroupReques
 
 const serializeAws_json1_1CreateWebACLRequest = (input: CreateWebACLRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AssociationConfig != null && {
-      AssociationConfig: serializeAws_json1_1AssociationConfig(input.AssociationConfig, context),
-    }),
     ...(input.CaptchaConfig != null && {
       CaptchaConfig: serializeAws_json1_1CaptchaConfig(input.CaptchaConfig, context),
     }),
@@ -4892,31 +4880,6 @@ const serializeAws_json1_1RegularExpressionList = (input: Regex[], context: __Se
     });
 };
 
-const serializeAws_json1_1RequestBody = (
-  input: Record<string, RequestBodyAssociatedResourceTypeConfig>,
-  context: __SerdeContext
-): any => {
-  return Object.entries(input).reduce(
-    (acc: Record<string, any>, [key, value]: [AssociatedResourceType | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = serializeAws_json1_1RequestBodyAssociatedResourceTypeConfig(value, context);
-      return acc;
-    },
-    {}
-  );
-};
-
-const serializeAws_json1_1RequestBodyAssociatedResourceTypeConfig = (
-  input: RequestBodyAssociatedResourceTypeConfig,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DefaultSizeInspectionLimit != null && { DefaultSizeInspectionLimit: input.DefaultSizeInspectionLimit }),
-  };
-};
-
 const serializeAws_json1_1RequestInspection = (input: RequestInspection, context: __SerdeContext): any => {
   return {
     ...(input.PasswordField != null && {
@@ -5364,9 +5327,6 @@ const serializeAws_json1_1UpdateRuleGroupRequest = (input: UpdateRuleGroupReques
 
 const serializeAws_json1_1UpdateWebACLRequest = (input: UpdateWebACLRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AssociationConfig != null && {
-      AssociationConfig: serializeAws_json1_1AssociationConfig(input.AssociationConfig, context),
-    }),
     ...(input.CaptchaConfig != null && {
       CaptchaConfig: serializeAws_json1_1CaptchaConfig(input.CaptchaConfig, context),
     }),
@@ -5473,13 +5433,6 @@ const deserializeAws_json1_1AssociateWebACLResponse = (
   context: __SerdeContext
 ): AssociateWebACLResponse => {
   return {} as any;
-};
-
-const deserializeAws_json1_1AssociationConfig = (output: any, context: __SerdeContext): AssociationConfig => {
-  return {
-    RequestBody:
-      output.RequestBody != null ? deserializeAws_json1_1RequestBody(output.RequestBody, context) : undefined,
-  } as any;
 };
 
 const deserializeAws_json1_1AWSManagedRulesATPRuleSet = (
@@ -6874,34 +6827,6 @@ const deserializeAws_json1_1ReleaseSummary = (output: any, context: __SerdeConte
   } as any;
 };
 
-const deserializeAws_json1_1RequestBody = (
-  output: any,
-  context: __SerdeContext
-): Record<string, RequestBodyAssociatedResourceTypeConfig> => {
-  return Object.entries(output).reduce(
-    (
-      acc: Record<string, RequestBodyAssociatedResourceTypeConfig>,
-      [key, value]: [AssociatedResourceType | string, any]
-    ) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = deserializeAws_json1_1RequestBodyAssociatedResourceTypeConfig(value, context);
-      return acc;
-    },
-    {}
-  );
-};
-
-const deserializeAws_json1_1RequestBodyAssociatedResourceTypeConfig = (
-  output: any,
-  context: __SerdeContext
-): RequestBodyAssociatedResourceTypeConfig => {
-  return {
-    DefaultSizeInspectionLimit: __expectString(output.DefaultSizeInspectionLimit),
-  } as any;
-};
-
 const deserializeAws_json1_1RequestInspection = (output: any, context: __SerdeContext): RequestInspection => {
   return {
     PasswordField:
@@ -7714,10 +7639,6 @@ const deserializeAws_json1_1WAFUnavailableEntityException = (
 const deserializeAws_json1_1WebACL = (output: any, context: __SerdeContext): WebACL => {
   return {
     ARN: __expectString(output.ARN),
-    AssociationConfig:
-      output.AssociationConfig != null
-        ? deserializeAws_json1_1AssociationConfig(output.AssociationConfig, context)
-        : undefined,
     Capacity: __expectLong(output.Capacity),
     CaptchaConfig:
       output.CaptchaConfig != null ? deserializeAws_json1_1CaptchaConfig(output.CaptchaConfig, context) : undefined,

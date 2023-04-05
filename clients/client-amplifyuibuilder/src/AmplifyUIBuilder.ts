@@ -577,7 +577,7 @@ export class AmplifyUIBuilder extends AmplifyUIBuilderClient {
 
   /**
    * @public
-   * <p>Stores the metadata information about a feature on a form or view.</p>
+   * <p>Stores the metadata information about a feature on a form.</p>
    */
   public putMetadataFlag(
     args: PutMetadataFlagCommandInput,

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.306.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.305.0...v3.306.0) (2023-04-04)
+
+
+### Features
+
+* **client-sagemaker:** Amazon SageMaker Asynchronous Inference now allows customer's to receive failure model responses in S3 and receive success/failure model responses in SNS notifications. ([bbc2fd1](https://github.com/aws/aws-sdk-js-v3/commit/bbc2fd17d9e3778a250453927d5dc3abdb2feeb6))
+
+
+
+
+
 # [3.303.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.302.0...v3.303.0) (2023-03-30)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

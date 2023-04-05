@@ -51,6 +51,7 @@ export interface RefreshTokenCommandOutput extends RefreshTokenResponse, __Metad
  *   provider: "STRING_VALUE", // required
  *   refreshTokenBody: { // RefreshTokenRequestBody
  *     token: "STRING_VALUE", // required
+ *     clientId: "STRING_VALUE",
  *   },
  * };
  * const command = new RefreshTokenCommand(input);

@@ -713,8 +713,8 @@ export type TrainingInputMode = (typeof TrainingInputMode)[keyof typeof Training
  * <p>Specifies the training algorithm to use in a <a>CreateTrainingJob</a>
  *             request.</p>
  *          <p>For more information about algorithms provided by SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>. For
- *             information about using your own algorithms, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with Amazon
- *                 SageMaker</a>. </p>
+ *             information about using your own algorithms, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with
+ *             Amazon SageMaker</a>. </p>
  */
 export interface AlgorithmSpecification {
   /**
@@ -4116,6 +4116,21 @@ export interface AsyncInferenceClientConfig {
 
 /**
  * @public
+ * @enum
+ */
+export const AsyncNotificationTopicTypes = {
+  ERROR_NOTIFICATION_TOPIC: "ERROR_NOTIFICATION_TOPIC",
+  SUCCESS_NOTIFICATION_TOPIC: "SUCCESS_NOTIFICATION_TOPIC",
+} as const;
+
+/**
+ * @public
+ */
+export type AsyncNotificationTopicTypes =
+  (typeof AsyncNotificationTopicTypes)[keyof typeof AsyncNotificationTopicTypes];
+
+/**
+ * @public
  * <p>Specifies the configuration for notifications of inference results for asynchronous
  *             inference.</p>
  */
@@ -4131,6 +4146,11 @@ export interface AsyncInferenceNotificationConfig {
    *             no notification is sent on failure.</p>
    */
   ErrorTopic?: string;
+
+  /**
+   * <p>The Amazon SNS topics where you want the inference response to be included.</p>
+   */
+  IncludeInferenceResponseIn?: (AsyncNotificationTopicTypes | string)[];
 }
 
 /**
@@ -4148,13 +4168,18 @@ export interface AsyncInferenceOutputConfig {
   /**
    * <p>The Amazon S3 location to upload inference responses to.</p>
    */
-  S3OutputPath: string | undefined;
+  S3OutputPath?: string;
 
   /**
    * <p>Specifies the configuration for notifications of inference results for asynchronous
    *             inference.</p>
    */
   NotificationConfig?: AsyncInferenceNotificationConfig;
+
+  /**
+   * <p>The Amazon S3 location to upload failure inference responses to.</p>
+   */
+  S3FailurePath?: string;
 }
 
 /**
@@ -4300,9 +4325,7 @@ export interface AutoMLAlgorithmConfig {
    *          job. </p>
    *          <note>
    *             <p>Selected algorithms must belong to the list corresponding to the training mode set in
-   *                   <code>
-   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobConfig.html#sagemaker-Type-AutoMLJobConfig-Mode">AutoMLJobConfig.Mode</a>
-   *                </code> (<code>ENSEMBLING</code> or
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobConfig.html#sagemaker-Type-AutoMLJobConfig-Mode">AutoMLJobConfig.Mode</a> (<code>ENSEMBLING</code> or
    *                <code>HYPERPARAMETER_TUNING</code>). Choose a minimum of 1 algorithm. </p>
    *          </note>
    *          <ul>
@@ -4564,9 +4587,7 @@ export interface FinalAutoMLJobObjectiveMetric {
 
   /**
    * <p>The name of the metric with the best result. For a description of the possible objective
-   *          metrics, see <code>
-   *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobObjective.html">AutoMLJobObjective$MetricName</a>
-   *             </code>.</p>
+   *          metrics, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobObjective.html">AutoMLJobObjective$MetricName</a>.</p>
    */
   MetricName: AutoMLMetricEnum | string | undefined;
 
@@ -4599,34 +4620,26 @@ export type AutoMLProcessingUnit = (typeof AutoMLProcessingUnit)[keyof typeof Au
 /**
  * @public
  * <p>A list of container definitions that describe the different containers that make up an
- *          AutoML candidate. For more information, see <code>
- *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html">
- *                ContainerDefinition</a>
- *             </code>.</p>
+ *          AutoML candidate. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html">
+ *                ContainerDefinition</a>.</p>
  */
 export interface AutoMLContainerDefinition {
   /**
    * <p>The Amazon Elastic Container Registry (Amazon ECR) path of the container. For more
-   *          information, see <code>
-   *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html">
-   *                ContainerDefinition</a>
-   *             </code>.</p>
+   *          information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html">
+   *                ContainerDefinition</a>.</p>
    */
   Image: string | undefined;
 
   /**
-   * <p>The location of the model artifacts. For more information, see <code>
-   *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html"> ContainerDefinition</a>
-   *             </code>.</p>
+   * <p>The location of the model artifacts. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html"> ContainerDefinition</a>.</p>
    */
   ModelDataUrl: string | undefined;
 
   /**
    * <p>The environment variables to set in the container. For more information, see
-   *                <code>
    *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html">
-   *                ContainerDefinition</a>
-   *             </code>.</p>
+   *                ContainerDefinition</a>.</p>
    */
   Environment?: Record<string, string>;
 }
@@ -4776,10 +4789,8 @@ export interface AutoMLCandidateGenerationConfig {
    *                the given training mode.</p>
    *             </li>
    *          </ul>
-   *          <p>For the list of all algorithms per training mode, see <code>
-   *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLAlgorithmConfig.html">
-   *                AutoMLAlgorithmConfig</a>
-   *             </code>.</p>
+   *          <p>For the list of all algorithms per training mode, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLAlgorithmConfig.html">
+   *                AutoMLAlgorithmConfig</a>.</p>
    *          <p>For more information on each algorithm, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-support">Algorithm support</a> section in Autopilot developer guide.</p>
    */
   AlgorithmsConfig?: AutoMLAlgorithmConfig[];
@@ -4893,9 +4904,7 @@ export interface AutoMLDataSource {
  * @public
  * <p>A channel is a named input source that training algorithms can consume. The validation
  *          dataset size is limited to less than 2 GB. The training dataset size must be less than 100
- *          GB. For more information, see <code>
- *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Channel.html"> Channel</a>
- *             </code>.</p>
+ *          GB. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Channel.html"> Channel</a>.</p>
  *          <note>
  *             <p>A validation dataset must contain the same headers as the training dataset.</p>
  *          </note>
@@ -4930,9 +4939,7 @@ export interface AutoMLChannel {
    * <p>The channel type (optional) is an <code>enum</code> string. The default value is
    *             <code>training</code>. Channels for training and validation must share the same
    *             <code>ContentType</code> and <code>TargetAttributeName</code>. For information on
-   *          specifying training and validation channel types, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-datasets-problem-types.html#autopilot-data-sources-training-or-validation">
-   *                <code>How to specify training and validation datasets</code>
-   *             </a>.</p>
+   *          specifying training and validation channel types, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-datasets-problem-types.html#autopilot-data-sources-training-or-validation">How to specify training and validation datasets</a>.</p>
    */
   ChannelType?: AutoMLChannelType | string;
 }
@@ -4976,13 +4983,9 @@ export interface AutoMLJobArtifacts {
  * @public
  * <p>A channel is a named input source that training algorithms can consume. This channel is
  *          used for the non tabular training data of an AutoML job using the V2 API. For tabular
- *          training data, see <code>
- *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLChannel.html">
- *             AutoMLChannel</a>
- *             </code>. For more information, see <code>
- *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Channel.html">
- *                Channel</a>
- *             </code>.</p>
+ *          training data, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLChannel.html">
+ *             AutoMLChannel</a>. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Channel.html">
+ *                Channel</a>.</p>
  */
 export interface AutoMLJobChannel {
   /**
@@ -5040,11 +5043,7 @@ export interface AutoMLJobCompletionCriteria {
   /**
    * <p>The maximum time, in seconds, that each training job executed inside hyperparameter
    *          tuning is allowed to run as part of a hyperparameter tuning job. For more information, see
-   *          the <code>
-   *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StoppingCondition.html">StoppingCondition</a>
-   *             </code> used by the <code>
-   *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html">CreateHyperParameterTuningJob</a>
-   *             </code> action.</p>
+   *          the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StoppingCondition.html">StoppingCondition</a> used by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html">CreateHyperParameterTuningJob</a> action.</p>
    *          <p>For V2 jobs (jobs created by calling <code>CreateAutoMLJobV2</code>), this field
    *          controls the runtime of the job candidate.</p>
    */
@@ -7422,9 +7421,14 @@ export interface ContainerDefinition {
    *             endpoint. If you are using your own custom algorithm instead of an algorithm provided by
    *             SageMaker, the inference code must meet SageMaker requirements. SageMaker supports both
    *                 <code>registry/repository[:tag]</code> and <code>registry/repository[@digest]</code>
-   *             image path formats. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with Amazon
-   *                 SageMaker</a>
-   *          </p>
+   *             image path formats. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with
+   *             Amazon SageMaker</a>.
+   *         </p>
+   *          <note>
+   *             <p>The model artifacts in an Amazon S3 bucket and the Docker image for inference container
+   *                 in Amazon EC2 Container Registry must be in the same region as the model or endpoint you are
+   *                 creating.</p>
+   *          </note>
    */
   Image?: string;
 
@@ -7432,8 +7436,13 @@ export interface ContainerDefinition {
    * <p>Specifies whether the model container is in Amazon ECR or a private Docker registry
    *             accessible from your Amazon Virtual Private Cloud (VPC). For information about storing containers in a
    *             private Docker registry, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html">Use a
-   *                 Private Docker Registry for Real-Time Inference Containers</a>
-   *          </p>
+   *                 Private Docker Registry for Real-Time Inference Containers</a>.
+   *         </p>
+   *          <note>
+   *             <p>The model artifacts in an Amazon S3 bucket and the Docker image for inference container
+   *                 in Amazon EC2 Container Registry must be in the same region as the model or endpoint you are
+   *                 creating.</p>
+   *          </note>
    */
   ImageConfig?: ImageConfig;
 
@@ -8282,9 +8291,7 @@ export interface CreateAutoMLJobRequest {
 
   /**
    * <p>An array of channel objects that describes the input data and its location. Each channel
-   *          is a named input source. Similar to <code>InputDataConfig</code> supported by <code>
-   *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html">HyperParameterTrainingJobDefinition</a>
-   *             </code>. Format(s) supported: CSV,
+   *          is a named input source. Similar to <code>InputDataConfig</code> supported by <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html">HyperParameterTrainingJobDefinition</a>. Format(s) supported: CSV,
    *          Parquet. A minimum of 500 rows is required for the training dataset. There is not a minimum
    *          number of rows required for the validation dataset.</p>
    */
@@ -8305,12 +8312,8 @@ export interface CreateAutoMLJobRequest {
 
   /**
    * <p>Defines the objective metric used to measure the predictive quality of an AutoML job. You
-   *          provide an <code>
-   *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobObjective.html">AutoMLJobObjective$MetricName</a>
-   *             </code> and Autopilot infers whether to minimize or
-   *          maximize it. For <code>
-   *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html">CreateAutoMLJobV2</a>
-   *             </code>, only <code>Accuracy</code> is supported.</p>
+   *          provide an <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobObjective.html">AutoMLJobObjective$MetricName</a> and Autopilot infers whether to minimize or
+   *          maximize it. For <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html">CreateAutoMLJobV2</a>, only <code>Accuracy</code> is supported.</p>
    */
   AutoMLJobObjective?: AutoMLJobObjective;
 
@@ -8367,9 +8370,7 @@ export interface CreateAutoMLJobV2Request {
 
   /**
    * <p>An array of channel objects describing the input data and their location. Each channel
-   *          is a named input source. Similar to <code>
-   *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html#sagemaker-CreateAutoMLJob-request-InputDataConfig">InputDataConfig</a>
-   *             </code> supported by <code>CreateAutoMLJob</code>. The
+   *          is a named input source. Similar to <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html#sagemaker-CreateAutoMLJob-request-InputDataConfig">InputDataConfig</a> supported by <code>CreateAutoMLJob</code>. The
    *          supported formats depend on the problem type:</p>
    *          <ul>
    *             <li>
@@ -8414,9 +8415,7 @@ export interface CreateAutoMLJobV2Request {
   SecurityConfig?: AutoMLSecurityConfig;
 
   /**
-   * <p>Specifies a metric to minimize or maximize as the objective of a job. For <code>
-   *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html">CreateAutoMLJobV2</a>
-   *             </code>, only <code>Accuracy</code> is supported.</p>
+   * <p>Specifies a metric to minimize or maximize as the objective of a job. For <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html">CreateAutoMLJobV2</a>, only <code>Accuracy</code> is supported.</p>
    */
   AutoMLJobObjective?: AutoMLJobObjective;
 
@@ -10603,27 +10602,4 @@ export interface CreateEdgePackagingJobRequest {
    * <p>Creates tags for the packaging job.</p>
    */
   Tags?: Tag[];
-}
-
-/**
- * @public
- * <p>The deployment configuration for an endpoint, which contains the desired deployment
- *             strategy and rollback configurations.</p>
- */
-export interface DeploymentConfig {
-  /**
-   * <p>Update policy for a blue/green deployment. If this update policy is specified, SageMaker
-   *             creates a new fleet during the deployment while maintaining the old fleet. SageMaker flips
-   *             traffic to the new fleet according to the specified traffic routing configuration. Only
-   *             one update policy should be used in the deployment configuration. If no update policy is
-   *             specified, SageMaker uses a blue/green deployment strategy with all at once traffic shifting
-   *             by default.</p>
-   */
-  BlueGreenUpdatePolicy: BlueGreenUpdatePolicy | undefined;
-
-  /**
-   * <p>Automatic rollback configuration for handling endpoint deployment failures and
-   *             recovery.</p>
-   */
-  AutoRollbackConfiguration?: AutoRollbackConfig;
 }

@@ -39,7 +39,6 @@ import {
   ContainerDefinition,
   ContextSummary,
   InferenceSpecification,
-  KernelGatewayImageConfig,
   MetadataProperties,
   ModelApprovalStatus,
   ModelPackageStatus,
@@ -65,6 +64,7 @@ import {
   HubContentType,
   InferenceExecutionConfig,
   InferenceExperimentType,
+  LabelingJobInputConfig,
   ModelCardSecurityConfig,
   ModelCardStatus,
   ModelClientConfig,
@@ -140,9 +140,10 @@ import {
   InferenceExperimentSummary,
   InferenceRecommendationsJob,
   InferenceRecommendationsJobStep,
+  LabelCounters,
   LabelingJobForWorkteamSummary,
+  LabelingJobOutput,
   LabelingJobStatus,
-  LabelingJobSummary,
   MetricData,
   ModelArtifacts,
   ModelCardExportJobStatus,
@@ -175,6 +176,78 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+/**
+ * @public
+ * <p>Provides summary information about a labeling job.</p>
+ */
+export interface LabelingJobSummary {
+  /**
+   * <p>The name of the labeling job.</p>
+   */
+  LabelingJobName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) assigned to the labeling job when it was
+   *             created.</p>
+   */
+  LabelingJobArn: string | undefined;
+
+  /**
+   * <p>The date and time that the job was created (timestamp).</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The date and time that the job was last modified (timestamp).</p>
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The current status of the labeling job. </p>
+   */
+  LabelingJobStatus: LabelingJobStatus | string | undefined;
+
+  /**
+   * <p>Counts showing the progress of the labeling job.</p>
+   */
+  LabelCounters: LabelCounters | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the work team assigned to the job.</p>
+   */
+  WorkteamArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a Lambda function. The function is run before each
+   *             data object is sent to a worker.</p>
+   */
+  PreHumanTaskLambdaArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Lambda function used to consolidate the
+   *             annotations from individual workers into a label for a data object. For more
+   *             information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-annotation-consolidation.html">Annotation
+   *                 Consolidation</a>.</p>
+   */
+  AnnotationConsolidationLambdaArn?: string;
+
+  /**
+   * <p>If the <code>LabelingJobStatus</code> field is <code>Failed</code>, this field
+   *             contains a description of the error.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>The location of the output produced by the labeling job.</p>
+   */
+  LabelingJobOutput?: LabelingJobOutput;
+
+  /**
+   * <p>Input configuration for the labeling job.</p>
+   */
+  InputConfig?: LabelingJobInputConfig;
+}
 
 /**
  * @public
@@ -9596,21 +9669,6 @@ export interface UpdateActionResponse {
    * <p>The Amazon Resource Name (ARN) of the action.</p>
    */
   ActionArn?: string;
-}
-
-/**
- * @public
- */
-export interface UpdateAppImageConfigRequest {
-  /**
-   * <p>The name of the AppImageConfig to update.</p>
-   */
-  AppImageConfigName: string | undefined;
-
-  /**
-   * <p>The new KernelGateway app to run on the image.</p>
-   */
-  KernelGatewayImageConfig?: KernelGatewayImageConfig;
 }
 
 /**
