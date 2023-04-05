@@ -35,7 +35,8 @@ export interface PutAuthPolicyCommandOutput extends PutAuthPolicyResponse, __Met
 
 /**
  * @public
- * <p>Creates or updates the auth policy.</p>
+ * <p>Creates or updates the auth policy. The policy string in JSON must not contain newlines or
+ *    blank lines.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

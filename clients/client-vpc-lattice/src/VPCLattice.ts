@@ -497,9 +497,10 @@ export class VPCLattice extends VPCLatticeClient {
    *    fails, retry by deleting the association and recreating it.</p>
    *          <p>As a result of this operation, the association gets created in the service network account
    *    and the VPC owner account.</p>
-   *          <p>Once a security group is added to the VPC association it cannot be removed. You can add or
-   *    update the security groups being used for the VPC association once a security group is attached.
-   *    To remove all security groups you must reassociate the VPC.</p>
+   *          <p>If you add a security group to the service network and VPC association, the association must
+   *    continue to always have at least one security group. You can add or edit security groups at any
+   *    time. However, to remove all security groups, you must first delete the association and recreate
+   *    it without security groups.</p>
    */
   public createServiceNetworkVpcAssociation(
     args: CreateServiceNetworkVpcAssociationCommandInput,
@@ -601,7 +602,7 @@ export class VPCLattice extends VPCLatticeClient {
 
   /**
    * @public
-   * <p>Deletes the specified auth policy. If an auth is set to <code>Amazon Web Services_IAM</code>
+   * <p>Deletes the specified auth policy. If an auth is set to <code>AWS_IAM</code>
    *    and the auth policy is deleted, all requests will be denied by default. If you are trying to
    *    remove the auth policy completely, you must set the auth_type to <code>NONE</code>. If auth is
    *    enabled on the resource, but no auth policy is set, all requests will be denied.</p>
@@ -1041,7 +1042,7 @@ export class VPCLattice extends VPCLatticeClient {
   /**
    * @public
    * <p>Retrieves information about the resource policy. The resource policy is an IAM policy
-   *    created by AWS RAM on behalf of the resource owner when they share a resource.</p>
+   *    created on behalf of the resource owner when they share a resource.</p>
    */
   public getResourcePolicy(
     args: GetResourcePolicyCommandInput,
@@ -1592,7 +1593,8 @@ export class VPCLattice extends VPCLatticeClient {
 
   /**
    * @public
-   * <p>Creates or updates the auth policy.</p>
+   * <p>Creates or updates the auth policy. The policy string in JSON must not contain newlines or
+   *    blank lines.</p>
    */
   public putAuthPolicy(
     args: PutAuthPolicyCommandInput,
@@ -1914,8 +1916,10 @@ export class VPCLattice extends VPCLatticeClient {
 
   /**
    * @public
-   * <p>Updates the service network and VPC association. Once you add a security group, it cannot be
-   *    removed.</p>
+   * <p>Updates the service network and VPC association. If you add a security group to the service
+   *    network and VPC association, the association must continue to always have at least one security
+   *    group. You can add or edit security groups at any time. However, to remove all security groups,
+   *    you must first delete the association and recreate it without security groups.</p>
    */
   public updateServiceNetworkVpcAssociation(
     args: UpdateServiceNetworkVpcAssociationCommandInput,

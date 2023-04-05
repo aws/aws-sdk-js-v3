@@ -40,8 +40,10 @@ export interface UpdateServiceNetworkVpcAssociationCommandOutput
 
 /**
  * @public
- * <p>Updates the service network and VPC association. Once you add a security group, it cannot be
- *    removed.</p>
+ * <p>Updates the service network and VPC association. If you add a security group to the service
+ *    network and VPC association, the association must continue to always have at least one security
+ *    group. You can add or edit security groups at any time. However, to remove all security groups,
+ *    you must first delete the association and recreate it without security groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

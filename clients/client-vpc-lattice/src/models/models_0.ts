@@ -2278,7 +2278,7 @@ export interface GetAuthPolicyResponse {
 
   /**
    * <p>The state of the auth policy. The auth policy is only active when the auth type is set to
-   *      <code>Amazon Web Services_IAM</code>. If you provide a policy, then authentication and
+   *      <code>AWS_IAM</code>. If you provide a policy, then authentication and
    *    authorization decisions are made based on this policy and the client's IAM policy. If the auth
    *    type is <code>NONE</code>, then any auth policy you provide will remain inactive. For more
    *    information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-networks.html#create-service-network">Create a service
@@ -2373,7 +2373,7 @@ export interface GetListenerResponse {
  */
 export interface GetResourcePolicyRequest {
   /**
-   * <p>An IAM policy.</p>
+   * <p>The Amazon Resource Name (ARN) of the service network or service.</p>
    */
   resourceArn: string | undefined;
 }
@@ -2383,7 +2383,7 @@ export interface GetResourcePolicyRequest {
  */
 export interface GetResourcePolicyResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the service network or service.</p>
+   * <p>An IAM policy.</p>
    */
   policy?: string;
 }
@@ -3684,7 +3684,7 @@ export interface PutAuthPolicyRequest {
   resourceIdentifier: string | undefined;
 
   /**
-   * <p>The auth policy.</p>
+   * <p>The auth policy. The policy string in JSON must not contain newlines or blank lines.</p>
    */
   policy: string | undefined;
 }
@@ -3694,13 +3694,13 @@ export interface PutAuthPolicyRequest {
  */
 export interface PutAuthPolicyResponse {
   /**
-   * <p>The auth policy.</p>
+   * <p>The auth policy. The policy string in JSON must not contain newlines or blank lines.</p>
    */
   policy?: string;
 
   /**
    * <p>The state of the auth policy. The auth policy is only active when the auth type is set to
-   *      <code>Amazon Web Services_IAM</code>. If you provide a policy, then authentication and
+   *      <code>AWS_IAM</code>. If you provide a policy, then authentication and
    *    authorization decisions are made based on this policy and the client's IAM policy. If the Auth
    *    type is <code>NONE</code>, then, any auth policy you provide will remain inactive. For more
    *    information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-networks.html#create-service-network">Create a service
@@ -3720,7 +3720,8 @@ export interface PutResourcePolicyRequest {
   resourceArn: string | undefined;
 
   /**
-   * <p>An IAM policy.</p>
+   * <p>An IAM policy. The policy string in JSON must not contain newlines or
+   *    blank lines.</p>
    */
   policy: string | undefined;
 }
@@ -3930,7 +3931,7 @@ export interface UpdateServiceNetworkVpcAssociationRequest {
   serviceNetworkVpcAssociationIdentifier: string | undefined;
 
   /**
-   * <p>The IDs of the security groups. Once you add a security group, it cannot be removed.</p>
+   * <p>The IDs of the security groups. </p>
    */
   securityGroupIds: string[] | undefined;
 }

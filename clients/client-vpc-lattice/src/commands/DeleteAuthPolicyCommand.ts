@@ -35,7 +35,7 @@ export interface DeleteAuthPolicyCommandOutput extends DeleteAuthPolicyResponse,
 
 /**
  * @public
- * <p>Deletes the specified auth policy. If an auth is set to <code>Amazon Web Services_IAM</code>
+ * <p>Deletes the specified auth policy. If an auth is set to <code>AWS_IAM</code>
  *    and the auth policy is deleted, all requests will be denied by default. If you are trying to
  *    remove the auth policy completely, you must set the auth_type to <code>NONE</code>. If auth is
  *    enabled on the resource, but no auth policy is set, all requests will be denied.</p>

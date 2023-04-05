@@ -36,7 +36,7 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
 /**
  * @public
  * <p>Retrieves information about the resource policy. The resource policy is an IAM policy
- *    created by AWS RAM on behalf of the resource owner when they share a resource.</p>
+ *    created on behalf of the resource owner when they share a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
