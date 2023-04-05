@@ -129,7 +129,7 @@ class SdkThemeContext extends DefaultThemeRenderContext {
 
           document.querySelector('.container-main').id = 'jump-to-content'
           
-          document.querySelector('.tsd-navigation.secondary')['ariaLabel'] = "Types"
+          document.querySelector('.tsd-navigation.secondary')['ariaLabel'] = "Secondary"
 
           if (document.querySelectorAll('img[alt~="NPM"]').length > 0) {
             const versionEl = document.querySelector('img[alt="NPM version"]')
