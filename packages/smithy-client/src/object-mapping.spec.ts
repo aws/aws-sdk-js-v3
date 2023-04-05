@@ -130,6 +130,35 @@ describe("object mapping", () => {
   });
 
   describe("take function", () => {
+    it("will not apply instructions to missing fields", () => {
+      const input = {
+        filteredDefault: null,
+        filteredSupplier: undefined,
+        filteredMapper: void 0,
+        filteredFilter: 43,
+        filteredMapperOnly: null,
+      } as const;
+
+      const output = {} as const;
+
+      const instructions: SourceMappingInstructions = {
+        default: [],
+        filteredDefault: [],
+        supplier: [, () => "x"],
+        filteredSupplier: [, () => "x"],
+        mapper: [, (_) => _ + "x"],
+        filteredMapper: [, (_) => _ + "x"],
+        filter: [(_) => _ === 42],
+        filteredFilter: [(_) => _ === 42],
+        sourceKey: [, , "SOURCE_KEY"],
+        sourceKey2: [, (_) => "mapped" + _, "SOURCE_KEY2"],
+        mapperOnly: (_) => _ + "Only",
+        filteredMapperOnly: (_) => _ + "Only",
+      };
+
+      expect(take(input, instructions)).toEqual(output);
+    });
+
     it("should take keys with optional filters and optional mappers", () => {
       const input = {
         default: 0,

@@ -280,8 +280,8 @@ const applyInstruction = (
     if (typeof instruction === "function") {
       instruction = [, instruction];
     }
-    const [filterFn = nonNullish, valueFn = pass, sourceKey = targetKey] = instruction;
-    if (filterFn(source[sourceKey])) {
+    const [filter = nonNullish, valueFn = pass, sourceKey = targetKey] = instruction;
+    if ((typeof filter === "function" && filter(source[sourceKey])) || (typeof filter !== "function" && !!filter)) {
       target[targetKey] = valueFn(source[sourceKey]);
     }
     return;
