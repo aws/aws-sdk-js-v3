@@ -39,6 +39,9 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * 			the number of tasks running in a service drops below the <code>desiredCount</code>,
  * 			Amazon ECS runs another copy of the task in the specified cluster. To update an existing
  * 			service, see the <a>UpdateService</a> action.</p>
+ *          <note>
+ *             <p>Starting April 15, 2023, Amazon Web Services will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service. </p>
+ *          </note>
  *          <p>In addition to maintaining the desired count of tasks in your service, you can
  * 			optionally run your service behind one or more load balancers. The load balancers
  * 			distribute traffic across the tasks that are associated with the service. For more

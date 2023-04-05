@@ -94,9 +94,12 @@ export interface ManagedScaling {
   status?: ManagedScalingStatus | string;
 
   /**
-   * <p>The target capacity value for the capacity provider. The specified value must be
-   * 			greater than <code>0</code> and less than or equal to <code>100</code>. A value of
-   * 				<code>100</code> results in the Amazon EC2 instances in your Auto Scaling group being
+   * <p>The target capacity utilization as a percentage for the capacity provider. The
+   * 			specified value must be greater than <code>0</code> and less than or equal to
+   * 				<code>100</code>. For example, if you want the capacity provider to maintain 10%
+   * 			spare capacity, then that means the utilization is 90%, so use a
+   * 				<code>targetCapacity</code> of <code>90</code>. The default value of
+   * 				<code>100</code> percent results in the Amazon EC2 instances in your Auto Scaling group being
    * 			completely used.</p>
    */
   targetCapacity?: number;
@@ -1402,8 +1405,6 @@ export type LaunchType = (typeof LaunchType)[keyof typeof LaunchType];
 /**
  * @public
  * <p>The load balancer configuration to use with a service or task set.</p>
- *          <p>For specific notes and restrictions regarding the use of load balancers with services
- * 			and task sets, see the CreateService and CreateTaskSet actions.</p>
  *          <p>When you add, update, or remove a load balancer configuration, Amazon ECS starts a new
  * 			deployment with the updated Elastic Load Balancing configuration. This causes tasks to register to and
  * 			deregister from load balancers.</p>
@@ -1820,7 +1821,7 @@ export interface ServiceConnectService {
    * <p>The <code>discoveryName</code> is the name of the new Cloud Map service that Amazon ECS creates
    * 			for this Amazon ECS service. This must be unique within the Cloud Map namespace. The name can contain up to 64 characters. The name can include lowercase letters,
    * 			numbers, underscores (_), and hyphens (-). The name can't start with a hyphen.</p>
-   *          <p>If this parameter isn't specified, the default value of <code>discoveryName.namespace</code> is used. If the <code>discoveryName</code> isn't specified, the port mapping name from the task definition is used in <code>portName.namespace</code>.</p>
+   *          <p>If the <code>discoveryName</code> isn't specified, the port mapping name from the task definition is used in <code>portName.namespace</code>.</p>
    */
   discoveryName?: string;
 
@@ -2267,7 +2268,7 @@ export interface CreateServiceRequest {
   /**
    * <p>Specifies whether to propagate the tags from the task definition to the task. If no
    * 			value is specified, the tags aren't propagated. Tags can only be propagated to the task
-   * 			during task creation. To add tags to a task after task creation, use the <a>TagResource</a> API action.</p>
+   * 			during task creation. To add tags to a task after task creation, use the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_TagResource.html">TagResource</a> API action.</p>
    */
   propagateTags?: PropagateTags | string;
 
@@ -2322,7 +2323,7 @@ export interface ServiceConnectServiceResource {
    *          <p>The <code>discoveryName</code> is the name of the new Cloud Map service that Amazon ECS creates
    * 			for this Amazon ECS service. This must be unique within the Cloud Map namespace. The name can contain up to 64 characters. The name can include lowercase letters,
    * 			numbers, underscores (_), and hyphens (-). The name can't start with a hyphen.</p>
-   *          <p>If this parameter isn't specified, the default value of <code>discoveryName.namespace</code> is used. If the <code>discoveryName</code> isn't specified, the port mapping name from the task definition is used in <code>portName.namespace</code>.</p>
+   *          <p>If the <code>discoveryName</code> isn't specified, the port mapping name from the task definition is used in <code>portName.namespace</code>.</p>
    */
   discoveryName?: string;
 
@@ -2775,7 +2776,7 @@ export interface TaskSet {
 
 /**
  * @public
- * <p>Details on a service within a cluster</p>
+ * <p>Details on a service within a cluster.</p>
  */
 export interface Service {
   /**
@@ -3876,7 +3877,7 @@ export interface FirelensConfiguration {
  * <p>An object representing a container health check. Health check parameters that are
  * 			specified in a container definition override any Docker health checks that exist in the
  * 			container image (such as those specified in a parent image or from the image's
- * 			Dockerfile).</p>
+ * 			Dockerfile). This configuration maps to the <code>HEALTHCHECK</code> parameter of <a href="https://docs.docker.com/engine/reference/run/">docker run</a>.</p>
  *          <note>
  *             <p>The Amazon ECS container agent only monitors and reports on the health checks specified
  * 				in the task definition. Amazon ECS does not monitor Docker health checks that are
@@ -3905,8 +3906,8 @@ export interface FirelensConfiguration {
  *             </li>
  *          </ul>
  *          <p>The following describes the possible <code>healthStatus</code> values for a task. The
- * 			container health check status of nonessential containers only affects the health status
- * 			of a task if no essential containers have health checks defined.</p>
+ * 			container health check status of
+ * 			non-essential containers don't have an effect on the health status of a task.</p>
  *          <ul>
  *             <li>
  *                <p>
@@ -3921,22 +3922,15 @@ export interface FirelensConfiguration {
  *             <li>
  *                <p>
  *                   <code>UNKNOWN</code>-The essential containers within the task are still
- * 					having their health checks evaluated or there are only nonessential containers
- * 					with health checks defined.</p>
+ * 					having their health checks evaluated, there are only nonessential containers
+ * 					with health checks defined, or there are no container health checks
+ * 					defined.</p>
  *             </li>
  *          </ul>
  *          <p>If a task is run manually, and not as part of a service, the task will continue its
  * 			lifecycle regardless of its health status. For tasks that are part of a service, if the
  * 			task reports as unhealthy then the task will be stopped and the service scheduler will
  * 			replace it.</p>
- *          <important>
- *             <p>For tasks that are a part of a service and the service uses the <code>ECS</code>
- * 				rolling deployment type, the deployment is paused while the new tasks have the
- * 					<code>UNKNOWN</code> task health check status. For example, tasks that define
- * 				health checks for nonessential containers when no essential containers have health
- * 				checks will have the <code>UNKNOWN</code> health check status indefinitely which
- * 				prevents the deployment from completing.</p>
- *          </important>
  *          <p>The following are notes about container health check support:</p>
  *          <ul>
  *             <li>
@@ -4127,7 +4121,7 @@ export interface Tmpfs {
 
 /**
  * @public
- * <p>Linux-specific options that are applied to the container, such as Linux <a>KernelCapabilities</a>.</p>
+ * <p>The Linux-specific options that are applied to the container, such as Linux <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html">KernelCapabilities</a>.</p>
  */
 export interface LinuxParameters {
   /**
@@ -4216,7 +4210,7 @@ export interface LinuxParameters {
 
 /**
  * @public
- * <p>Details for a volume mount point that's used in a container definition.</p>
+ * <p>The details for a volume mount point that's used in a container definition.</p>
  */
 export interface MountPoint {
   /**
@@ -4333,7 +4327,7 @@ export interface PortMapping {
    * 			Amazon ECS container agent ports 51678-51680. Any host port that was previously specified in
    * 			a running task is also reserved while the task is running. That is, after a task stops,
    * 			the host port is released. The current reserved ports are displayed in the
-   * 				<code>remainingResources</code> of <a>DescribeContainerInstances</a>
+   * 			<code>remainingResources</code> of <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeContainerInstances.html">DescribeContainerInstances</a>
    * 			output. A container instance can have up to 100 reserved ports at a time. This number
    * 			includes the default reserved ports. Automatically assigned ports aren't included in the
    * 			100 reserved ports quota.</p>
@@ -4471,9 +4465,9 @@ export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
  * @public
- * <p>The type and amount of a resource to assign to a container. The supported resource
- * 			types are GPUs and Elastic Inference accelerators. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html">Working with
- * 				GPUs on Amazon ECS</a> or <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html">Working with
+ * <p>The type and amount of a resource to assign to a container. The supported resource types are
+ * 			GPUs and Elastic Inference accelerators. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html">Working with
+ * 				GPUs on Amazon ECS</a> or <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/url-ecs-dev;ecs-inference.html">Working with
  * 				Amazon Elastic Inference on Amazon ECS</a> in the <i>Amazon Elastic Container Service Developer Guide</i>
  *          </p>
  */
@@ -4485,7 +4479,7 @@ export interface ResourceRequirement {
    * 			of GPUs that's reserved for all containers in a task can't exceed the number of
    * 			available GPUs on the container instance that the task is launched on.</p>
    *          <p>If the <code>InferenceAccelerator</code> type is used, the <code>value</code> matches
-   * 			the <code>deviceName</code> for an <a>InferenceAccelerator</a> specified in a
+   * 			the <code>deviceName</code> for an <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_InferenceAccelerator.html">InferenceAccelerator</a> specified in a
    * 			task definition.</p>
    */
   value: string | undefined;
@@ -5320,7 +5314,7 @@ export interface EphemeralStorage {
 export interface InferenceAccelerator {
   /**
    * <p>The Elastic Inference accelerator device name. The <code>deviceName</code> must also
-   * 			be referenced in a container definition as a <a>ResourceRequirement</a>.</p>
+   * 			be referenced in a container definition as a <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ResourceRequirement.html">ResourceRequirement</a>.</p>
    */
   deviceName: string | undefined;
 
@@ -6002,8 +5996,8 @@ export interface TaskDefinition {
   runtimePlatform?: RuntimePlatform;
 
   /**
-   * <p>The task launch types the task definition was validated against. To determine which
-   * 			task launch types the task definition is validated for, see the <a>TaskDefinition$compatibilities</a> parameter.</p>
+   * <p>The task launch types the task definition was validated against.  For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS launch types</a>
+   * 			in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   requiresCompatibilities?: (Compatibility | string)[];
 
