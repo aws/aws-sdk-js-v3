@@ -4,12 +4,11 @@ import {
   decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
-  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map as __map,
-  parseEpochTimestamp as __parseEpochTimestamp,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
@@ -989,7 +988,7 @@ const deserializeAws_restJson1ParticipantToken = (output: any, context: __SerdeC
     duration: __expectInt32(output.duration),
     expirationTime:
       output.expirationTime != null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.expirationTime)))
+        ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.expirationTime))
         : undefined,
     participantId: __expectString(output.participantId),
     token: __expectString(output.token),

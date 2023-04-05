@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 import { IVSRealTimeServiceException as __BaseException } from "./IVSRealTimeServiceException";
 
@@ -596,3 +596,29 @@ export interface UpdateStageResponse {
    */
   stage?: Stage;
 }
+
+/**
+ * @internal
+ */
+export const ParticipantTokenFilterSensitiveLog = (obj: ParticipantToken): any => ({
+  ...obj,
+  ...(obj.token && { token: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateParticipantTokenResponseFilterSensitiveLog = (obj: CreateParticipantTokenResponse): any => ({
+  ...obj,
+  ...(obj.participantToken && { participantToken: ParticipantTokenFilterSensitiveLog(obj.participantToken) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateStageResponseFilterSensitiveLog = (obj: CreateStageResponse): any => ({
+  ...obj,
+  ...(obj.participantTokens && {
+    participantTokens: obj.participantTokens.map((item) => ParticipantTokenFilterSensitiveLog(item)),
+  }),
+});

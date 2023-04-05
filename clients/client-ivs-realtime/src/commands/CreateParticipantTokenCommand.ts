@@ -14,7 +14,11 @@ import {
 } from "@aws-sdk/types";
 
 import { IVSRealTimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IVSRealTimeClient";
-import { CreateParticipantTokenRequest, CreateParticipantTokenResponse } from "../models/models_0";
+import {
+  CreateParticipantTokenRequest,
+  CreateParticipantTokenResponse,
+  CreateParticipantTokenResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateParticipantTokenCommand,
   serializeAws_restJson1CreateParticipantTokenCommand,
@@ -131,7 +135,7 @@ export class CreateParticipantTokenCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: CreateParticipantTokenResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

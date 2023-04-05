@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IVSRealTimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IVSRealTimeClient";
-import { CreateStageRequest, CreateStageResponse } from "../models/models_0";
+import { CreateStageRequest, CreateStageResponse, CreateStageResponseFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateStageCommand,
   serializeAws_restJson1CreateStageCommand,
@@ -131,7 +131,7 @@ export class CreateStageCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: CreateStageResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
