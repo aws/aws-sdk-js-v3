@@ -54,7 +54,7 @@ export interface AssociateSubnetsCommandOutput extends AssociateSubnetsResponse,
  *   SubnetMappings: [ // SubnetMappings // required
  *     { // SubnetMapping
  *       SubnetId: "STRING_VALUE", // required
- *       IPAddressType: "DUALSTACK" || "IPV4",
+ *       IPAddressType: "DUALSTACK" || "IPV4" || "IPV6",
  *     },
  *   ],
  * };

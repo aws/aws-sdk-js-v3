@@ -288,6 +288,7 @@ export class ThrottlingException extends __BaseException {
 export const IPAddressType = {
   DUALSTACK: "DUALSTACK",
   IPV4: "IPV4",
+  IPV6: "IPV6",
 } as const;
 
 /**
@@ -1539,7 +1540,7 @@ export interface RuleOption {
  * <p>A single Suricata rules specification, for use in a stateful rule group.
  *        Use this option to specify a simple Suricata rule with protocol, source and destination, ports, direction, and rule options.
  *        For information about the Suricata <code>Rules</code> format, see
- *                                         <a href="https://suricata.readthedocs.io/rules/intro.html#">Rules Format</a>. </p>
+ *                                         <a href="https://suricata.readthedocs.iorules/intro.html#">Rules Format</a>. </p>
  */
 export interface StatefulRule {
   /**
@@ -1831,7 +1832,7 @@ export interface RulesSource {
    * <p>An array of individual stateful rules inspection criteria to be used together in a stateful rule group.
    *        Use this option to specify simple Suricata rules with protocol, source and destination, ports, direction, and rule options.
    *        For information about the Suricata <code>Rules</code> format, see
-   *                                         <a href="https://suricata.readthedocs.io/rules/intro.html#">Rules Format</a>. </p>
+   *                                         <a href="https://suricata.readthedocs.iorules/intro.html#">Rules Format</a>. </p>
    */
   StatefulRules?: StatefulRule[];
 
