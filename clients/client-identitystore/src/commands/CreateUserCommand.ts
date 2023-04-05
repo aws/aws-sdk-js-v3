@@ -35,7 +35,7 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
 
 /**
  * @public
- * <p>Creates a new user within the specified identity store.</p>
+ * <p>Creates a user within the specified identity store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

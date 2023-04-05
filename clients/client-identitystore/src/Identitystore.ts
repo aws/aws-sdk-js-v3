@@ -71,7 +71,7 @@ import { IdentitystoreClient } from "./IdentitystoreClient";
  *          </note>
  *
  *          <p>This reference guide describes the identity store operations that you can call
- *          programatically and includes detailed information on data types and errors.</p>
+ *          programatically and includes detailed information about data types and errors.</p>
  */
 export class Identitystore extends IdentitystoreClient {
   /**
@@ -136,7 +136,7 @@ export class Identitystore extends IdentitystoreClient {
 
   /**
    * @public
-   * <p>Creates a new user within the specified identity store.</p>
+   * <p>Creates a user within the specified identity store.</p>
    */
   public createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
   public createUser(args: CreateUserCommandInput, cb: (err: any, data?: CreateUserCommandOutput) => void): void;

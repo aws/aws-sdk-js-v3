@@ -78,10 +78,7 @@ export interface Address {
   Type?: string;
 
   /**
-   * <p>A
-   *          Boolean
-   *          value
-   *          representing whether this is the primary address for the associated
+   * <p>A Boolean value representing whether this is the primary address for the associated
    *          resource.</p>
    */
   Primary?: boolean;
@@ -124,8 +121,7 @@ export interface UniqueAttribute {
 /**
  * @public
  * <p>A unique identifier for a user or group that is not the primary identifier. This value can be
- *          an identifier from an external identity provider (IdP) that is associated with the user, the group, or a unique attribute. For example, a
- *          unique <code>GroupDisplayName</code>.</p>
+ *          an identifier from an external identity provider (IdP) that is associated with the user, the group, or a unique attribute.</p>
  */
 export type AlternateIdentifier =
   | AlternateIdentifier.ExternalIdMember
@@ -202,8 +198,7 @@ export interface GetGroupIdRequest {
 
   /**
    * <p>A unique identifier for a user or group that is not the primary identifier. This value can be
-   *          an identifier from an external identity provider (IdP) that is associated with the user, the group, or a unique attribute. For example, a
-   *          unique <code>GroupDisplayName</code>.</p>
+   *          an identifier from an external identity provider (IdP) that is associated with the user, the group, or a unique attribute. For the unique attribute, the only valid path is <code>displayName</code>.</p>
    */
   AlternateIdentifier: AlternateIdentifier | undefined;
 }
@@ -240,7 +235,7 @@ export class InternalServerException extends __BaseException {
   RequestId?: string;
 
   /**
-   * <p>The number of seconds that you would like to wait before retrying the next request.</p>
+   * <p>The number of seconds to wait before retrying the next request.</p>
    */
   RetryAfterSeconds?: number;
   /**
@@ -335,8 +330,7 @@ export class ThrottlingException extends __BaseException {
   RequestId?: string;
 
   /**
-   * <p>The number of seconds that you would like to wait before retrying the next
-   *          request.</p>
+   * <p>The number of seconds to wait before retrying the next request.</p>
    */
   RetryAfterSeconds?: number;
   /**
@@ -464,8 +458,7 @@ export interface GetUserIdRequest {
 
   /**
    * <p>A unique identifier for a user or group that is not the primary identifier. This value can be
-   *          an identifier from an external identity provider (IdP) that is associated with the user, the group, or a unique attribute. For example, a
-   *          unique <code>UserDisplayName</code>.</p>
+   *          an identifier from an external identity provider (IdP) that is associated with the user, the group, or a unique attribute. For the unique attribute, the only valid paths are <code>userName</code> and <code>emails.value</code>.</p>
    */
   AlternateIdentifier: AlternateIdentifier | undefined;
 }
@@ -573,7 +566,8 @@ export interface CreateGroupMembershipRequest {
  */
 export interface CreateGroupMembershipResponse {
   /**
-   * <p>The identifier for a newly created <code>GroupMembership</code> in an identity store.</p>
+   * <p>The identifier for a newly created <code>GroupMembership</code> in an identity
+   *          store.</p>
    */
   MembershipId: string | undefined;
 
@@ -748,7 +742,9 @@ export interface CreateGroupRequest {
   IdentityStoreId: string | undefined;
 
   /**
-   * <p>A string containing the name of the group. This value is commonly displayed when the group is referenced.</p>
+   * <p>A string containing the name of the group. This value is commonly displayed when the
+   *          group is referenced. "Administrator" and "AWSAdministrators" are reserved names and can't be used for users
+   *          or groups.</p>
    */
   DisplayName?: string;
 
@@ -909,7 +905,7 @@ export interface ListGroupsRequest {
 
 /**
  * @public
- * <p>A group object that contains a specified group’s metadata and attributes.</p>
+ * <p>A group object that contains the metadata and attributes for a specified group.</p>
  */
 export interface Group {
   /**
@@ -918,10 +914,11 @@ export interface Group {
   GroupId: string | undefined;
 
   /**
-   * <p>The group’s display name value. The length limit is 1,024 characters. This
-   *          value can consist of letters, accented characters, symbols, numbers, punctuation, tab, new
-   *          line, carriage return, space, and nonbreaking space in this attribute. This value is specified at the time the group is
-   *          created and stored as an attribute of the group object in the identity store.</p>
+   * <p>The display name value for the group. The length limit is 1,024 characters. This value
+   *          can consist of letters, accented characters, symbols, numbers, punctuation, tab, new line,
+   *          carriage return, space, and nonbreaking space in this attribute. This value is specified at
+   *          the time the group is created and stored as an attribute of the group object in the
+   *          identity store.</p>
    */
   DisplayName?: string;
 
@@ -1094,12 +1091,8 @@ export interface Email {
   Type?: string;
 
   /**
-   * <p>A
-   *          Boolean
-   *          value
-   *          representing whether this is the primary email
-   *          address
-   *          for the associated resource.</p>
+   * <p>A Boolean value representing whether this is the primary email address for the
+   *          associated resource.</p>
    */
   Primary?: boolean;
 }
@@ -1160,10 +1153,7 @@ export interface PhoneNumber {
   Type?: string;
 
   /**
-   * <p>A
-   *          Boolean
-   *          value
-   *          representing whether this is the primary phone number for the associated
+   * <p>A Boolean value representing whether this is the primary phone number for the associated
    *          resource.</p>
    */
   Primary?: boolean;
@@ -1179,20 +1169,22 @@ export interface CreateUserRequest {
   IdentityStoreId: string | undefined;
 
   /**
-   * <p>A unique string used to identify the user. The length limit is 128 characters.
-   *          This value can consist of letters, accented characters, symbols, numbers, and punctuation.
-   *          This value is specified at the time the user is created and stored as an attribute of the user object in the identity store.</p>
+   * <p>A unique string used to identify the user. The length limit is 128 characters. This
+   *          value can consist of letters, accented characters, symbols, numbers, and punctuation. This
+   *          value is specified at the time the user is created and stored as an attribute of the user
+   *          object in the identity store. "Administrator" and "AWSAdministrators" are reserved names and can't be used for users
+   *          or groups.</p>
    */
   UserName?: string;
 
   /**
-   * <p>An object containing the user's name.</p>
+   * <p>An object containing the name of the user.</p>
    */
   Name?: Name;
 
   /**
-   * <p>A string containing the user's name. This value is typically formatted for display when
-   *          the user is referenced. For example, "John Doe."</p>
+   * <p>A string containing the name of the user. This value is typically formatted for display
+   *          when the user is referenced. For example, "John Doe." </p>
    */
   DisplayName?: string;
 
@@ -1202,7 +1194,7 @@ export interface CreateUserRequest {
   NickName?: string;
 
   /**
-   * <p>A string containing a URL that may be associated with the user.</p>
+   * <p>A string containing a URL that might be associated with the user.</p>
    */
   ProfileUrl?: string;
 
@@ -1222,12 +1214,14 @@ export interface CreateUserRequest {
   PhoneNumbers?: PhoneNumber[];
 
   /**
-   * <p>A string indicating the user's type. Possible values depend on each customer's specific needs, so they are left unspecified.</p>
+   * <p>A string indicating the type of user. Possible values are left unspecified. The value
+   *          can vary based on your specific use case.</p>
    */
   UserType?: string;
 
   /**
-   * <p>A string containing the user's title. Possible values are left unspecified given that they depend on each customer's specific needs.</p>
+   * <p>A string containing the title of the user. Possible values are left unspecified. The
+   *          value can vary based on your specific use case.</p>
    */
   Title?: string;
 
@@ -1238,12 +1232,12 @@ export interface CreateUserRequest {
   PreferredLanguage?: string;
 
   /**
-   * <p>A string containing the user's geographical region or location.</p>
+   * <p>A string containing the geographical region or location of the user.</p>
    */
   Locale?: string;
 
   /**
-   * <p>A string containing the user's time zone.</p>
+   * <p>A string containing the time zone of the user.</p>
    */
   Timezone?: string;
 }
@@ -1330,7 +1324,7 @@ export interface DescribeUserResponse {
   Name?: Name;
 
   /**
-   * <p>The user's name value for display.</p>
+   * <p>The display name of the user.</p>
    */
   DisplayName?: string;
 
@@ -1345,12 +1339,12 @@ export interface DescribeUserResponse {
   ProfileUrl?: string;
 
   /**
-   * <p>The user's email value.</p>
+   * <p>The email address of the user.</p>
    */
   Emails?: Email[];
 
   /**
-   * <p>The user's physical address.</p>
+   * <p>The physical address of the user.</p>
    */
   Addresses?: Address[];
 
@@ -1360,12 +1354,12 @@ export interface DescribeUserResponse {
   PhoneNumbers?: PhoneNumber[];
 
   /**
-   * <p>A string indicating the user's type.</p>
+   * <p>A string indicating the type of user.</p>
    */
   UserType?: string;
 
   /**
-   * <p>A string containing the user's title.</p>
+   * <p>A string containing the title of the user.</p>
    */
   Title?: string;
 
@@ -1375,7 +1369,7 @@ export interface DescribeUserResponse {
   PreferredLanguage?: string;
 
   /**
-   * <p>A string containing the user's geographical region or location.</p>
+   * <p>A string containing the geographical region or location of the user.</p>
    */
   Locale?: string;
 
@@ -1429,7 +1423,7 @@ export interface ListUsersRequest {
 
 /**
  * @public
- * <p>A user object that contains a specified user’s metadata and attributes.</p>
+ * <p>A user object that contains the metadata and attributes for a specified user.</p>
  */
 export interface User {
   /**
@@ -1451,12 +1445,12 @@ export interface User {
   ExternalIds?: ExternalId[];
 
   /**
-   * <p>An object containing the user's name.</p>
+   * <p>An object containing the name of the user.</p>
    */
   Name?: Name;
 
   /**
-   * <p>A string containing the user's name that's formatted for display when the user is
+   * <p>A string containing the  name of the user that is formatted for display when the user is
    *          referenced. For example, "John Doe."</p>
    */
   DisplayName?: string;
@@ -1467,7 +1461,7 @@ export interface User {
   NickName?: string;
 
   /**
-   * <p>A string containing a URL that may be associated with the user.</p>
+   * <p>A string containing a URL that might be associated with the user.</p>
    */
   ProfileUrl?: string;
 
@@ -1487,14 +1481,14 @@ export interface User {
   PhoneNumbers?: PhoneNumber[];
 
   /**
-   * <p>A string indicating the user's type. Possible values depend on each customer's specific needs, so they are left unspecified.</p>
+   * <p>A string indicating the type of user. Possible values are left unspecified. The value
+   *          can vary based on your specific use case.</p>
    */
   UserType?: string;
 
   /**
-   * <p>A string containing the user's title. Possible values depend on each customer's specific
-   *          needs, so they are left
-   *          unspecified.</p>
+   * <p>A string containing the title of the user. Possible values are left unspecified. The
+   *          value can vary based on your specific use case.</p>
    */
   Title?: string;
 
@@ -1505,14 +1499,12 @@ export interface User {
   PreferredLanguage?: string;
 
   /**
-   * <p>A string containing the user's geographical region or location.</p>
+   * <p>A string containing the geographical region or location of the user.</p>
    */
   Locale?: string;
 
   /**
-   * <p>A string containing the
-   *          user's
-   *          time zone.</p>
+   * <p>A string containing the time zone of the user.</p>
    */
   Timezone?: string;
 

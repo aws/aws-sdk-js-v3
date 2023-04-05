@@ -317,7 +317,7 @@ export interface IdentitystoreClientResolvedConfig extends IdentitystoreClientRe
  *          </note>
  *
  *          <p>This reference guide describes the identity store operations that you can call
- *          programatically and includes detailed information on data types and errors.</p>
+ *          programatically and includes detailed information about data types and errors.</p>
  */
 export class IdentitystoreClient extends __Client<
   __HttpHandlerOptions,
