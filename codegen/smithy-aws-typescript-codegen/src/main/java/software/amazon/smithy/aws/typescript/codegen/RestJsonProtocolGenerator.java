@@ -17,6 +17,7 @@ package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.List;
 import java.util.Set;
+import java.util.Locale.IsoCountryCode;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.knowledge.HttpBinding;
 import software.amazon.smithy.model.shapes.DocumentShape;
@@ -84,6 +85,7 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
 
         TypeScriptWriter writer = context.getWriter();
         writer.addUseImports(getApplicationProtocol().getResponseType());
+        writer.addImport("map", null, "@aws-sdk/smithy-client");
         writer.write(IoUtils.readUtf8Resource(getClass(), "load-json-error-code-stub.ts"));
     }
 
@@ -146,7 +148,7 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
         TypeScriptWriter writer = context.getWriter();
         SymbolProvider symbolProvider = context.getSymbolProvider();
 
-        writer.openBlock("body = JSON.stringify({", "});", () -> {
+        writer.openBlock("body = JSON.stringify(take(input, {", "}));", () -> {
             for (HttpBinding binding : documentBindings) {
                 MemberShape memberShape = binding.getMember();
                 // The name of the member to get from the input shape.
@@ -159,16 +161,19 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
                 Shape target = context.getModel().expectShape(memberShape.getTarget());
 
                 // Handle @timestampFormat on members not just the targeted shape.
-                String valueProvider = memberShape.hasTrait(TimestampFormatTrait.class)
+                String valueProvider = "_ => " + (memberShape.hasTrait(TimestampFormatTrait.class)
                         ? AwsProtocolUtils.getInputTimestampValueProvider(context, memberShape,
-                                getDocumentTimestampFormat(), inputLocation)
-                        : target.accept(getMemberSerVisitor(context, inputLocation));
+                        getDocumentTimestampFormat(), "_")
+                        : target.accept(getMemberSerVisitor(context, "_")));
 
                 if (memberShape.hasTrait(IdempotencyTokenTrait.class)) {
-                    writer.write("'$L': $L ?? generateIdempotencyToken(),", locationName, valueProvider);
+                    writer.write("'$L': _ => _ ?? generateIdempotencyToken(),", locationName, valueProvider);
                 } else {
-                    writer.write("...($1L != null && { $2S: $3L }),",
-                            inputLocation, locationName, valueProvider);
+                  if (valueProvider.equals("_ => _")) {
+                      writer.write("$1S: [],", locationName);
+                  } else {
+                      writer.write("$1S: [, $2L],", locationName, valueProvider);
+                  }
                 }
             }
         });
@@ -282,21 +287,30 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
     ) {
         TypeScriptWriter writer = context.getWriter();
         SymbolProvider symbolProvider = context.getSymbolProvider();
+        writer.addImport("take", null, "@aws-sdk/smithy-client");
 
-        for (HttpBinding binding : documentBindings) {
-            Shape target = context.getModel().expectShape(binding.getMember().getTarget());
-            // The name of the member to get from the input shape.
-            String memberName = symbolProvider.toMemberName(binding.getMember());
-            // Use the jsonName trait value if present, otherwise use the member name.
-            String locationName = binding.getMember().getTrait(JsonNameTrait.class)
-                    .map(JsonNameTrait::getValue)
-                    .orElseGet(binding::getLocationName);
-            writer.openBlock("if (data.$L != null) {", "}", locationName,
-                    () -> {
-                writer.write("contents.$L = $L;", memberName,
-                        target.accept(getMemberDeserVisitor(context, binding.getMember(), "data." + locationName)));
-            });
-        }
+        writer.openBlock("const doc = take(data, {", "});", () -> {
+            for (HttpBinding binding : documentBindings) {
+                Shape target = context.getModel().expectShape(binding.getMember().getTarget());
+                // The name of the member to get from the input shape.
+                String memberName = symbolProvider.toMemberName(binding.getMember());
+                // Use the jsonName trait value if present, otherwise use the member name.
+                String locationName = binding.getMember().getTrait(JsonNameTrait.class)
+                        .map(JsonNameTrait::getValue)
+                        .orElseGet(binding::getLocationName);
+
+
+                String valueExpression = target.accept(
+                    getMemberDeserVisitor(context, binding.getMember(), "_"));
+                boolean isUnaryCall = valueExpression.endsWith("(_)");
+                if (isUnaryCall) {
+                    writer.write("$L: $L,", memberName, valueExpression.replace("(_)", ""));
+                } else {
+                    writer.write("$L: [, _ => $L],", memberName, valueExpression);
+                }
+            }
+        });
+        writer.write("Object.assign(contents, doc);");
     }
 
     @Override

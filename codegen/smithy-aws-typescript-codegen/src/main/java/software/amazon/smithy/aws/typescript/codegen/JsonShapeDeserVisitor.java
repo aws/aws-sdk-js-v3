@@ -1,16 +1,14 @@
 /*
  * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
- * Licensed under the Apache License, Version 2.0 (the "License").
- * You may not use this file except in compliance with the License.
- * A copy of the License is located at
+ * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except
+ * in compliance with the License. A copy of the License is located at
  *
- *  http://aws.amazon.com/apache2.0
+ * http://aws.amazon.com/apache2.0
  *
- * or in the "license" file accompanying this file. This file is distributed
- * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
- * express or implied. See the License for the specific language governing
- * permissions and limitations under the License.
+ * or in the "license" file accompanying this file. This file is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
  */
 
 package software.amazon.smithy.aws.typescript.codegen;
@@ -44,190 +42,200 @@ import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.G
 import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
- * Visitor to generate deserialization functions for shapes in AWS JSON protocol
- * document bodies.
+ * Visitor to generate deserialization functions for shapes in AWS JSON protocol document bodies.
  *
- * No standard visitation methods are overridden; function body generation for all
- * expected deserializers is handled by this class.
+ * No standard visitation methods are overridden; function body generation for all expected
+ * deserializers is handled by this class.
  *
  * Timestamps are deserialized from {@link Format}.EPOCH_SECONDS by default.
  */
 @SmithyInternalApi
 final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
 
-    private final BiFunction<MemberShape, String, String> memberNameStrategy;
+  private final BiFunction<MemberShape, String, String> memberNameStrategy;
 
-    JsonShapeDeserVisitor(GenerationContext context) {
-        this(context,
-                // Use the jsonName trait value if present, otherwise use the member name.
-                (memberShape, memberName) -> memberShape.getTrait(JsonNameTrait.class)
-                .map(JsonNameTrait::getValue)
-                .orElse(memberName));
+  JsonShapeDeserVisitor(GenerationContext context) {
+    this(context,
+        // Use the jsonName trait value if present, otherwise use the member name.
+        (memberShape, memberName) -> memberShape.getTrait(JsonNameTrait.class)
+            .map(JsonNameTrait::getValue).orElse(memberName));
+  }
+
+  JsonShapeDeserVisitor(GenerationContext context,
+      BiFunction<MemberShape, String, String> memberNameStrategy) {
+    super(context);
+    this.memberNameStrategy = memberNameStrategy;
+  }
+
+  private DocumentMemberDeserVisitor getMemberVisitor(MemberShape memberShape, String dataSource) {
+    return new JsonMemberDeserVisitor(getContext(), memberShape, dataSource, Format.EPOCH_SECONDS);
+  }
+
+  @Override
+  protected void deserializeCollection(GenerationContext context, CollectionShape shape) {
+    TypeScriptWriter writer = context.getWriter();
+    Shape target = context.getModel().expectShape(shape.getMember().getTarget());
+    ArtifactType artifactType = context.getSettings().getArtifactType();
+
+    // Filter out null entries if we don't have the sparse trait.
+    String potentialFilter = "";
+    if (!shape.hasTrait(SparseTrait.ID) && !artifactType.equals(ArtifactType.SSDK)) {
+      potentialFilter = ".filter((e: any) => e != null)";
     }
+    final String filterExpression = potentialFilter;
 
-    JsonShapeDeserVisitor(GenerationContext context, BiFunction<MemberShape, String, String> memberNameStrategy) {
-        super(context);
-        this.memberNameStrategy = memberNameStrategy;
-    }
+    String returnExpression = target.accept(getMemberVisitor(shape.getMember(), "entry"));
 
-    private DocumentMemberDeserVisitor getMemberVisitor(MemberShape memberShape, String dataSource) {
-        return new JsonMemberDeserVisitor(getContext(), memberShape, dataSource, Format.EPOCH_SECONDS);
-    }
-
-    @Override
-    protected void deserializeCollection(GenerationContext context, CollectionShape shape) {
-        TypeScriptWriter writer = context.getWriter();
-        Shape target = context.getModel().expectShape(shape.getMember().getTarget());
-        ArtifactType artifactType = context.getSettings().getArtifactType();
-
-        // Filter out null entries if we don't have the sparse trait.
-        String potentialFilter = "";
-        if (!shape.hasTrait(SparseTrait.ID) && !artifactType.equals(ArtifactType.SSDK)) {
-            potentialFilter = ".filter((e: any) => e != null)";
-        }
-
-        writer.openBlock("const retVal = (output || [])$L.map((entry: any) => {", "});", potentialFilter, () -> {
+    if (returnExpression.equals("entry")) {
+      writer.write("const retVal = (output || [])$L", filterExpression);
+    } else {
+      writer.openBlock("const retVal = (output || [])$L.map((entry: any) => {", "});",
+          filterExpression, () -> {
             // Short circuit null values from serialization.
-            writer.openBlock("if (entry === null) {", "}", () -> {
-                // In the SSDK we want to be very strict about not accepting nulls in non-sparse lists.
+            if (filterExpression.isEmpty()) {
+              writer.openBlock("if (entry === null) {", "}", () -> {
+                // In the SSDK we want to be very strict about not accepting nulls in non-sparse
+                // lists.
                 if (!shape.hasTrait(SparseTrait.ID) && artifactType.equals(ArtifactType.SSDK)) {
-                    writer.write("throw new TypeError('All elements of the non-sparse list $S must be non-null.');",
-                                 shape.getId());
+                  writer.write(
+                      "throw new TypeError('All elements of the non-sparse list $S must be non-null.');",
+                      shape.getId());
                 } else {
-                    writer.write("return null as any;");
+                  writer.write("return null as any;");
                 }
-            });
+              });
+            }
 
             // Dispatch to the output value provider for any additional handling.
-            writer.write("return $L$L;", target.accept(getMemberVisitor(shape.getMember(), "entry")),
-                    usesExpect(target) ? " as any" : "");
+            writer.write("return $L$L;",
+                target.accept(getMemberVisitor(shape.getMember(), "entry")),
+                usesExpect(target) ? " as any" : "");
+          });
+    }
+
+    if (shape.isSetShape() && artifactType.equals(ArtifactType.SSDK)) {
+      writer.addDependency(TypeScriptDependency.SERVER_COMMON);
+      writer.addImport("findDuplicates", "__findDuplicates", "@aws-smithy/server-common");
+      writer.openBlock("if (__findDuplicates(retVal).length > 0) {", "}", () -> {
+        writer.write("throw new TypeError('All elements of the set $S must be unique.');",
+            shape.getId());
+      });
+    }
+    writer.write("return retVal;");
+  }
+
+  @Override
+  protected void deserializeDocument(GenerationContext context, DocumentShape shape) {
+    TypeScriptWriter writer = context.getWriter();
+    // Documents are JSON content, so don't modify.
+    writer.write("return output;");
+  }
+
+  @Override
+  protected void deserializeMap(GenerationContext context, MapShape shape) {
+    TypeScriptWriter writer = context.getWriter();
+    Shape target = context.getModel().expectShape(shape.getValue().getTarget());
+    SymbolProvider symbolProvider = context.getSymbolProvider();
+
+    // Get the right serialization for each entry in the map. Undefined
+    // outputs won't have this deserializer invoked.
+    writer.openBlock("return Object.entries(output).reduce((acc: $T, [key, value]: [$T, any]) => {",
+        "}, {});", symbolProvider.toSymbol(shape), symbolProvider.toSymbol(shape.getKey()), () -> {
+          writer.openBlock("if (value === null) {", "}", () -> {
+            // Handle the sparse trait by short-circuiting null values
+            // from deserialization, and not including them if encountered
+            // when not sparse.
+            if (shape.hasTrait(SparseTrait.ID)) {
+              writer.write("acc[key] = null as any;");
+            }
+            writer.write("return acc;");
+          });
+
+          // Dispatch to the output value provider for any additional handling.
+          writer.write("acc[key] = $L$L",
+              target.accept(getMemberVisitor(shape.getValue(), "value")),
+              usesExpect(target) ? " as any;" : ";");
+          writer.write("return acc;");
         });
-        if (shape.isSetShape() && artifactType.equals(ArtifactType.SSDK)) {
-            writer.addDependency(TypeScriptDependency.SERVER_COMMON);
-            writer.addImport("findDuplicates", "__findDuplicates", "@aws-smithy/server-common");
-            writer.openBlock("if (__findDuplicates(retVal).length > 0) {", "}", () -> {
-                writer.write("throw new TypeError('All elements of the set $S must be unique.');",
-                        shape.getId());
-            });
-        }
-        writer.write("return retVal;");
-    }
+  }
 
-    @Override
-    protected void deserializeDocument(GenerationContext context, DocumentShape shape) {
-        TypeScriptWriter writer = context.getWriter();
-        // Documents are JSON content, so don't modify.
-        writer.write("return output;");
-    }
+  @Override
+  protected void deserializeStructure(GenerationContext context, StructureShape shape) {
+    TypeScriptWriter writer = context.getWriter();
 
-    @Override
-    protected void deserializeMap(GenerationContext context, MapShape shape) {
-        TypeScriptWriter writer = context.getWriter();
-        Shape target = context.getModel().expectShape(shape.getValue().getTarget());
-        SymbolProvider symbolProvider = context.getSymbolProvider();
+    // Prepare the document contents structure.
+    // Use a TreeMap to sort the members.
+    Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
+    writer.openBlock("return take(output, {", "}) as any;", () -> {
+      // Set all the members to undefined to meet type constraints.
+      members.forEach((memberName, memberShape) -> {
+        String locationName = memberNameStrategy.apply(memberShape, memberName);
+        Shape target = context.getModel().expectShape(memberShape.getTarget());
 
-        // Get the right serialization for each entry in the map. Undefined
-        // outputs won't have this deserializer invoked.
-        writer.openBlock("return Object.entries(output).reduce((acc: $T, [key, value]: [$T, any]) => {",
-            "}, {});",
-            symbolProvider.toSymbol(shape),
-            symbolProvider.toSymbol(shape.getKey()),
-            () -> {
-                writer.openBlock("if (value === null) {", "}", () -> {
-                    // Handle the sparse trait by short-circuiting null values
-                    // from deserialization, and not including them if encountered
-                    // when not sparse.
-                    if (shape.hasTrait(SparseTrait.ID)) {
-                        writer.write("acc[key] = null as any;");
-                    }
-                    writer.write("return acc;");
-                });
+        String propertyAccess = getFrom("output", locationName);
 
+        if (usesExpect(target)) {
+          String expression = target.accept(getMemberVisitor(memberShape, "_"));
+          if (expression.chars().filter(ch -> ch == '(').count() == 1) {
+            // single function call
+            writer.write("$L: $L,", memberName, expression.replace("(_)", ""));
+          } else {
+            // multiple function call
+            writer.write("$L: $L,", memberName, "_ => " + expression);
+          }
+        } else {
+          String valueExpression = target.accept(getMemberVisitor(memberShape, propertyAccess));
+          if (valueExpression.equals(propertyAccess)) {
+            writer.write("$1L: [],", memberName);
+          } else {
+            writer.write("$1L: [,_ => $2L],", memberName,
                 // Dispatch to the output value provider for any additional handling.
-                writer.write("acc[key] = $L$L", target.accept(getMemberVisitor(shape.getValue(), "value")),
-                    usesExpect(target) ? " as any;" : ";");
-                writer.write("return acc;");
-            }
-        );
-    }
-
-    @Override
-    protected void deserializeStructure(GenerationContext context, StructureShape shape) {
-        TypeScriptWriter writer = context.getWriter();
-
-        // Prepare the document contents structure.
-        // Use a TreeMap to sort the members.
-        Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
-        writer.openBlock("return {", "} as any;", () -> {
-            // Set all the members to undefined to meet type constraints.
-            members.forEach((memberName, memberShape) -> {
-                String locationName = memberNameStrategy.apply(memberShape, memberName);
-                Shape target = context.getModel().expectShape(memberShape.getTarget());
-
-                String propertyAccess = getFrom("output", locationName);
-
-                if (usesExpect(target)) {
-                    // Booleans and numbers will call expectBoolean/expectNumber which will handle
-                    // null/undefined properly.
-                    writer.write("$L: $L,",
-                            memberName,
-                            target.accept(getMemberVisitor(memberShape, propertyAccess)));
-                } else {
-                    writer.write(
-                        "$1L: ($2L != null) ? $3L: undefined,",
-                        memberName,
-                        propertyAccess,
-                        // Dispatch to the output value provider for any additional handling.
-                        target.accept(getMemberVisitor(memberShape, propertyAccess))
-                    );
-                }
-            });
-        });
-    }
-
-    private boolean usesExpect(Shape shape) {
-        if (shape.isStringShape()) {
-            if (shape.hasTrait(MediaTypeTrait.class)) {
-                return !CodegenUtils.isJsonMediaType(shape.expectTrait(MediaTypeTrait.class).getValue());
-            }
-            return true;
+                target.accept(getMemberVisitor(memberShape, "_")));
+          }
         }
-        return shape.isBooleanShape() || shape instanceof NumberShape;
+      });
+    });
+
+  }
+
+  private boolean usesExpect(Shape shape) {
+    if (shape.isStringShape()) {
+      if (shape.hasTrait(MediaTypeTrait.class)) {
+        return !CodegenUtils.isJsonMediaType(shape.expectTrait(MediaTypeTrait.class).getValue());
+      }
+      return true;
     }
+    return shape.isBooleanShape() || shape instanceof NumberShape;
+  }
 
-    @Override
-    protected void deserializeUnion(GenerationContext context, UnionShape shape) {
-        TypeScriptWriter writer = context.getWriter();
-        Model model = context.getModel();
+  @Override
+  protected void deserializeUnion(GenerationContext context, UnionShape shape) {
+    TypeScriptWriter writer = context.getWriter();
+    Model model = context.getModel();
 
-        // Check for any known union members and return when we find one.
-        Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
-        members.forEach((memberName, memberShape) -> {
-            Shape target = model.expectShape(memberShape.getTarget());
-            String locationName = memberNameStrategy.apply(memberShape, memberName);
+    // Check for any known union members and return when we find one.
+    Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
+    members.forEach((memberName, memberShape) -> {
+      Shape target = model.expectShape(memberShape.getTarget());
+      String locationName = memberNameStrategy.apply(memberShape, memberName);
 
-            String memberValue = target.accept(getMemberVisitor(memberShape, getFrom("output", locationName)));
-            if (usesExpect(target)) {
-                // Booleans and numbers will call expectBoolean/expectNumber which will handle
-                // null/undefined properly.
-                writer.openBlock("if ($L !== undefined) {", "}", memberValue, () -> {
-                    writer.write("return { $L: $L as any }", memberName, memberValue);
-                });
-            } else {
-                writer.openBlock(
-                    "if ($1L != null) {", "}",
-                    getFrom("output", locationName),
-                    () -> writer.openBlock(
-                        "return {", "};",
-                        () -> {
-                            // Dispatch to the output value provider for any additional handling.
-                            writer.write("$L: $L", memberName, memberValue);
-                        }
-                    )
-                );
-            }
+      String memberValue =
+          target.accept(getMemberVisitor(memberShape, getFrom("output", locationName)));
+      if (usesExpect(target)) {
+        // Booleans and numbers will call expectBoolean/expectNumber which will handle
+        // null/undefined properly.
+        writer.openBlock("if ($L !== undefined) {", "}", memberValue, () -> {
+          writer.write("return { $L: $L as any }", memberName, memberValue);
         });
-        // Or write to the unknown member the element in the output.
-        writer.write("return { $$unknown: Object.entries(output)[0] };");
-    }
+      } else {
+        writer.openBlock("if ($1L != null) {", "}", getFrom("output", locationName),
+            () -> writer.openBlock("return {", "};", () -> {
+              // Dispatch to the output value provider for any additional handling.
+              writer.write("$L: $L", memberName, memberValue);
+            }));
+      }
+    });
+    // Or write to the unknown member the element in the output.
+    writer.write("return { $$unknown: Object.entries(output)[0] };");
+  }
 }
