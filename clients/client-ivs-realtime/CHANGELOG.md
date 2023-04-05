@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.307.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.306.0...v3.307.0) (2023-04-05)
+
+
+### Features
+
+* **client-ivs-realtime:** Fix ParticipantToken ExpirationTime format ([b206481](https://github.com/aws/aws-sdk-js-v3/commit/b2064813c3c677f7390df6b90003e869bd0b5027))
+
+
+
+
+
 # [3.306.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.305.0...v3.306.0) (2023-04-04)
 
 **Note:** Version bump only for package @aws-sdk/client-ivs-realtime

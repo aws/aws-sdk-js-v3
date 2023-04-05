@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.307.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.306.0...v3.307.0) (2023-04-05)
+
+
+### Features
+
+* **client-apprunner:** App Runner adds support for seven new vCPU and memory configurations. ([714de04](https://github.com/aws/aws-sdk-js-v3/commit/714de0433e8153aa792583bb58098b69698f5fd8))
+* **client-config-service:** This release adds resourceType enums for types released in March 2023. ([08b6555](https://github.com/aws/aws-sdk-js-v3/commit/08b65550ce44b95a61fe7277c9e7236cd24482c6))
+* **client-ivs-realtime:** Fix ParticipantToken ExpirationTime format ([b206481](https://github.com/aws/aws-sdk-js-v3/commit/b2064813c3c677f7390df6b90003e869bd0b5027))
+* **client-network-firewall:** AWS Network Firewall now supports IPv6-only subnets. ([811ea9d](https://github.com/aws/aws-sdk-js-v3/commit/811ea9db345d318a2c7c4bfa540eb9872fe9e07a))
+* **client-service-catalog:** removed incorrect product type value ([940f4f3](https://github.com/aws/aws-sdk-js-v3/commit/940f4f36acf55d835fd9eca5ef97c0378657da54))
+* **clients:** update client endpoints as of 2023-04-05 ([26a72aa](https://github.com/aws/aws-sdk-js-v3/commit/26a72aa1500b9170155758ec11e0c910313140b8))
+
+
+
+
+
 # [3.306.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.305.0...v3.306.0) (2023-04-04)
 
 
