@@ -15,7 +15,7 @@ import {
   LazyJsonString as __LazyJsonString,
   limitedParseDouble as __limitedParseDouble,
   limitedParseFloat32 as __limitedParseFloat32,
-  map as __map,
+  map,
   parseBoolean as __parseBoolean,
   parseEpochTimestamp as __parseEpochTimestamp,
   parseRfc3339DateTime as __parseRfc3339DateTime,
@@ -28,6 +28,7 @@ import {
   strictParseInt32 as __strictParseInt32,
   strictParseLong as __strictParseLong,
   strictParseShort as __strictParseShort,
+  take,
 } from "@aws-sdk/smithy-client";
 import {
   DocumentType as __DocumentType,
@@ -673,12 +674,11 @@ export const deserializeDocumentTypeRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.documentValue != null) {
-    contents.documentValue = deserializeAws_restJson1Document(data.documentValue, context);
-  }
-  if (data.stringValue != null) {
-    contents.stringValue = __expectString(data.stringValue);
-  }
+  const doc = take(data, {
+    documentValue: [, (_) => deserializeAws_restJson1Document(_, context)],
+    stringValue: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -786,9 +786,10 @@ export const deserializeEndpointWithHostLabelOperationRequest = async (
     contents.label = parsedHost.groups.label;
   }
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.label != null) {
-    contents.label = __expectString(data.label);
-  }
+  const doc = take(data, {
+    label: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -889,9 +890,10 @@ export const deserializeHttpChecksumRequiredRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.foo != null) {
-    contents.foo = __expectString(data.foo);
-  }
+  const doc = take(data, {
+    foo: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1410,9 +1412,10 @@ export const deserializeJsonBlobsRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.data != null) {
-    contents.data = context.base64Decoder(data.data);
-  }
+  const doc = take(data, {
+    data: context.base64Decoder,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1438,24 +1441,15 @@ export const deserializeJsonEnumsRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.fooEnum1 != null) {
-    contents.fooEnum1 = __expectString(data.fooEnum1);
-  }
-  if (data.fooEnum2 != null) {
-    contents.fooEnum2 = __expectString(data.fooEnum2);
-  }
-  if (data.fooEnum3 != null) {
-    contents.fooEnum3 = __expectString(data.fooEnum3);
-  }
-  if (data.fooEnumList != null) {
-    contents.fooEnumList = deserializeAws_restJson1FooEnumList(data.fooEnumList, context);
-  }
-  if (data.fooEnumMap != null) {
-    contents.fooEnumMap = deserializeAws_restJson1FooEnumMap(data.fooEnumMap, context);
-  }
-  if (data.fooEnumSet != null) {
-    contents.fooEnumSet = deserializeAws_restJson1FooEnumSet(data.fooEnumSet, context);
-  }
+  const doc = take(data, {
+    fooEnum1: __expectString,
+    fooEnum2: __expectString,
+    fooEnum3: __expectString,
+    fooEnumList: [, (_) => deserializeAws_restJson1FooEnumList(_, context)],
+    fooEnumMap: [, (_) => deserializeAws_restJson1FooEnumMap(_, context)],
+    fooEnumSet: [, (_) => deserializeAws_restJson1FooEnumSet(_, context)],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1481,24 +1475,15 @@ export const deserializeJsonIntEnumsRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.integerEnum1 != null) {
-    contents.integerEnum1 = __expectInt32(data.integerEnum1);
-  }
-  if (data.integerEnum2 != null) {
-    contents.integerEnum2 = __expectInt32(data.integerEnum2);
-  }
-  if (data.integerEnum3 != null) {
-    contents.integerEnum3 = __expectInt32(data.integerEnum3);
-  }
-  if (data.integerEnumList != null) {
-    contents.integerEnumList = deserializeAws_restJson1IntegerEnumList(data.integerEnumList, context);
-  }
-  if (data.integerEnumMap != null) {
-    contents.integerEnumMap = deserializeAws_restJson1IntegerEnumMap(data.integerEnumMap, context);
-  }
-  if (data.integerEnumSet != null) {
-    contents.integerEnumSet = deserializeAws_restJson1IntegerEnumSet(data.integerEnumSet, context);
-  }
+  const doc = take(data, {
+    integerEnum1: __expectInt32,
+    integerEnum2: __expectInt32,
+    integerEnum3: __expectInt32,
+    integerEnumList: [, (_) => deserializeAws_restJson1IntegerEnumList(_, context)],
+    integerEnumMap: [, (_) => deserializeAws_restJson1IntegerEnumMap(_, context)],
+    integerEnumSet: [, (_) => deserializeAws_restJson1IntegerEnumSet(_, context)],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1524,36 +1509,19 @@ export const deserializeJsonListsRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.booleanList != null) {
-    contents.booleanList = deserializeAws_restJson1BooleanList(data.booleanList, context);
-  }
-  if (data.enumList != null) {
-    contents.enumList = deserializeAws_restJson1FooEnumList(data.enumList, context);
-  }
-  if (data.intEnumList != null) {
-    contents.intEnumList = deserializeAws_restJson1IntegerEnumList(data.intEnumList, context);
-  }
-  if (data.integerList != null) {
-    contents.integerList = deserializeAws_restJson1IntegerList(data.integerList, context);
-  }
-  if (data.nestedStringList != null) {
-    contents.nestedStringList = deserializeAws_restJson1NestedStringList(data.nestedStringList, context);
-  }
-  if (data.sparseStringList != null) {
-    contents.sparseStringList = deserializeAws_restJson1SparseStringList(data.sparseStringList, context);
-  }
-  if (data.stringList != null) {
-    contents.stringList = deserializeAws_restJson1StringList(data.stringList, context);
-  }
-  if (data.stringSet != null) {
-    contents.stringSet = deserializeAws_restJson1StringSet(data.stringSet, context);
-  }
-  if (data.myStructureList != null) {
-    contents.structureList = deserializeAws_restJson1StructureList(data.myStructureList, context);
-  }
-  if (data.timestampList != null) {
-    contents.timestampList = deserializeAws_restJson1TimestampList(data.timestampList, context);
-  }
+  const doc = take(data, {
+    booleanList: [, (_) => deserializeAws_restJson1BooleanList(_, context)],
+    enumList: [, (_) => deserializeAws_restJson1FooEnumList(_, context)],
+    intEnumList: [, (_) => deserializeAws_restJson1IntegerEnumList(_, context)],
+    integerList: [, (_) => deserializeAws_restJson1IntegerList(_, context)],
+    nestedStringList: [, (_) => deserializeAws_restJson1NestedStringList(_, context)],
+    sparseStringList: [, (_) => deserializeAws_restJson1SparseStringList(_, context)],
+    stringList: [, (_) => deserializeAws_restJson1StringList(_, context)],
+    stringSet: [, (_) => deserializeAws_restJson1StringSet(_, context)],
+    structureList: [, (_) => deserializeAws_restJson1StructureList(_, context)],
+    timestampList: [, (_) => deserializeAws_restJson1TimestampList(_, context)],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1579,36 +1547,19 @@ export const deserializeJsonMapsRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.denseBooleanMap != null) {
-    contents.denseBooleanMap = deserializeAws_restJson1DenseBooleanMap(data.denseBooleanMap, context);
-  }
-  if (data.denseNumberMap != null) {
-    contents.denseNumberMap = deserializeAws_restJson1DenseNumberMap(data.denseNumberMap, context);
-  }
-  if (data.denseSetMap != null) {
-    contents.denseSetMap = deserializeAws_restJson1DenseSetMap(data.denseSetMap, context);
-  }
-  if (data.denseStringMap != null) {
-    contents.denseStringMap = deserializeAws_restJson1DenseStringMap(data.denseStringMap, context);
-  }
-  if (data.denseStructMap != null) {
-    contents.denseStructMap = deserializeAws_restJson1DenseStructMap(data.denseStructMap, context);
-  }
-  if (data.sparseBooleanMap != null) {
-    contents.sparseBooleanMap = deserializeAws_restJson1SparseBooleanMap(data.sparseBooleanMap, context);
-  }
-  if (data.sparseNumberMap != null) {
-    contents.sparseNumberMap = deserializeAws_restJson1SparseNumberMap(data.sparseNumberMap, context);
-  }
-  if (data.sparseSetMap != null) {
-    contents.sparseSetMap = deserializeAws_restJson1SparseSetMap(data.sparseSetMap, context);
-  }
-  if (data.sparseStringMap != null) {
-    contents.sparseStringMap = deserializeAws_restJson1SparseStringMap(data.sparseStringMap, context);
-  }
-  if (data.sparseStructMap != null) {
-    contents.sparseStructMap = deserializeAws_restJson1SparseStructMap(data.sparseStructMap, context);
-  }
+  const doc = take(data, {
+    denseBooleanMap: [, (_) => deserializeAws_restJson1DenseBooleanMap(_, context)],
+    denseNumberMap: [, (_) => deserializeAws_restJson1DenseNumberMap(_, context)],
+    denseSetMap: [, (_) => deserializeAws_restJson1DenseSetMap(_, context)],
+    denseStringMap: [, (_) => deserializeAws_restJson1DenseStringMap(_, context)],
+    denseStructMap: [, (_) => deserializeAws_restJson1DenseStructMap(_, context)],
+    sparseBooleanMap: [, (_) => deserializeAws_restJson1SparseBooleanMap(_, context)],
+    sparseNumberMap: [, (_) => deserializeAws_restJson1SparseNumberMap(_, context)],
+    sparseSetMap: [, (_) => deserializeAws_restJson1SparseSetMap(_, context)],
+    sparseStringMap: [, (_) => deserializeAws_restJson1SparseStringMap(_, context)],
+    sparseStructMap: [, (_) => deserializeAws_restJson1SparseStructMap(_, context)],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1634,27 +1585,16 @@ export const deserializeJsonTimestampsRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.dateTime != null) {
-    contents.dateTime = __expectNonNull(__parseRfc3339DateTime(data.dateTime));
-  }
-  if (data.dateTimeOnTarget != null) {
-    contents.dateTimeOnTarget = __expectNonNull(__parseRfc3339DateTime(data.dateTimeOnTarget));
-  }
-  if (data.epochSeconds != null) {
-    contents.epochSeconds = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.epochSeconds)));
-  }
-  if (data.epochSecondsOnTarget != null) {
-    contents.epochSecondsOnTarget = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.epochSecondsOnTarget)));
-  }
-  if (data.httpDate != null) {
-    contents.httpDate = __expectNonNull(__parseRfc7231DateTime(data.httpDate));
-  }
-  if (data.httpDateOnTarget != null) {
-    contents.httpDateOnTarget = __expectNonNull(__parseRfc7231DateTime(data.httpDateOnTarget));
-  }
-  if (data.normal != null) {
-    contents.normal = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.normal)));
-  }
+  const doc = take(data, {
+    dateTime: [, (_) => __expectNonNull(__parseRfc3339DateTime(_))],
+    dateTimeOnTarget: [, (_) => __expectNonNull(__parseRfc3339DateTime(_))],
+    epochSeconds: [, (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_)))],
+    epochSecondsOnTarget: [, (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_)))],
+    httpDate: [, (_) => __expectNonNull(__parseRfc7231DateTime(_))],
+    httpDateOnTarget: [, (_) => __expectNonNull(__parseRfc7231DateTime(_))],
+    normal: [, (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_)))],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1680,9 +1620,10 @@ export const deserializeJsonUnionsRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.contents != null) {
-    contents.contents = deserializeAws_restJson1MyUnion(__expectUnion(data.contents), context);
-  }
+  const doc = take(data, {
+    contents: [, (_) => deserializeAws_restJson1MyUnion(__expectUnion(_), context)],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1783,9 +1724,10 @@ export const deserializeMalformedBlobRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.blob != null) {
-    contents.blob = context.base64Decoder(data.blob);
-  }
+  const doc = take(data, {
+    blob: context.base64Decoder,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1837,9 +1779,10 @@ export const deserializeMalformedBooleanRequest = async (
     contents.booleanInPath = __parseBoolean(decodeURIComponent(parsedPath.groups.booleanInPath));
   }
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.booleanInBody != null) {
-    contents.booleanInBody = __expectBoolean(data.booleanInBody);
-  }
+  const doc = take(data, {
+    booleanInBody: __expectBoolean,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1891,9 +1834,10 @@ export const deserializeMalformedByteRequest = async (
     contents.byteInPath = __strictParseByte(decodeURIComponent(parsedPath.groups.byteInPath));
   }
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.byteInBody != null) {
-    contents.byteInBody = __expectByte(data.byteInBody);
-  }
+  const doc = take(data, {
+    byteInBody: __expectByte,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1919,9 +1863,10 @@ export const deserializeMalformedContentTypeWithBodyRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.hi != null) {
-    contents.hi = __expectString(data.hi);
-  }
+  const doc = take(data, {
+    hi: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2050,9 +1995,10 @@ export const deserializeMalformedDoubleRequest = async (
     contents.doubleInPath = __strictParseDouble(decodeURIComponent(parsedPath.groups.doubleInPath));
   }
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.doubleInBody != null) {
-    contents.doubleInBody = __limitedParseDouble(data.doubleInBody);
-  }
+  const doc = take(data, {
+    doubleInBody: __limitedParseDouble,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2104,9 +2050,10 @@ export const deserializeMalformedFloatRequest = async (
     contents.floatInPath = __strictParseFloat(decodeURIComponent(parsedPath.groups.floatInPath));
   }
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.floatInBody != null) {
-    contents.floatInBody = __limitedParseFloat32(data.floatInBody);
-  }
+  const doc = take(data, {
+    floatInBody: __limitedParseFloat32,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2158,9 +2105,10 @@ export const deserializeMalformedIntegerRequest = async (
     contents.integerInPath = __strictParseInt32(decodeURIComponent(parsedPath.groups.integerInPath));
   }
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.integerInBody != null) {
-    contents.integerInBody = __expectInt32(data.integerInBody);
-  }
+  const doc = take(data, {
+    integerInBody: __expectInt32,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2186,9 +2134,10 @@ export const deserializeMalformedListRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.bodyList != null) {
-    contents.bodyList = deserializeAws_restJson1SimpleList(data.bodyList, context);
-  }
+  const doc = take(data, {
+    bodyList: [, (_) => deserializeAws_restJson1SimpleList(_, context)],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2240,9 +2189,10 @@ export const deserializeMalformedLongRequest = async (
     contents.longInPath = __strictParseLong(decodeURIComponent(parsedPath.groups.longInPath));
   }
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.longInBody != null) {
-    contents.longInBody = __expectLong(data.longInBody);
-  }
+  const doc = take(data, {
+    longInBody: __expectLong,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2268,9 +2218,10 @@ export const deserializeMalformedMapRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.bodyMap != null) {
-    contents.bodyMap = deserializeAws_restJson1SimpleMap(data.bodyMap, context);
-  }
+  const doc = take(data, {
+    bodyMap: [, (_) => deserializeAws_restJson1SimpleMap(_, context)],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2296,12 +2247,11 @@ export const deserializeMalformedRequestBodyRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.float != null) {
-    contents.float = __limitedParseFloat32(data.float);
-  }
-  if (data.int != null) {
-    contents.int = __expectInt32(data.int);
-  }
+  const doc = take(data, {
+    float: __limitedParseFloat32,
+    int: __expectInt32,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2353,9 +2303,10 @@ export const deserializeMalformedShortRequest = async (
     contents.shortInPath = __strictParseShort(decodeURIComponent(parsedPath.groups.shortInPath));
   }
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.shortInBody != null) {
-    contents.shortInBody = __expectShort(data.shortInBody);
-  }
+  const doc = take(data, {
+    shortInBody: __expectShort,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2414,9 +2365,10 @@ export const deserializeMalformedTimestampBodyDateTimeRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.timestamp != null) {
-    contents.timestamp = __expectNonNull(__parseRfc3339DateTime(data.timestamp));
-  }
+  const doc = take(data, {
+    timestamp: [, (_) => __expectNonNull(__parseRfc3339DateTime(_))],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2442,9 +2394,10 @@ export const deserializeMalformedTimestampBodyDefaultRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.timestamp != null) {
-    contents.timestamp = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.timestamp)));
-  }
+  const doc = take(data, {
+    timestamp: [, (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_)))],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2470,9 +2423,10 @@ export const deserializeMalformedTimestampBodyHttpDateRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.timestamp != null) {
-    contents.timestamp = __expectNonNull(__parseRfc7231DateTime(data.timestamp));
-  }
+  const doc = take(data, {
+    timestamp: [, (_) => __expectNonNull(__parseRfc7231DateTime(_))],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2801,9 +2755,10 @@ export const deserializeMalformedUnionRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.union != null) {
-    contents.union = deserializeAws_restJson1SimpleUnion(__expectUnion(data.union), context);
-  }
+  const doc = take(data, {
+    union: [, (_) => deserializeAws_restJson1SimpleUnion(__expectUnion(_), context)],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3099,9 +3054,10 @@ export const deserializePostPlayerActionRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.action != null) {
-    contents.action = deserializeAws_restJson1PlayerAction(__expectUnion(data.action), context);
-  }
+  const doc = take(data, {
+    action: [, (_) => deserializeAws_restJson1PlayerAction(__expectUnion(_), context)],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3127,9 +3083,10 @@ export const deserializePostUnionWithJsonNameRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.value != null) {
-    contents.value = deserializeAws_restJson1UnionWithJsonName(__expectUnion(data.value), context);
-  }
+  const doc = take(data, {
+    value: [, (_) => deserializeAws_restJson1UnionWithJsonName(__expectUnion(_), context)],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3300,9 +3257,10 @@ export const deserializeRecursiveShapesRequest = async (
   }
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nested != null) {
-    contents.nested = deserializeAws_restJson1RecursiveShapesInputOutputNested1(data.nested, context);
-  }
+  const doc = take(data, {
+    nested: [, (_) => deserializeAws_restJson1RecursiveShapesInputOutputNested1(_, context)],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3330,33 +3288,18 @@ export const deserializeSimpleScalarPropertiesRequest = async (
     foo: [, output.headers["x-foo"]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.byteValue != null) {
-    contents.byteValue = __expectByte(data.byteValue);
-  }
-  if (data.DoubleDribble != null) {
-    contents.doubleValue = __limitedParseDouble(data.DoubleDribble);
-  }
-  if (data.falseBooleanValue != null) {
-    contents.falseBooleanValue = __expectBoolean(data.falseBooleanValue);
-  }
-  if (data.floatValue != null) {
-    contents.floatValue = __limitedParseFloat32(data.floatValue);
-  }
-  if (data.integerValue != null) {
-    contents.integerValue = __expectInt32(data.integerValue);
-  }
-  if (data.longValue != null) {
-    contents.longValue = __expectLong(data.longValue);
-  }
-  if (data.shortValue != null) {
-    contents.shortValue = __expectShort(data.shortValue);
-  }
-  if (data.stringValue != null) {
-    contents.stringValue = __expectString(data.stringValue);
-  }
-  if (data.trueBooleanValue != null) {
-    contents.trueBooleanValue = __expectBoolean(data.trueBooleanValue);
-  }
+  const doc = take(data, {
+    byteValue: __expectByte,
+    doubleValue: __limitedParseDouble,
+    falseBooleanValue: __expectBoolean,
+    floatValue: __limitedParseFloat32,
+    integerValue: __expectInt32,
+    longValue: __expectLong,
+    shortValue: __expectShort,
+    stringValue: __expectString,
+    trueBooleanValue: __expectBoolean,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3443,9 +3386,10 @@ export const deserializeTestBodyStructureRequest = async (
     testId: [, output.headers["x-amz-test-id"]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.testConfig != null) {
-    contents.testConfig = deserializeAws_restJson1TestConfig(data.testConfig, context);
-  }
+  const doc = take(data, {
+    testConfig: [, (_) => deserializeAws_restJson1TestConfig(_, context)],
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3715,9 +3659,11 @@ export const serializeDatetimeOffsetsResponse = async (
     "content-type": "application/json",
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.datetime != null && { datetime: input.datetime.toISOString().split(".")[0] + "Z" }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      datetime: [, (_) => _.toISOString().split(".")[0] + "Z"],
+    })
+  );
   if (
     body &&
     Object.keys(headers)
@@ -3754,10 +3700,12 @@ export const serializeDocumentTypeResponse = async (
     "content-type": "application/json",
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.documentValue != null && { documentValue: serializeAws_restJson1Document(input.documentValue, context) }),
-    ...(input.stringValue != null && { stringValue: input.stringValue }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      documentValue: [, (_) => serializeAws_restJson1Document(_, context)],
+      stringValue: [],
+    })
+  );
   if (
     body &&
     Object.keys(headers)
@@ -3943,10 +3891,12 @@ export const serializeFractionalSecondsResponse = async (
     "content-type": "application/json",
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.datetime != null && { datetime: input.datetime.toISOString().split(".")[0] + "Z" }),
-    ...(input.httpdate != null && { httpdate: __dateToUtcString(input.httpdate) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      datetime: [, (_) => _.toISOString().split(".")[0] + "Z"],
+      httpdate: [, (_) => __dateToUtcString(_)],
+    })
+  );
   if (
     body &&
     Object.keys(headers)
@@ -4055,9 +4005,11 @@ export const serializeHttpChecksumRequiredResponse = async (
     "content-type": "application/json",
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.foo != null && { foo: input.foo }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      foo: [],
+    })
+  );
   if (
     body &&
     Object.keys(headers)
@@ -4590,9 +4542,11 @@ export const serializeIgnoreQueryParamsInResponseResponse = async (
     "content-type": "application/json",
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.baz != null && { baz: input.baz }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      baz: [],
+    })
+  );
   if (
     body &&
     Object.keys(headers)
@@ -4714,9 +4668,11 @@ export const serializeJsonBlobsResponse = async (
     "content-type": "application/json",
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.data != null && { data: context.base64Encoder(input.data) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      data: [, (_) => context.base64Encoder(_)],
+    })
+  );
   if (
     body &&
     Object.keys(headers)
@@ -4753,14 +4709,16 @@ export const serializeJsonEnumsResponse = async (
     "content-type": "application/json",
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.fooEnum1 != null && { fooEnum1: input.fooEnum1 }),
-    ...(input.fooEnum2 != null && { fooEnum2: input.fooEnum2 }),
-    ...(input.fooEnum3 != null && { fooEnum3: input.fooEnum3 }),
-    ...(input.fooEnumList != null && { fooEnumList: serializeAws_restJson1FooEnumList(input.fooEnumList, context) }),
-    ...(input.fooEnumMap != null && { fooEnumMap: serializeAws_restJson1FooEnumMap(input.fooEnumMap, context) }),
-    ...(input.fooEnumSet != null && { fooEnumSet: serializeAws_restJson1FooEnumSet(input.fooEnumSet, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      fooEnum1: [],
+      fooEnum2: [],
+      fooEnum3: [],
+      fooEnumList: [, (_) => serializeAws_restJson1FooEnumList(_, context)],
+      fooEnumMap: [, (_) => serializeAws_restJson1FooEnumMap(_, context)],
+      fooEnumSet: [, (_) => serializeAws_restJson1FooEnumSet(_, context)],
+    })
+  );
   if (
     body &&
     Object.keys(headers)
@@ -4797,20 +4755,16 @@ export const serializeJsonIntEnumsResponse = async (
     "content-type": "application/json",
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.integerEnum1 != null && { integerEnum1: input.integerEnum1 }),
-    ...(input.integerEnum2 != null && { integerEnum2: input.integerEnum2 }),
-    ...(input.integerEnum3 != null && { integerEnum3: input.integerEnum3 }),
-    ...(input.integerEnumList != null && {
-      integerEnumList: serializeAws_restJson1IntegerEnumList(input.integerEnumList, context),
-    }),
-    ...(input.integerEnumMap != null && {
-      integerEnumMap: serializeAws_restJson1IntegerEnumMap(input.integerEnumMap, context),
-    }),
-    ...(input.integerEnumSet != null && {
-      integerEnumSet: serializeAws_restJson1IntegerEnumSet(input.integerEnumSet, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      integerEnum1: [],
+      integerEnum2: [],
+      integerEnum3: [],
+      integerEnumList: [, (_) => serializeAws_restJson1IntegerEnumList(_, context)],
+      integerEnumMap: [, (_) => serializeAws_restJson1IntegerEnumMap(_, context)],
+      integerEnumSet: [, (_) => serializeAws_restJson1IntegerEnumSet(_, context)],
+    })
+  );
   if (
     body &&
     Object.keys(headers)
@@ -4847,28 +4801,20 @@ export const serializeJsonListsResponse = async (
     "content-type": "application/json",
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.booleanList != null && { booleanList: serializeAws_restJson1BooleanList(input.booleanList, context) }),
-    ...(input.enumList != null && { enumList: serializeAws_restJson1FooEnumList(input.enumList, context) }),
-    ...(input.intEnumList != null && {
-      intEnumList: serializeAws_restJson1IntegerEnumList(input.intEnumList, context),
-    }),
-    ...(input.integerList != null && { integerList: serializeAws_restJson1IntegerList(input.integerList, context) }),
-    ...(input.nestedStringList != null && {
-      nestedStringList: serializeAws_restJson1NestedStringList(input.nestedStringList, context),
-    }),
-    ...(input.sparseStringList != null && {
-      sparseStringList: serializeAws_restJson1SparseStringList(input.sparseStringList, context),
-    }),
-    ...(input.stringList != null && { stringList: serializeAws_restJson1StringList(input.stringList, context) }),
-    ...(input.stringSet != null && { stringSet: serializeAws_restJson1StringSet(input.stringSet, context) }),
-    ...(input.structureList != null && {
-      myStructureList: serializeAws_restJson1StructureList(input.structureList, context),
-    }),
-    ...(input.timestampList != null && {
-      timestampList: serializeAws_restJson1TimestampList(input.timestampList, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      booleanList: [, (_) => serializeAws_restJson1BooleanList(_, context)],
+      enumList: [, (_) => serializeAws_restJson1FooEnumList(_, context)],
+      intEnumList: [, (_) => serializeAws_restJson1IntegerEnumList(_, context)],
+      integerList: [, (_) => serializeAws_restJson1IntegerList(_, context)],
+      nestedStringList: [, (_) => serializeAws_restJson1NestedStringList(_, context)],
+      sparseStringList: [, (_) => serializeAws_restJson1SparseStringList(_, context)],
+      stringList: [, (_) => serializeAws_restJson1StringList(_, context)],
+      stringSet: [, (_) => serializeAws_restJson1StringSet(_, context)],
+      myStructureList: [, (_) => serializeAws_restJson1StructureList(_, context)],
+      timestampList: [, (_) => serializeAws_restJson1TimestampList(_, context)],
+    })
+  );
   if (
     body &&
     Object.keys(headers)
@@ -4905,36 +4851,20 @@ export const serializeJsonMapsResponse = async (
     "content-type": "application/json",
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.denseBooleanMap != null && {
-      denseBooleanMap: serializeAws_restJson1DenseBooleanMap(input.denseBooleanMap, context),
-    }),
-    ...(input.denseNumberMap != null && {
-      denseNumberMap: serializeAws_restJson1DenseNumberMap(input.denseNumberMap, context),
-    }),
-    ...(input.denseSetMap != null && { denseSetMap: serializeAws_restJson1DenseSetMap(input.denseSetMap, context) }),
-    ...(input.denseStringMap != null && {
-      denseStringMap: serializeAws_restJson1DenseStringMap(input.denseStringMap, context),
-    }),
-    ...(input.denseStructMap != null && {
-      denseStructMap: serializeAws_restJson1DenseStructMap(input.denseStructMap, context),
-    }),
-    ...(input.sparseBooleanMap != null && {
-      sparseBooleanMap: serializeAws_restJson1SparseBooleanMap(input.sparseBooleanMap, context),
-    }),
-    ...(input.sparseNumberMap != null && {
-      sparseNumberMap: serializeAws_restJson1SparseNumberMap(input.sparseNumberMap, context),
-    }),
-    ...(input.sparseSetMap != null && {
-      sparseSetMap: serializeAws_restJson1SparseSetMap(input.sparseSetMap, context),
-    }),
-    ...(input.sparseStringMap != null && {
-      sparseStringMap: serializeAws_restJson1SparseStringMap(input.sparseStringMap, context),
-    }),
-    ...(input.sparseStructMap != null && {
-      sparseStructMap: serializeAws_restJson1SparseStructMap(input.sparseStructMap, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      denseBooleanMap: [, (_) => serializeAws_restJson1DenseBooleanMap(_, context)],
+      denseNumberMap: [, (_) => serializeAws_restJson1DenseNumberMap(_, context)],
+      denseSetMap: [, (_) => serializeAws_restJson1DenseSetMap(_, context)],
+      denseStringMap: [, (_) => serializeAws_restJson1DenseStringMap(_, context)],
+      denseStructMap: [, (_) => serializeAws_restJson1DenseStructMap(_, context)],
+      sparseBooleanMap: [, (_) => serializeAws_restJson1SparseBooleanMap(_, context)],
+      sparseNumberMap: [, (_) => serializeAws_restJson1SparseNumberMap(_, context)],
+      sparseSetMap: [, (_) => serializeAws_restJson1SparseSetMap(_, context)],
+      sparseStringMap: [, (_) => serializeAws_restJson1SparseStringMap(_, context)],
+      sparseStructMap: [, (_) => serializeAws_restJson1SparseStructMap(_, context)],
+    })
+  );
   if (
     body &&
     Object.keys(headers)
@@ -4971,19 +4901,17 @@ export const serializeJsonTimestampsResponse = async (
     "content-type": "application/json",
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.dateTime != null && { dateTime: input.dateTime.toISOString().split(".")[0] + "Z" }),
-    ...(input.dateTimeOnTarget != null && {
-      dateTimeOnTarget: input.dateTimeOnTarget.toISOString().split(".")[0] + "Z",
-    }),
-    ...(input.epochSeconds != null && { epochSeconds: Math.round(input.epochSeconds.getTime() / 1000) }),
-    ...(input.epochSecondsOnTarget != null && {
-      epochSecondsOnTarget: Math.round(input.epochSecondsOnTarget.getTime() / 1000),
-    }),
-    ...(input.httpDate != null && { httpDate: __dateToUtcString(input.httpDate) }),
-    ...(input.httpDateOnTarget != null && { httpDateOnTarget: __dateToUtcString(input.httpDateOnTarget) }),
-    ...(input.normal != null && { normal: Math.round(input.normal.getTime() / 1000) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      dateTime: [, (_) => _.toISOString().split(".")[0] + "Z"],
+      dateTimeOnTarget: [, (_) => _.toISOString().split(".")[0] + "Z"],
+      epochSeconds: [, (_) => Math.round(_.getTime() / 1000)],
+      epochSecondsOnTarget: [, (_) => Math.round(_.getTime() / 1000)],
+      httpDate: [, (_) => __dateToUtcString(_)],
+      httpDateOnTarget: [, (_) => __dateToUtcString(_)],
+      normal: [, (_) => Math.round(_.getTime() / 1000)],
+    })
+  );
   if (
     body &&
     Object.keys(headers)
@@ -5020,9 +4948,11 @@ export const serializeJsonUnionsResponse = async (
     "content-type": "application/json",
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.contents != null && { contents: serializeAws_restJson1MyUnion(input.contents, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      contents: [, (_) => serializeAws_restJson1MyUnion(_, context)],
+    })
+  );
   if (
     body &&
     Object.keys(headers)
@@ -5059,9 +4989,11 @@ export const serializeMalformedAcceptWithBodyResponse = async (
     "content-type": "application/json",
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.hi != null && { hi: input.hi }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      hi: [],
+    })
+  );
   if (
     body &&
     Object.keys(headers)
@@ -6422,9 +6354,11 @@ export const serializePostPlayerActionResponse = async (
     "content-type": "application/json",
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.action != null && { action: serializeAws_restJson1PlayerAction(input.action, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      action: [, (_) => serializeAws_restJson1PlayerAction(_, context)],
+    })
+  );
   if (
     body &&
     Object.keys(headers)
@@ -6461,9 +6395,11 @@ export const serializePostUnionWithJsonNameResponse = async (
     "content-type": "application/json",
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.value != null && { value: serializeAws_restJson1UnionWithJsonName(input.value, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      value: [, (_) => serializeAws_restJson1UnionWithJsonName(_, context)],
+    })
+  );
   if (
     body &&
     Object.keys(headers)
@@ -6602,11 +6538,11 @@ export const serializeRecursiveShapesResponse = async (
     "content-type": "application/json",
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.nested != null && {
-      nested: serializeAws_restJson1RecursiveShapesInputOutputNested1(input.nested, context),
-    }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      nested: [, (_) => serializeAws_restJson1RecursiveShapesInputOutputNested1(_, context)],
+    })
+  );
   if (
     body &&
     Object.keys(headers)
@@ -6644,17 +6580,19 @@ export const serializeSimpleScalarPropertiesResponse = async (
     "x-foo": input.foo!,
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.byteValue != null && { byteValue: input.byteValue }),
-    ...(input.doubleValue != null && { DoubleDribble: __serializeFloat(input.doubleValue) }),
-    ...(input.falseBooleanValue != null && { falseBooleanValue: input.falseBooleanValue }),
-    ...(input.floatValue != null && { floatValue: __serializeFloat(input.floatValue) }),
-    ...(input.integerValue != null && { integerValue: input.integerValue }),
-    ...(input.longValue != null && { longValue: input.longValue }),
-    ...(input.shortValue != null && { shortValue: input.shortValue }),
-    ...(input.stringValue != null && { stringValue: input.stringValue }),
-    ...(input.trueBooleanValue != null && { trueBooleanValue: input.trueBooleanValue }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      byteValue: [],
+      DoubleDribble: [, (_) => __serializeFloat(_)],
+      falseBooleanValue: [],
+      floatValue: [, (_) => __serializeFloat(_)],
+      integerValue: [],
+      longValue: [],
+      shortValue: [],
+      stringValue: [],
+      trueBooleanValue: [],
+    })
+  );
   if (
     body &&
     Object.keys(headers)
@@ -6806,9 +6744,11 @@ export const serializeTestBodyStructureResponse = async (
     "x-amz-test-id": input.testId!,
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.testConfig != null && { testConfig: serializeAws_restJson1TestConfig(input.testConfig, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      testConfig: [, (_) => serializeAws_restJson1TestConfig(_, context)],
+    })
+  );
   if (
     body &&
     Object.keys(headers)
@@ -7134,7 +7074,6 @@ export const serializeFrameworkException = async (
   }
 };
 
-const map = __map;
 export const serializeComplexErrorError = async (
   input: ComplexError,
   ctx: ServerSerdeContext
@@ -7155,10 +7094,12 @@ export const serializeComplexErrorError = async (
     "x-header": input.Header!,
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.Nested != null && { Nested: serializeAws_restJson1ComplexNestedErrorData(input.Nested, context) }),
-    ...(input.TopLevel != null && { TopLevel: input.TopLevel }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Nested: [, (_) => serializeAws_restJson1ComplexNestedErrorData(_, context)],
+      TopLevel: [],
+    })
+  );
   return new __HttpResponse({
     headers,
     body,
@@ -7209,9 +7150,11 @@ export const serializeInvalidGreetingError = async (
     "content-type": "application/json",
   });
   let body: any;
-  body = JSON.stringify({
-    ...(input.Message != null && { Message: input.Message }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Message: [],
+    })
+  );
   return new __HttpResponse({
     headers,
     body,
@@ -7220,9 +7163,9 @@ export const serializeInvalidGreetingError = async (
 };
 
 const serializeAws_restJson1ComplexNestedErrorData = (input: ComplexNestedErrorData, context: __SerdeContext): any => {
-  return {
-    ...(input.Foo != null && { Fooooo: input.Foo }),
-  };
+  return take(input, {
+    Fooooo: [],
+  });
 };
 
 const serializeAws_restJson1DenseBooleanMap = (input: Record<string, boolean>, context: __SerdeContext): any => {
@@ -7298,16 +7241,16 @@ const serializeAws_restJson1MyUnion = (input: MyUnion, context: __SerdeContext):
 };
 
 const serializeAws_restJson1NestedPayload = (input: NestedPayload, context: __SerdeContext): any => {
-  return {
-    ...(input.greeting != null && { greeting: input.greeting }),
-    ...(input.name != null && { name: input.name }),
-  };
+  return take(input, {
+    greeting: [],
+    name: [],
+  });
 };
 
 const serializeAws_restJson1PayloadConfig = (input: PayloadConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.data != null && { data: input.data }),
-  };
+  return take(input, {
+    data: [],
+  });
 };
 
 const serializeAws_restJson1PlayerAction = (input: PlayerAction, context: __SerdeContext): any => {
@@ -7321,24 +7264,20 @@ const serializeAws_restJson1RecursiveShapesInputOutputNested1 = (
   input: RecursiveShapesInputOutputNested1,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.foo != null && { foo: input.foo }),
-    ...(input.nested != null && {
-      nested: serializeAws_restJson1RecursiveShapesInputOutputNested2(input.nested, context),
-    }),
-  };
+  return take(input, {
+    foo: [],
+    nested: [, (_) => serializeAws_restJson1RecursiveShapesInputOutputNested2(_, context)],
+  });
 };
 
 const serializeAws_restJson1RecursiveShapesInputOutputNested2 = (
   input: RecursiveShapesInputOutputNested2,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.bar != null && { bar: input.bar }),
-    ...(input.recursiveMember != null && {
-      recursiveMember: serializeAws_restJson1RecursiveShapesInputOutputNested1(input.recursiveMember, context),
-    }),
-  };
+  return take(input, {
+    bar: [],
+    recursiveMember: [, (_) => serializeAws_restJson1RecursiveShapesInputOutputNested1(_, context)],
+  });
 };
 
 const serializeAws_restJson1SparseBooleanMap = (input: Record<string, boolean>, context: __SerdeContext): any => {
@@ -7394,16 +7333,16 @@ const serializeAws_restJson1StructureList = (input: StructureListMember[], conte
 };
 
 const serializeAws_restJson1StructureListMember = (input: StructureListMember, context: __SerdeContext): any => {
-  return {
-    ...(input.a != null && { value: input.a }),
-    ...(input.b != null && { other: input.b }),
-  };
+  return take(input, {
+    value: [],
+    other: [],
+  });
 };
 
 const serializeAws_restJson1TestConfig = (input: TestConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.timeout != null && { timeout: input.timeout }),
-  };
+  return take(input, {
+    timeout: [],
+  });
 };
 
 const serializeAws_restJson1UnionWithJsonName = (input: UnionWithJsonName, context: __SerdeContext): any => {
@@ -7416,25 +7355,17 @@ const serializeAws_restJson1UnionWithJsonName = (input: UnionWithJsonName, conte
 };
 
 const serializeAws_restJson1RenamedGreeting = (input: RenamedGreeting, context: __SerdeContext): any => {
-  return {
-    ...(input.salutation != null && { salutation: input.salutation }),
-  };
+  return take(input, {
+    salutation: [],
+  });
 };
 
 const serializeAws_restJson1BooleanList = (input: boolean[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
+  return input.filter((e: any) => e != null);
 };
 
 const serializeAws_restJson1FooEnumList = (input: (FooEnum | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
+  return input.filter((e: any) => e != null);
 };
 
 const serializeAws_restJson1FooEnumMap = (input: Record<string, FooEnum | string>, context: __SerdeContext): any => {
@@ -7448,25 +7379,17 @@ const serializeAws_restJson1FooEnumMap = (input: Record<string, FooEnum | string
 };
 
 const serializeAws_restJson1FooEnumSet = (input: (FooEnum | string)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
+  return input.filter((e: any) => e != null);
 };
 
 const serializeAws_restJson1GreetingStruct = (input: GreetingStruct, context: __SerdeContext): any => {
-  return {
-    ...(input.hi != null && { hi: input.hi }),
-  };
+  return take(input, {
+    hi: [],
+  });
 };
 
 const serializeAws_restJson1IntegerEnumList = (input: (IntegerEnum | number)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
+  return input.filter((e: any) => e != null);
 };
 
 const serializeAws_restJson1IntegerEnumMap = (
@@ -7483,19 +7406,11 @@ const serializeAws_restJson1IntegerEnumMap = (
 };
 
 const serializeAws_restJson1IntegerEnumSet = (input: (IntegerEnum | number)[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
+  return input.filter((e: any) => e != null);
 };
 
 const serializeAws_restJson1IntegerList = (input: number[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
+  return input.filter((e: any) => e != null);
 };
 
 const serializeAws_restJson1NestedStringList = (input: string[][], context: __SerdeContext): any => {
@@ -7507,12 +7422,7 @@ const serializeAws_restJson1NestedStringList = (input: string[][], context: __Se
 };
 
 const serializeAws_restJson1SparseStringList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => {
-    if (entry === null) {
-      return null as any;
-    }
-    return entry;
-  });
+  return input;
 };
 
 const serializeAws_restJson1SparseStringMap = (input: Record<string, string>, context: __SerdeContext): any => {
@@ -7527,11 +7437,7 @@ const serializeAws_restJson1SparseStringMap = (input: Record<string, string>, co
 };
 
 const serializeAws_restJson1StringList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
+  return input.filter((e: any) => e != null);
 };
 
 const serializeAws_restJson1StringMap = (input: Record<string, string>, context: __SerdeContext): any => {
@@ -7545,11 +7451,7 @@ const serializeAws_restJson1StringMap = (input: Record<string, string>, context:
 };
 
 const serializeAws_restJson1StringSet = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
+  return input.filter((e: any) => e != null);
 };
 
 const serializeAws_restJson1TimestampList = (input: Date[], context: __SerdeContext): any => {
@@ -7561,7 +7463,7 @@ const serializeAws_restJson1TimestampList = (input: Date[], context: __SerdeCont
 };
 
 const serializeAws_restJson1Unit = (input: Unit, context: __SerdeContext): any => {
-  return {};
+  return take(input, {});
 };
 
 const deserializeAws_restJson1DenseBooleanMap = (output: any, context: __SerdeContext): Record<string, boolean> => {
@@ -7668,16 +7570,16 @@ const deserializeAws_restJson1MyUnion = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_restJson1NestedPayload = (output: any, context: __SerdeContext): NestedPayload => {
-  return {
-    greeting: __expectString(output.greeting),
-    name: __expectString(output.name),
-  } as any;
+  return take(output, {
+    greeting: __expectString,
+    name: __expectString,
+  }) as any;
 };
 
 const deserializeAws_restJson1PayloadConfig = (output: any, context: __SerdeContext): PayloadConfig => {
-  return {
-    data: __expectInt32(output.data),
-  } as any;
+  return take(output, {
+    data: __expectInt32,
+  }) as any;
 };
 
 const deserializeAws_restJson1PlayerAction = (output: any, context: __SerdeContext): PlayerAction => {
@@ -7693,26 +7595,20 @@ const deserializeAws_restJson1RecursiveShapesInputOutputNested1 = (
   output: any,
   context: __SerdeContext
 ): RecursiveShapesInputOutputNested1 => {
-  return {
-    foo: __expectString(output.foo),
-    nested:
-      output.nested != null
-        ? deserializeAws_restJson1RecursiveShapesInputOutputNested2(output.nested, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    foo: __expectString,
+    nested: [, (_) => deserializeAws_restJson1RecursiveShapesInputOutputNested2(_, context)],
+  }) as any;
 };
 
 const deserializeAws_restJson1RecursiveShapesInputOutputNested2 = (
   output: any,
   context: __SerdeContext
 ): RecursiveShapesInputOutputNested2 => {
-  return {
-    bar: __expectString(output.bar),
-    recursiveMember:
-      output.recursiveMember != null
-        ? deserializeAws_restJson1RecursiveShapesInputOutputNested1(output.recursiveMember, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    bar: __expectString,
+    recursiveMember: [, (_) => deserializeAws_restJson1RecursiveShapesInputOutputNested1(_, context)],
+  }) as any;
 };
 
 const deserializeAws_restJson1SimpleList = (output: any, context: __SerdeContext): string[] => {
@@ -7807,16 +7703,16 @@ const deserializeAws_restJson1StructureList = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1StructureListMember = (output: any, context: __SerdeContext): StructureListMember => {
-  return {
-    a: __expectString(output.value),
-    b: __expectString(output.other),
-  } as any;
+  return take(output, {
+    a: __expectString,
+    b: __expectString,
+  }) as any;
 };
 
 const deserializeAws_restJson1TestConfig = (output: any, context: __SerdeContext): TestConfig => {
-  return {
-    timeout: __expectInt32(output.timeout),
-  } as any;
+  return take(output, {
+    timeout: __expectInt32,
+  }) as any;
 };
 
 const deserializeAws_restJson1UnionWithJsonName = (output: any, context: __SerdeContext): UnionWithJsonName => {
@@ -7833,9 +7729,9 @@ const deserializeAws_restJson1UnionWithJsonName = (output: any, context: __Serde
 };
 
 const deserializeAws_restJson1RenamedGreeting = (output: any, context: __SerdeContext): RenamedGreeting => {
-  return {
-    salutation: __expectString(output.salutation),
-  } as any;
+  return take(output, {
+    salutation: __expectString,
+  }) as any;
 };
 
 const deserializeAws_restJson1BooleanList = (output: any, context: __SerdeContext): boolean[] => {
@@ -7885,9 +7781,9 @@ const deserializeAws_restJson1FooEnumSet = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restJson1GreetingStruct = (output: any, context: __SerdeContext): GreetingStruct => {
-  return {
-    hi: __expectString(output.hi),
-  } as any;
+  return take(output, {
+    hi: __expectString,
+  }) as any;
 };
 
 const deserializeAws_restJson1IntegerEnumList = (output: any, context: __SerdeContext): (IntegerEnum | number)[] => {
@@ -8017,7 +7913,7 @@ const deserializeAws_restJson1TimestampList = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1Unit = (output: any, context: __SerdeContext): Unit => {
-  return {} as any;
+  return take(output, {}) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

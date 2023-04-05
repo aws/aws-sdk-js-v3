@@ -16,6 +16,7 @@ import {
   limitedParseFloat32 as __limitedParseFloat32,
   parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
+  take,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
 import {
@@ -556,28 +557,28 @@ const serializeAws_json1_0EmptyInputAndEmptyOutputInput = (
   input: EmptyInputAndEmptyOutputInput,
   context: __SerdeContext
 ): any => {
-  return {};
+  return take(input, {});
 };
 
 const serializeAws_json1_0EndpointWithHostLabelOperationInput = (
   input: EndpointWithHostLabelOperationInput,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.label != null && { label: input.label }),
-  };
+  return take(input, {
+    label: [],
+  });
 };
 
 const serializeAws_json1_0GreetingWithErrorsInput = (input: GreetingWithErrorsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.greeting != null && { greeting: input.greeting }),
-  };
+  return take(input, {
+    greeting: [],
+  });
 };
 
 const serializeAws_json1_0JsonUnionsInput = (input: JsonUnionsInput, context: __SerdeContext): any => {
-  return {
-    ...(input.contents != null && { contents: serializeAws_json1_0MyUnion(input.contents, context) }),
-  };
+  return take(input, {
+    contents: [, (_) => serializeAws_json1_0MyUnion(_, context)],
+  });
 };
 
 const serializeAws_json1_0MyUnion = (input: MyUnion, context: __SerdeContext): any => {
@@ -600,24 +601,20 @@ const serializeAws_json1_0SimpleScalarPropertiesInput = (
   input: SimpleScalarPropertiesInput,
   context: __SerdeContext
 ): any => {
-  return {
-    ...(input.doubleValue != null && { doubleValue: __serializeFloat(input.doubleValue) }),
-    ...(input.floatValue != null && { floatValue: __serializeFloat(input.floatValue) }),
-  };
+  return take(input, {
+    doubleValue: [, (_) => __serializeFloat(_)],
+    floatValue: [, (_) => __serializeFloat(_)],
+  });
 };
 
 const serializeAws_json1_0GreetingStruct = (input: GreetingStruct, context: __SerdeContext): any => {
-  return {
-    ...(input.hi != null && { hi: input.hi }),
-  };
+  return take(input, {
+    hi: [],
+  });
 };
 
 const serializeAws_json1_0StringList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      return entry;
-    });
+  return input.filter((e: any) => e != null);
 };
 
 const serializeAws_json1_0StringMap = (input: Record<string, string>, context: __SerdeContext): any => {
@@ -631,49 +628,48 @@ const serializeAws_json1_0StringMap = (input: Record<string, string>, context: _
 };
 
 const deserializeAws_json1_0ComplexError = (output: any, context: __SerdeContext): ComplexError => {
-  return {
-    Nested: output.Nested != null ? deserializeAws_json1_0ComplexNestedErrorData(output.Nested, context) : undefined,
-    TopLevel: __expectString(output.TopLevel),
-  } as any;
+  return take(output, {
+    Nested: [, (_) => deserializeAws_json1_0ComplexNestedErrorData(_, context)],
+    TopLevel: __expectString,
+  }) as any;
 };
 
 const deserializeAws_json1_0ComplexNestedErrorData = (output: any, context: __SerdeContext): ComplexNestedErrorData => {
-  return {
-    Foo: __expectString(output.Foo),
-  } as any;
+  return take(output, {
+    Foo: __expectString,
+  }) as any;
 };
 
 const deserializeAws_json1_0EmptyInputAndEmptyOutputOutput = (
   output: any,
   context: __SerdeContext
 ): EmptyInputAndEmptyOutputOutput => {
-  return {} as any;
+  return take(output, {}) as any;
 };
 
 const deserializeAws_json1_0FooError = (output: any, context: __SerdeContext): FooError => {
-  return {} as any;
+  return take(output, {}) as any;
 };
 
 const deserializeAws_json1_0GreetingWithErrorsOutput = (
   output: any,
   context: __SerdeContext
 ): GreetingWithErrorsOutput => {
-  return {
-    greeting: __expectString(output.greeting),
-  } as any;
+  return take(output, {
+    greeting: __expectString,
+  }) as any;
 };
 
 const deserializeAws_json1_0InvalidGreeting = (output: any, context: __SerdeContext): InvalidGreeting => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
+  return take(output, {
+    Message: __expectString,
+  }) as any;
 };
 
 const deserializeAws_json1_0JsonUnionsOutput = (output: any, context: __SerdeContext): JsonUnionsOutput => {
-  return {
-    contents:
-      output.contents != null ? deserializeAws_json1_0MyUnion(__expectUnion(output.contents), context) : undefined,
-  } as any;
+  return take(output, {
+    contents: [, (_) => deserializeAws_json1_0MyUnion(__expectUnion(_), context)],
+  }) as any;
 };
 
 const deserializeAws_json1_0MyUnion = (output: any, context: __SerdeContext): MyUnion => {
@@ -721,32 +717,29 @@ const deserializeAws_json1_0MyUnion = (output: any, context: __SerdeContext): My
 };
 
 const deserializeAws_json1_0NoInputAndOutputOutput = (output: any, context: __SerdeContext): NoInputAndOutputOutput => {
-  return {} as any;
+  return take(output, {}) as any;
 };
 
 const deserializeAws_json1_0SimpleScalarPropertiesOutput = (
   output: any,
   context: __SerdeContext
 ): SimpleScalarPropertiesOutput => {
-  return {
-    doubleValue: __limitedParseDouble(output.doubleValue),
-    floatValue: __limitedParseFloat32(output.floatValue),
-  } as any;
+  return take(output, {
+    doubleValue: __limitedParseDouble,
+    floatValue: __limitedParseFloat32,
+  }) as any;
 };
 
 const deserializeAws_json1_0GreetingStruct = (output: any, context: __SerdeContext): GreetingStruct => {
-  return {
-    hi: __expectString(output.hi),
-  } as any;
+  return take(output, {
+    hi: __expectString,
+  }) as any;
 };
 
 const deserializeAws_json1_0StringList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
   return retVal;

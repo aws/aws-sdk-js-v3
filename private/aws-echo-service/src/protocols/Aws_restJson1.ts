@@ -10,8 +10,9 @@ import {
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
-  map as __map,
   resolvedPath as __resolvedPath,
+  map,
+  take,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
 import {
@@ -31,9 +32,11 @@ export const serializeAws_restJson1EchoCommand = async (
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/echo";
   let body: any;
-  body = JSON.stringify({
-    ...(input.string != null && { string: input.string }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      string: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -76,9 +79,10 @@ export const deserializeAws_restJson1EchoCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.string != null) {
-    contents.string = __expectString(data.string);
-  }
+  const doc = take(data, {
+    string: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -117,9 +121,10 @@ export const deserializeAws_restJson1LengthCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.length != null) {
-    contents.length = __expectInt32(data.length);
-  }
+  const doc = take(data, {
+    length: __expectInt32,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -147,16 +152,16 @@ const deserializeAws_restJson1LengthCommandError = async (
   }
 };
 
-const map = __map;
 const deserializeAws_restJson1PalindromeExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PalindromeException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message != null) {
-    contents.message = __expectString(data.message);
-  }
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   const exception = new PalindromeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,

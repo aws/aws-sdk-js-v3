@@ -15,7 +15,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
-  map as __map,
+  map,
   parseBoolean as __parseBoolean,
   parseEpochTimestamp as __parseEpochTimestamp,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
@@ -4648,7 +4648,6 @@ const deserializeAws_restXmlXmlUnionsCommandError = async (
   });
 };
 
-const map = __map;
 const deserializeAws_restXmlComplexErrorResponse = async (
   parsedOutput: any,
   context: __SerdeContext
