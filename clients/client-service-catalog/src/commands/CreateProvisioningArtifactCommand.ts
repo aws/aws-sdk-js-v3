@@ -55,7 +55,7 @@ export interface CreateProvisioningArtifactCommandOutput extends CreateProvision
  *     Info: { // ProvisioningArtifactInfo
  *       "<keys>": "STRING_VALUE",
  *     },
- *     Type: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE_AMI" || "MARKETPLACE_CAR" || "DEFAULT_CUSTOM" || "TERRAFORM_OPEN_SOURCE",
+ *     Type: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE_AMI" || "MARKETPLACE_CAR" || "TERRAFORM_OPEN_SOURCE",
  *     DisableTemplateValidation: true || false,
  *   },
  *   IdempotencyToken: "STRING_VALUE", // required

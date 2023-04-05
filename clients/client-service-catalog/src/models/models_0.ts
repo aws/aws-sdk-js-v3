@@ -1133,7 +1133,6 @@ export class OperationNotSupportedException extends __BaseException {
  */
 export const ProductType = {
   CLOUD_FORMATION_TEMPLATE: "CLOUD_FORMATION_TEMPLATE",
-  DEFAULT_CUSTOM: "DEFAULT_CUSTOM",
   MARKETPLACE: "MARKETPLACE",
   TERRAFORM_OPEN_SOURCE: "TERRAFORM_OPEN_SOURCE",
 } as const;
@@ -1149,7 +1148,6 @@ export type ProductType = (typeof ProductType)[keyof typeof ProductType];
  */
 export const ProvisioningArtifactType = {
   CLOUD_FORMATION_TEMPLATE: "CLOUD_FORMATION_TEMPLATE",
-  DEFAULT_CUSTOM: "DEFAULT_CUSTOM",
   MARKETPLACE_AMI: "MARKETPLACE_AMI",
   MARKETPLACE_CAR: "MARKETPLACE_CAR",
   TERRAFORM_OPEN_SOURCE: "TERRAFORM_OPEN_SOURCE",

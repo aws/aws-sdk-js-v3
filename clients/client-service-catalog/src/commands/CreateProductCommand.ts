@@ -56,7 +56,7 @@ export interface CreateProductCommandOutput extends CreateProductOutput, __Metad
  *   SupportDescription: "STRING_VALUE",
  *   SupportEmail: "STRING_VALUE",
  *   SupportUrl: "STRING_VALUE",
- *   ProductType: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE" || "DEFAULT_CUSTOM" || "TERRAFORM_OPEN_SOURCE", // required
+ *   ProductType: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE" || "TERRAFORM_OPEN_SOURCE", // required
  *   Tags: [ // AddTags
  *     { // Tag
  *       Key: "STRING_VALUE", // required
@@ -69,7 +69,7 @@ export interface CreateProductCommandOutput extends CreateProductOutput, __Metad
  *     Info: { // ProvisioningArtifactInfo
  *       "<keys>": "STRING_VALUE",
  *     },
- *     Type: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE_AMI" || "MARKETPLACE_CAR" || "DEFAULT_CUSTOM" || "TERRAFORM_OPEN_SOURCE",
+ *     Type: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE_AMI" || "MARKETPLACE_CAR" || "TERRAFORM_OPEN_SOURCE",
  *     DisableTemplateValidation: true || false,
  *   },
  *   IdempotencyToken: "STRING_VALUE", // required
