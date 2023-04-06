@@ -1,0 +1,9 @@
+/node_modules/
+/build/
+/dist/
+/coverage/
+/docs/
+*.tsbuildinfo
+*.tgz
+*.log
+package-lock.json
