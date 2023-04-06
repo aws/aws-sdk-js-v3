@@ -38,6 +38,7 @@
     "@aws-sdk/middleware-logger": "*",
     "@aws-sdk/middleware-recursion-detection": "*",
     "@aws-sdk/middleware-retry": "*",
+    "@aws-sdk/middleware-sdk-rekognitionstreaming": "*",
     "@aws-sdk/middleware-serde": "*",
     "@aws-sdk/middleware-signing": "*",
     "@aws-sdk/middleware-stack": "*",

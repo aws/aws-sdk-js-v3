@@ -8,6 +8,8 @@ import {
 } from "@aws-sdk/types";
 
 /**
+ * @internal
+ *
  * Middleware that generates WebSocket URL to RekognitionStreaming service
  * Reference: https://docs.aws.amazon.com/transcribe/latest/dg/websocket.html
  */
@@ -24,6 +26,9 @@ export const websocketPortMiddleware =
     return next(args);
   };
 
+/**
+ * @internal
+ */
 export const websocketPortMiddlewareOptions: RelativeMiddlewareOptions = {
   name: "websocketPortMiddleware",
   tags: ["WEBSOCKET", "EVENT_STREAM", "PORT"],

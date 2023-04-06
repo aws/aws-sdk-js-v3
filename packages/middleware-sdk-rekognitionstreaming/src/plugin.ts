@@ -6,6 +6,9 @@ interface PreviouslyResolved {
   requestHandler: RequestHandler<any, any>;
 }
 
+/**
+ * @internal
+ */
 export const getRekognitionStreamingPlugin = (config: PreviouslyResolved): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {
     clientStack.addRelativeTo(websocketPortMiddleware(config), websocketPortMiddlewareOptions);
