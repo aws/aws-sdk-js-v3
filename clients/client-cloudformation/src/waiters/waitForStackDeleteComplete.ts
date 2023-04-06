@@ -109,6 +109,20 @@ const checkState = async (client: CloudFormationClient, input: DescribeStacksCom
         }
       }
     } catch (e) {}
+    try {
+      const returnComparator = () => {
+        const flat_1: any[] = [].concat(...result.Stacks);
+        const projection_3 = flat_1.map((element_2: any) => {
+          return element_2.StackStatus;
+        });
+        return projection_3;
+      };
+      for (const anyStringEq_4 of returnComparator()) {
+        if (anyStringEq_4 == "UPDATE_COMPLETE") {
+          return { state: WaiterState.FAILURE, reason };
+        }
+      }
+    } catch (e) {}
   } catch (exception) {
     reason = exception;
     if (exception.name && exception.name == "ValidationError") {
