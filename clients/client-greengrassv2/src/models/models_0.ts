@@ -601,17 +601,17 @@ export interface ComponentConfigurationUpdate {
    *       merges this configuration with the component's default configuration. This means that the core
    *       device keeps it's existing configuration for keys and values that you don't specify in this
    *       object. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/update-component-configurations.html#merge-configuration-update">Merge configuration updates</a> in the <i>IoT Greengrass V2 Developer
-   *           Guide</i>.</p>
+   *       Guide</i>.</p>
    */
   merge?: string;
 
   /**
    * <p>The list of configuration nodes to reset to default values on target devices. Use JSON
    *       pointers to specify each node to reset. JSON pointers start with a forward slash
-   *       (<code>/</code>) and use forward slashes to separate the key for each level in the object.
+   *         (<code>/</code>) and use forward slashes to separate the key for each level in the object.
    *       For more information, see the <a href="https://tools.ietf.org/html/rfc6901">JSON pointer
    *         specification</a> and <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/update-component-configurations.html#reset-configuration-update">Reset configuration updates</a> in the <i>IoT Greengrass V2 Developer
-   *             Guide</i>.</p>
+   *       Guide</i>.</p>
    */
   reset?: string[];
 }
@@ -733,11 +733,11 @@ export interface ComponentDeploymentSpecification {
 
   /**
    * <p>The configuration updates to deploy for the component. You can define
-   *       <i>reset</i> updates and <i>merge</i> updates. A reset updates
+   *         <i>reset</i> updates and <i>merge</i> updates. A reset updates
    *       the keys that you specify to the default configuration for the component. A merge updates the
    *       core device's component configuration with the keys and values that you specify. The IoT Greengrass Core
    *       software applies reset updates before it applies merge updates. For more information, see
-   *       <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/update-component-configurations.html">Update component
+   *         <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/update-component-configurations.html">Update component
    *         configurations</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
    */
   configurationUpdate?: ComponentConfigurationUpdate;
@@ -895,9 +895,9 @@ export interface LambdaEventSource {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>PUB_SUB</code> – Subscribe to local publish/subscribe messages. This event
-   *           source type doesn't support MQTT wildcards (<code>+</code> and <code>#</code>) in the
-   *           event source topic.</p>
+   *                   <code>PUB_SUB</code> – Subscribe to local publish/subscribe messages. This
+   *           event source type doesn't support MQTT wildcards (<code>+</code> and <code>#</code>) in
+   *           the event source topic.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -951,7 +951,7 @@ export interface LambdaDeviceMount {
 
   /**
    * <p>The permission to access the device: read/only (<code>ro</code>) or read/write
-   *       (<code>rw</code>).</p>
+   *         (<code>rw</code>).</p>
    *          <p>Default: <code>ro</code>
    *          </p>
    */
@@ -1110,8 +1110,8 @@ export interface LambdaExecutionParameters {
    * <p>Whether or not the Lambda function is pinned, or long-lived.</p>
    *          <ul>
    *             <li>
-   *                <p>A pinned Lambda function starts
-   *           when IoT Greengrass starts and keeps running in its own container.</p>
+   *                <p>A pinned Lambda function starts when IoT Greengrass starts and keeps running in its own
+   *           container.</p>
    *             </li>
    *             <li>
    *                <p>A non-pinned Lambda function starts only when it receives a work item and exists after
@@ -1137,7 +1137,8 @@ export interface LambdaExecutionParameters {
   execArgs?: string[];
 
   /**
-   * <p>The map of environment variables that are available to the Lambda function when it runs.</p>
+   * <p>The map of environment variables that are available to the Lambda function when it
+   *       runs.</p>
    */
   environmentVariables?: Record<string, string>;
 
@@ -1363,7 +1364,8 @@ export interface DeploymentComponentUpdatePolicy {
    *                <p>
    *                   <code>NOTIFY_COMPONENTS</code> – The deployment notifies each component before
    *           it stops and updates that component. Components can use the <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-subscribetocomponentupdates">SubscribeToComponentUpdates</a> IPC operation to receive these notifications. Then,
-   *           components can respond with the <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-defercomponentupdate">DeferComponentUpdate</a> IPC operation. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/create-deployments.html">Create deployments</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
+   *           components can respond with the <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-defercomponentupdate">DeferComponentUpdate</a> IPC operation. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/create-deployments.html">Create
+   *             deployments</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1381,7 +1383,8 @@ export interface DeploymentComponentUpdatePolicy {
  * @public
  * <p>Contains information about how long a component on a core device can validate its
  *       configuration updates before it times out. Components can use the <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-subscribetovalidateconfigurationupdates">SubscribeToValidateConfigurationUpdates</a> IPC operation to receive notifications when
- *       a deployment specifies a configuration update. Then, components can respond with the <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-sendconfigurationvalidityreport">SendConfigurationValidityReport</a> IPC operation. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/create-deployments.html">Create deployments</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
+ *       a deployment specifies a configuration update. Then, components can respond with the <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-sendconfigurationvalidityreport">SendConfigurationValidityReport</a> IPC operation. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/create-deployments.html">Create
+ *         deployments</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
  */
 export interface DeploymentConfigurationValidationPolicy {
   /**
@@ -1471,11 +1474,11 @@ export type IoTJobExecutionFailureType = (typeof IoTJobExecutionFailureType)[key
  *          <ol>
  *             <li>
  *                <p>The number of things that receive the deployment exceeds the
- *           <code>minNumberOfExecutedThings</code>.</p>
+ *             <code>minNumberOfExecutedThings</code>.</p>
  *             </li>
  *             <li>
  *                <p>The percentage of failures with type <code>failureType</code> exceeds the
- *           <code>thresholdPercentage</code>.</p>
+ *             <code>thresholdPercentage</code>.</p>
  *             </li>
  *          </ol>
  */
@@ -1494,7 +1497,7 @@ export interface IoTJobAbortCriteria {
    * <p>The minimum percentage of <code>failureType</code> failures that occur before the job can
    *       cancel.</p>
    *          <p>This parameter supports up to two digits after the decimal (for example, you can specify
-   *       <code>10.9</code> or <code>10.99</code>, but not <code>10.999</code>).</p>
+   *         <code>10.9</code> or <code>10.99</code>, but not <code>10.999</code>).</p>
    */
   thresholdPercentage: number | undefined;
 
@@ -1512,7 +1515,8 @@ export interface IoTJobAbortCriteria {
  */
 export interface IoTJobAbortConfig {
   /**
-   * <p>The list of criteria that define when and how to cancel the configuration deployment.</p>
+   * <p>The list of criteria that define when and how to cancel the configuration
+   *       deployment.</p>
    */
   criteriaList: IoTJobAbortCriteria[] | undefined;
 }
@@ -1552,7 +1556,7 @@ export interface IoTJobExponentialRolloutRate {
   /**
    * <p>The exponential factor to increase the rollout rate for the job.</p>
    *          <p>This parameter supports up to one digit after the decimal (for example, you can specify
-   *       <code>1.5</code>, but not <code>1.55</code>).</p>
+   *         <code>1.5</code>, but not <code>1.55</code>).</p>
    */
   incrementFactor: number | undefined;
 
@@ -1889,6 +1893,7 @@ export const EffectiveDeploymentExecutionStatus = {
   IN_PROGRESS: "IN_PROGRESS",
   QUEUED: "QUEUED",
   REJECTED: "REJECTED",
+  SUCCEEDED: "SUCCEEDED",
   TIMED_OUT: "TIMED_OUT",
 } as const;
 
@@ -1962,6 +1967,46 @@ export interface EffectiveDeployment {
 
   /**
    * <p>The status of the deployment job on the Greengrass core device.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>IN_PROGRESS</code> – The deployment job is running.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>QUEUED</code> – The deployment job is in the job queue and waiting to
+   *           run.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> – The deployment failed. For more information, see the
+   *             <code>statusDetails</code> field.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLETED</code> – The deployment to an IoT thing was completed
+   *           successfully.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TIMED_OUT</code> – The deployment didn't complete in the allotted time.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CANCELED</code> – The deployment was canceled by the user.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REJECTED</code> – The deployment was rejected. For more information, see
+   *           the <code>statusDetails</code> field.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SUCCEEDED</code> – The deployment to an IoT thing group was completed
+   *           successfully.</p>
+   *             </li>
+   *          </ul>
    */
   coreDeviceExecutionStatus: EffectiveDeploymentExecutionStatus | string | undefined;
 
@@ -2645,7 +2690,7 @@ export interface InstalledComponent {
   lastStatusChangeTimestamp?: Date;
 
   /**
-   * <p>The last time the Greengrass core device sent a message containing a certain component to the
+   * <p>The last time the Greengrass core device sent a message containing a component's state to the
    *       Amazon Web Services Cloud.</p>
    *          <p>A component does not need to see a state change for this field to update.</p>
    */
@@ -2655,6 +2700,10 @@ export interface InstalledComponent {
    * <p>The most recent deployment source that brought the component to the Greengrass core device. For
    *       a thing group deployment or thing deployment, the source will be the The ID of the deployment. and for
    *       local deployments it will be <code>LOCAL</code>.</p>
+   *          <note>
+   *             <p>Any deployment will attempt to reinstall currently broken components on the device,
+   *         which will update the last installation source.</p>
+   *          </note>
    */
   lastInstallationSource?: string;
 

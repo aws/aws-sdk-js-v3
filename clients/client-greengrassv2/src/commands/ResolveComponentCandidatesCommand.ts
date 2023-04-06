@@ -44,8 +44,8 @@ export interface ResolveComponentCandidatesCommandOutput extends ResolveComponen
  *         <code>>2.0.0</code> and component <code>B</code> requires version <code><2.0.0</code>
  *       of a component dependency.</p>
  *          <p>When you specify the component candidates to resolve, IoT Greengrass compares each component's
- *       digest from the core device with the component's digest in the Amazon Web Services Cloud. If the digests don't
- *       match, then IoT Greengrass specifies to use the version from the Amazon Web Services Cloud.</p>
+ *       digest from the core device with the component's digest in the Amazon Web Services Cloud. If the digests
+ *       don't match, then IoT Greengrass specifies to use the version from the Amazon Web Services Cloud.</p>
  *          <important>
  *             <p>To use this operation, you must use the data plane API endpoint and authenticate with an
  *         IoT device certificate. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/greengrass.html">IoT Greengrass endpoints and quotas</a>.</p>

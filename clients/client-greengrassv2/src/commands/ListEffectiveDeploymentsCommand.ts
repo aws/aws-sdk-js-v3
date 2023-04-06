@@ -35,8 +35,7 @@ export interface ListEffectiveDeploymentsCommandOutput extends ListEffectiveDepl
 
 /**
  * @public
- * <p>Retrieves a paginated list of deployment jobs that IoT Greengrass sends to Greengrass core
- *       devices.</p>
+ * <p>Retrieves a paginated list of deployment jobs that IoT Greengrass sends to Greengrass core devices.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

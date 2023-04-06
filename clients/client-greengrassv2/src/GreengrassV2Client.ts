@@ -372,8 +372,8 @@ export interface GreengrassV2ClientResolvedConfig extends GreengrassV2ClientReso
  *          <p>IoT Greengrass Version 2 provides a new major version of the IoT Greengrass Core software, new APIs, and a new console.
  *       Use this API reference to learn how to use the IoT Greengrass V2 API operations to manage components,
  *       manage deployments, and core devices.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/what-is-iot-greengrass.html">What is IoT Greengrass?</a> in
- *       the <i>IoT Greengrass V2 Developer Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/what-is-iot-greengrass.html">What is IoT Greengrass?</a> in the
+ *         <i>IoT Greengrass V2 Developer Guide</i>.</p>
  */
 export class GreengrassV2Client extends __Client<
   __HttpHandlerOptions,

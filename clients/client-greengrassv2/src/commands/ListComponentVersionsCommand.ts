@@ -35,7 +35,8 @@ export interface ListComponentVersionsCommandOutput extends ListComponentVersion
 
 /**
  * @public
- * <p>Retrieves a paginated list of all versions for a component. Greater versions are listed first.</p>
+ * <p>Retrieves a paginated list of all versions for a component. Greater versions are listed
+ *       first.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

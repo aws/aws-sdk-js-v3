@@ -40,10 +40,10 @@ export interface ListInstalledComponentsCommandOutput extends ListInstalledCompo
  *       include dependencies in the response, set the <code>topologyFilter</code> parameter to
  *         <code>ALL</code>.</p>
  *          <note>
- *             <p>IoT Greengrass relies on individual devices to send status updates to the Amazon Web Services Cloud. If the IoT Greengrass Core
- *         software isn't running on the device, or if device isn't connected to the Amazon Web Services Cloud, then
- *         the reported status of that device might not reflect its current status. The status timestamp
- *         indicates when the device status was last updated.</p>
+ *             <p>IoT Greengrass relies on individual devices to send status updates to the Amazon Web Services Cloud. If the
+ *         IoT Greengrass Core software isn't running on the device, or if device isn't connected to the Amazon Web Services Cloud,
+ *         then the reported status of that device might not reflect its current status. The status
+ *         timestamp indicates when the device status was last updated.</p>
  *             <p>Core devices send status updates at the following times:</p>
  *             <ul>
  *                <li>
@@ -53,7 +53,8 @@ export interface ListInstalledComponentsCommandOutput extends ListInstalledCompo
  *                   <p>When the core device receives a deployment from the Amazon Web Services Cloud</p>
  *                </li>
  *                <li>
- *                   <p>When the status of any component on the core device becomes <code>BROKEN</code>
+ *                   <p>When the status of any component on the core device becomes
+ *             <code>BROKEN</code>
  *                   </p>
  *                </li>
  *                <li>

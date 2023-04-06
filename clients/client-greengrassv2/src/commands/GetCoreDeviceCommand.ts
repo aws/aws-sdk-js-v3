@@ -37,10 +37,10 @@ export interface GetCoreDeviceCommandOutput extends GetCoreDeviceResponse, __Met
  * @public
  * <p>Retrieves metadata for a Greengrass core device.</p>
  *          <note>
- *             <p>IoT Greengrass relies on individual devices to send status updates to the Amazon Web Services Cloud. If the IoT Greengrass Core
- *         software isn't running on the device, or if device isn't connected to the Amazon Web Services Cloud, then
- *         the reported status of that device might not reflect its current status. The status timestamp
- *         indicates when the device status was last updated.</p>
+ *             <p>IoT Greengrass relies on individual devices to send status updates to the Amazon Web Services Cloud. If the
+ *         IoT Greengrass Core software isn't running on the device, or if device isn't connected to the Amazon Web Services Cloud,
+ *         then the reported status of that device might not reflect its current status. The status
+ *         timestamp indicates when the device status was last updated.</p>
  *             <p>Core devices send status updates at the following times:</p>
  *             <ul>
  *                <li>
@@ -50,12 +50,12 @@ export interface GetCoreDeviceCommandOutput extends GetCoreDeviceResponse, __Met
  *                   <p>When the core device receives a deployment from the Amazon Web Services Cloud</p>
  *                </li>
  *                <li>
- *                   <p>When the status of any component on the core device becomes <code>BROKEN</code>
+ *                   <p>When the status of any component on the core device becomes
+ *             <code>BROKEN</code>
  *                   </p>
  *                </li>
  *                <li>
- *                   <p>At a <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html#greengrass-nucleus-component-configuration-fss">regular interval
- *             that you can configure</a>, which defaults to 24 hours</p>
+ *                   <p>At a <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html#greengrass-nucleus-component-configuration-fss">regular interval that you can configure</a>, which defaults to 24 hours</p>
  *                </li>
  *                <li>
  *                   <p>For IoT Greengrass Core v2.7.0, the core device sends status updates upon local deployment and

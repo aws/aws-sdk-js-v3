@@ -37,8 +37,9 @@ export interface GetComponentVersionArtifactCommandOutput
 
 /**
  * @public
- * <p>Gets the pre-signed URL to download a public or a Lambda component artifact. Core devices call this
- *       operation to identify the URL that they can use to download an artifact to install.</p>
+ * <p>Gets the pre-signed URL to download a public or a Lambda component artifact. Core devices
+ *       call this operation to identify the URL that they can use to download an artifact to
+ *       install.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

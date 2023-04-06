@@ -97,8 +97,8 @@ export interface CreateComponentVersionCommandOutput extends CreateComponentVers
  *                      </p>
  *                   </li>
  *                </ul>
- *                <p>To create a component from a Lambda function, specify <code>lambdaFunction</code>
- *           when you call this operation.</p>
+ *                <p>To create a component from a Lambda function, specify <code>lambdaFunction</code> when
+ *           you call this operation.</p>
  *                <note>
  *                   <p>IoT Greengrass currently supports Lambda functions on only Linux core devices.</p>
  *                </note>

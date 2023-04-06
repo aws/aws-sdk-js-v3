@@ -155,8 +155,8 @@ import { GreengrassV2Client } from "./GreengrassV2Client";
  *          <p>IoT Greengrass Version 2 provides a new major version of the IoT Greengrass Core software, new APIs, and a new console.
  *       Use this API reference to learn how to use the IoT Greengrass V2 API operations to manage components,
  *       manage deployments, and core devices.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/what-is-iot-greengrass.html">What is IoT Greengrass?</a> in
- *       the <i>IoT Greengrass V2 Developer Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/what-is-iot-greengrass.html">What is IoT Greengrass?</a> in the
+ *         <i>IoT Greengrass V2 Developer Guide</i>.</p>
  */
 export class GreengrassV2 extends GreengrassV2Client {
   /**
@@ -378,8 +378,8 @@ export class GreengrassV2 extends GreengrassV2Client {
    *                      </p>
    *                   </li>
    *                </ul>
-   *                <p>To create a component from a Lambda function, specify <code>lambdaFunction</code>
-   *           when you call this operation.</p>
+   *                <p>To create a component from a Lambda function, specify <code>lambdaFunction</code> when
+   *           you call this operation.</p>
    *                <note>
    *                   <p>IoT Greengrass currently supports Lambda functions on only Linux core devices.</p>
    *                </note>
@@ -671,8 +671,9 @@ export class GreengrassV2 extends GreengrassV2Client {
 
   /**
    * @public
-   * <p>Gets the pre-signed URL to download a public or a Lambda component artifact. Core devices call this
-   *       operation to identify the URL that they can use to download an artifact to install.</p>
+   * <p>Gets the pre-signed URL to download a public or a Lambda component artifact. Core devices
+   *       call this operation to identify the URL that they can use to download an artifact to
+   *       install.</p>
    */
   public getComponentVersionArtifact(
     args: GetComponentVersionArtifactCommandInput,
@@ -746,10 +747,10 @@ export class GreengrassV2 extends GreengrassV2Client {
    * @public
    * <p>Retrieves metadata for a Greengrass core device.</p>
    *          <note>
-   *             <p>IoT Greengrass relies on individual devices to send status updates to the Amazon Web Services Cloud. If the IoT Greengrass Core
-   *         software isn't running on the device, or if device isn't connected to the Amazon Web Services Cloud, then
-   *         the reported status of that device might not reflect its current status. The status timestamp
-   *         indicates when the device status was last updated.</p>
+   *             <p>IoT Greengrass relies on individual devices to send status updates to the Amazon Web Services Cloud. If the
+   *         IoT Greengrass Core software isn't running on the device, or if device isn't connected to the Amazon Web Services Cloud,
+   *         then the reported status of that device might not reflect its current status. The status
+   *         timestamp indicates when the device status was last updated.</p>
    *             <p>Core devices send status updates at the following times:</p>
    *             <ul>
    *                <li>
@@ -759,12 +760,12 @@ export class GreengrassV2 extends GreengrassV2Client {
    *                   <p>When the core device receives a deployment from the Amazon Web Services Cloud</p>
    *                </li>
    *                <li>
-   *                   <p>When the status of any component on the core device becomes <code>BROKEN</code>
+   *                   <p>When the status of any component on the core device becomes
+   *             <code>BROKEN</code>
    *                   </p>
    *                </li>
    *                <li>
-   *                   <p>At a <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html#greengrass-nucleus-component-configuration-fss">regular interval
-   *             that you can configure</a>, which defaults to 24 hours</p>
+   *                   <p>At a <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html#greengrass-nucleus-component-configuration-fss">regular interval that you can configure</a>, which defaults to 24 hours</p>
    *                </li>
    *                <li>
    *                   <p>For IoT Greengrass Core v2.7.0, the core device sends status updates upon local deployment and
@@ -943,7 +944,8 @@ export class GreengrassV2 extends GreengrassV2Client {
 
   /**
    * @public
-   * <p>Retrieves a paginated list of all versions for a component. Greater versions are listed first.</p>
+   * <p>Retrieves a paginated list of all versions for a component. Greater versions are listed
+   *       first.</p>
    */
   public listComponentVersions(
     args: ListComponentVersionsCommandInput,
@@ -978,10 +980,10 @@ export class GreengrassV2 extends GreengrassV2Client {
    * @public
    * <p>Retrieves a paginated list of Greengrass core devices.</p>
    *          <note>
-   *             <p>IoT Greengrass relies on individual devices to send status updates to the Amazon Web Services Cloud. If the IoT Greengrass Core
-   *         software isn't running on the device, or if device isn't connected to the Amazon Web Services Cloud, then
-   *         the reported status of that device might not reflect its current status. The status timestamp
-   *         indicates when the device status was last updated.</p>
+   *             <p>IoT Greengrass relies on individual devices to send status updates to the Amazon Web Services Cloud. If the
+   *         IoT Greengrass Core software isn't running on the device, or if device isn't connected to the Amazon Web Services Cloud,
+   *         then the reported status of that device might not reflect its current status. The status
+   *         timestamp indicates when the device status was last updated.</p>
    *             <p>Core devices send status updates at the following times:</p>
    *             <ul>
    *                <li>
@@ -991,12 +993,12 @@ export class GreengrassV2 extends GreengrassV2Client {
    *                   <p>When the core device receives a deployment from the Amazon Web Services Cloud</p>
    *                </li>
    *                <li>
-   *                   <p>When the status of any component on the core device becomes <code>BROKEN</code>
+   *                   <p>When the status of any component on the core device becomes
+   *             <code>BROKEN</code>
    *                   </p>
    *                </li>
    *                <li>
-   *                   <p>At a <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html#greengrass-nucleus-component-configuration-fss">regular interval
-   *             that you can configure</a>, which defaults to 24 hours</p>
+   *                   <p>At a <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html#greengrass-nucleus-component-configuration-fss">regular interval that you can configure</a>, which defaults to 24 hours</p>
    *                </li>
    *                <li>
    *                   <p>For IoT Greengrass Core v2.7.0, the core device sends status updates upon local deployment and
@@ -1069,8 +1071,7 @@ export class GreengrassV2 extends GreengrassV2Client {
 
   /**
    * @public
-   * <p>Retrieves a paginated list of deployment jobs that IoT Greengrass sends to Greengrass core
-   *       devices.</p>
+   * <p>Retrieves a paginated list of deployment jobs that IoT Greengrass sends to Greengrass core devices.</p>
    */
   public listEffectiveDeployments(
     args: ListEffectiveDeploymentsCommandInput,
@@ -1108,10 +1109,10 @@ export class GreengrassV2 extends GreengrassV2Client {
    *       include dependencies in the response, set the <code>topologyFilter</code> parameter to
    *         <code>ALL</code>.</p>
    *          <note>
-   *             <p>IoT Greengrass relies on individual devices to send status updates to the Amazon Web Services Cloud. If the IoT Greengrass Core
-   *         software isn't running on the device, or if device isn't connected to the Amazon Web Services Cloud, then
-   *         the reported status of that device might not reflect its current status. The status timestamp
-   *         indicates when the device status was last updated.</p>
+   *             <p>IoT Greengrass relies on individual devices to send status updates to the Amazon Web Services Cloud. If the
+   *         IoT Greengrass Core software isn't running on the device, or if device isn't connected to the Amazon Web Services Cloud,
+   *         then the reported status of that device might not reflect its current status. The status
+   *         timestamp indicates when the device status was last updated.</p>
    *             <p>Core devices send status updates at the following times:</p>
    *             <ul>
    *                <li>
@@ -1121,7 +1122,8 @@ export class GreengrassV2 extends GreengrassV2Client {
    *                   <p>When the core device receives a deployment from the Amazon Web Services Cloud</p>
    *                </li>
    *                <li>
-   *                   <p>When the status of any component on the core device becomes <code>BROKEN</code>
+   *                   <p>When the status of any component on the core device becomes
+   *             <code>BROKEN</code>
    *                   </p>
    *                </li>
    *                <li>
@@ -1207,8 +1209,8 @@ export class GreengrassV2 extends GreengrassV2Client {
    *         <code>>2.0.0</code> and component <code>B</code> requires version <code><2.0.0</code>
    *       of a component dependency.</p>
    *          <p>When you specify the component candidates to resolve, IoT Greengrass compares each component's
-   *       digest from the core device with the component's digest in the Amazon Web Services Cloud. If the digests don't
-   *       match, then IoT Greengrass specifies to use the version from the Amazon Web Services Cloud.</p>
+   *       digest from the core device with the component's digest in the Amazon Web Services Cloud. If the digests
+   *       don't match, then IoT Greengrass specifies to use the version from the Amazon Web Services Cloud.</p>
    *          <important>
    *             <p>To use this operation, you must use the data plane API endpoint and authenticate with an
    *         IoT device certificate. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/greengrass.html">IoT Greengrass endpoints and quotas</a>.</p>
