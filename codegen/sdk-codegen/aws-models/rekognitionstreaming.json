@@ -40,6 +40,7 @@
         }
       },
       "traits": {
+        "smithy.api#documentation": "<p>Occurs when the client isn't authorized to perform the action.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 403
       }
@@ -48,28 +49,44 @@
       "type": "structure",
       "members": {
         "Width": {
-          "target": "com.amazonaws.rekognitionstreaming#Float",
+          "target": "com.amazonaws.rekognitionstreaming#Threshold",
           "traits": {
+            "smithy.api#documentation": "<p>Width of the bounding box as a ratio of the overall image width.</p>",
             "smithy.api#required": {}
           }
         },
         "Height": {
-          "target": "com.amazonaws.rekognitionstreaming#Float",
+          "target": "com.amazonaws.rekognitionstreaming#Threshold",
           "traits": {
+            "smithy.api#documentation": "<p>Height of the bounding box as a ratio of the overall image height.</p>",
             "smithy.api#required": {}
           }
         },
         "Left": {
-          "target": "com.amazonaws.rekognitionstreaming#Float",
+          "target": "com.amazonaws.rekognitionstreaming#BoundingBoxFloat",
           "traits": {
+            "smithy.api#documentation": "<p>Left coordinate of the bounding box as a ratio of overall image width.</p>",
             "smithy.api#required": {}
           }
         },
         "Top": {
-          "target": "com.amazonaws.rekognitionstreaming#Float",
+          "target": "com.amazonaws.rekognitionstreaming#BoundingBoxFloat",
           "traits": {
+            "smithy.api#documentation": "<p>Top coordinate of the bounding box as a ratio of overall image height.</p>",
             "smithy.api#required": {}
           }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Identifies the bounding box around a given label, face, text, object of interest, or\n      personal protective equipment. The left (x-coordinate) and top (y-coordinate) are coordinates\n      representing the top and left sides of the bounding box. Note that the upper-left corner of\n      the image is the origin (0,0). </p>\n         <p>The top and left values returned are ratios of the overall image size. For example, if the input image is 700x200 pixels, and the top-left coordinate of the bounding box is 350x50 pixels, the API returns a left value of 0.5 (350/700) and a top value of 0.25 (50/200).</p>\n         <p>The width and height values represent the dimensions of the bounding box as a ratio of the overall image dimension. For example, if the input image is 700x200 pixels, and the bounding box width is 70 pixels, the width returned is 0.1. </p>"
+      }
+    },
+    "com.amazonaws.rekognitionstreaming#BoundingBoxFloat": {
+      "type": "float",
+      "traits": {
+        "smithy.api#range": {
+          "min": -1,
+          "max": 1
         }
       }
     },
@@ -77,35 +94,68 @@
       "type": "structure",
       "members": {
         "BlazeFaceDetectionThreshold": {
-          "target": "com.amazonaws.rekognitionstreaming#Float"
+          "target": "com.amazonaws.rekognitionstreaming#Threshold",
+          "traits": {
+            "smithy.api#documentation": "<p>Threshold for face detection done using blaze face.</p>"
+          }
         },
         "FaceDistanceThresholdMin": {
-          "target": "com.amazonaws.rekognitionstreaming#Float"
+          "target": "com.amazonaws.rekognitionstreaming#Threshold",
+          "traits": {
+            "smithy.api#documentation": "<p>Threshold for the minimum distance that face can be from the camera before face oval\n      match challenge starts.</p>"
+          }
         },
         "FaceDistanceThreshold": {
-          "target": "com.amazonaws.rekognitionstreaming#Float"
+          "target": "com.amazonaws.rekognitionstreaming#Threshold",
+          "traits": {
+            "smithy.api#documentation": "<p>Threshold for face distance threshold face liveness challenge.</p>"
+          }
         },
         "FaceDistanceThresholdMax": {
-          "target": "com.amazonaws.rekognitionstreaming#Float"
+          "target": "com.amazonaws.rekognitionstreaming#Threshold",
+          "traits": {
+            "smithy.api#documentation": "<p>Threshold for the maximum distance that face can be from the camera before face oval\n      match challenge starts.</p>"
+          }
         },
         "OvalIouThreshold": {
-          "target": "com.amazonaws.rekognitionstreaming#Float"
+          "target": "com.amazonaws.rekognitionstreaming#Threshold",
+          "traits": {
+            "smithy.api#documentation": "<p>Threshold for face oval match using IoU (Intersection over Union).</p>"
+          }
         },
         "OvalHeightWidthRatio": {
-          "target": "com.amazonaws.rekognitionstreaming#Float"
+          "target": "com.amazonaws.rekognitionstreaming#Float",
+          "traits": {
+            "smithy.api#documentation": "<p>Height to width ratio of oval used for face oval match.</p>"
+          }
         },
         "OvalIouWidthThreshold": {
-          "target": "com.amazonaws.rekognitionstreaming#Float"
+          "target": "com.amazonaws.rekognitionstreaming#Threshold",
+          "traits": {
+            "smithy.api#documentation": "<p>Threshold for width during oval IOU (Intersection over Union) match.</p>"
+          }
         },
         "OvalIouHeightThreshold": {
-          "target": "com.amazonaws.rekognitionstreaming#Float"
+          "target": "com.amazonaws.rekognitionstreaming#Threshold",
+          "traits": {
+            "smithy.api#documentation": "<p>Threshold for height during oval IOU (Intersection over Union) match.</p>"
+          }
         },
         "FaceIouWidthThreshold": {
-          "target": "com.amazonaws.rekognitionstreaming#Float"
+          "target": "com.amazonaws.rekognitionstreaming#Threshold",
+          "traits": {
+            "smithy.api#documentation": "<p>Threshold for width during face IOU (Intersection over Union) match.</p>"
+          }
         },
         "FaceIouHeightThreshold": {
-          "target": "com.amazonaws.rekognitionstreaming#Float"
+          "target": "com.amazonaws.rekognitionstreaming#Threshold",
+          "traits": {
+            "smithy.api#documentation": "<p> Threshold for height during face IOU (Intersection over Union) match.</p>"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Configuration options for Face Liveness challenges performed at the client side. </p>"
       }
     },
     "com.amazonaws.rekognitionstreaming#ChallengeVersions": {
@@ -122,8 +172,14 @@
       "type": "union",
       "members": {
         "FaceMovementAndLightChallenge": {
-          "target": "com.amazonaws.rekognitionstreaming#FaceMovementAndLightClientChallenge"
+          "target": "com.amazonaws.rekognitionstreaming#FaceMovementAndLightClientChallenge",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about a face movement and light challenge type.</p>"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Object containing information for Face Liveness challenges performed at the client\n      side.</p>"
       }
     },
     "com.amazonaws.rekognitionstreaming#ClientSessionInformationEvent": {
@@ -132,9 +188,13 @@
         "Challenge": {
           "target": "com.amazonaws.rekognitionstreaming#ClientChallenge",
           "traits": {
+            "smithy.api#documentation": "<p>Contains information on FaceMovementAndLightChellenge, TargetFace, and ColorDisplayed, for a given Challenge.</p>",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Any information that the client needs to send for the streaming session. For face movement challenge, \n       it will contain information like initial face position and target face position.</p>"
       }
     },
     "com.amazonaws.rekognitionstreaming#ColorComponentInt": {
@@ -164,23 +224,41 @@
         "CurrentColor": {
           "target": "com.amazonaws.rekognitionstreaming#FreshnessColor",
           "traits": {
+            "smithy.api#documentation": "<p> The current color being displayed on the screen (flat or downscrolled). It will contain a separate RGB list having 3 elements (each element can have values between 0 to 255). </p>",
             "smithy.api#required": {}
           }
         },
         "PreviousColor": {
-          "target": "com.amazonaws.rekognitionstreaming#FreshnessColor"
+          "target": "com.amazonaws.rekognitionstreaming#FreshnessColor",
+          "traits": {
+            "smithy.api#documentation": "<p>The previous color displayed on screen (flat or downscrolled). It will contain a separate RGB list having 3 elements (each element can have values between 0 to 255). </p>"
+          }
         },
         "SequenceNumber": {
           "target": "com.amazonaws.rekognitionstreaming#ColorSequenceInt",
           "traits": {
+            "smithy.api#documentation": "<p>The order in which the current color was displayed on the screen.</p>",
             "smithy.api#required": {}
           }
         },
         "CurrentColorStartTimestamp": {
           "target": "com.amazonaws.rekognitionstreaming#EpochMillis",
           "traits": {
+            "smithy.api#documentation": "<p>Epoch timestamp of when the current color was displayed on the user screen.</p>",
             "smithy.api#required": {}
           }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains information regarding <code>SequenceNumber</code>, <code>CurrentColor</code>,\n        <code>PreviousColor</code>, and <code>CurrentColorStartTimestamp</code>.</p>"
+      }
+    },
+    "com.amazonaws.rekognitionstreaming#ColorDurationInMs": {
+      "type": "float",
+      "traits": {
+        "smithy.api#range": {
+          "min": 0,
+          "max": 1000
         }
       }
     },
@@ -190,21 +268,27 @@
         "FreshnessColor": {
           "target": "com.amazonaws.rekognitionstreaming#FreshnessColor",
           "traits": {
+            "smithy.api#documentation": "<p>Represents the colors in a given ColorSequence to be flashed to the end user, with each color represented in RGB values.</p>",
             "smithy.api#required": {}
           }
         },
         "DownscrollDuration": {
-          "target": "com.amazonaws.rekognitionstreaming#Float",
+          "target": "com.amazonaws.rekognitionstreaming#ColorDurationInMs",
           "traits": {
+            "smithy.api#documentation": "<p>Duration in milliseconds for which a given color in the color sequence will down-scroll before taking over full screen.</p>",
             "smithy.api#required": {}
           }
         },
         "FlatDisplayDuration": {
-          "target": "com.amazonaws.rekognitionstreaming#Float",
+          "target": "com.amazonaws.rekognitionstreaming#ColorDurationInMs",
           "traits": {
+            "smithy.api#documentation": "<p>Duration in milliseconds for which a given flat color in the color sequence will be displayed on the full screen.</p>",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A color sequence to be displayed on the user’s screen. </p>"
       }
     },
     "com.amazonaws.rekognitionstreaming#ColorSequenceInt": {
@@ -228,9 +312,13 @@
         "TimestampMillis": {
           "target": "com.amazonaws.rekognitionstreaming#EpochMillis",
           "traits": {
+            "smithy.api#documentation": "<p>The timestamp that a disconnection event took place at.</p>",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains information regarding if a disconnection event took place \n      during the Face Liveness session. Disconnection events may indicate processing is complete at the server side.</p>"
       }
     },
     "com.amazonaws.rekognitionstreaming#EpochMillis": {
@@ -248,24 +336,43 @@
         "ChallengeId": {
           "target": "com.amazonaws.rekognitionstreaming#UUID",
           "traits": {
+            "smithy.api#documentation": "<p>An ID that uniquely identifies a challenge from a client.</p>",
             "smithy.api#required": {}
           }
         },
         "VideoStartTimestamp": {
-          "target": "com.amazonaws.rekognitionstreaming#EpochMillis"
+          "target": "com.amazonaws.rekognitionstreaming#EpochMillis",
+          "traits": {
+            "smithy.api#documentation": "<p>Epoch timestamp indicating start of video recording.</p>"
+          }
         },
         "VideoEndTimestamp": {
-          "target": "com.amazonaws.rekognitionstreaming#EpochMillis"
+          "target": "com.amazonaws.rekognitionstreaming#EpochMillis",
+          "traits": {
+            "smithy.api#documentation": "<p>Epoch timestamp indicating end of video recording.</p>"
+          }
         },
         "InitialFace": {
-          "target": "com.amazonaws.rekognitionstreaming#InitialFace"
+          "target": "com.amazonaws.rekognitionstreaming#InitialFace",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains the bounding box of the initial face position for the user on the device screen.\n      Also contains an epoch timestamp of when the user was detected in this position. Used for Face\n      Liveness detection.</p>"
+          }
         },
         "TargetFace": {
-          "target": "com.amazonaws.rekognitionstreaming#TargetFace"
+          "target": "com.amazonaws.rekognitionstreaming#TargetFace",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains the face position bounding box for the user on the device's screen, set at the\n      target location constructed for the challenge. Generated using a precise oval location\n      depending on the provided video </p>\n         <p>dimensions in the input stream. Contains start and end epoch timestamp of when the user\n      was detected in this position.</p>"
+          }
         },
         "ColorDisplayed": {
-          "target": "com.amazonaws.rekognitionstreaming#ColorDisplayed"
+          "target": "com.amazonaws.rekognitionstreaming#ColorDisplayed",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains information regarding SequenceNumber, CurrentColor, PreviousColor, and CurrentColorStartTimestamp for a challenge.</p>"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Holds information about the type of face movement and light challenges that need to be\n      performed.</p>"
       }
     },
     "com.amazonaws.rekognitionstreaming#FaceMovementAndLightServerChallenge": {
@@ -274,27 +381,34 @@
         "OvalParameters": {
           "target": "com.amazonaws.rekognitionstreaming#OvalParameters",
           "traits": {
+            "smithy.api#documentation": "<p>The parameters needed for an oval to display and to complete oval match challenge.</p>",
             "smithy.api#required": {}
           }
         },
         "LightChallengeType": {
           "target": "com.amazonaws.rekognitionstreaming#LightChallengeType",
           "traits": {
+            "smithy.api#documentation": "<p>Information on the type of colored light challenge.</p>",
             "smithy.api#required": {}
           }
         },
         "ChallengeConfig": {
           "target": "com.amazonaws.rekognitionstreaming#ChallengeConfig",
           "traits": {
+            "smithy.api#documentation": "<p>Configurations for attributes of the Face Liveness movement and light challenges.</p>",
             "smithy.api#required": {}
           }
         },
         "ColorSequences": {
           "target": "com.amazonaws.rekognitionstreaming#ColorSequences",
           "traits": {
+            "smithy.api#documentation": "<p>Used to generate a list of color sequences to be displayed on a user's screen.</p>",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains information regarding the <code>OvalParameters</code> and\n        <code>LightChallengeType</code> for a challenge.</p>"
       }
     },
     "com.amazonaws.rekognitionstreaming#Float": {
@@ -306,9 +420,13 @@
         "RGB": {
           "target": "com.amazonaws.rekognitionstreaming#ColorComponentList",
           "traits": {
+            "smithy.api#documentation": "<p>RGB values for a color to be flashed to the end user.</p>",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Represents the colors to be flashed to the end user, each color represented in RGB values.</p>"
       }
     },
     "com.amazonaws.rekognitionstreaming#InitialFace": {
@@ -317,15 +435,20 @@
         "BoundingBox": {
           "target": "com.amazonaws.rekognitionstreaming#BoundingBox",
           "traits": {
+            "smithy.api#documentation": "<p>The bounding box for the initial face position of the user on the device screen.</p>",
             "smithy.api#required": {}
           }
         },
         "InitialFaceDetectedTimestamp": {
           "target": "com.amazonaws.rekognitionstreaming#EpochMillis",
           "traits": {
+            "smithy.api#documentation": "<p>Timestamp that a face was initially detected at.</p>",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p> Contains bounding box of initial face position of the user on the device screen.\n      Contains an epoch timestamp of when the user was detected in this position. Used for Face\n      Liveness detection.</p>"
       }
     },
     "com.amazonaws.rekognitionstreaming#InternalServerException": {
@@ -339,6 +462,7 @@
         }
       },
       "traits": {
+        "smithy.api#documentation": "<p>Unexpected error during processing of request.</p>",
         "smithy.api#error": "server",
         "smithy.api#httpError": 500
       }
@@ -358,13 +482,20 @@
       "type": "union",
       "members": {
         "VideoEvent": {
-          "target": "com.amazonaws.rekognitionstreaming#VideoEvent"
+          "target": "com.amazonaws.rekognitionstreaming#VideoEvent",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains video events for a Face Liveness request stream.</p>"
+          }
         },
         "ClientSessionInformationEvent": {
-          "target": "com.amazonaws.rekognitionstreaming#ClientSessionInformationEvent"
+          "target": "com.amazonaws.rekognitionstreaming#ClientSessionInformationEvent",
+          "traits": {
+            "smithy.api#documentation": "<p>Information event for the client session for a given Face Liveness request stream.</p>"
+          }
         }
       },
       "traits": {
+        "smithy.api#documentation": "<p>Contains information regarding video events and client session details for a Face Liveness verification request stream.</p>",
         "smithy.api#streaming": {}
       }
     },
@@ -372,28 +503,50 @@
       "type": "union",
       "members": {
         "ServerSessionInformationEvent": {
-          "target": "com.amazonaws.rekognitionstreaming#ServerSessionInformationEvent"
+          "target": "com.amazonaws.rekognitionstreaming#ServerSessionInformationEvent",
+          "traits": {
+            "smithy.api#documentation": "<p>Details for a server session information event.</p>"
+          }
         },
         "DisconnectionEvent": {
-          "target": "com.amazonaws.rekognitionstreaming#DisconnectionEvent"
+          "target": "com.amazonaws.rekognitionstreaming#DisconnectionEvent",
+          "traits": {
+            "smithy.api#documentation": "<p>Notification that disconnection event has occurred to a Face Liveness session.</p>"
+          }
         },
         "ValidationException": {
-          "target": "com.amazonaws.rekognitionstreaming#ValidationException"
+          "target": "com.amazonaws.rekognitionstreaming#ValidationException",
+          "traits": {
+            "smithy.api#documentation": "<p>Notification that a ValidationException occurred during a Face Liveness session.</p>"
+          }
         },
         "InternalServerException": {
-          "target": "com.amazonaws.rekognitionstreaming#InternalServerException"
+          "target": "com.amazonaws.rekognitionstreaming#InternalServerException",
+          "traits": {
+            "smithy.api#documentation": "<p>Notification that an InternalServerException occurred during a Face Liveness session.</p>"
+          }
         },
         "ThrottlingException": {
-          "target": "com.amazonaws.rekognitionstreaming#ThrottlingException"
+          "target": "com.amazonaws.rekognitionstreaming#ThrottlingException",
+          "traits": {
+            "smithy.api#documentation": "<p>Notification that a ThrottlingException occurred during a Face Liveness session.</p>"
+          }
         },
         "ServiceQuotaExceededException": {
-          "target": "com.amazonaws.rekognitionstreaming#ServiceQuotaExceededException"
+          "target": "com.amazonaws.rekognitionstreaming#ServiceQuotaExceededException",
+          "traits": {
+            "smithy.api#documentation": "<p>Notification that a ServiceQuotaExceededException occurred during a Face Liveness session.</p>"
+          }
         },
         "ServiceUnavailableException": {
-          "target": "com.amazonaws.rekognitionstreaming#ServiceUnavailableException"
+          "target": "com.amazonaws.rekognitionstreaming#ServiceUnavailableException",
+          "traits": {
+            "smithy.api#documentation": "<p>Notification that a ServiceUnavailableException occurred during a Face Liveness session.</p>"
+          }
         }
       },
       "traits": {
+        "smithy.api#documentation": "<p>Contains information event details and exception information for a Face Liveness verification response stream.</p>",
         "smithy.api#streaming": {}
       }
     },
@@ -401,28 +554,44 @@
       "type": "structure",
       "members": {
         "Width": {
-          "target": "com.amazonaws.rekognitionstreaming#Float",
+          "target": "com.amazonaws.rekognitionstreaming#OvalSizeFloat",
           "traits": {
+            "smithy.api#documentation": "<p>Width of the oval</p>",
             "smithy.api#required": {}
           }
         },
         "Height": {
-          "target": "com.amazonaws.rekognitionstreaming#Float",
+          "target": "com.amazonaws.rekognitionstreaming#OvalSizeFloat",
           "traits": {
+            "smithy.api#documentation": "<p>Height of the oval</p>",
             "smithy.api#required": {}
           }
         },
         "CenterX": {
-          "target": "com.amazonaws.rekognitionstreaming#Float",
+          "target": "com.amazonaws.rekognitionstreaming#OvalSizeFloat",
           "traits": {
+            "smithy.api#documentation": "<p>X-axis co-ordinate of  for center of oval</p>",
             "smithy.api#required": {}
           }
         },
         "CenterY": {
-          "target": "com.amazonaws.rekognitionstreaming#Float",
+          "target": "com.amazonaws.rekognitionstreaming#OvalSizeFloat",
           "traits": {
+            "smithy.api#documentation": "<p>Y-axis co-ordinate of  for center of oval</p>",
             "smithy.api#required": {}
           }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Oval parameters need for oval display to complete oval match challenge.</p>"
+      }
+    },
+    "com.amazonaws.rekognitionstreaming#OvalSizeFloat": {
+      "type": "float",
+      "traits": {
+        "smithy.api#range": {
+          "min": 0,
+          "max": 9999
         }
       }
     },
@@ -440,13 +609,14 @@
           "arnNamespace": "rekognition",
           "cloudFormationName": "RekognitionStreaming",
           "cloudTrailEventSource": "rekognitionstreaming.amazonaws.com",
-          "endpointPrefix": "rekognitionstreaming"
+          "endpointPrefix": "streaming-rekognition"
         },
         "aws.auth#sigv4": {
           "name": "rekognition"
         },
         "aws.protocols#restJson1": {},
-        "smithy.api#title": "AWS Rekognition Streaming",
+        "smithy.api#documentation": "<p>A real-time video processing service based on Rekognition. This section documents the API\n      operations for Rekognition Face Liveness.</p>\n         <p>\n            <b>Amazon Rekognition Face Liveness</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateFaceLivenessSession.html\">CreateFaceLivenessSession</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetFaceLivenessSessionResults.html\">GetFaceLivenessSessionResults</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/rekognition/latest/APIReference/API_rekognitionstreaming_StartFaceLivenessSession.html\">StartFaceLivenessSession</a>\n               </p>\n            </li>\n         </ul>",
+        "smithy.api#title": "Amazon Rekognition Streaming",
         "smithy.rules#endpointRuleSet": {
           "version": "1.0",
           "parameters": {
@@ -636,7 +806,7 @@
                                     {
                                       "conditions": [],
                                       "endpoint": {
-                                        "url": "https://rekognitionstreaming-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "url": "https://streaming-rekognition-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
                                         "properties": {},
                                         "headers": {}
                                       },
@@ -694,7 +864,7 @@
                                     {
                                       "conditions": [],
                                       "endpoint": {
-                                        "url": "https://rekognitionstreaming-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                        "url": "https://streaming-rekognition-fips.{Region}.{PartitionResult#dnsSuffix}",
                                         "properties": {},
                                         "headers": {}
                                       },
@@ -752,7 +922,7 @@
                                     {
                                       "conditions": [],
                                       "endpoint": {
-                                        "url": "https://rekognitionstreaming.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "url": "https://streaming-rekognition.{Region}.{PartitionResult#dualStackDnsSuffix}",
                                         "properties": {},
                                         "headers": {}
                                       },
@@ -776,7 +946,7 @@
                             {
                               "conditions": [],
                               "endpoint": {
-                                "url": "https://rekognitionstreaming.{Region}.{PartitionResult#dnsSuffix}",
+                                "url": "https://streaming-rekognition.{Region}.{PartitionResult#dnsSuffix}",
                                 "properties": {},
                                 "headers": {}
                               },
@@ -803,104 +973,104 @@
               "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://rekognitionstreaming-fips.us-gov-east-1.api.aws"
+                  "url": "https://streaming-rekognition-fips.us-gov-east-1.api.aws"
                 }
               },
               "params": {
-                "UseFIPS": true,
                 "UseDualStack": true,
-                "Region": "us-gov-east-1"
+                "Region": "us-gov-east-1",
+                "UseFIPS": true
               }
             },
             {
               "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://rekognitionstreaming-fips.us-gov-east-1.amazonaws.com"
+                  "url": "https://streaming-rekognition-fips.us-gov-east-1.amazonaws.com"
                 }
               },
               "params": {
-                "UseFIPS": true,
                 "UseDualStack": false,
-                "Region": "us-gov-east-1"
+                "Region": "us-gov-east-1",
+                "UseFIPS": true
               }
             },
             {
               "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://rekognitionstreaming.us-gov-east-1.api.aws"
+                  "url": "https://streaming-rekognition.us-gov-east-1.api.aws"
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "UseDualStack": true,
-                "Region": "us-gov-east-1"
+                "Region": "us-gov-east-1",
+                "UseFIPS": false
               }
             },
             {
               "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://rekognitionstreaming.us-gov-east-1.amazonaws.com"
+                  "url": "https://streaming-rekognition.us-gov-east-1.amazonaws.com"
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "UseDualStack": false,
-                "Region": "us-gov-east-1"
+                "Region": "us-gov-east-1",
+                "UseFIPS": false
               }
             },
             {
               "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://rekognitionstreaming-fips.cn-north-1.api.amazonwebservices.com.cn"
+                  "url": "https://streaming-rekognition-fips.cn-north-1.api.amazonwebservices.com.cn"
                 }
               },
               "params": {
-                "UseFIPS": true,
                 "UseDualStack": true,
-                "Region": "cn-north-1"
+                "Region": "cn-north-1",
+                "UseFIPS": true
               }
             },
             {
               "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://rekognitionstreaming-fips.cn-north-1.amazonaws.com.cn"
+                  "url": "https://streaming-rekognition-fips.cn-north-1.amazonaws.com.cn"
                 }
               },
               "params": {
-                "UseFIPS": true,
                 "UseDualStack": false,
-                "Region": "cn-north-1"
+                "Region": "cn-north-1",
+                "UseFIPS": true
               }
             },
             {
               "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://rekognitionstreaming.cn-north-1.api.amazonwebservices.com.cn"
+                  "url": "https://streaming-rekognition.cn-north-1.api.amazonwebservices.com.cn"
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "UseDualStack": true,
-                "Region": "cn-north-1"
+                "Region": "cn-north-1",
+                "UseFIPS": false
               }
             },
             {
               "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://rekognitionstreaming.cn-north-1.amazonaws.com.cn"
+                  "url": "https://streaming-rekognition.cn-north-1.amazonaws.com.cn"
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "UseDualStack": false,
-                "Region": "cn-north-1"
+                "Region": "cn-north-1",
+                "UseFIPS": false
               }
             },
             {
@@ -909,22 +1079,22 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
-                "UseFIPS": true,
                 "UseDualStack": true,
-                "Region": "us-iso-east-1"
+                "Region": "us-iso-east-1",
+                "UseFIPS": true
               }
             },
             {
               "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://rekognitionstreaming-fips.us-iso-east-1.c2s.ic.gov"
+                  "url": "https://streaming-rekognition-fips.us-iso-east-1.c2s.ic.gov"
                 }
               },
               "params": {
-                "UseFIPS": true,
                 "UseDualStack": false,
-                "Region": "us-iso-east-1"
+                "Region": "us-iso-east-1",
+                "UseFIPS": true
               }
             },
             {
@@ -933,74 +1103,74 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
-                "UseFIPS": false,
                 "UseDualStack": true,
-                "Region": "us-iso-east-1"
+                "Region": "us-iso-east-1",
+                "UseFIPS": false
               }
             },
             {
               "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://rekognitionstreaming.us-iso-east-1.c2s.ic.gov"
+                  "url": "https://streaming-rekognition.us-iso-east-1.c2s.ic.gov"
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "UseDualStack": false,
-                "Region": "us-iso-east-1"
+                "Region": "us-iso-east-1",
+                "UseFIPS": false
               }
             },
             {
               "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://rekognitionstreaming-fips.us-east-1.api.aws"
+                  "url": "https://streaming-rekognition-fips.us-east-1.api.aws"
                 }
               },
               "params": {
-                "UseFIPS": true,
                 "UseDualStack": true,
-                "Region": "us-east-1"
+                "Region": "us-east-1",
+                "UseFIPS": true
               }
             },
             {
               "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://rekognitionstreaming-fips.us-east-1.amazonaws.com"
+                  "url": "https://streaming-rekognition-fips.us-east-1.amazonaws.com"
                 }
               },
               "params": {
-                "UseFIPS": true,
                 "UseDualStack": false,
-                "Region": "us-east-1"
+                "Region": "us-east-1",
+                "UseFIPS": true
               }
             },
             {
               "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://rekognitionstreaming.us-east-1.api.aws"
+                  "url": "https://streaming-rekognition.us-east-1.api.aws"
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "UseDualStack": true,
-                "Region": "us-east-1"
+                "Region": "us-east-1",
+                "UseFIPS": false
               }
             },
             {
               "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://rekognitionstreaming.us-east-1.amazonaws.com"
+                  "url": "https://streaming-rekognition.us-east-1.amazonaws.com"
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "UseDualStack": false,
-                "Region": "us-east-1"
+                "Region": "us-east-1",
+                "UseFIPS": false
               }
             },
             {
@@ -1009,22 +1179,22 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
-                "UseFIPS": true,
                 "UseDualStack": true,
-                "Region": "us-isob-east-1"
+                "Region": "us-isob-east-1",
+                "UseFIPS": true
               }
             },
             {
               "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://rekognitionstreaming-fips.us-isob-east-1.sc2s.sgov.gov"
+                  "url": "https://streaming-rekognition-fips.us-isob-east-1.sc2s.sgov.gov"
                 }
               },
               "params": {
-                "UseFIPS": true,
                 "UseDualStack": false,
-                "Region": "us-isob-east-1"
+                "Region": "us-isob-east-1",
+                "UseFIPS": true
               }
             },
             {
@@ -1033,22 +1203,22 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
-                "UseFIPS": false,
                 "UseDualStack": true,
-                "Region": "us-isob-east-1"
+                "Region": "us-isob-east-1",
+                "UseFIPS": false
               }
             },
             {
               "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://rekognitionstreaming.us-isob-east-1.sc2s.sgov.gov"
+                  "url": "https://streaming-rekognition.us-isob-east-1.sc2s.sgov.gov"
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "UseDualStack": false,
-                "Region": "us-isob-east-1"
+                "Region": "us-isob-east-1",
+                "UseFIPS": false
               }
             },
             {
@@ -1059,9 +1229,9 @@
                 }
               },
               "params": {
-                "UseFIPS": false,
                 "UseDualStack": false,
                 "Region": "us-east-1",
+                "UseFIPS": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -1071,9 +1241,9 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
-                "UseFIPS": true,
                 "UseDualStack": false,
                 "Region": "us-east-1",
+                "UseFIPS": true,
                 "Endpoint": "https://example.com"
               }
             },
@@ -1083,9 +1253,9 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
-                "UseFIPS": false,
                 "UseDualStack": true,
                 "Region": "us-east-1",
+                "UseFIPS": false,
                 "Endpoint": "https://example.com"
               }
             }
@@ -1098,8 +1268,14 @@
       "type": "union",
       "members": {
         "FaceMovementAndLightChallenge": {
-          "target": "com.amazonaws.rekognitionstreaming#FaceMovementAndLightServerChallenge"
+          "target": "com.amazonaws.rekognitionstreaming#FaceMovementAndLightServerChallenge",
+          "traits": {
+            "smithy.api#documentation": "<p>Paramteters and configuration information for the face movement and light sequence challenges.</p>"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information on the challenge sent by the server.</p>"
       }
     },
     "com.amazonaws.rekognitionstreaming#ServerSessionInformationEvent": {
@@ -1108,9 +1284,13 @@
         "SessionInformation": {
           "target": "com.amazonaws.rekognitionstreaming#SessionInformation",
           "traits": {
+            "smithy.api#documentation": "<p>Contains the session information sent by the server..</p>",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Event containing session information for the server.</p>"
       }
     },
     "com.amazonaws.rekognitionstreaming#ServiceQuotaExceededException": {
@@ -1124,6 +1304,7 @@
         }
       },
       "traits": {
+        "smithy.api#documentation": "<p>Occurs when a request would cause a service quota to be exceeded.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 429
       }
@@ -1139,6 +1320,7 @@
         }
       },
       "traits": {
+        "smithy.api#documentation": "<p>Service-wide throttling to recover from an operational event or service is not able to scale.</p>",
         "smithy.api#error": "server",
         "smithy.api#httpError": 503
       }
@@ -1149,9 +1331,13 @@
         "Challenge": {
           "target": "com.amazonaws.rekognitionstreaming#ServerChallenge",
           "traits": {
+            "smithy.api#documentation": "<p>Object containing information of Face Liveness challenge to be performed by the client. The information is used to construct the challenges at the client's SDK.</p>",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information required for the streaming session.</p>"
       }
     },
     "com.amazonaws.rekognitionstreaming#SessionNotFoundException": {
@@ -1165,6 +1351,7 @@
         }
       },
       "traits": {
+        "smithy.api#documentation": "<p>Occurs when the given <code>sessionId</code> is not found.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -1201,6 +1388,7 @@
         }
       ],
       "traits": {
+        "smithy.api#documentation": "<p>Starts a Face Liveness video stream and liveness detection process for a given\n      session.</p>\n         <p>Requires <code>sessionId</code>, <code>ChallengeVersions</code>, <code>VideoWidth</code>,\n        <code>VideoHeight</code> and a <code>RequestEventStream</code> as input. The event stream\n      contains information about different events for the session, including the challenge\n      information used for verification. </p>\n         <p>The maximum video size for Face Liveness is 10 MB. Face Liveness throws a\n        <code>ValidationException</code> if the video does not match the necessary formatting and\n      size parameters. </p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/start-face-liveness-session",
@@ -1214,6 +1402,7 @@
         "SessionId": {
           "target": "com.amazonaws.rekognitionstreaming#UUID",
           "traits": {
+            "smithy.api#documentation": "<p>A unique 128-bit UUID. Used to uniquely identify the session and also acta as an\n      idempotency token for all operations associated with the session.</p>",
             "smithy.api#httpHeader": "x-amz-rekognition-streaming-liveness-session-id",
             "smithy.api#required": {}
           }
@@ -1221,6 +1410,7 @@
         "VideoWidth": {
           "target": "com.amazonaws.rekognitionstreaming#VideoWidth",
           "traits": {
+            "smithy.api#documentation": "<p>The width of the video object included in a request to start a Face Liveness\n      session.</p>",
             "smithy.api#httpHeader": "x-amz-rekognition-streaming-liveness-video-width",
             "smithy.api#required": {}
           }
@@ -1228,6 +1418,7 @@
         "VideoHeight": {
           "target": "com.amazonaws.rekognitionstreaming#VideoHeight",
           "traits": {
+            "smithy.api#documentation": "<p>The height of the video object included in a request to start a Face Liveness\n      session.</p>",
             "smithy.api#httpHeader": "x-amz-rekognition-streaming-liveness-video-height",
             "smithy.api#required": {}
           }
@@ -1235,12 +1426,15 @@
         "ChallengeVersions": {
           "target": "com.amazonaws.rekognitionstreaming#ChallengeVersions",
           "traits": {
-            "smithy.api#httpHeader": "x-amz-rekognition-streaming-liveness-challenge-versions"
+            "smithy.api#documentation": "<p>String containing comma separated list of challenge versions supported by client.</p>",
+            "smithy.api#httpHeader": "x-amz-rekognition-streaming-liveness-challenge-versions",
+            "smithy.api#required": {}
           }
         },
         "LivenessRequestStream": {
           "target": "com.amazonaws.rekognitionstreaming#LivenessRequestStream",
           "traits": {
+            "smithy.api#documentation": "<p>Information regarding the request stream for a Face Liveness session.</p>",
             "smithy.api#httpPayload": {}
           }
         }
@@ -1255,6 +1449,7 @@
         "SessionId": {
           "target": "com.amazonaws.rekognitionstreaming#UUID",
           "traits": {
+            "smithy.api#documentation": "<p>The ID that identifies a Face Liveness session.</p>",
             "smithy.api#httpHeader": "x-amz-rekognition-streaming-liveness-session-id",
             "smithy.api#required": {}
           }
@@ -1262,6 +1457,7 @@
         "LivenessResponseStream": {
           "target": "com.amazonaws.rekognitionstreaming#LivenessResponseStream",
           "traits": {
+            "smithy.api#documentation": "<p>Information regarding the response stream for a Face Liveness session.</p>",
             "smithy.api#httpPayload": {}
           }
         }
@@ -1279,20 +1475,35 @@
         "BoundingBox": {
           "target": "com.amazonaws.rekognitionstreaming#BoundingBox",
           "traits": {
+            "smithy.api#documentation": "<p>A bounding box for the target face.</p>",
             "smithy.api#required": {}
           }
         },
         "FaceDetectedInTargetPositionStartTimestamp": {
           "target": "com.amazonaws.rekognitionstreaming#EpochMillis",
           "traits": {
+            "smithy.api#documentation": "<p>Starting timestamp at which a face was detected in the target position.</p>",
             "smithy.api#required": {}
           }
         },
         "FaceDetectedInTargetPositionEndTimestamp": {
           "target": "com.amazonaws.rekognitionstreaming#EpochMillis",
           "traits": {
+            "smithy.api#documentation": "<p>Ending timestamp at which a face was detected in the target position.</p>",
             "smithy.api#required": {}
           }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains bounding box of face position of the user on the device screen at target\n      location constructed for the challenge. This is generated using the random offsets provided by\n      the server to the client at session start. Also contains start and end epoch timestamp of when\n      the user was detected in this position.</p>"
+      }
+    },
+    "com.amazonaws.rekognitionstreaming#Threshold": {
+      "type": "float",
+      "traits": {
+        "smithy.api#range": {
+          "min": 0,
+          "max": 1
         }
       }
     },
@@ -1307,6 +1518,7 @@
         }
       },
       "traits": {
+        "smithy.api#documentation": "<p>A request was denied due to request throttling. Occurs when too many requests were made by a user \n       (exceeding their service quota), the service isn't able to scale, or a service-wide throttling was done to recover from an operational event.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 429
       }
@@ -1332,6 +1544,7 @@
         }
       },
       "traits": {
+        "smithy.api#documentation": "<p>The input fails to satisfy the constraints specified by the service. Potential reasons\n      inlcude: video quality or size is invalid, video container format not supported, video does\n      not have enough information - no person detected in video, request couldn't be parsed or is\n      invalid, session has expired or is invalid, S3 bucket is invalid/in another AWS region, KMS\n      Key is invalid.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -1343,11 +1556,20 @@
       "type": "structure",
       "members": {
         "VideoChunk": {
-          "target": "com.amazonaws.rekognitionstreaming#VideoChunk"
+          "target": "com.amazonaws.rekognitionstreaming#VideoChunk",
+          "traits": {
+            "smithy.api#documentation": "<p>The video chunk for a video event.</p>"
+          }
         },
         "TimestampMillis": {
-          "target": "com.amazonaws.rekognitionstreaming#EpochMillis"
+          "target": "com.amazonaws.rekognitionstreaming#EpochMillis",
+          "traits": {
+            "smithy.api#documentation": "<p>Milisecond timestamp for a video chunk in a video event.</p>"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains the video chunk blob.</p>"
       }
     },
     "com.amazonaws.rekognitionstreaming#VideoHeight": {
