@@ -42,12 +42,14 @@ export interface UpdateServiceCommandOutput extends UpdateServiceOutput, __Metad
  * @public
  * <p>Edit a service description or use a spec to add and delete service instances.</p>
  *          <note>
- *             <p>Existing service instances and the service pipeline <i>can't</i> be edited using this API. They can only be deleted.</p>
+ *             <p>Existing service instances and the service pipeline <i>can't</i> be edited
+ *         using this API. They can only be deleted.</p>
  *          </note>
  *          <p>Use the <code>description</code> parameter to modify the description.</p>
  *          <p>Edit the <code>spec</code> parameter to add or delete instances.</p>
  *          <note>
- *             <p>You can't delete a service instance (remove it from the spec) if it has an attached component.</p>
+ *             <p>You can't delete a service instance (remove it from the spec) if it has an attached
+ *         component.</p>
  *             <p>For more information about components, see
  *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
  *   <i>Proton User Guide</i>.</p>

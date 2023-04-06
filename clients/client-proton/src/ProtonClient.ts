@@ -86,6 +86,14 @@ import {
 import { CreateRepositoryCommandInput, CreateRepositoryCommandOutput } from "./commands/CreateRepositoryCommand";
 import { CreateServiceCommandInput, CreateServiceCommandOutput } from "./commands/CreateServiceCommand";
 import {
+  CreateServiceInstanceCommandInput,
+  CreateServiceInstanceCommandOutput,
+} from "./commands/CreateServiceInstanceCommand";
+import {
+  CreateServiceSyncConfigCommandInput,
+  CreateServiceSyncConfigCommandOutput,
+} from "./commands/CreateServiceSyncConfigCommand";
+import {
   CreateServiceTemplateCommandInput,
   CreateServiceTemplateCommandOutput,
 } from "./commands/CreateServiceTemplateCommand";
@@ -113,6 +121,10 @@ import {
 } from "./commands/DeleteEnvironmentTemplateVersionCommand";
 import { DeleteRepositoryCommandInput, DeleteRepositoryCommandOutput } from "./commands/DeleteRepositoryCommand";
 import { DeleteServiceCommandInput, DeleteServiceCommandOutput } from "./commands/DeleteServiceCommand";
+import {
+  DeleteServiceSyncConfigCommandInput,
+  DeleteServiceSyncConfigCommandOutput,
+} from "./commands/DeleteServiceSyncConfigCommand";
 import {
   DeleteServiceTemplateCommandInput,
   DeleteServiceTemplateCommandOutput,
@@ -151,6 +163,18 @@ import {
 } from "./commands/GetResourcesSummaryCommand";
 import { GetServiceCommandInput, GetServiceCommandOutput } from "./commands/GetServiceCommand";
 import { GetServiceInstanceCommandInput, GetServiceInstanceCommandOutput } from "./commands/GetServiceInstanceCommand";
+import {
+  GetServiceInstanceSyncStatusCommandInput,
+  GetServiceInstanceSyncStatusCommandOutput,
+} from "./commands/GetServiceInstanceSyncStatusCommand";
+import {
+  GetServiceSyncBlockerSummaryCommandInput,
+  GetServiceSyncBlockerSummaryCommandOutput,
+} from "./commands/GetServiceSyncBlockerSummaryCommand";
+import {
+  GetServiceSyncConfigCommandInput,
+  GetServiceSyncConfigCommandOutput,
+} from "./commands/GetServiceSyncConfigCommand";
 import { GetServiceTemplateCommandInput, GetServiceTemplateCommandOutput } from "./commands/GetServiceTemplateCommand";
 import {
   GetServiceTemplateVersionCommandInput,
@@ -270,6 +294,14 @@ import {
   UpdateServicePipelineCommandOutput,
 } from "./commands/UpdateServicePipelineCommand";
 import {
+  UpdateServiceSyncBlockerCommandInput,
+  UpdateServiceSyncBlockerCommandOutput,
+} from "./commands/UpdateServiceSyncBlockerCommand";
+import {
+  UpdateServiceSyncConfigCommandInput,
+  UpdateServiceSyncConfigCommandOutput,
+} from "./commands/UpdateServiceSyncConfigCommand";
+import {
   UpdateServiceTemplateCommandInput,
   UpdateServiceTemplateCommandOutput,
 } from "./commands/UpdateServiceTemplateCommand";
@@ -305,6 +337,8 @@ export type ServiceInputTypes =
   | CreateEnvironmentTemplateVersionCommandInput
   | CreateRepositoryCommandInput
   | CreateServiceCommandInput
+  | CreateServiceInstanceCommandInput
+  | CreateServiceSyncConfigCommandInput
   | CreateServiceTemplateCommandInput
   | CreateServiceTemplateVersionCommandInput
   | CreateTemplateSyncConfigCommandInput
@@ -315,6 +349,7 @@ export type ServiceInputTypes =
   | DeleteEnvironmentTemplateVersionCommandInput
   | DeleteRepositoryCommandInput
   | DeleteServiceCommandInput
+  | DeleteServiceSyncConfigCommandInput
   | DeleteServiceTemplateCommandInput
   | DeleteServiceTemplateVersionCommandInput
   | DeleteTemplateSyncConfigCommandInput
@@ -329,6 +364,9 @@ export type ServiceInputTypes =
   | GetResourcesSummaryCommandInput
   | GetServiceCommandInput
   | GetServiceInstanceCommandInput
+  | GetServiceInstanceSyncStatusCommandInput
+  | GetServiceSyncBlockerSummaryCommandInput
+  | GetServiceSyncConfigCommandInput
   | GetServiceTemplateCommandInput
   | GetServiceTemplateVersionCommandInput
   | GetTemplateSyncConfigCommandInput
@@ -366,6 +404,8 @@ export type ServiceInputTypes =
   | UpdateServiceCommandInput
   | UpdateServiceInstanceCommandInput
   | UpdateServicePipelineCommandInput
+  | UpdateServiceSyncBlockerCommandInput
+  | UpdateServiceSyncConfigCommandInput
   | UpdateServiceTemplateCommandInput
   | UpdateServiceTemplateVersionCommandInput
   | UpdateTemplateSyncConfigCommandInput;
@@ -386,6 +426,8 @@ export type ServiceOutputTypes =
   | CreateEnvironmentTemplateVersionCommandOutput
   | CreateRepositoryCommandOutput
   | CreateServiceCommandOutput
+  | CreateServiceInstanceCommandOutput
+  | CreateServiceSyncConfigCommandOutput
   | CreateServiceTemplateCommandOutput
   | CreateServiceTemplateVersionCommandOutput
   | CreateTemplateSyncConfigCommandOutput
@@ -396,6 +438,7 @@ export type ServiceOutputTypes =
   | DeleteEnvironmentTemplateVersionCommandOutput
   | DeleteRepositoryCommandOutput
   | DeleteServiceCommandOutput
+  | DeleteServiceSyncConfigCommandOutput
   | DeleteServiceTemplateCommandOutput
   | DeleteServiceTemplateVersionCommandOutput
   | DeleteTemplateSyncConfigCommandOutput
@@ -410,6 +453,9 @@ export type ServiceOutputTypes =
   | GetResourcesSummaryCommandOutput
   | GetServiceCommandOutput
   | GetServiceInstanceCommandOutput
+  | GetServiceInstanceSyncStatusCommandOutput
+  | GetServiceSyncBlockerSummaryCommandOutput
+  | GetServiceSyncConfigCommandOutput
   | GetServiceTemplateCommandOutput
   | GetServiceTemplateVersionCommandOutput
   | GetTemplateSyncConfigCommandOutput
@@ -447,6 +493,8 @@ export type ServiceOutputTypes =
   | UpdateServiceCommandOutput
   | UpdateServiceInstanceCommandOutput
   | UpdateServicePipelineCommandOutput
+  | UpdateServiceSyncBlockerCommandOutput
+  | UpdateServiceSyncConfigCommandOutput
   | UpdateServiceTemplateCommandOutput
   | UpdateServiceTemplateVersionCommandOutput
   | UpdateTemplateSyncConfigCommandOutput;

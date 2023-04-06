@@ -62,6 +62,16 @@ import {
   CreateServiceCommandOutput,
 } from "./commands/CreateServiceCommand";
 import {
+  CreateServiceInstanceCommand,
+  CreateServiceInstanceCommandInput,
+  CreateServiceInstanceCommandOutput,
+} from "./commands/CreateServiceInstanceCommand";
+import {
+  CreateServiceSyncConfigCommand,
+  CreateServiceSyncConfigCommandInput,
+  CreateServiceSyncConfigCommandOutput,
+} from "./commands/CreateServiceSyncConfigCommand";
+import {
   CreateServiceTemplateCommand,
   CreateServiceTemplateCommandInput,
   CreateServiceTemplateCommandOutput,
@@ -111,6 +121,11 @@ import {
   DeleteServiceCommandInput,
   DeleteServiceCommandOutput,
 } from "./commands/DeleteServiceCommand";
+import {
+  DeleteServiceSyncConfigCommand,
+  DeleteServiceSyncConfigCommandInput,
+  DeleteServiceSyncConfigCommandOutput,
+} from "./commands/DeleteServiceSyncConfigCommand";
 import {
   DeleteServiceTemplateCommand,
   DeleteServiceTemplateCommandInput,
@@ -177,6 +192,21 @@ import {
   GetServiceInstanceCommandInput,
   GetServiceInstanceCommandOutput,
 } from "./commands/GetServiceInstanceCommand";
+import {
+  GetServiceInstanceSyncStatusCommand,
+  GetServiceInstanceSyncStatusCommandInput,
+  GetServiceInstanceSyncStatusCommandOutput,
+} from "./commands/GetServiceInstanceSyncStatusCommand";
+import {
+  GetServiceSyncBlockerSummaryCommand,
+  GetServiceSyncBlockerSummaryCommandInput,
+  GetServiceSyncBlockerSummaryCommandOutput,
+} from "./commands/GetServiceSyncBlockerSummaryCommand";
+import {
+  GetServiceSyncConfigCommand,
+  GetServiceSyncConfigCommandInput,
+  GetServiceSyncConfigCommandOutput,
+} from "./commands/GetServiceSyncConfigCommand";
 import {
   GetServiceTemplateCommand,
   GetServiceTemplateCommandInput,
@@ -358,6 +388,16 @@ import {
   UpdateServicePipelineCommandInput,
   UpdateServicePipelineCommandOutput,
 } from "./commands/UpdateServicePipelineCommand";
+import {
+  UpdateServiceSyncBlockerCommand,
+  UpdateServiceSyncBlockerCommandInput,
+  UpdateServiceSyncBlockerCommandOutput,
+} from "./commands/UpdateServiceSyncBlockerCommand";
+import {
+  UpdateServiceSyncConfigCommand,
+  UpdateServiceSyncConfigCommandInput,
+  UpdateServiceSyncConfigCommandOutput,
+} from "./commands/UpdateServiceSyncConfigCommand";
 import {
   UpdateServiceTemplateCommand,
   UpdateServiceTemplateCommandInput,
@@ -630,20 +670,23 @@ export class Proton extends ProtonClient {
 
   /**
    * @public
-   * <p>Attempts to cancel a service instance deployment on an <a>UpdateServiceInstance</a> action, if the deployment is <code>IN_PROGRESS</code>.
-   *       For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-svc-instance-update.html">Update a service instance</a> in the
-   *         <i>Proton User guide</i>.</p>
+   * <p>Attempts to cancel a service instance deployment on an <a>UpdateServiceInstance</a> action, if the deployment is <code>IN_PROGRESS</code>. For
+   *       more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-svc-instance-update.html">Update a service instance</a>
+   *       in the <i>Proton User guide</i>.</p>
    *          <p>The following list includes potential cancellation scenarios.</p>
    *          <ul>
    *             <li>
-   *                <p>If the cancellation attempt succeeds, the resulting deployment state is <code>CANCELLED</code>.</p>
+   *                <p>If the cancellation attempt succeeds, the resulting deployment state is
+   *             <code>CANCELLED</code>.</p>
    *             </li>
    *             <li>
-   *                <p>If the cancellation attempt fails, the resulting deployment state is <code>FAILED</code>.</p>
+   *                <p>If the cancellation attempt fails, the resulting deployment state is
+   *             <code>FAILED</code>.</p>
    *             </li>
    *             <li>
-   *                <p>If the current <a>UpdateServiceInstance</a> action succeeds before the cancellation attempt starts, the resulting deployment state is
-   *             <code>SUCCEEDED</code> and the cancellation attempt has no effect.</p>
+   *                <p>If the current <a>UpdateServiceInstance</a> action succeeds before the
+   *           cancellation attempt starts, the resulting deployment state is <code>SUCCEEDED</code> and
+   *           the cancellation attempt has no effect.</p>
    *             </li>
    *          </ul>
    */
@@ -678,20 +721,23 @@ export class Proton extends ProtonClient {
 
   /**
    * @public
-   * <p>Attempts to cancel a service pipeline deployment on an <a>UpdateServicePipeline</a> action, if the deployment is <code>IN_PROGRESS</code>.
-   *       For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-svc-pipeline-update.html">Update a service pipeline</a> in the
-   *         <i>Proton User guide</i>.</p>
+   * <p>Attempts to cancel a service pipeline deployment on an <a>UpdateServicePipeline</a> action, if the deployment is <code>IN_PROGRESS</code>. For
+   *       more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-svc-pipeline-update.html">Update a service pipeline</a>
+   *       in the <i>Proton User guide</i>.</p>
    *          <p>The following list includes potential cancellation scenarios.</p>
    *          <ul>
    *             <li>
-   *                <p>If the cancellation attempt succeeds, the resulting deployment state is <code>CANCELLED</code>.</p>
+   *                <p>If the cancellation attempt succeeds, the resulting deployment state is
+   *             <code>CANCELLED</code>.</p>
    *             </li>
    *             <li>
-   *                <p>If the cancellation attempt fails, the resulting deployment state is <code>FAILED</code>.</p>
+   *                <p>If the cancellation attempt fails, the resulting deployment state is
+   *             <code>FAILED</code>.</p>
    *             </li>
    *             <li>
-   *                <p>If the current <a>UpdateServicePipeline</a> action succeeds before the cancellation attempt starts, the resulting deployment state is
-   *             <code>SUCCEEDED</code> and the cancellation attempt has no effect.</p>
+   *                <p>If the current <a>UpdateServicePipeline</a> action succeeds before the
+   *           cancellation attempt starts, the resulting deployment state is <code>SUCCEEDED</code> and
+   *           the cancellation attempt has no effect.</p>
    *             </li>
    *          </ul>
    */
@@ -967,9 +1013,10 @@ export class Proton extends ProtonClient {
 
   /**
    * @public
-   * <p>Create an Proton service. An Proton service is an instantiation of a service template and often includes several service instances and pipeline.
-   *       For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-services.html">Services</a> in the <i>Proton User
-   *         Guide</i>.</p>
+   * <p>Create an Proton service. An Proton service is an instantiation of a service
+   *       template and often includes several service instances and pipeline. For more information, see
+   *         <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-services.html">Services</a>
+   *       in the <i>Proton User Guide</i>.</p>
    */
   public createService(
     args: CreateServiceCommandInput,
@@ -1002,11 +1049,78 @@ export class Proton extends ProtonClient {
 
   /**
    * @public
-   * <p>Create a service template. The administrator creates a service template to define standardized infrastructure and an optional CI/CD service pipeline.
-   *       Developers, in turn, select the service template from Proton. If the selected service template includes a service pipeline definition, they provide a
-   *       link to their source code repository. Proton then deploys and manages the infrastructure defined by the selected service template. For more
-   *       information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html">Proton templates</a> in the <i>Proton User
-   *         Guide</i>.</p>
+   * <p>Create a service instance.</p>
+   */
+  public createServiceInstance(
+    args: CreateServiceInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateServiceInstanceCommandOutput>;
+  public createServiceInstance(
+    args: CreateServiceInstanceCommandInput,
+    cb: (err: any, data?: CreateServiceInstanceCommandOutput) => void
+  ): void;
+  public createServiceInstance(
+    args: CreateServiceInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateServiceInstanceCommandOutput) => void
+  ): void;
+  public createServiceInstance(
+    args: CreateServiceInstanceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateServiceInstanceCommandOutput) => void),
+    cb?: (err: any, data?: CreateServiceInstanceCommandOutput) => void
+  ): Promise<CreateServiceInstanceCommandOutput> | void {
+    const command = new CreateServiceInstanceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Create the Proton Ops configuration file.</p>
+   */
+  public createServiceSyncConfig(
+    args: CreateServiceSyncConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateServiceSyncConfigCommandOutput>;
+  public createServiceSyncConfig(
+    args: CreateServiceSyncConfigCommandInput,
+    cb: (err: any, data?: CreateServiceSyncConfigCommandOutput) => void
+  ): void;
+  public createServiceSyncConfig(
+    args: CreateServiceSyncConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateServiceSyncConfigCommandOutput) => void
+  ): void;
+  public createServiceSyncConfig(
+    args: CreateServiceSyncConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateServiceSyncConfigCommandOutput) => void),
+    cb?: (err: any, data?: CreateServiceSyncConfigCommandOutput) => void
+  ): Promise<CreateServiceSyncConfigCommandOutput> | void {
+    const command = new CreateServiceSyncConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Create a service template. The administrator creates a service template to define
+   *       standardized infrastructure and an optional CI/CD service pipeline. Developers, in turn,
+   *       select the service template from Proton. If the selected service template includes a
+   *       service pipeline definition, they provide a link to their source code repository. Proton
+   *       then deploys and manages the infrastructure defined by the selected service template. For more
+   *       information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html">Proton templates</a> in the <i>Proton User Guide</i>.</p>
    */
   public createServiceTemplate(
     args: CreateServiceTemplateCommandInput,
@@ -1039,8 +1153,9 @@ export class Proton extends ProtonClient {
 
   /**
    * @public
-   * <p>Create a new major or minor version of a service template. A major version of a service template is a version that <i>isn't</i> backward
-   *       compatible. A minor version of a service template is a version that's backward compatible within its major version.</p>
+   * <p>Create a new major or minor version of a service template. A major version of a service
+   *       template is a version that <i>isn't</i> backward compatible. A minor version of
+   *       a service template is a version that's backward compatible within its major version.</p>
    */
   public createServiceTemplateVersion(
     args: CreateServiceTemplateVersionCommandInput,
@@ -1073,12 +1188,14 @@ export class Proton extends ProtonClient {
 
   /**
    * @public
-   * <p>Set up a template to create new template versions automatically by tracking a linked repository. A linked
-   *    repository is a repository that has been registered with Proton. For more information, see <a>CreateRepository</a>.</p>
-   *          <p>When a commit is pushed to your linked repository, Proton checks for changes to your repository template
-   *    bundles. If it detects a template bundle change, a new major or minor version of its template is created, if the
-   *    version doesn’t already exist. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-template-sync-configs.html">Template sync configurations</a> in the
-   *     <i>Proton User Guide</i>.</p>
+   * <p>Set up a template to create new template versions automatically by tracking a linked
+   *    repository. A linked repository is a repository that has been registered with Proton. For more
+   *    information, see <a>CreateRepository</a>.</p>
+   *          <p>When a commit is pushed to your linked repository, Proton checks for changes to your
+   *    repository template bundles. If it detects a template bundle change, a new major or minor version
+   *    of its template is created, if the version doesn’t already exist. For more information, see
+   *     <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-template-sync-configs.html">Template
+   *     sync configurations</a> in the <i>Proton User Guide</i>.</p>
    */
   public createTemplateSyncConfig(
     args: CreateTemplateSyncConfigCommandInput,
@@ -1324,7 +1441,8 @@ export class Proton extends ProtonClient {
    * @public
    * <p>Delete a service, with its instances and pipeline.</p>
    *          <note>
-   *             <p>You can't delete a service if it has any service instances that have components attached to them.</p>
+   *             <p>You can't delete a service if it has any service instances that have components attached
+   *         to them.</p>
    *             <p>For more information about components, see
    *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
    *   <i>Proton User Guide</i>.</p>
@@ -1361,7 +1479,41 @@ export class Proton extends ProtonClient {
 
   /**
    * @public
-   * <p>If no other major or minor versions of the service template exist, delete the service template.</p>
+   * <p>Delete the Proton Ops file.</p>
+   */
+  public deleteServiceSyncConfig(
+    args: DeleteServiceSyncConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteServiceSyncConfigCommandOutput>;
+  public deleteServiceSyncConfig(
+    args: DeleteServiceSyncConfigCommandInput,
+    cb: (err: any, data?: DeleteServiceSyncConfigCommandOutput) => void
+  ): void;
+  public deleteServiceSyncConfig(
+    args: DeleteServiceSyncConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteServiceSyncConfigCommandOutput) => void
+  ): void;
+  public deleteServiceSyncConfig(
+    args: DeleteServiceSyncConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteServiceSyncConfigCommandOutput) => void),
+    cb?: (err: any, data?: DeleteServiceSyncConfigCommandOutput) => void
+  ): Promise<DeleteServiceSyncConfigCommandOutput> | void {
+    const command = new DeleteServiceSyncConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>If no other major or minor versions of the service template exist, delete the service
+   *       template.</p>
    */
   public deleteServiceTemplate(
     args: DeleteServiceTemplateCommandInput,
@@ -1394,12 +1546,15 @@ export class Proton extends ProtonClient {
 
   /**
    * @public
-   * <p>If no other minor versions of a service template exist, delete a major version of the service template if it's not the <code>Recommended</code>
-   *       version. Delete the <code>Recommended</code> version of the service template if no other major versions or minor versions of the service template exist. A
-   *       major version of a service template is a version that <i>isn't</i> backwards compatible.</p>
-   *          <p>Delete a minor version of a service template if it's not the <code>Recommended</code> version. Delete a <code>Recommended</code> minor version of the
-   *       service template if no other minor versions of the service template exist. A minor version of a service template is a version that's backwards
-   *       compatible.</p>
+   * <p>If no other minor versions of a service template exist, delete a major version of the
+   *       service template if it's not the <code>Recommended</code> version. Delete the
+   *         <code>Recommended</code> version of the service template if no other major versions or minor
+   *       versions of the service template exist. A major version of a service template is a version
+   *       that <i>isn't</i> backwards compatible.</p>
+   *          <p>Delete a minor version of a service template if it's not the <code>Recommended</code>
+   *       version. Delete a <code>Recommended</code> minor version of the service template if no other
+   *       minor versions of the service template exist. A minor version of a service template is a
+   *       version that's backwards compatible.</p>
    */
   public deleteServiceTemplateVersion(
     args: DeleteServiceTemplateVersionCommandInput,
@@ -1739,15 +1894,19 @@ export class Proton extends ProtonClient {
   /**
    * @public
    * <p>Get counts of Proton resources.</p>
-   *          <p>For infrastructure-provisioning resources (environments, services, service instances, pipelines), the action
-   *    returns staleness counts. A resource is stale when it's behind the recommended version of the Proton template that it
-   *    uses and it needs an update to become current.</p>
-   *          <p>The action returns staleness counts (counts of resources that are up-to-date, behind a template major version,
-   *    or behind a template minor version), the total number of resources, and the number of resources that are in a failed
-   *    state, grouped by resource type. Components, environments, and service templates are exceptions—see the
-   *     <code>components</code>, <code>environments</code>, and <code>serviceTemplates</code> field descriptions.</p>
-   *          <p>For context, the action also returns the total number of each type of Proton template in the Amazon Web Services account.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/monitoring-dashboard.html">Proton dashboard</a> in the <i>Proton User Guide</i>.</p>
+   *          <p>For infrastructure-provisioning resources (environments, services, service instances,
+   *    pipelines), the action returns staleness counts. A resource is stale when it's behind the
+   *    recommended version of the Proton template that it uses and it needs an update to become
+   *    current.</p>
+   *          <p>The action returns staleness counts (counts of resources that are up-to-date, behind a
+   *    template major version, or behind a template minor version), the total number of resources, and
+   *    the number of resources that are in a failed state, grouped by resource type. Components,
+   *    environments, and service templates return less information - see the <code>components</code>,
+   *     <code>environments</code>, and <code>serviceTemplates</code> field descriptions.</p>
+   *          <p>For context, the action also returns the total number of each type of Proton template in the
+   *    Amazon Web Services account.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/monitoring-dashboard.html">Proton dashboard</a> in the
+   *     <i>Proton User Guide</i>.</p>
    */
   public getResourcesSummary(
     args: GetResourcesSummaryCommandInput,
@@ -1807,7 +1966,8 @@ export class Proton extends ProtonClient {
 
   /**
    * @public
-   * <p>Get detailed data for a service instance. A service instance is an instantiation of service template and it runs in a specific environment.</p>
+   * <p>Get detailed data for a service instance. A service instance is an instantiation of
+   *       service template and it runs in a specific environment.</p>
    */
   public getServiceInstance(
     args: GetServiceInstanceCommandInput,
@@ -1828,6 +1988,105 @@ export class Proton extends ProtonClient {
     cb?: (err: any, data?: GetServiceInstanceCommandOutput) => void
   ): Promise<GetServiceInstanceCommandOutput> | void {
     const command = new GetServiceInstanceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Get the status of the synced service instance.</p>
+   */
+  public getServiceInstanceSyncStatus(
+    args: GetServiceInstanceSyncStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetServiceInstanceSyncStatusCommandOutput>;
+  public getServiceInstanceSyncStatus(
+    args: GetServiceInstanceSyncStatusCommandInput,
+    cb: (err: any, data?: GetServiceInstanceSyncStatusCommandOutput) => void
+  ): void;
+  public getServiceInstanceSyncStatus(
+    args: GetServiceInstanceSyncStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetServiceInstanceSyncStatusCommandOutput) => void
+  ): void;
+  public getServiceInstanceSyncStatus(
+    args: GetServiceInstanceSyncStatusCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetServiceInstanceSyncStatusCommandOutput) => void),
+    cb?: (err: any, data?: GetServiceInstanceSyncStatusCommandOutput) => void
+  ): Promise<GetServiceInstanceSyncStatusCommandOutput> | void {
+    const command = new GetServiceInstanceSyncStatusCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Get detailed data for the service sync blocker summary.</p>
+   */
+  public getServiceSyncBlockerSummary(
+    args: GetServiceSyncBlockerSummaryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetServiceSyncBlockerSummaryCommandOutput>;
+  public getServiceSyncBlockerSummary(
+    args: GetServiceSyncBlockerSummaryCommandInput,
+    cb: (err: any, data?: GetServiceSyncBlockerSummaryCommandOutput) => void
+  ): void;
+  public getServiceSyncBlockerSummary(
+    args: GetServiceSyncBlockerSummaryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetServiceSyncBlockerSummaryCommandOutput) => void
+  ): void;
+  public getServiceSyncBlockerSummary(
+    args: GetServiceSyncBlockerSummaryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetServiceSyncBlockerSummaryCommandOutput) => void),
+    cb?: (err: any, data?: GetServiceSyncBlockerSummaryCommandOutput) => void
+  ): Promise<GetServiceSyncBlockerSummaryCommandOutput> | void {
+    const command = new GetServiceSyncBlockerSummaryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Get detailed information for the service sync configuration.</p>
+   */
+  public getServiceSyncConfig(
+    args: GetServiceSyncConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetServiceSyncConfigCommandOutput>;
+  public getServiceSyncConfig(
+    args: GetServiceSyncConfigCommandInput,
+    cb: (err: any, data?: GetServiceSyncConfigCommandOutput) => void
+  ): void;
+  public getServiceSyncConfig(
+    args: GetServiceSyncConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetServiceSyncConfigCommandOutput) => void
+  ): void;
+  public getServiceSyncConfig(
+    args: GetServiceSyncConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetServiceSyncConfigCommandOutput) => void),
+    cb?: (err: any, data?: GetServiceSyncConfigCommandOutput) => void
+  ): Promise<GetServiceSyncConfigCommandOutput> | void {
+    const command = new GetServiceSyncConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2414,8 +2673,8 @@ export class Proton extends ProtonClient {
 
   /**
    * @public
-   * <p>List service instances with summary data. This action lists service instances of all services in the
-   *    Amazon Web Services account.</p>
+   * <p>List service instances with summary data. This action lists service instances of all
+   *       services in the Amazon Web Services account.</p>
    */
   public listServiceInstances(
     args: ListServiceInstancesCommandInput,
@@ -2612,8 +2871,8 @@ export class Proton extends ProtonClient {
 
   /**
    * @public
-   * <p>List tags for a resource. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the <i>Proton User
-   *     Guide</i>.</p>
+   * <p>List tags for a resource. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
+   *     <i>Proton User Guide</i>.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -2646,7 +2905,8 @@ export class Proton extends ProtonClient {
 
   /**
    * @public
-   * <p>Notify Proton of status changes to a provisioned resource when you use self-managed provisioning.</p>
+   * <p>Notify Proton of status changes to a provisioned resource when you use self-managed
+   *    provisioning.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self">Self-managed
    *     provisioning</a> in the <i>Proton User Guide</i>.</p>
    */
@@ -2719,9 +2979,10 @@ export class Proton extends ProtonClient {
 
   /**
    * @public
-   * <p>Tag a resource. A tag is a key-value pair of metadata that you associate with an Proton resource.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton
-   *     resources and tagging</a> in the <i>Proton User Guide</i>.</p>
+   * <p>Tag a resource. A tag is a key-value pair of metadata that you associate with an Proton
+   *    resource.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
+   *     <i>Proton User Guide</i>.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -2748,10 +3009,10 @@ export class Proton extends ProtonClient {
 
   /**
    * @public
-   * <p>Remove a customer tag from a resource. A tag is a key-value pair of metadata associated with an Proton
-   *    resource.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton
-   *     resources and tagging</a> in the <i>Proton User Guide</i>.</p>
+   * <p>Remove a customer tag from a resource. A tag is a key-value pair of metadata associated with
+   *    an Proton resource.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
+   *     <i>Proton User Guide</i>.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -3042,12 +3303,14 @@ export class Proton extends ProtonClient {
    * @public
    * <p>Edit a service description or use a spec to add and delete service instances.</p>
    *          <note>
-   *             <p>Existing service instances and the service pipeline <i>can't</i> be edited using this API. They can only be deleted.</p>
+   *             <p>Existing service instances and the service pipeline <i>can't</i> be edited
+   *         using this API. They can only be deleted.</p>
    *          </note>
    *          <p>Use the <code>description</code> parameter to modify the description.</p>
    *          <p>Edit the <code>spec</code> parameter to add or delete instances.</p>
    *          <note>
-   *             <p>You can't delete a service instance (remove it from the spec) if it has an attached component.</p>
+   *             <p>You can't delete a service instance (remove it from the spec) if it has an attached
+   *         component.</p>
    *             <p>For more information about components, see
    *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
    *   <i>Proton User Guide</i>.</p>
@@ -3085,10 +3348,11 @@ export class Proton extends ProtonClient {
   /**
    * @public
    * <p>Update a service instance.</p>
-   *          <p>There are a few modes for updating a service instance. The <code>deploymentType</code> field defines the mode.</p>
+   *          <p>There are a few modes for updating a service instance. The <code>deploymentType</code>
+   *       field defines the mode.</p>
    *          <note>
-   *             <p>You can't update a service instance while its deployment status, or the deployment status of a component attached to it, is
-   *         <code>IN_PROGRESS</code>.</p>
+   *             <p>You can't update a service instance while its deployment status, or the deployment
+   *         status of a component attached to it, is <code>IN_PROGRESS</code>.</p>
    *             <p>For more information about components, see
    *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
    *   <i>Proton User Guide</i>.</p>
@@ -3126,38 +3390,44 @@ export class Proton extends ProtonClient {
   /**
    * @public
    * <p>Update the service pipeline.</p>
-   *          <p>There are four modes for updating a service pipeline. The <code>deploymentType</code> field defines the mode.</p>
+   *          <p>There are four modes for updating a service pipeline. The <code>deploymentType</code>
+   *       field defines the mode.</p>
    *          <dl>
    *             <dt/>
    *             <dd>
    *                <p>
    *                   <code>NONE</code>
    *                </p>
-   *                <p>In this mode, a deployment <i>doesn't</i> occur. Only the requested metadata parameters are updated.</p>
+   *                <p>In this mode, a deployment <i>doesn't</i> occur. Only the requested
+   *             metadata parameters are updated.</p>
    *             </dd>
    *             <dt/>
    *             <dd>
    *                <p>
    *                   <code>CURRENT_VERSION</code>
    *                </p>
-   *                <p>In this mode, the service pipeline is deployed and updated with the new spec that you provide. Only requested parameters are updated.
-   *               <i>Don’t</i> include major or minor version parameters when you use this <code>deployment-type</code>.</p>
+   *                <p>In this mode, the service pipeline is deployed and updated with the new spec that
+   *             you provide. Only requested parameters are updated. <i>Don’t</i> include
+   *             major or minor version parameters when you use this <code>deployment-type</code>.</p>
    *             </dd>
    *             <dt/>
    *             <dd>
    *                <p>
    *                   <code>MINOR_VERSION</code>
    *                </p>
-   *                <p>In this mode, the service pipeline is deployed and updated with the published, recommended (latest) minor version of the current major version
-   *             in use, by default. You can specify a different minor version of the current major version in use.</p>
+   *                <p>In this mode, the service pipeline is deployed and updated with the published,
+   *             recommended (latest) minor version of the current major version in use, by default. You
+   *             can specify a different minor version of the current major version in use.</p>
    *             </dd>
    *             <dt/>
    *             <dd>
    *                <p>
    *                   <code>MAJOR_VERSION</code>
    *                </p>
-   *                <p>In this mode, the service pipeline is deployed and updated with the published, recommended (latest) major and minor version of the current
-   *             template by default. You can specify a different major version that's higher than the major version in use and a minor version.</p>
+   *                <p>In this mode, the service pipeline is deployed and updated with the published,
+   *             recommended (latest) major and minor version of the current template by default. You can
+   *             specify a different major version that's higher than the major version in use and a
+   *             minor version.</p>
    *             </dd>
    *          </dl>
    */
@@ -3180,6 +3450,72 @@ export class Proton extends ProtonClient {
     cb?: (err: any, data?: UpdateServicePipelineCommandOutput) => void
   ): Promise<UpdateServicePipelineCommandOutput> | void {
     const command = new UpdateServicePipelineCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Update the service sync blocker by resolving it.</p>
+   */
+  public updateServiceSyncBlocker(
+    args: UpdateServiceSyncBlockerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateServiceSyncBlockerCommandOutput>;
+  public updateServiceSyncBlocker(
+    args: UpdateServiceSyncBlockerCommandInput,
+    cb: (err: any, data?: UpdateServiceSyncBlockerCommandOutput) => void
+  ): void;
+  public updateServiceSyncBlocker(
+    args: UpdateServiceSyncBlockerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateServiceSyncBlockerCommandOutput) => void
+  ): void;
+  public updateServiceSyncBlocker(
+    args: UpdateServiceSyncBlockerCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateServiceSyncBlockerCommandOutput) => void),
+    cb?: (err: any, data?: UpdateServiceSyncBlockerCommandOutput) => void
+  ): Promise<UpdateServiceSyncBlockerCommandOutput> | void {
+    const command = new UpdateServiceSyncBlockerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @public
+   * <p>Update the Proton Ops config file.</p>
+   */
+  public updateServiceSyncConfig(
+    args: UpdateServiceSyncConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateServiceSyncConfigCommandOutput>;
+  public updateServiceSyncConfig(
+    args: UpdateServiceSyncConfigCommandInput,
+    cb: (err: any, data?: UpdateServiceSyncConfigCommandOutput) => void
+  ): void;
+  public updateServiceSyncConfig(
+    args: UpdateServiceSyncConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateServiceSyncConfigCommandOutput) => void
+  ): void;
+  public updateServiceSyncConfig(
+    args: UpdateServiceSyncConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateServiceSyncConfigCommandOutput) => void),
+    cb?: (err: any, data?: UpdateServiceSyncConfigCommandOutput) => void
+  ): Promise<UpdateServiceSyncConfigCommandOutput> | void {
+    const command = new UpdateServiceSyncConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3259,8 +3595,9 @@ export class Proton extends ProtonClient {
   /**
    * @public
    * <p>Update template sync configuration parameters, except for the <code>templateName</code> and
-   *     <code>templateType</code>. Repository details (branch, name, and provider) should be of a linked repository. A
-   *    linked repository is a repository that has been registered with Proton. For more information, see <a>CreateRepository</a>.</p>
+   *     <code>templateType</code>. Repository details (branch, name, and provider) should be of a linked
+   *    repository. A linked repository is a repository that has been registered with Proton. For more
+   *    information, see <a>CreateRepository</a>.</p>
    */
   public updateTemplateSyncConfig(
     args: UpdateTemplateSyncConfigCommandInput,

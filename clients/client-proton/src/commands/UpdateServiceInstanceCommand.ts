@@ -41,10 +41,11 @@ export interface UpdateServiceInstanceCommandOutput extends UpdateServiceInstanc
 /**
  * @public
  * <p>Update a service instance.</p>
- *          <p>There are a few modes for updating a service instance. The <code>deploymentType</code> field defines the mode.</p>
+ *          <p>There are a few modes for updating a service instance. The <code>deploymentType</code>
+ *       field defines the mode.</p>
  *          <note>
- *             <p>You can't update a service instance while its deployment status, or the deployment status of a component attached to it, is
- *         <code>IN_PROGRESS</code>.</p>
+ *             <p>You can't update a service instance while its deployment status, or the deployment
+ *         status of a component attached to it, is <code>IN_PROGRESS</code>.</p>
  *             <p>For more information about components, see
  *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
  *   <i>Proton User Guide</i>.</p>
@@ -62,6 +63,7 @@ export interface UpdateServiceInstanceCommandOutput extends UpdateServiceInstanc
  *   spec: "STRING_VALUE",
  *   templateMajorVersion: "STRING_VALUE",
  *   templateMinorVersion: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE",
  * };
  * const command = new UpdateServiceInstanceCommand(input);
  * const response = await client.send(command);

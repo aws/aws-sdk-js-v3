@@ -41,12 +41,15 @@ export interface DeleteServiceTemplateVersionCommandOutput
 
 /**
  * @public
- * <p>If no other minor versions of a service template exist, delete a major version of the service template if it's not the <code>Recommended</code>
- *       version. Delete the <code>Recommended</code> version of the service template if no other major versions or minor versions of the service template exist. A
- *       major version of a service template is a version that <i>isn't</i> backwards compatible.</p>
- *          <p>Delete a minor version of a service template if it's not the <code>Recommended</code> version. Delete a <code>Recommended</code> minor version of the
- *       service template if no other minor versions of the service template exist. A minor version of a service template is a version that's backwards
- *       compatible.</p>
+ * <p>If no other minor versions of a service template exist, delete a major version of the
+ *       service template if it's not the <code>Recommended</code> version. Delete the
+ *         <code>Recommended</code> version of the service template if no other major versions or minor
+ *       versions of the service template exist. A major version of a service template is a version
+ *       that <i>isn't</i> backwards compatible.</p>
+ *          <p>Delete a minor version of a service template if it's not the <code>Recommended</code>
+ *       version. Delete a <code>Recommended</code> minor version of the service template if no other
+ *       minor versions of the service template exist. A minor version of a service template is a
+ *       version that's backwards compatible.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -37,7 +37,8 @@ export interface DeleteServiceCommandOutput extends DeleteServiceOutput, __Metad
  * @public
  * <p>Delete a service, with its instances and pipeline.</p>
  *          <note>
- *             <p>You can't delete a service if it has any service instances that have components attached to them.</p>
+ *             <p>You can't delete a service if it has any service instances that have components attached
+ *         to them.</p>
  *             <p>For more information about components, see
  *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
  *   <i>Proton User Guide</i>.</p>

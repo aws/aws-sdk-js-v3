@@ -432,6 +432,22 @@ CreateService
 </details>
 <details>
 <summary>
+CreateServiceInstance
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/createserviceinstancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/createserviceinstancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/createserviceinstancecommandoutput.html)
+
+</details>
+<details>
+<summary>
+CreateServiceSyncConfig
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/createservicesyncconfigcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/createservicesyncconfigcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/createservicesyncconfigcommandoutput.html)
+
+</details>
+<details>
+<summary>
 CreateServiceTemplate
 </summary>
 
@@ -508,6 +524,14 @@ DeleteService
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/deleteservicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/deleteservicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/deleteservicecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteServiceSyncConfig
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/deleteservicesyncconfigcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/deleteservicesyncconfigcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/deleteservicesyncconfigcommandoutput.html)
 
 </details>
 <details>
@@ -620,6 +644,30 @@ GetServiceInstance
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/getserviceinstancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getserviceinstancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getserviceinstancecommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetServiceInstanceSyncStatus
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/getserviceinstancesyncstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getserviceinstancesyncstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getserviceinstancesyncstatuscommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetServiceSyncBlockerSummary
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/getservicesyncblockersummarycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getservicesyncblockersummarycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getservicesyncblockersummarycommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetServiceSyncConfig
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/getservicesyncconfigcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getservicesyncconfigcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getservicesyncconfigcommandoutput.html)
 
 </details>
 <details>
@@ -916,6 +964,22 @@ UpdateServicePipeline
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/updateservicepipelinecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/updateservicepipelinecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/updateservicepipelinecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateServiceSyncBlocker
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/updateservicesyncblockercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/updateservicesyncblockercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/updateservicesyncblockercommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateServiceSyncConfig
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/updateservicesyncconfigcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/updateservicesyncconfigcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/updateservicesyncconfigcommandoutput.html)
 
 </details>
 <details>

@@ -65,6 +65,7 @@ export interface CreateComponentCommandOutput extends CreateComponentOutput, __M
  *       value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   clientToken: "STRING_VALUE",
  * };
  * const command = new CreateComponentCommand(input);
  * const response = await client.send(command);

@@ -14,50 +14,61 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  DeleteServiceTemplateInput,
-  DeleteServiceTemplateOutput,
-  DeleteServiceTemplateOutputFilterSensitiveLog,
+  CreateServiceInstanceInput,
+  CreateServiceInstanceInputFilterSensitiveLog,
+  CreateServiceInstanceOutput,
+  CreateServiceInstanceOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0DeleteServiceTemplateCommand,
-  serializeAws_json1_0DeleteServiceTemplateCommand,
+  deserializeAws_json1_0CreateServiceInstanceCommand,
+  serializeAws_json1_0CreateServiceInstanceCommand,
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
  * @public
  *
- * The input for {@link DeleteServiceTemplateCommand}.
+ * The input for {@link CreateServiceInstanceCommand}.
  */
-export interface DeleteServiceTemplateCommandInput extends DeleteServiceTemplateInput {}
+export interface CreateServiceInstanceCommandInput extends CreateServiceInstanceInput {}
 /**
  * @public
  *
- * The output of {@link DeleteServiceTemplateCommand}.
+ * The output of {@link CreateServiceInstanceCommand}.
  */
-export interface DeleteServiceTemplateCommandOutput extends DeleteServiceTemplateOutput, __MetadataBearer {}
+export interface CreateServiceInstanceCommandOutput extends CreateServiceInstanceOutput, __MetadataBearer {}
 
 /**
  * @public
- * <p>If no other major or minor versions of the service template exist, delete the service
- *       template.</p>
+ * <p>Create a service instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ProtonClient, DeleteServiceTemplateCommand } from "@aws-sdk/client-proton"; // ES Modules import
- * // const { ProtonClient, DeleteServiceTemplateCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * import { ProtonClient, CreateServiceInstanceCommand } from "@aws-sdk/client-proton"; // ES Modules import
+ * // const { ProtonClient, CreateServiceInstanceCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
- * const input = { // DeleteServiceTemplateInput
+ * const input = { // CreateServiceInstanceInput
  *   name: "STRING_VALUE", // required
+ *   serviceName: "STRING_VALUE", // required
+ *   spec: "STRING_VALUE", // required
+ *   templateMajorVersion: "STRING_VALUE",
+ *   templateMinorVersion: "STRING_VALUE",
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   clientToken: "STRING_VALUE",
  * };
- * const command = new DeleteServiceTemplateCommand(input);
+ * const command = new CreateServiceInstanceCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @param DeleteServiceTemplateCommandInput - {@link DeleteServiceTemplateCommandInput}
- * @returns {@link DeleteServiceTemplateCommandOutput}
- * @see {@link DeleteServiceTemplateCommandInput} for command's `input` shape.
- * @see {@link DeleteServiceTemplateCommandOutput} for command's `response` shape.
+ * @param CreateServiceInstanceCommandInput - {@link CreateServiceInstanceCommandInput}
+ * @returns {@link CreateServiceInstanceCommandOutput}
+ * @see {@link CreateServiceInstanceCommandInput} for command's `input` shape.
+ * @see {@link CreateServiceInstanceCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -80,9 +91,9 @@ export interface DeleteServiceTemplateCommandOutput extends DeleteServiceTemplat
  *
  *
  */
-export class DeleteServiceTemplateCommand extends $Command<
-  DeleteServiceTemplateCommandInput,
-  DeleteServiceTemplateCommandOutput,
+export class CreateServiceInstanceCommand extends $Command<
+  CreateServiceInstanceCommandInput,
+  CreateServiceInstanceCommandOutput,
   ProtonClientResolvedConfig
 > {
   // Start section: command_properties
@@ -100,7 +111,7 @@ export class DeleteServiceTemplateCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DeleteServiceTemplateCommandInput) {
+  constructor(readonly input: CreateServiceInstanceCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -113,23 +124,23 @@ export class DeleteServiceTemplateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ProtonClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteServiceTemplateCommandInput, DeleteServiceTemplateCommandOutput> {
+  ): Handler<CreateServiceInstanceCommandInput, CreateServiceInstanceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteServiceTemplateCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, CreateServiceInstanceCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ProtonClient";
-    const commandName = "DeleteServiceTemplateCommand";
+    const commandName = "CreateServiceInstanceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: DeleteServiceTemplateOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: CreateServiceInstanceInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateServiceInstanceOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,15 +153,15 @@ export class DeleteServiceTemplateCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DeleteServiceTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteServiceTemplateCommand(input, context);
+  private serialize(input: CreateServiceInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_0CreateServiceInstanceCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteServiceTemplateCommandOutput> {
-    return deserializeAws_json1_0DeleteServiceTemplateCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateServiceInstanceCommandOutput> {
+    return deserializeAws_json1_0CreateServiceInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

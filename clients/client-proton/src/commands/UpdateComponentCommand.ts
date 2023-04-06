@@ -63,6 +63,7 @@ export interface UpdateComponentCommandOutput extends UpdateComponentOutput, __M
  *   serviceInstanceName: "STRING_VALUE",
  *   serviceSpec: "STRING_VALUE",
  *   templateFile: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE",
  * };
  * const command = new UpdateComponentCommand(input);
  * const response = await client.send(command);

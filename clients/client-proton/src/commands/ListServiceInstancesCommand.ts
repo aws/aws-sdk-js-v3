@@ -39,8 +39,8 @@ export interface ListServiceInstancesCommandOutput extends ListServiceInstancesO
 
 /**
  * @public
- * <p>List service instances with summary data. This action lists service instances of all services in the
- *    Amazon Web Services account.</p>
+ * <p>List service instances with summary data. This action lists service instances of all
+ *       services in the Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

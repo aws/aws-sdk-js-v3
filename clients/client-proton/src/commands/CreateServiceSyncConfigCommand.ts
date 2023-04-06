@@ -13,51 +13,50 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { CreateServiceSyncConfigInput, CreateServiceSyncConfigOutput } from "../models/models_0";
 import {
-  DeleteServiceTemplateInput,
-  DeleteServiceTemplateOutput,
-  DeleteServiceTemplateOutputFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_0DeleteServiceTemplateCommand,
-  serializeAws_json1_0DeleteServiceTemplateCommand,
+  deserializeAws_json1_0CreateServiceSyncConfigCommand,
+  serializeAws_json1_0CreateServiceSyncConfigCommand,
 } from "../protocols/Aws_json1_0";
 import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 
 /**
  * @public
  *
- * The input for {@link DeleteServiceTemplateCommand}.
+ * The input for {@link CreateServiceSyncConfigCommand}.
  */
-export interface DeleteServiceTemplateCommandInput extends DeleteServiceTemplateInput {}
+export interface CreateServiceSyncConfigCommandInput extends CreateServiceSyncConfigInput {}
 /**
  * @public
  *
- * The output of {@link DeleteServiceTemplateCommand}.
+ * The output of {@link CreateServiceSyncConfigCommand}.
  */
-export interface DeleteServiceTemplateCommandOutput extends DeleteServiceTemplateOutput, __MetadataBearer {}
+export interface CreateServiceSyncConfigCommandOutput extends CreateServiceSyncConfigOutput, __MetadataBearer {}
 
 /**
  * @public
- * <p>If no other major or minor versions of the service template exist, delete the service
- *       template.</p>
+ * <p>Create the Proton Ops configuration file.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ProtonClient, DeleteServiceTemplateCommand } from "@aws-sdk/client-proton"; // ES Modules import
- * // const { ProtonClient, DeleteServiceTemplateCommand } = require("@aws-sdk/client-proton"); // CommonJS import
+ * import { ProtonClient, CreateServiceSyncConfigCommand } from "@aws-sdk/client-proton"; // ES Modules import
+ * // const { ProtonClient, CreateServiceSyncConfigCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
- * const input = { // DeleteServiceTemplateInput
- *   name: "STRING_VALUE", // required
+ * const input = { // CreateServiceSyncConfigInput
+ *   serviceName: "STRING_VALUE", // required
+ *   repositoryProvider: "STRING_VALUE", // required
+ *   repositoryName: "STRING_VALUE", // required
+ *   branch: "STRING_VALUE", // required
+ *   filePath: "STRING_VALUE", // required
  * };
- * const command = new DeleteServiceTemplateCommand(input);
+ * const command = new CreateServiceSyncConfigCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @param DeleteServiceTemplateCommandInput - {@link DeleteServiceTemplateCommandInput}
- * @returns {@link DeleteServiceTemplateCommandOutput}
- * @see {@link DeleteServiceTemplateCommandInput} for command's `input` shape.
- * @see {@link DeleteServiceTemplateCommandOutput} for command's `response` shape.
+ * @param CreateServiceSyncConfigCommandInput - {@link CreateServiceSyncConfigCommandInput}
+ * @returns {@link CreateServiceSyncConfigCommandOutput}
+ * @see {@link CreateServiceSyncConfigCommandInput} for command's `input` shape.
+ * @see {@link CreateServiceSyncConfigCommandOutput} for command's `response` shape.
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -69,8 +68,9 @@ export interface DeleteServiceTemplateCommandOutput extends DeleteServiceTemplat
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request failed to register with the service.</p>
  *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource <i>wasn't</i> found.</p>
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>A quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-limits.html">Proton Quotas</a> in
+ *       the <i>Proton User Guide</i>.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
@@ -80,9 +80,9 @@ export interface DeleteServiceTemplateCommandOutput extends DeleteServiceTemplat
  *
  *
  */
-export class DeleteServiceTemplateCommand extends $Command<
-  DeleteServiceTemplateCommandInput,
-  DeleteServiceTemplateCommandOutput,
+export class CreateServiceSyncConfigCommand extends $Command<
+  CreateServiceSyncConfigCommandInput,
+  CreateServiceSyncConfigCommandOutput,
   ProtonClientResolvedConfig
 > {
   // Start section: command_properties
@@ -100,7 +100,7 @@ export class DeleteServiceTemplateCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DeleteServiceTemplateCommandInput) {
+  constructor(readonly input: CreateServiceSyncConfigCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -113,23 +113,23 @@ export class DeleteServiceTemplateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ProtonClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteServiceTemplateCommandInput, DeleteServiceTemplateCommandOutput> {
+  ): Handler<CreateServiceSyncConfigCommandInput, CreateServiceSyncConfigCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteServiceTemplateCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, CreateServiceSyncConfigCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ProtonClient";
-    const commandName = "DeleteServiceTemplateCommand";
+    const commandName = "CreateServiceSyncConfigCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: DeleteServiceTemplateOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -142,15 +142,15 @@ export class DeleteServiceTemplateCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DeleteServiceTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteServiceTemplateCommand(input, context);
+  private serialize(input: CreateServiceSyncConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_0CreateServiceSyncConfigCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteServiceTemplateCommandOutput> {
-    return deserializeAws_json1_0DeleteServiceTemplateCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateServiceSyncConfigCommandOutput> {
+    return deserializeAws_json1_0CreateServiceSyncConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

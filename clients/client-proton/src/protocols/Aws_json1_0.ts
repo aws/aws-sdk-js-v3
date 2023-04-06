@@ -54,6 +54,14 @@ import {
 import { CreateRepositoryCommandInput, CreateRepositoryCommandOutput } from "../commands/CreateRepositoryCommand";
 import { CreateServiceCommandInput, CreateServiceCommandOutput } from "../commands/CreateServiceCommand";
 import {
+  CreateServiceInstanceCommandInput,
+  CreateServiceInstanceCommandOutput,
+} from "../commands/CreateServiceInstanceCommand";
+import {
+  CreateServiceSyncConfigCommandInput,
+  CreateServiceSyncConfigCommandOutput,
+} from "../commands/CreateServiceSyncConfigCommand";
+import {
   CreateServiceTemplateCommandInput,
   CreateServiceTemplateCommandOutput,
 } from "../commands/CreateServiceTemplateCommand";
@@ -81,6 +89,10 @@ import {
 } from "../commands/DeleteEnvironmentTemplateVersionCommand";
 import { DeleteRepositoryCommandInput, DeleteRepositoryCommandOutput } from "../commands/DeleteRepositoryCommand";
 import { DeleteServiceCommandInput, DeleteServiceCommandOutput } from "../commands/DeleteServiceCommand";
+import {
+  DeleteServiceSyncConfigCommandInput,
+  DeleteServiceSyncConfigCommandOutput,
+} from "../commands/DeleteServiceSyncConfigCommand";
 import {
   DeleteServiceTemplateCommandInput,
   DeleteServiceTemplateCommandOutput,
@@ -119,6 +131,18 @@ import {
 } from "../commands/GetResourcesSummaryCommand";
 import { GetServiceCommandInput, GetServiceCommandOutput } from "../commands/GetServiceCommand";
 import { GetServiceInstanceCommandInput, GetServiceInstanceCommandOutput } from "../commands/GetServiceInstanceCommand";
+import {
+  GetServiceInstanceSyncStatusCommandInput,
+  GetServiceInstanceSyncStatusCommandOutput,
+} from "../commands/GetServiceInstanceSyncStatusCommand";
+import {
+  GetServiceSyncBlockerSummaryCommandInput,
+  GetServiceSyncBlockerSummaryCommandOutput,
+} from "../commands/GetServiceSyncBlockerSummaryCommand";
+import {
+  GetServiceSyncConfigCommandInput,
+  GetServiceSyncConfigCommandOutput,
+} from "../commands/GetServiceSyncConfigCommand";
 import { GetServiceTemplateCommandInput, GetServiceTemplateCommandOutput } from "../commands/GetServiceTemplateCommand";
 import {
   GetServiceTemplateVersionCommandInput,
@@ -238,6 +262,14 @@ import {
   UpdateServicePipelineCommandOutput,
 } from "../commands/UpdateServicePipelineCommand";
 import {
+  UpdateServiceSyncBlockerCommandInput,
+  UpdateServiceSyncBlockerCommandOutput,
+} from "../commands/UpdateServiceSyncBlockerCommand";
+import {
+  UpdateServiceSyncConfigCommandInput,
+  UpdateServiceSyncConfigCommandOutput,
+} from "../commands/UpdateServiceSyncConfigCommand";
+import {
   UpdateServiceTemplateCommandInput,
   UpdateServiceTemplateCommandOutput,
 } from "../commands/UpdateServiceTemplateCommand";
@@ -281,7 +313,11 @@ import {
   CreateRepositoryInput,
   CreateRepositoryOutput,
   CreateServiceInput,
+  CreateServiceInstanceInput,
+  CreateServiceInstanceOutput,
   CreateServiceOutput,
+  CreateServiceSyncConfigInput,
+  CreateServiceSyncConfigOutput,
   CreateServiceTemplateInput,
   CreateServiceTemplateOutput,
   CreateServiceTemplateVersionInput,
@@ -302,6 +338,8 @@ import {
   DeleteRepositoryOutput,
   DeleteServiceInput,
   DeleteServiceOutput,
+  DeleteServiceSyncConfigInput,
+  DeleteServiceSyncConfigOutput,
   DeleteServiceTemplateInput,
   DeleteServiceTemplateOutput,
   DeleteServiceTemplateVersionInput,
@@ -339,7 +377,13 @@ import {
   GetServiceInput,
   GetServiceInstanceInput,
   GetServiceInstanceOutput,
+  GetServiceInstanceSyncStatusInput,
+  GetServiceInstanceSyncStatusOutput,
   GetServiceOutput,
+  GetServiceSyncBlockerSummaryInput,
+  GetServiceSyncBlockerSummaryOutput,
+  GetServiceSyncConfigInput,
+  GetServiceSyncConfigOutput,
   GetServiceTemplateInput,
   GetServiceTemplateOutput,
   GetServiceTemplateVersionInput,
@@ -415,11 +459,15 @@ import {
   ServicePipeline,
   ServiceQuotaExceededException,
   ServiceSummary,
+  ServiceSyncBlockerSummary,
+  ServiceSyncConfig,
   ServiceTemplate,
   ServiceTemplateSummary,
   ServiceTemplateSupportedComponentSourceType,
   ServiceTemplateVersion,
   ServiceTemplateVersionSummary,
+  SyncBlocker,
+  SyncBlockerContext,
   Tag,
   TagResourceInput,
   TagResourceOutput,
@@ -446,6 +494,10 @@ import {
   UpdateServiceOutput,
   UpdateServicePipelineInput,
   UpdateServicePipelineOutput,
+  UpdateServiceSyncBlockerInput,
+  UpdateServiceSyncBlockerOutput,
+  UpdateServiceSyncConfigInput,
+  UpdateServiceSyncConfigOutput,
   UpdateServiceTemplateInput,
   UpdateServiceTemplateOutput,
   UpdateServiceTemplateVersionInput,
@@ -612,6 +664,32 @@ export const serializeAws_json1_0CreateServiceCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_0CreateServiceInstanceCommand = async (
+  input: CreateServiceInstanceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AwsProton20200720.CreateServiceInstance",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0CreateServiceInstanceInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0CreateServiceSyncConfigCommand = async (
+  input: CreateServiceSyncConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AwsProton20200720.CreateServiceSyncConfig",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0CreateServiceSyncConfigInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_0CreateServiceTemplateCommand = async (
   input: CreateServiceTemplateCommandInput,
   context: __SerdeContext
@@ -739,6 +817,19 @@ export const serializeAws_json1_0DeleteServiceCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DeleteServiceInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0DeleteServiceSyncConfigCommand = async (
+  input: DeleteServiceSyncConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AwsProton20200720.DeleteServiceSyncConfig",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0DeleteServiceSyncConfigInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -921,6 +1012,45 @@ export const serializeAws_json1_0GetServiceInstanceCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0GetServiceInstanceInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0GetServiceInstanceSyncStatusCommand = async (
+  input: GetServiceInstanceSyncStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AwsProton20200720.GetServiceInstanceSyncStatus",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0GetServiceInstanceSyncStatusInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0GetServiceSyncBlockerSummaryCommand = async (
+  input: GetServiceSyncBlockerSummaryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AwsProton20200720.GetServiceSyncBlockerSummary",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0GetServiceSyncBlockerSummaryInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0GetServiceSyncConfigCommand = async (
+  input: GetServiceSyncConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AwsProton20200720.GetServiceSyncConfig",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0GetServiceSyncConfigInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1402,6 +1532,32 @@ export const serializeAws_json1_0UpdateServicePipelineCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UpdateServicePipelineInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0UpdateServiceSyncBlockerCommand = async (
+  input: UpdateServiceSyncBlockerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AwsProton20200720.UpdateServiceSyncBlocker",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0UpdateServiceSyncBlockerInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0UpdateServiceSyncConfigCommand = async (
+  input: UpdateServiceSyncConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AwsProton20200720.UpdateServiceSyncConfig",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0UpdateServiceSyncConfigInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2128,6 +2284,118 @@ const deserializeAws_json1_0CreateServiceCommandError = async (
   }
 };
 
+export const deserializeAws_json1_0CreateServiceInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateServiceInstanceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0CreateServiceInstanceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0CreateServiceInstanceOutput(data, context);
+  const response: CreateServiceInstanceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0CreateServiceInstanceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateServiceInstanceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.proton#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.proton#ConflictException":
+      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.proton#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.proton#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.proton#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.proton#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0CreateServiceSyncConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateServiceSyncConfigCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0CreateServiceSyncConfigCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0CreateServiceSyncConfigOutput(data, context);
+  const response: CreateServiceSyncConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0CreateServiceSyncConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateServiceSyncConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.proton#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.proton#ConflictException":
+      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.proton#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.proton#ServiceQuotaExceededException":
+      throw await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.proton#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.proton#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_0CreateServiceTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2656,6 +2924,62 @@ const deserializeAws_json1_0DeleteServiceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteServiceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.proton#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.proton#ConflictException":
+      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.proton#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.proton#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.proton#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.proton#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0DeleteServiceSyncConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteServiceSyncConfigCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0DeleteServiceSyncConfigCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0DeleteServiceSyncConfigOutput(data, context);
+  const response: DeleteServiceSyncConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0DeleteServiceSyncConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteServiceSyncConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3407,6 +3731,165 @@ const deserializeAws_json1_0GetServiceInstanceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetServiceInstanceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.proton#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.proton#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.proton#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.proton#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.proton#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0GetServiceInstanceSyncStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetServiceInstanceSyncStatusCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0GetServiceInstanceSyncStatusCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0GetServiceInstanceSyncStatusOutput(data, context);
+  const response: GetServiceInstanceSyncStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0GetServiceInstanceSyncStatusCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetServiceInstanceSyncStatusCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.proton#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.proton#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.proton#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.proton#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.proton#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0GetServiceSyncBlockerSummaryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetServiceSyncBlockerSummaryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0GetServiceSyncBlockerSummaryCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0GetServiceSyncBlockerSummaryOutput(data, context);
+  const response: GetServiceSyncBlockerSummaryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0GetServiceSyncBlockerSummaryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetServiceSyncBlockerSummaryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.proton#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.proton#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.proton#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.proton#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.proton#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0GetServiceSyncConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetServiceSyncConfigCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0GetServiceSyncConfigCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0GetServiceSyncConfigOutput(data, context);
+  const response: GetServiceSyncConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0GetServiceSyncConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetServiceSyncConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -5427,6 +5910,118 @@ const deserializeAws_json1_0UpdateServicePipelineCommandError = async (
   }
 };
 
+export const deserializeAws_json1_0UpdateServiceSyncBlockerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateServiceSyncBlockerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0UpdateServiceSyncBlockerCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0UpdateServiceSyncBlockerOutput(data, context);
+  const response: UpdateServiceSyncBlockerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0UpdateServiceSyncBlockerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateServiceSyncBlockerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.proton#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.proton#ConflictException":
+      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.proton#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.proton#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.proton#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.proton#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_0UpdateServiceSyncConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateServiceSyncConfigCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0UpdateServiceSyncConfigCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0UpdateServiceSyncConfigOutput(data, context);
+  const response: UpdateServiceSyncConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0UpdateServiceSyncConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateServiceSyncConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.proton#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.proton#ConflictException":
+      throw await deserializeAws_json1_0ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.proton#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.proton#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.proton#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.proton#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_0UpdateServiceTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5755,6 +6350,7 @@ const serializeAws_json1_0CompatibleEnvironmentTemplateInputList = (
 
 const serializeAws_json1_0CreateComponentInput = (input: CreateComponentInput, context: __SerdeContext): any => {
   return {
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.description != null && { description: input.description }),
     ...(input.environmentName != null && { environmentName: input.environmentName }),
     ...(input.manifest != null && { manifest: input.manifest }),
@@ -5853,6 +6449,34 @@ const serializeAws_json1_0CreateServiceInput = (input: CreateServiceInput, conte
     ...(input.templateMajorVersion != null && { templateMajorVersion: input.templateMajorVersion }),
     ...(input.templateMinorVersion != null && { templateMinorVersion: input.templateMinorVersion }),
     ...(input.templateName != null && { templateName: input.templateName }),
+  };
+};
+
+const serializeAws_json1_0CreateServiceInstanceInput = (
+  input: CreateServiceInstanceInput,
+  context: __SerdeContext
+): any => {
+  return {
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.name != null && { name: input.name }),
+    ...(input.serviceName != null && { serviceName: input.serviceName }),
+    ...(input.spec != null && { spec: input.spec }),
+    ...(input.tags != null && { tags: serializeAws_json1_0TagList(input.tags, context) }),
+    ...(input.templateMajorVersion != null && { templateMajorVersion: input.templateMajorVersion }),
+    ...(input.templateMinorVersion != null && { templateMinorVersion: input.templateMinorVersion }),
+  };
+};
+
+const serializeAws_json1_0CreateServiceSyncConfigInput = (
+  input: CreateServiceSyncConfigInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.branch != null && { branch: input.branch }),
+    ...(input.filePath != null && { filePath: input.filePath }),
+    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
+    ...(input.repositoryProvider != null && { repositoryProvider: input.repositoryProvider }),
+    ...(input.serviceName != null && { serviceName: input.serviceName }),
   };
 };
 
@@ -5961,6 +6585,15 @@ const serializeAws_json1_0DeleteRepositoryInput = (input: DeleteRepositoryInput,
 const serializeAws_json1_0DeleteServiceInput = (input: DeleteServiceInput, context: __SerdeContext): any => {
   return {
     ...(input.name != null && { name: input.name }),
+  };
+};
+
+const serializeAws_json1_0DeleteServiceSyncConfigInput = (
+  input: DeleteServiceSyncConfigInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.serviceName != null && { serviceName: input.serviceName }),
   };
 };
 
@@ -6106,6 +6739,35 @@ const serializeAws_json1_0GetServiceInput = (input: GetServiceInput, context: __
 const serializeAws_json1_0GetServiceInstanceInput = (input: GetServiceInstanceInput, context: __SerdeContext): any => {
   return {
     ...(input.name != null && { name: input.name }),
+    ...(input.serviceName != null && { serviceName: input.serviceName }),
+  };
+};
+
+const serializeAws_json1_0GetServiceInstanceSyncStatusInput = (
+  input: GetServiceInstanceSyncStatusInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.serviceInstanceName != null && { serviceInstanceName: input.serviceInstanceName }),
+    ...(input.serviceName != null && { serviceName: input.serviceName }),
+  };
+};
+
+const serializeAws_json1_0GetServiceSyncBlockerSummaryInput = (
+  input: GetServiceSyncBlockerSummaryInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.serviceInstanceName != null && { serviceInstanceName: input.serviceInstanceName }),
+    ...(input.serviceName != null && { serviceName: input.serviceName }),
+  };
+};
+
+const serializeAws_json1_0GetServiceSyncConfigInput = (
+  input: GetServiceSyncConfigInput,
+  context: __SerdeContext
+): any => {
+  return {
     ...(input.serviceName != null && { serviceName: input.serviceName }),
   };
 };
@@ -6514,6 +7176,7 @@ const serializeAws_json1_0UpdateAccountSettingsInput = (
 
 const serializeAws_json1_0UpdateComponentInput = (input: UpdateComponentInput, context: __SerdeContext): any => {
   return {
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.deploymentType != null && { deploymentType: input.deploymentType }),
     ...(input.description != null && { description: input.description }),
     ...(input.name != null && { name: input.name }),
@@ -6593,6 +7256,7 @@ const serializeAws_json1_0UpdateServiceInstanceInput = (
   context: __SerdeContext
 ): any => {
   return {
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.deploymentType != null && { deploymentType: input.deploymentType }),
     ...(input.name != null && { name: input.name }),
     ...(input.serviceName != null && { serviceName: input.serviceName }),
@@ -6612,6 +7276,29 @@ const serializeAws_json1_0UpdateServicePipelineInput = (
     ...(input.spec != null && { spec: input.spec }),
     ...(input.templateMajorVersion != null && { templateMajorVersion: input.templateMajorVersion }),
     ...(input.templateMinorVersion != null && { templateMinorVersion: input.templateMinorVersion }),
+  };
+};
+
+const serializeAws_json1_0UpdateServiceSyncBlockerInput = (
+  input: UpdateServiceSyncBlockerInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.id != null && { id: input.id }),
+    ...(input.resolvedReason != null && { resolvedReason: input.resolvedReason }),
+  };
+};
+
+const serializeAws_json1_0UpdateServiceSyncConfigInput = (
+  input: UpdateServiceSyncConfigInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.branch != null && { branch: input.branch }),
+    ...(input.filePath != null && { filePath: input.filePath }),
+    ...(input.repositoryName != null && { repositoryName: input.repositoryName }),
+    ...(input.repositoryProvider != null && { repositoryProvider: input.repositoryProvider }),
+    ...(input.serviceName != null && { serviceName: input.serviceName }),
   };
 };
 
@@ -6768,6 +7455,7 @@ const deserializeAws_json1_0Component = (output: any, context: __SerdeContext): 
     deploymentStatusMessage: __expectString(output.deploymentStatusMessage),
     description: __expectString(output.description),
     environmentName: __expectString(output.environmentName),
+    lastClientRequestToken: __expectString(output.lastClientRequestToken),
     lastDeploymentAttemptedAt:
       output.lastDeploymentAttemptedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentAttemptedAt)))
@@ -6916,9 +7604,33 @@ const deserializeAws_json1_0CreateRepositoryOutput = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_json1_0CreateServiceInstanceOutput = (
+  output: any,
+  context: __SerdeContext
+): CreateServiceInstanceOutput => {
+  return {
+    serviceInstance:
+      output.serviceInstance != null
+        ? deserializeAws_json1_0ServiceInstance(output.serviceInstance, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0CreateServiceOutput = (output: any, context: __SerdeContext): CreateServiceOutput => {
   return {
     service: output.service != null ? deserializeAws_json1_0Service(output.service, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0CreateServiceSyncConfigOutput = (
+  output: any,
+  context: __SerdeContext
+): CreateServiceSyncConfigOutput => {
+  return {
+    serviceSyncConfig:
+      output.serviceSyncConfig != null
+        ? deserializeAws_json1_0ServiceSyncConfig(output.serviceSyncConfig, context)
+        : undefined,
   } as any;
 };
 
@@ -7019,6 +7731,18 @@ const deserializeAws_json1_0DeleteRepositoryOutput = (output: any, context: __Se
 const deserializeAws_json1_0DeleteServiceOutput = (output: any, context: __SerdeContext): DeleteServiceOutput => {
   return {
     service: output.service != null ? deserializeAws_json1_0Service(output.service, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0DeleteServiceSyncConfigOutput = (
+  output: any,
+  context: __SerdeContext
+): DeleteServiceSyncConfigOutput => {
+  return {
+    serviceSyncConfig:
+      output.serviceSyncConfig != null
+        ? deserializeAws_json1_0ServiceSyncConfig(output.serviceSyncConfig, context)
+        : undefined,
   } as any;
 };
 
@@ -7407,9 +8131,49 @@ const deserializeAws_json1_0GetServiceInstanceOutput = (
   } as any;
 };
 
+const deserializeAws_json1_0GetServiceInstanceSyncStatusOutput = (
+  output: any,
+  context: __SerdeContext
+): GetServiceInstanceSyncStatusOutput => {
+  return {
+    desiredState:
+      output.desiredState != null ? deserializeAws_json1_0Revision(output.desiredState, context) : undefined,
+    latestSuccessfulSync:
+      output.latestSuccessfulSync != null
+        ? deserializeAws_json1_0ResourceSyncAttempt(output.latestSuccessfulSync, context)
+        : undefined,
+    latestSync:
+      output.latestSync != null ? deserializeAws_json1_0ResourceSyncAttempt(output.latestSync, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0GetServiceOutput = (output: any, context: __SerdeContext): GetServiceOutput => {
   return {
     service: output.service != null ? deserializeAws_json1_0Service(output.service, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0GetServiceSyncBlockerSummaryOutput = (
+  output: any,
+  context: __SerdeContext
+): GetServiceSyncBlockerSummaryOutput => {
+  return {
+    serviceSyncBlockerSummary:
+      output.serviceSyncBlockerSummary != null
+        ? deserializeAws_json1_0ServiceSyncBlockerSummary(output.serviceSyncBlockerSummary, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0GetServiceSyncConfigOutput = (
+  output: any,
+  context: __SerdeContext
+): GetServiceSyncConfigOutput => {
+  return {
+    serviceSyncConfig:
+      output.serviceSyncConfig != null
+        ? deserializeAws_json1_0ServiceSyncConfig(output.serviceSyncConfig, context)
+        : undefined,
   } as any;
 };
 
@@ -7472,6 +8236,18 @@ const deserializeAws_json1_0InternalServerException = (
   return {
     message: __expectString(output.message),
   } as any;
+};
+
+const deserializeAws_json1_0LatestSyncBlockers = (output: any, context: __SerdeContext): SyncBlocker[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0SyncBlocker(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_0ListComponentOutputsOutput = (
@@ -7782,6 +8558,7 @@ const deserializeAws_json1_0RepositoryBranch = (output: any, context: __SerdeCon
 const deserializeAws_json1_0RepositorySummary = (output: any, context: __SerdeContext): RepositorySummary => {
   return {
     arn: __expectString(output.arn),
+    connectionArn: __expectString(output.connectionArn),
     name: __expectString(output.name),
     provider: __expectString(output.provider),
   } as any;
@@ -7950,6 +8727,7 @@ const deserializeAws_json1_0ServiceInstance = (output: any, context: __SerdeCont
     deploymentStatus: __expectString(output.deploymentStatus),
     deploymentStatusMessage: __expectString(output.deploymentStatusMessage),
     environmentName: __expectString(output.environmentName),
+    lastClientRequestToken: __expectString(output.lastClientRequestToken),
     lastDeploymentAttemptedAt:
       output.lastDeploymentAttemptedAt != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastDeploymentAttemptedAt)))
@@ -8064,6 +8842,30 @@ const deserializeAws_json1_0ServiceSummaryList = (output: any, context: __SerdeC
       return deserializeAws_json1_0ServiceSummary(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_0ServiceSyncBlockerSummary = (
+  output: any,
+  context: __SerdeContext
+): ServiceSyncBlockerSummary => {
+  return {
+    latestBlockers:
+      output.latestBlockers != null
+        ? deserializeAws_json1_0LatestSyncBlockers(output.latestBlockers, context)
+        : undefined,
+    serviceInstanceName: __expectString(output.serviceInstanceName),
+    serviceName: __expectString(output.serviceName),
+  } as any;
+};
+
+const deserializeAws_json1_0ServiceSyncConfig = (output: any, context: __SerdeContext): ServiceSyncConfig => {
+  return {
+    branch: __expectString(output.branch),
+    filePath: __expectString(output.filePath),
+    repositoryName: __expectString(output.repositoryName),
+    repositoryProvider: __expectString(output.repositoryProvider),
+    serviceName: __expectString(output.serviceName),
+  } as any;
 };
 
 const deserializeAws_json1_0ServiceTemplate = (output: any, context: __SerdeContext): ServiceTemplate => {
@@ -8195,6 +8997,40 @@ const deserializeAws_json1_0ServiceTemplateVersionSummaryList = (
         return null as any;
       }
       return deserializeAws_json1_0ServiceTemplateVersionSummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_0SyncBlocker = (output: any, context: __SerdeContext): SyncBlocker => {
+  return {
+    contexts: output.contexts != null ? deserializeAws_json1_0SyncBlockerContexts(output.contexts, context) : undefined,
+    createdAt:
+      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
+    createdReason: __expectString(output.createdReason),
+    id: __expectString(output.id),
+    resolvedAt:
+      output.resolvedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.resolvedAt))) : undefined,
+    resolvedReason: __expectString(output.resolvedReason),
+    status: __expectString(output.status),
+    type: __expectString(output.type),
+  } as any;
+};
+
+const deserializeAws_json1_0SyncBlockerContext = (output: any, context: __SerdeContext): SyncBlockerContext => {
+  return {
+    key: __expectString(output.key),
+    value: __expectString(output.value),
+  } as any;
+};
+
+const deserializeAws_json1_0SyncBlockerContexts = (output: any, context: __SerdeContext): SyncBlockerContext[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0SyncBlockerContext(entry, context);
     });
   return retVal;
 };
@@ -8331,6 +9167,32 @@ const deserializeAws_json1_0UpdateServicePipelineOutput = (
 ): UpdateServicePipelineOutput => {
   return {
     pipeline: output.pipeline != null ? deserializeAws_json1_0ServicePipeline(output.pipeline, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0UpdateServiceSyncBlockerOutput = (
+  output: any,
+  context: __SerdeContext
+): UpdateServiceSyncBlockerOutput => {
+  return {
+    serviceInstanceName: __expectString(output.serviceInstanceName),
+    serviceName: __expectString(output.serviceName),
+    serviceSyncBlocker:
+      output.serviceSyncBlocker != null
+        ? deserializeAws_json1_0SyncBlocker(output.serviceSyncBlocker, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0UpdateServiceSyncConfigOutput = (
+  output: any,
+  context: __SerdeContext
+): UpdateServiceSyncConfigOutput => {
+  return {
+    serviceSyncConfig:
+      output.serviceSyncConfig != null
+        ? deserializeAws_json1_0ServiceSyncConfig(output.serviceSyncConfig, context)
+        : undefined,
   } as any;
 };
 
