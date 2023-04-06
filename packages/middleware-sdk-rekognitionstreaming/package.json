@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-sdk-rekognitionstreaming",
-  "version": "3.0.0",
+  "version": "3.308.0",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",

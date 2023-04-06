@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.308.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.307.0...v3.308.0) (2023-04-06)
+
+
+### Bug Fixes
+
+* **client-rekognitionstreaming:** update rekognitionstreaming endpoints ([#4621](https://github.com/aws/aws-sdk-js-v3/issues/4621)) ([c64cf47](https://github.com/aws/aws-sdk-js-v3/commit/c64cf471fdcf7aee3a969a7dcdf92ecce077506e))
+
+
+### Features
+
+* **client-cloudformation:** Including UPDATE_COMPLETE as a failed status for DeleteStack waiter. ([b0abf2e](https://github.com/aws/aws-sdk-js-v3/commit/b0abf2e7cbbdfce857b22f91b6a96eef61d1cb3c))
+* **client-greengrassv2:** Add support for SUCCEEDED value in coreDeviceExecutionStatus field. Documentation updates for Greengrass V2. ([ce2abb1](https://github.com/aws/aws-sdk-js-v3/commit/ce2abb153465c6c2acd103807c51d146ff4ff97b))
+* **client-proton:** This release adds support for the AWS Proton service sync feature. Service sync enables managing an AWS Proton service (creating and updating instances) and all of it's corresponding service instances from a Git repository. ([e0edc8b](https://github.com/aws/aws-sdk-js-v3/commit/e0edc8b2dd3a4821a32509d328759ebdc43b1509))
+* **clients:** update client endpoints as of 2023-04-06 ([7092042](https://github.com/aws/aws-sdk-js-v3/commit/70920424bb9a304603398d13e8bed99a299c3c41))
+* **middleware-sdk-rekognitionstreaming:** create port middleware ([#4622](https://github.com/aws/aws-sdk-js-v3/issues/4622)) ([adf3353](https://github.com/aws/aws-sdk-js-v3/commit/adf33539eeafa78a7cb5eadbcae616f8c76a31c8))
+
+
+
+
+
 # [3.307.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.306.0...v3.307.0) (2023-04-05)
 
 

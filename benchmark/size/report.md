@@ -5,7 +5,7 @@
 |@aws-sdk/client-application-insights|3.306.0|578.8 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-athena|3.306.0|1.2 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-auto-scaling|3.306.0|1.8 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
-|@aws-sdk/client-cloudformation|3.306.0|1.9 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
+|@aws-sdk/client-cloudformation|3.306.0|2 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-cloudhsm-v2|3.306.0|370.4 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-cloudwatch|3.306.0|1 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-cloudwatch-logs|3.306.0|997.2 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|

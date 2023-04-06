@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.308.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.307.0...v3.308.0) (2023-04-06)
+
+
+### Features
+
+* **client-greengrassv2:** Add support for SUCCEEDED value in coreDeviceExecutionStatus field. Documentation updates for Greengrass V2. ([ce2abb1](https://github.com/aws/aws-sdk-js-v3/commit/ce2abb153465c6c2acd103807c51d146ff4ff97b))
+
+
+
+
+
 # [3.306.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.305.0...v3.306.0) (2023-04-04)
 
 **Note:** Version bump only for package @aws-sdk/client-greengrassv2
